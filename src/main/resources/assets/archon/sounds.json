@@ -1,0 +1,23 @@
+{
+  "soul_conversion": {
+    "sounds": [
+      {
+        "name": "archon:soul_conversion"
+      }
+    ]
+  },
+  "channel_mana": {
+    "sounds": [
+      {
+        "name": "archon:channel_mana"
+      }
+    ]
+  },
+  "combustion": {
+    "sounds": [
+      {
+        "name": "archon:combustion"
+      }
+    ]
+  }
+}
