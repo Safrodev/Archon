@@ -1,0 +1,11 @@
+{
+  "type": "archon:channeling",
+  "input" : [
+    {
+      "tag" :  "minecraft:sand"
+    }
+  ],
+  "output" : "archon:spry_dust",
+  "count" : "1",
+  "manaCost": 10
+}

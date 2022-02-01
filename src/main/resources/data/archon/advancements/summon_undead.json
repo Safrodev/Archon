@@ -1,0 +1,29 @@
+{
+  "parent": "archon:obtain_soul_scythe",
+  "display": {
+    "icon": {
+      "item": "archon:soul_core_player"
+    },
+    "title": {
+      "translate": "advancements.archon.summon_undead.title"
+    },
+    "description": {
+      "translate": "advancements.archon.summon_undead.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "summon": {
+      "trigger": "archon:summon_undead",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "summon"
+    ]
+  ]
+}

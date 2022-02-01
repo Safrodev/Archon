@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LHL",
+    "HHH",
+    "LHL"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "H": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "item": "archon:experience_pouch"
+  }
+}

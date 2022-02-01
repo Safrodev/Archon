@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "archon:glisteel_block"
+    }
+  ],
+  "result": {
+    "item": "archon:glisteel_ingot",
+    "count": 9
+  }
+}

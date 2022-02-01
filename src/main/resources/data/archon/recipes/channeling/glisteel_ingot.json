@@ -1,0 +1,11 @@
+{
+  "type": "archon:channeling",
+  "input" : [
+    {
+      "item" :  "minecraft:gold_block"
+    }
+  ],
+  "output" : "archon:glisteel_ingot",
+  "count" : "9",
+  "manaCost": 20
+}

@@ -1,0 +1,11 @@
+{
+  "type": "archon:channeling",
+  "input" : [
+    {
+      "item" :  "minecraft:birch_log"
+    }
+  ],
+  "output" : "minecraft:birch_planks",
+  "count" : "4",
+  "manaCost": 10
+}

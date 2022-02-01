@@ -1,0 +1,11 @@
+{
+  "type": "archon:channeling",
+  "input" : [
+    {
+      "item" :  "minecraft:iron_ore"
+    }
+  ],
+  "output" : "minecraft:raw_iron",
+  "count" : "3",
+  "manaCost": 30
+}

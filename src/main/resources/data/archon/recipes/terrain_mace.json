@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " EI",
+    " SE",
+    "S  "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "E": {
+      "item": "archon:earth_gem"
+    }
+  },
+  "result": {
+    "item": "archon:terrain_mace"
+  }
+}

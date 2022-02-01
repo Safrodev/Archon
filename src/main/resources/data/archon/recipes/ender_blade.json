@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    "EPE",
+    " S "
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:ender_pearl"
+    },
+    "S": {
+      "item": "minecraft:diamond_sword"
+    },
+    "E": {
+      "item": "archon:end_gem"
+    }
+  },
+  "result": {
+    "item": "archon:ender_blade"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " L ",
+    "LPL",
+    " L "
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:lapis_block"
+    },
+    "P": {
+      "item": "archon:experience_pouch"
+    }
+  },
+  "result": {
+    "item": "archon:super_experience_pouch"
+  }
+}

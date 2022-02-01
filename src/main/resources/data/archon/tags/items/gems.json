@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "archon:fire_gem",
+    "archon:water_gem",
+    "archon:earth_gem",
+    "archon:sky_gem",
+    "archon:end_gem"
+  ]
+}

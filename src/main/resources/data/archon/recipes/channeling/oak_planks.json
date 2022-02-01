@@ -1,0 +1,11 @@
+{
+  "type": "archon:channeling",
+  "input" : [
+    {
+      "item" :  "minecraft:oak_log"
+    }
+  ],
+  "output" : "minecraft:oak_planks",
+  "count" : "4",
+  "manaCost": 10
+}

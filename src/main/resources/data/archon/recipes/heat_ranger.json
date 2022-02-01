@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "FBF",
+    " F "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:fire_charge"
+    },
+    "B": {
+      "item": "minecraft:bow"
+    },
+    "F": {
+      "item": "archon:fire_gem"
+    }
+  },
+  "result": {
+    "item": "archon:heat_ranger"
+  }
+}

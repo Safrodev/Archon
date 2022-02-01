@@ -1,0 +1,11 @@
+{
+  "type": "archon:channeling",
+  "input" : [
+    {
+      "item" :  "minecraft:acacia_log"
+    }
+  ],
+  "output" : "minecraft:acacia_planks",
+  "count" : "4",
+  "manaCost": 10
+}

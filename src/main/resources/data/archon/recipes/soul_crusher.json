@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " O ",
+    "OGO",
+    " G "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "G": {
+      "item": "archon:glisteel_ingot"
+    }
+  },
+  "result": {
+    "item": "archon:soul_crusher"
+  }
+}

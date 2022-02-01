@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FSF",
+    " N ",
+    " N "
+  ],
+  "key": {
+    "S": {
+      "item": "wither_skeleton_skull"
+    },
+    "N": {
+      "item": "minecraft:nether_brick"
+    },
+    "F": {
+      "item": "archon:fire_gem"
+    }
+  },
+  "result": {
+    "item": "archon:wither_stave"
+  }
+}

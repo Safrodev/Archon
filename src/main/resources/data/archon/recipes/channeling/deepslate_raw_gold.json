@@ -1,0 +1,11 @@
+{
+  "type": "archon:channeling",
+  "input" : [
+    {
+      "item" :  "minecraft:deepslate_gold_ore"
+    }
+  ],
+  "output" : "minecraft:raw_gold",
+  "count" : "2",
+  "manaCost": 20
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SLS",
+    "SGS",
+    " G "
+  ],
+  "key": {
+    "L": {
+      "item": "archon:lightning_bottle"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "archon:sky_gem"
+    }
+  },
+  "result": {
+    "item": "archon:thunder_bolt"
+  }
+}

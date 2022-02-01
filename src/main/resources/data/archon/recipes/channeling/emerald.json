@@ -1,0 +1,11 @@
+{
+  "type": "archon:channeling",
+  "input" : [
+    {
+      "item" :  "minecraft:emerald_ore"
+    }
+  ],
+  "output" : "minecraft:emerald",
+  "count" : "2",
+  "manaCost": 40
+}

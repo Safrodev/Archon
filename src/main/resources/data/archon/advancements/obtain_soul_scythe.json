@@ -1,0 +1,38 @@
+{
+  "parent": "archon:root",
+  "display": {
+    "icon": {
+      "item": "archon:soul_scythe",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.archon.soul_scythe.title"
+    },
+    "description": {
+      "translate": "advancements.archon.soul_scythe.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "archon:soul_scythe"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "scythe"
+    ]
+  ]
+}

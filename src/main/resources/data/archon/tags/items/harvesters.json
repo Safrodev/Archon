@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "archon:flaming_harvester",
+    "archon:soaking_harvester",
+    "archon:rocky_harvester",
+    "archon:breezy_harvester",
+    "archon:warping_harvester"
+  ]
+}

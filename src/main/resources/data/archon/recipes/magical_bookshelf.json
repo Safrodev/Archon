@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#Y#",
+    "XXX",
+    "#Y#"
+  ],
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "X": {
+      "item": "minecraft:book"
+    },
+    "Y": {
+      "tag": "archon:gems"
+    }
+  },
+  "result": {
+    "item": "archon:magical_bookshelf"
+  }
+}

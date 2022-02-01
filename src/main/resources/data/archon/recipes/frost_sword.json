@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WIW",
+    "WIW",
+    " G "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:ice"
+    },
+    "G": {
+      "item": "archon:glisteel_ingot"
+    },
+    "W": {
+      "item": "archon:water_gem"
+    }
+  },
+  "result": {
+    "item": "archon:frost_sword"
+  }
+}

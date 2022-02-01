@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EPE",
+    "ESE",
+    " S "
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:ender_eye"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "E": {
+      "item": "archon:end_gem"
+    }
+  },
+  "result": {
+    "item": "archon:void_scepter"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "archon:channeling",
+  "input" : [
+    {
+      "item" :  "minecraft:diamond_ore"
+    }
+  ],
+  "output" : "minecraft:diamond",
+  "count" : "2",
+  "manaCost": 50
+}
