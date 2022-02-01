@@ -1,0 +1,12 @@
+{
+  "name": "Rage",
+  "icon": "archon:textures/mob_effect/rage.png",
+  "category": "archon:effects_enchants",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Rage Status Effect doubles the user's attack speed. It can be obtained using a $(l:archon:weapons/earth#fist)Fist of Fury$() or through commands."
+    }
+  ]
+}

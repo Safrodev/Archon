@@ -1,0 +1,26 @@
+{
+  "name": "Water",
+  "icon": "archon:water_gem",
+  "category": "archon:weapons",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:water_staff",
+      "text": "The Water Staff fires small, high speed water balls at your targets."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:water_staff"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:frost_sword",
+      "text": "The Frost Sword can hurl balls of ice that create slow zones where they land."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:frost_sword"
+    }
+  ]
+}

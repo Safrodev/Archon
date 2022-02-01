@@ -1,0 +1,17 @@
+{
+  "name": "Mask of Power",
+  "icon": "archon:mask_of_power",
+  "category": "archon:mana",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:mask_of_power",
+      "text": "The Mask of Power is a diamond tier helmet that increases the user's mana regen speed to $(#2895CB)4 mana per second$(). The Mask of Power does not combine with the accelerate scroll."
+    },
+    {
+      "type": "patchouli:crafting",
+      "item": "archon:mask_of_power"
+    }
+  ]
+}

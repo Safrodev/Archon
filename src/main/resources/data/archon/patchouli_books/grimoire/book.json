@@ -1,0 +1,8 @@
+{
+  "name": "item.archon.grimoire",
+  "landing_text": "text.archon.book.landing_text",
+  "subtitle": "text.archon.book.subtitle",
+  "show_progress": false,
+  "dont_generate_book": true,
+  "custom_book_item": "archon:grimoire"
+}
