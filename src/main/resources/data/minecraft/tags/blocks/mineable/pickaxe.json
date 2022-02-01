@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "archon:fire_node",
+    "archon:water_node",
+    "archon:earth_node",
+    "archon:sky_node",
+    "archon:end_node",
+    "archon:cloud_iron",
+    "archon:glisteel_block"
+  ]
+}
