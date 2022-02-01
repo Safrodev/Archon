@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "archon:block/earth_node"
+    }
+  }
+}

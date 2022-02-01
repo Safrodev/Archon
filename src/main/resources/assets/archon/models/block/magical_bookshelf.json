@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "archon:block/magical_bookshelf",
+    "north": "archon:block/magical_bookshelf",
+    "south": "archon:block/magical_bookshelf",
+    "east": "archon:block/magical_bookshelf",
+    "west": "archon:block/magical_bookshelf",
+    "up": "minecraft:block/oak_planks",
+    "down": "minecraft:block/oak_planks"
+  }
+}

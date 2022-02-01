@@ -1,0 +1,6 @@
+{
+  "parent": "archon:item/heat_ranger",
+  "textures": {
+    "layer0": "archon:item/heat_ranger1"
+  }
+}
