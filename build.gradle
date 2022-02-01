@@ -41,7 +41,7 @@ dependencies {
 	modImplementation include("com.github.Draylar.omega-config:omega-config-base:${project.config_version}")
 
 	// Patchouli (Runtime only)
-	modCompileOnly "vazkii.patchouli:Patchouli:${project.patchouli_version}",{
+	modCompileOnly modRuntimeOnly("vazkii.patchouli:Patchouli:${project.patchouli_version}"),{
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
