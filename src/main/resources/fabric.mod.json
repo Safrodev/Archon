@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "archon",
+  "version": "${version}",
+
+  "name": "Archon",
+  "description": "Wizardry, Necromancy, and More!",
+  "authors": [
+    "Safro"
+  ],
+  "contact": {
+    "homepage": "https://curseforge.com/minecraft/mc-mods/archon",
+    "sources": "https://github.com/Safrodev/Archon"
+  },
+
+  "license": "GPLv3",
+  "icon": "assets/archon/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "safro.archon.Archon"
+    ],
+    "client": [
+      "safro.archon.ArchonClient"
+    ],
+    "cardinal-components-entity": [
+      "safro.archon.registry.ComponentsRegistry"
+    ],
+    "rei_plugins": [
+      "safro.archon.compat.rei.ArchonREIPlugin"
+    ]
+  },
+  "mixins": [
+    "archon.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "custom": {
+    "cardinal-components": [
+      "archon:mana",
+      "archon:scroll"
+    ]
+  },
+  "accessWidener": "archon.aw"
+}

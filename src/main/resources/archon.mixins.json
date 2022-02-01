@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "safro.archon.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "PlayerEntityMixin",
+    "LivingEntityMixin",
+    "EntityMixin",
+    "LightningEntityMixin",
+    "CreeperEntityMixin",
+    "ItemEntityMixin",
+    "PotionEntityMixin",
+    "StructurePoolAccessor"
+  ],
+  "client": [
+    "InGameHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
