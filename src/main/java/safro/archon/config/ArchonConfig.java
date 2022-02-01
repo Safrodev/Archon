@@ -22,8 +22,8 @@ public class ArchonConfig implements Config {
     @Comment(
             """
                     Chance for a soul to drop when killing players and creatures using a soul scythe (bosses always drop a soul)
-                    The number should follow these bounds: 0 <= x <= 1.0 and end with "F"
-                    Default: 0.05F
+                    The number should follow these bounds: 0 <= x <= 1.0
+                    Default: 0.05 (1/20)
             """
     )
     public float soulDropChance = 0.05F;
@@ -85,6 +85,15 @@ public class ArchonConfig implements Config {
             """
     )
     public boolean play_channel_sound = true;
+
+    @Comment(
+            """
+                    The chance that Harvesters will drop the bonus related to the mob
+                    The number should follow these bounds: 0 <= x <= 1.0
+                    Default: 0.05 (1/20)
+            """
+    )
+    public float harvester_chance = 0.05F;
 
     @Override
     public String getName() {

@@ -16,7 +16,7 @@ public class SoakingHarvesterItem extends HarvesterItem {
 
     @Override
     public Pair<EntityType<? extends Entity>, Item> getGroup1() {
-        return new Pair<>(EntityType.SQUID, Items.ROTTEN_FLESH);
+        return new Pair<>(EntityType.SQUID, Items.INK_SAC);
     }
 
     @Override

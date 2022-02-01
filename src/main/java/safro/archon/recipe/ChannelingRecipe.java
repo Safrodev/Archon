@@ -10,6 +10,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import safro.archon.Archon;
 import safro.archon.registry.MiscRegistry;
 import safro.archon.registry.SoundRegistry;
 import safro.archon.util.ArchonUtil;
@@ -44,7 +45,9 @@ public class ChannelingRecipe implements Recipe<ChannelingInventory> {
         inv.getWorld().spawnEntity(result);
         inv.getBlockStack().decrement(1);
         ArchonUtil.get(inv.getPlayer()).removeMana(getManaCost());
-        inv.getWorld().playSound(null, inv.getPos(), SoundRegistry.CHANNEL_MANA, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        if (Archon.CONFIG.play_channel_sound) {
+            inv.getWorld().playSound(null, inv.getPos(), SoundRegistry.CHANNEL_MANA, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        }
 
         if (inv.getPlayer() instanceof ServerPlayerEntity) {
             MiscRegistry.CHANNELED_CRITERION.trigger((ServerPlayerEntity)inv.getPlayer(), getOutput().copy());

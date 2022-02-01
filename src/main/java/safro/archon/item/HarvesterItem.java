@@ -11,6 +11,7 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import safro.archon.Archon;
 
 public abstract class HarvesterItem extends SwordItem {
 
@@ -43,7 +44,7 @@ public abstract class HarvesterItem extends SwordItem {
         World world = target.world;
         BlockPos pos = target.getBlockPos();
 
-        if (target.getRandom().nextFloat() <= 0.05F) {
+        if (target.getRandom().nextFloat() <= Archon.CONFIG.harvester_chance) {
             ItemStack dropStack = new ItemStack(item);
             ItemEntity itemEntity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), dropStack);
             itemEntity.setToDefaultPickupDelay();
