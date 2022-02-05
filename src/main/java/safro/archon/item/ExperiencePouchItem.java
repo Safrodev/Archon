@@ -20,60 +20,60 @@ import safro.archon.registry.ItemRegistry;
 import java.util.List;
 
 public class ExperiencePouchItem extends Item {
-    private final int maxLevel;
+    private final int max;
 
     public ExperiencePouchItem(int maxLevel, Settings settings) {
         super(settings);
-        this.maxLevel = maxLevel;
+        this.max = maxLevel;
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
         if (player.isSneaking()) {
-            if (!world.isClient && canAddLevel(player, stack)) {
-                addLevel(stack);
-                removeXp(player);
+            if (!world.isClient && canAddXp(player, stack)) {
+                addExperience(stack);
+                removeExperience(player);
                 return TypedActionResult.success(stack);
             }
         } else {
-            if (!world.isClient && getLevels(stack) > 0) {
-                grantLevels(stack, player);
+            if (!world.isClient && getExperience(stack) > 0) {
+                grantExperience(stack, player);
                 stack.getOrCreateSubNbt(Archon.MODID).putInt("xp", 0);
             }
         }
         return TypedActionResult.pass(stack);
     }
 
-    public int getLevels(ItemStack stack) {
+    public int getExperience(ItemStack stack) {
         return stack.getOrCreateSubNbt(Archon.MODID).getInt("xp");
     }
 
-    public int getMaxLevels() {
-        return maxLevel;
+    public int getMaxXp() {
+        return max;
     }
 
-    public void addLevel(ItemStack stack) {
-        stack.getOrCreateSubNbt(Archon.MODID).putInt("xp", getLevels(stack) + 1);
+    public void addExperience(ItemStack stack) {
+        stack.getOrCreateSubNbt(Archon.MODID).putInt("xp", getExperience(stack) + 10);
     }
 
-    public void grantLevels(ItemStack stack, PlayerEntity player) {
+    public void grantExperience(ItemStack stack, PlayerEntity player) {
         if (player instanceof ServerPlayerEntity serverPlayer) {
-            serverPlayer.addExperienceLevels(getLevels(stack));
+            serverPlayer.addExperience(getExperience(stack));
         }
     }
 
-    public boolean canAddLevel(PlayerEntity player, ItemStack stack) {
+    public boolean canAddXp(PlayerEntity player, ItemStack stack) {
         if (player instanceof ServerPlayerEntity serverPlayer) {
-            if (serverPlayer.experienceLevel >= 1) {
-                return getLevels(stack) < getMaxLevels();
+            if (serverPlayer.totalExperience >= 10) {
+                return getExperience(stack) < getMaxXp();
             }
         }
         return false;
     }
 
-    public void removeXp(PlayerEntity player) {
+    public void removeExperience(PlayerEntity player) {
         if (player instanceof ServerPlayerEntity serverPlayer) {
-            serverPlayer.setExperienceLevel(serverPlayer.experienceLevel - 1);
+            serverPlayer.addExperience(-10);
         }
     }
 
@@ -84,6 +84,6 @@ public class ExperiencePouchItem extends Item {
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new LiteralText(getLevels(stack) + "/" + getMaxLevels()).formatted(Formatting.GREEN));
+        tooltip.add(new LiteralText(getExperience(stack) + "/" + getMaxXp()).formatted(Formatting.GREEN));
     }
 }

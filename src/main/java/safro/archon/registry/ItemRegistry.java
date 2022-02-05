@@ -76,8 +76,8 @@ public class ItemRegistry {
     public static final Item SOUL_CORE_BOSS = register("soul_core_boss", new SoulItem(SoulType.BOSS, simple()));
 
     // Resources + Misc
-    public static final Item EXPERIENCE_POUCH = register("experience_pouch", new ExperiencePouchItem(10, simple().maxCount(1)));
-    public static final Item SUPER_EXPERIENCE_POUCH = register("super_experience_pouch", new ExperiencePouchItem(30, simple().maxCount(1)));
+    public static final Item EXPERIENCE_POUCH = register("experience_pouch", new ExperiencePouchItem(200, simple().maxCount(1)));
+    public static final Item SUPER_EXPERIENCE_POUCH = register("super_experience_pouch", new ExperiencePouchItem(400, simple().maxCount(1)));
     public static final Item GLISTEEL_INGOT = register("glisteel_ingot", new Item(simple()));
     public static final Item FIRE_GEM = register("fire_gem", new Item(simple()));
     public static final Item WATER_GEM = register("water_gem", new Item(simple()));
