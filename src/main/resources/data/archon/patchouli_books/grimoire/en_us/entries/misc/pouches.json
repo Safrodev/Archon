@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:experience_pouch",
-      "text": "Experience Pouches are used to easily store XP. Simply sneak right-click to store 1 level in the pouch, and right-click normally to grant all levels in the pouch. Normal experience pouches have a cap of 10 and super pouches a cap of 30."
+      "text": "Experience Pouches are used to easily store XP. Simply sneak right-click to store 10 experience points in the pouch, and right-click normally to grant all XP in the pouch. Normal experience pouches have a cap of 200 and super pouches a cap of 400."
     },
     {
       "type": "patchouli:crafting",
