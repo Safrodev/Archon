@@ -26,6 +26,7 @@ public class ArchonConfig implements Config {
                     Default: 0.05 (1/20)
             """
     )
+    @Syncing
     public float soulDropChance = 0.05F;
 
     @Comment(
@@ -34,6 +35,7 @@ public class ArchonConfig implements Config {
                     Default: 10
             """
     )
+    @Syncing
     public int wizard_village_weight = 10;
 
     @Comment(
@@ -42,6 +44,7 @@ public class ArchonConfig implements Config {
                     Default: 4
             """
     )
+    @Syncing
     public int nodeVeinSize = 4;
 
     @Comment(
@@ -50,6 +53,7 @@ public class ArchonConfig implements Config {
                     Default: 4
             """
     )
+    @Syncing
     public int nodeChunkRate = 4;
 
     @Comment(
@@ -58,13 +62,16 @@ public class ArchonConfig implements Config {
                     Default: 400
             """
     )
+    @Syncing
     public int skyNodeChance = 400;
 
     @Comment(
             """
                     The Chance for Mana Berry Bushes to spawn
                     Default: 32
-            """)
+            """
+    )
+    @Syncing
     public int manaBerryBushChance = 32;
 
     @Comment(
@@ -74,6 +81,7 @@ public class ArchonConfig implements Config {
                     Default Separation: 20
             """
     )
+    @Syncing
     public int spire_spacing = 22;
     public int spire_separation = 20;
 
@@ -93,6 +101,7 @@ public class ArchonConfig implements Config {
                     Default: 0.05 (1/20)
             """
     )
+    @Syncing
     public float harvester_chance = 0.05F;
 
     @Override

@@ -1,53 +1,46 @@
 package safro.archon.recipe;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.item.Item;
+import com.google.gson.JsonSyntaxException;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.JsonHelper;
 import net.minecraft.util.registry.Registry;
-
-import java.util.ArrayList;
 
 public class ChannelingSerializer implements RecipeSerializer<ChannelingRecipe> {
 
     @Override
     public ChannelingRecipe read(Identifier id, JsonObject json) {
-        ChannelingJsonFactory recipeJson = new Gson().fromJson(json, ChannelingJsonFactory.class);
-        JsonArray ingredients = recipeJson.input;
-        ArrayList<Ingredient> myIngredients = new ArrayList<>();
-        for(JsonElement jsonElement : ingredients) {
-            myIngredients.add(Ingredient.fromJson(jsonElement));
-        }
-        Item outputItem = Registry.ITEM.getOrEmpty(new Identifier(recipeJson.output)).get();
-        ItemStack output = new ItemStack(outputItem, recipeJson.count);
-        int manaCost = recipeJson.manaCost;
-        return new ChannelingRecipe(myIngredients, output, manaCost, id);
+        Block input = Registry.BLOCK.get(new Identifier(JsonHelper.getString(json, "block")));
+        ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "result"));
+        int manaCost = readCost(json);
+        return new ChannelingRecipe(input, output, manaCost, id);
     }
 
     @Override
     public ChannelingRecipe read(Identifier id, PacketByteBuf buf) {
-        JsonArray array = new JsonArray();
-        ArrayList<Ingredient> myIngredients = new ArrayList<>();
-        for(JsonElement jsonElement : array)
-        {
-            myIngredients.add(Ingredient.fromJson(jsonElement));
-        }
+        Block input = Registry.BLOCK.get(new Identifier(buf.readString()));
         ItemStack stack = buf.readItemStack();
         int cost = buf.readInt();
-        return new ChannelingRecipe(myIngredients, stack, cost, id);
+        return new ChannelingRecipe(input, stack, cost, id);
     }
 
     @Override
     public void write(PacketByteBuf buf, ChannelingRecipe recipe) {
-        for(int i = 0; i < recipe.ingredients.size(); i++) {
-            recipe.ingredients.get(i).write(buf);
-        }
+        buf.writeString(Registry.BLOCK.getId(recipe.getBlock()).toString());
         buf.writeItemStack(recipe.getOutput());
+        buf.writeInt(recipe.getManaCost());
+    }
+
+    public int readCost(JsonObject json) {
+        int i = JsonHelper.getInt(json, "manaCost", 1);
+        if (i < 1) {
+            throw new JsonSyntaxException("Invalid mana cost: " + i);
+        }
+        return i;
     }
 }

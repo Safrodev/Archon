@@ -1,11 +1,9 @@
 {
   "type": "archon:channeling",
-  "input" : [
-    {
-      "item" :  "minecraft:deepslate_diamond_ore"
-    }
-  ],
-  "output" : "minecraft:diamond",
-  "count" : "2",
+  "block": "minecraft:deepslate_diamond_ore",
+  "result": {
+    "item": "minecraft:diamond",
+    "count": 2
+  },
   "manaCost": 50
 }

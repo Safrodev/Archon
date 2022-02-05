@@ -1,11 +1,9 @@
 {
   "type": "archon:channeling",
-  "input" : [
-    {
-      "item" :  "minecraft:oak_log"
-    }
-  ],
-  "output" : "minecraft:oak_planks",
-  "count" : "4",
+  "block": "minecraft:oak_log",
+  "result": {
+    "item": "minecraft:oak_planks",
+    "count": 4
+  },
   "manaCost": 10
 }

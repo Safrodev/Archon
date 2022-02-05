@@ -1,11 +1,9 @@
 {
   "type": "archon:channeling",
-  "input" : [
-    {
-      "item" :  "minecraft:jungle_log"
-    }
-  ],
-  "output" : "minecraft:jungle_planks",
-  "count" : "4",
+  "block": "minecraft:jungle_log",
+  "result": {
+    "item": "minecraft:jungle_planks",
+    "count": 4
+  },
   "manaCost": 10
 }

@@ -1,11 +1,9 @@
 {
   "type": "archon:channeling",
-  "input" : [
-    {
-      "item" :  "minecraft:redstone_ore"
-    }
-  ],
-  "output" : "minecraft:redstone",
-  "count" : "7",
+  "block": "minecraft:redstone_ore",
+  "result": {
+    "item": "minecraft:redstone",
+    "count": 7
+  },
   "manaCost": 20
 }

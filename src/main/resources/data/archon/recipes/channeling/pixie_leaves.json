@@ -1,11 +1,9 @@
 {
   "type": "archon:channeling",
-  "input" : [
-    {
-      "tag" :  "minecraft:leaves"
-    }
-  ],
-  "output" : "archon:pixie_leaves",
-  "count" : "1",
+  "block": "minecraft:oak_leaves",
+  "result": {
+    "item": "archon:pixie_leaves",
+    "count": 1
+  },
   "manaCost": 30
 }

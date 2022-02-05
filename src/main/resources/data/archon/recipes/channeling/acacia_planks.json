@@ -1,11 +1,9 @@
 {
   "type": "archon:channeling",
-  "input" : [
-    {
-      "item" :  "minecraft:acacia_log"
-    }
-  ],
-  "output" : "minecraft:acacia_planks",
-  "count" : "4",
+  "block" :  "minecraft:acacia_log",
+  "result": {
+    "item": "minecraft:acacia_planks",
+    "count": 4
+  },
   "manaCost": 10
 }

@@ -1,11 +1,9 @@
 {
   "type": "archon:channeling",
-  "input" : [
-    {
-      "item" :  "minecraft:deepslate_redstone_ore"
-    }
-  ],
-  "output" : "minecraft:redstone",
-  "count" : "7",
+  "block": "minecraft:deepslate_redstone_ore",
+  "result": {
+    "item": "minecraft:redstone",
+    "count": 7
+  },
   "manaCost": 20
 }

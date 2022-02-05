@@ -1,11 +1,9 @@
 {
   "type": "archon:channeling",
-  "input" : [
-    {
-      "item" :  "minecraft:spruce_log"
-    }
-  ],
-  "output" : "minecraft:spruce_planks",
-  "count" : "4",
+  "block": "minecraft:spruce_log",
+  "result": {
+    "item": "minecraft:spruce_planks",
+    "count": 4
+  },
   "manaCost": 10
 }

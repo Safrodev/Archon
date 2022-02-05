@@ -1,11 +1,9 @@
 {
   "type": "archon:channeling",
-  "input" : [
-    {
-      "item" :  "minecraft:gold_ore"
-    }
-  ],
-  "output" : "minecraft:raw_gold",
-  "count" : "2",
+  "block": "minecraft:gold_ore",
+  "result": {
+    "item": "minecraft:raw_gold",
+    "count": 2
+  },
   "manaCost": 20
 }

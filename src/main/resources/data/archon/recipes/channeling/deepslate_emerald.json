@@ -1,11 +1,9 @@
 {
   "type": "archon:channeling",
-  "input" : [
-    {
-      "item" :  "minecraft:deepslate_emerald_ore"
-    }
-  ],
-  "output" : "minecraft:emerald",
-  "count" : "2",
+  "block": "minecraft:deepslate_emerald_ore",
+  "result": {
+    "item": "minecraft:emerald",
+    "count": 2
+  },
   "manaCost": 40
 }
