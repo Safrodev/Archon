@@ -11,7 +11,7 @@
     },
     {
       "type": "patchouli:crafting",
-      "item": "archon:mask_of_power"
+      "recipe": "archon:mask_of_power"
     }
   ]
 }

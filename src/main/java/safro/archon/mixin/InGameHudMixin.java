@@ -6,6 +6,8 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,6 +16,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import safro.archon.Archon;
+import safro.archon.item.ChannelerItem;
+import safro.archon.item.ManaBerriesItem;
+import safro.archon.item.ManaWeapon;
+import safro.archon.item.fire.HeatRangerItem;
+import safro.archon.item.necromancy.UndeadStaffItem;
+import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
 
 @Mixin(InGameHud.class)
@@ -32,25 +40,41 @@ public abstract class InGameHudMixin {
 
     @Inject(method = "render", at = @At("TAIL"))
     public void render(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
-        InGameHud hud = (InGameHud) (Object) this;
         PlayerEntity player = this.getCameraPlayer();
 
         if (this.client.player.isAlive()) {
-            int xoffset = Archon.CONFIG.mana_xoffset;
-            int yoffset = Archon.CONFIG.mana_yoffset;
-
-            int a = this.scaledWidth / 2;
-            RenderSystem.setShaderTexture(0, MANA_TEXTURE);
-            int k = this.scaledHeight - (yoffset + 5);
-            hud.drawTexture(matrices, a - (xoffset + 20), k, 0, 0, 16, 16, 16, 16);
-            this.client.getProfiler().pop();
-
-            if ((ArchonUtil.get(player).getMana() <= ArchonUtil.get(player).getMaxMana())) {
-                String string = ArchonUtil.get(player).getMana() + "/" + ArchonUtil.get(player).getMaxMana();
-                int n = this.scaledHeight - yoffset;
-                this.getTextRenderer().draw(matrices, string, a - xoffset, n, 16777215);
-                this.client.getProfiler().pop();
+            if (Archon.CONFIG.displayManaWithItem) {
+                if (isValidManaItem(player.getStackInHand(Hand.MAIN_HAND)) || isValidManaItem(player.getStackInHand(Hand.OFF_HAND))) {
+                    renderManaHud(matrices, player);
+                }
+            } else {
+                renderManaHud(matrices, player);
             }
         }
+    }
+
+    private void renderManaHud(MatrixStack matrices, PlayerEntity player) {
+        InGameHud hud = (InGameHud) (Object) this;
+        int xoffset = Archon.CONFIG.mana_xoffset;
+        int yoffset = Archon.CONFIG.mana_yoffset;
+
+        int a = this.scaledWidth / 2;
+        RenderSystem.setShaderTexture(0, MANA_TEXTURE);
+        int k = this.scaledHeight - (yoffset + 5);
+        hud.drawTexture(matrices, a - (xoffset + 20), k, 0, 0, 16, 16, 16, 16);
+        this.client.getProfiler().pop();
+
+        if ((ArchonUtil.get(player).getMana() <= ArchonUtil.get(player).getMaxMana())) {
+            String string = ArchonUtil.get(player).getMana() + "/" + ArchonUtil.get(player).getMaxMana();
+            int n = this.scaledHeight - yoffset;
+            this.getTextRenderer().draw(matrices, string, a - xoffset, n, 16777215);
+            this.client.getProfiler().pop();
+        }
+    }
+
+    private boolean isValidManaItem(ItemStack stack) {
+        return stack.getItem() instanceof ManaWeapon || stack.getItem() instanceof UndeadStaffItem ||
+                stack.getItem() instanceof ChannelerItem || stack.getItem() instanceof HeatRangerItem ||
+                stack.getItem() instanceof ManaBerriesItem || stack.isOf(ItemRegistry.SOUL_CRUSHER);
     }
 }

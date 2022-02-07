@@ -39,10 +39,10 @@ public class WorldRegistry {
     public static final ConfiguredFeature<?, ?> MBB_PATCH_CONFIGURED = Feature.RANDOM_PATCH.configure(ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockRegistry.MANA_BERRY_BUSH.getDefaultState().with(ManaBerryBushBlock.AGE, 3)))), List.of(Blocks.GRASS_BLOCK)));
 
     // Placed Features
-    public static final PlacedFeature EARTH_NODE_PLACED = EARTH_NODE_CONFIGURED.withPlacement(modifiersWithCount(chunk, HeightRangePlacementModifier.uniform(YOffset.fixed(-64),YOffset.fixed(0))));
-    public static final PlacedFeature WATER_NODE_PLACED = WATER_NODE_CONFIGURED.withPlacement(modifiersWithCount(chunk,  HeightRangePlacementModifier.uniform(YOffset.fixed(27), YOffset.fixed(40))));
+    public static final PlacedFeature EARTH_NODE_PLACED = EARTH_NODE_CONFIGURED.withPlacement(modifiersWithCount(chunk, HeightRangePlacementModifier.uniform(YOffset.fixed(Archon.CONFIG.earthNodeMin),YOffset.fixed(Archon.CONFIG.earthNodeMax))));
+    public static final PlacedFeature WATER_NODE_PLACED = WATER_NODE_CONFIGURED.withPlacement(modifiersWithCount(chunk,  HeightRangePlacementModifier.uniform(YOffset.fixed(Archon.CONFIG.waterNodeMin), YOffset.fixed(Archon.CONFIG.waterNodeMax))));
     public static final PlacedFeature FIRE_NODE_PLACED = FIRE_NODE_CONFIGURED.withPlacement(modifiersWithCount(chunk, PlacedFeatures.TEN_ABOVE_AND_BELOW_RANGE));
-    public static final PlacedFeature END_NODE_PLACED = END_NODE_CONFIGURED.withPlacement(modifiersWithCount(chunk, HeightRangePlacementModifier.uniform(YOffset.fixed(8),YOffset.fixed(180))));
+    public static final PlacedFeature END_NODE_PLACED = END_NODE_CONFIGURED.withPlacement(modifiersWithCount(chunk, HeightRangePlacementModifier.uniform(YOffset.fixed(Archon.CONFIG.endNodeMin),YOffset.fixed(Archon.CONFIG.endNodeMax))));
     public static final PlacedFeature SKY_NODE_PLACED = SKY_NODE_CONFIGURED.withPlacement(RarityFilterPlacementModifier.of(Archon.CONFIG.skyNodeChance), PlacedFeatures.createCountExtraModifier(1, 0.1F, 1), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(192), YOffset.fixed(196)), BiomePlacementModifier.of());
 
     public static final PlacedFeature MBB_PATCH_PLACED = MBB_PATCH_CONFIGURED.withPlacement(RarityFilterPlacementModifier.of(Archon.CONFIG.manaBerryBushChance), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());

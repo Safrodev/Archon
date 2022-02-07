@@ -21,6 +21,15 @@ public class ArchonConfig implements Config {
 
     @Comment(
             """
+                    Determines whether mana should only display if you have a mana item in your hand.
+                    Client-Sided, Accepts "true" or "false"
+                    Default: false (always shows mana)
+            """
+    )
+    public boolean displayManaWithItem = false;
+
+    @Comment(
+            """
                     Chance for a soul to drop when killing players and creatures using a soul scythe (bosses always drop a soul)
                     The number should follow these bounds: 0 <= x <= 1.0
                     Default: 0.05 (1/20)
@@ -55,6 +64,60 @@ public class ArchonConfig implements Config {
     )
     @Syncing
     public int nodeChunkRate = 4;
+
+    @Comment(
+            """
+                    The minimum y-height that Earth nodes can generate at.
+                    Default: -64
+            """
+    )
+    @Syncing
+    public int earthNodeMin = -64;
+
+    @Comment(
+            """
+                    The maximum y-height that Earth nodes can generate at.
+                    Default: 0
+            """
+    )
+    @Syncing
+    public int earthNodeMax = 0;
+
+    @Comment(
+            """
+                    The minimum y-height that Warth nodes can generate at.
+                    Default: 27
+            """
+    )
+    @Syncing
+    public int waterNodeMin = 27;
+
+    @Comment(
+            """
+                    The maximum y-height that Water nodes can generate at.
+                    Default: 40
+            """
+    )
+    @Syncing
+    public int waterNodeMax = 40;
+
+    @Comment(
+            """
+                    The minimum y-height that End nodes can generate at.
+                    Default: 8
+            """
+    )
+    @Syncing
+    public int endNodeMin = 8;
+
+    @Comment(
+            """
+                    The maximum y-height that End nodes can generate at.
+                    Default: 180
+            """
+    )
+    @Syncing
+    public int endNodeMax = 180;
 
     @Comment(
             """
