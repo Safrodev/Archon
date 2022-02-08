@@ -8,6 +8,7 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.util.Identifier;
 import safro.archon.client.render.ManaLeechEntityRenderer;
 import safro.archon.client.render.SkeltEntityRenderer;
+import safro.archon.client.render.TarEntityRenderer;
 import safro.archon.client.render.WaterBoltEntityRenderer;
 
 public class ClientRegistry {
@@ -20,6 +21,7 @@ public class ClientRegistry {
         EntityRendererRegistry.register(EntityRegistry.PRIME_SKELT, SkeltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.OMEGA_SKELT, SkeltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.MANA_LEECH, ManaLeechEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.TAR, TarEntityRenderer::new);
 
         // Block Renderers
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MANA_BERRY_BUSH, RenderLayer.getCutout());

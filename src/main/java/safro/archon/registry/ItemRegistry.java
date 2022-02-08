@@ -1,6 +1,5 @@
 package safro.archon.registry;
 
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
@@ -31,6 +30,9 @@ import java.util.Map;
 
 public class ItemRegistry {
     public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
+
+    // Testing
+    public static final Item BOSS_TESTER = register("boss_tester", new BossTesterItem(simple()));
 
     // Core
     public static Item GRIMOIRE = register("grimoire", new GrimoireItem(simple().maxCount(1)));

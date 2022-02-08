@@ -61,6 +61,7 @@
   "entity.archon.prime_skelt": "Prime Skelt",
   "entity.archon.omega_skelt": "Omega Skelt",
   "entity.archon.mana_leech": "Mana Leech",
+  "entity.archon.tar": "Tar",
 
   "item.archon.capacity_scroll": "Ancient Scroll",
   "item.archon.accelerate_scroll": "Ancient Scroll",
@@ -78,6 +79,9 @@
   "text.archon.skelt_stand": "Skelt will now follow",
   "text.archon.mana_cost": "Mana Cost: %s",
   "text.archon.invalid_book": "Patchouli is not installed!",
+
+  "text.archon.tar.spawn": "[Tar] You think you can challenge me? HOW FOOLISH!",
+  "text.archon.tar.kill": "[Tar] Ha! This is too easy!",
 
   "command.archon.mana_add_one": "Added %s mana to %s",
   "command.archon.mana_add_multiple": "Added %s mana to %s players",
