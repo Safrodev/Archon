@@ -1,6 +1,7 @@
 package safro.archon.registry;
 
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
@@ -10,6 +11,7 @@ import safro.archon.client.render.ManaLeechEntityRenderer;
 import safro.archon.client.render.SkeltEntityRenderer;
 import safro.archon.client.render.TarEntityRenderer;
 import safro.archon.client.render.WaterBoltEntityRenderer;
+import safro.archon.client.render.block.SummoningPedestalBlockEntityRenderer;
 
 public class ClientRegistry {
 
@@ -25,6 +27,8 @@ public class ClientRegistry {
 
         // Block Renderers
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MANA_BERRY_BUSH, RenderLayer.getCutout());
+
+        BlockEntityRendererRegistry.register(BlockRegistry.SUMMONING_PEDESTAL_BE, SummoningPedestalBlockEntityRenderer::new);
 
         // Model Predicates
         FabricModelPredicateProviderRegistry.register(ItemRegistry.HEAT_RANGER, new Identifier("pull"),(stack, clientWorld, entity, seed) -> {

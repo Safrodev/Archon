@@ -11,6 +11,7 @@
   "block.archon.magical_bookshelf": "Magical Bookshelf",
   "block.archon.glisteel_block": "Glisteel Block",
   "block.archon.mana_berry_bush": "Mana Berry Bush",
+  "block.archon.summoning_pedestal": "Summoning Pedestal",
 
   "item.archon.grimoire": "Grimoire",
   "item.archon.channeler": "Channeler",
@@ -79,6 +80,7 @@
   "text.archon.skelt_stand": "Skelt will now follow",
   "text.archon.mana_cost": "Mana Cost: %s",
   "text.archon.invalid_book": "Patchouli is not installed!",
+  "text.archon.invalid_summon": "Must have air above pedestal!",
 
   "text.archon.tar.spawn": "[Tar] You think you can challenge me? HOW FOOLISH!",
   "text.archon.tar.kill": "[Tar] Ha! This is too easy!",

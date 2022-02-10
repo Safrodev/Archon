@@ -1,7 +1,10 @@
 package safro.archon.registry;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
@@ -10,12 +13,18 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.block.ManaBerryBushBlock;
+import safro.archon.block.SummoningPedestalBlock;
+import safro.archon.block.entity.SummoningPedestalBlockEntity;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class BlockRegistry {
     private static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
+
+    // Progression
+    public static final Block SUMMONING_PEDESTAL = register("summoning_pedestal", new SummoningPedestalBlock(FabricBlockSettings.copyOf(Blocks.STONE_BRICKS).nonOpaque()), true);
+    public static BlockEntityType<SummoningPedestalBlockEntity> SUMMONING_PEDESTAL_BE;
 
     // Misc + Building
     public static final Block GLISTEEL_BLOCK = register("glisteel_block", new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)), true);
@@ -42,6 +51,7 @@ public class BlockRegistry {
     }
 
     public static void init() {
+        SUMMONING_PEDESTAL_BE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Archon.MODID, "summoning_pedestal"), FabricBlockEntityTypeBuilder.create(SummoningPedestalBlockEntity::new, SUMMONING_PEDESTAL).build(null));
         BLOCKS.keySet().forEach(block -> Registry.register(Registry.BLOCK, BLOCKS.get(block), block));
     }
 }

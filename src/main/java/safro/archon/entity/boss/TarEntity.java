@@ -107,7 +107,7 @@ public class TarEntity extends AbstractBossEntity {
 
         public void start() {
             this.cooldown = this.getTickCount(20);
-            this.startTime = TarEntity.this.age + 100;
+            this.startTime = TarEntity.this.age + 50;
         }
 
         public void tick() {
