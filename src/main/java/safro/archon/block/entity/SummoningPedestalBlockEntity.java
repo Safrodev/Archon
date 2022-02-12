@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
@@ -50,7 +51,7 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
             } else if (!stack.isEmpty() && this.addItem(player.getAbilities().creativeMode ? stack.copy() : stack)) {
                 return ActionResult.SUCCESS;
             } else {
-                if (SummonUtil.canSummonTar(inventory)) {
+                if (SummonUtil.canSummonTar(this)) {
                     if (world.getBlockState(pos.up()).isAir() && world.getBlockState(pos.up().up()).isAir()) {
                         this.setProcessor(1);
                         this.clear();
@@ -116,6 +117,15 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
             if (itemStack.isEmpty()) {
                 this.inventory.set(i, item.split(1));
                 this.updateListeners();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasItem(Item item) {
+        for (ItemStack itemStack : this.inventory) {
+            if (item == itemStack.getItem()) {
                 return true;
             }
         }

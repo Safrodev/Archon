@@ -39,13 +39,11 @@ public abstract class ManaWeapon extends SwordItem {
      * @param player - The player using the ability
      * @param stack - The player's current stack which contains this item
      */
-    public abstract void activate(World world, PlayerEntity player, ItemStack stack);
+    public abstract boolean activate(World world, PlayerEntity player, ItemStack stack, Hand hand);
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
-        if (ArchonUtil.canRemoveMana(player, getManaCost())) {
-            activate(world, player, stack);
-
+        if (ArchonUtil.canRemoveMana(player, getManaCost()) && activate(world, player, stack, hand)) {
             if (EnchantmentHelper.getLevel(MiscRegistry.ARCANE, stack) >= 1) {
                 int removed = (int) (getManaCost() * 0.2);
                 ArchonUtil.get(player).removeMana(getManaCost() - removed);

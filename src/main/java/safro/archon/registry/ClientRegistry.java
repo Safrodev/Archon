@@ -27,6 +27,7 @@ public class ClientRegistry {
 
         // Block Renderers
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MANA_BERRY_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SUMMONING_PEDESTAL, RenderLayer.getCutout());
 
         BlockEntityRendererRegistry.register(BlockRegistry.SUMMONING_PEDESTAL_BE, SummoningPedestalBlockEntityRenderer::new);
 

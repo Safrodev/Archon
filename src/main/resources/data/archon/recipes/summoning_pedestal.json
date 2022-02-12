@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RGR",
+    "QQQ",
+    " B "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "G": {
+      "item": "archon:glisteel_ingot"
+    },
+    "Q": {
+      "item": "minecraft:quartz_block"
+    },
+    "B": {
+      "tag": "minecraft:stone_bricks"
+    }
+  },
+  "result": {
+    "item": "archon:summoning_pedestal"
+  }
+}

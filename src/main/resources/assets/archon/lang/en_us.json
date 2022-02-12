@@ -55,6 +55,7 @@
   "item.archon.super_experience_pouch": "Super Experience Pouch",
   "item.archon.combustion_charge": "Combustion Charge",
   "item.archon.spry_dust": "Spry Dust",
+  "item.archon.terranean_axe": "Terranean Axe",
 
   "entity.archon.water_bolt": "Water Bolt",
   "entity.minecraft.villager.wizard": "Wizard",
@@ -69,6 +70,7 @@
 
   "effect.archon.rage": "Rage",
   "effect.archon.obstructed": "Obstructed",
+  "effect.archon.sturdy": "Sturdy",
 
   "enchantment.archon.arcane": "Arcane",
   "enchantment.archon.arcane.desc": "Reduces the mana cost of weapons by 20%",

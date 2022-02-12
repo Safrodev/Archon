@@ -4,6 +4,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import safro.archon.item.ManaWeapon;
 import safro.archon.registry.EffectRegistry;
@@ -14,8 +15,9 @@ public class FistOfFuryItem extends ManaWeapon {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
-    public void activate(World world, PlayerEntity player, ItemStack stack) {
+    public boolean activate(World world, PlayerEntity player, ItemStack stack, Hand hand) {
         player.addStatusEffect(new StatusEffectInstance(EffectRegistry.RAGE, 100, 0));
+        return true;
     }
 
     public int getManaCost() {

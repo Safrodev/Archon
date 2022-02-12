@@ -11,6 +11,7 @@ import safro.archon.item.*;
 import safro.archon.item.earth.FistOfFuryItem;
 import safro.archon.item.earth.RockyHarvesterItem;
 import safro.archon.item.earth.TerrainMaceItem;
+import safro.archon.item.earth.TerraneanAxeItem;
 import safro.archon.item.end.EnderBladeItem;
 import safro.archon.item.end.VoidScepterItem;
 import safro.archon.item.end.WarpingHarvesterItem;
@@ -31,9 +32,6 @@ import java.util.Map;
 public class ItemRegistry {
     public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
-    // Testing
-    public static final Item BOSS_TESTER = register("boss_tester", new BossTesterItem(simple()));
-
     // Core
     public static Item GRIMOIRE = register("grimoire", new GrimoireItem(simple().maxCount(1)));
     public static final Item CHANNELER = register("channeler", new ChannelerItem(simple().maxCount(1).rarity(Rarity.UNCOMMON)));
@@ -49,6 +47,8 @@ public class ItemRegistry {
     public static final Item VACUUM_CLEAVER = register("vacuum_cleaver", new VacuumCleaverItem(ToolMaterials.IRON, 7, -3.0F, simple()));
     public static final Item FIST_OF_FURY = register("fist_of_fury", new FistOfFuryItem(ToolMaterials.IRON, 3, -1.8F, simple()));
     public static final Item FROST_SWORD = register("frost_sword", new FrostSwordItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));
+
+    public static final Item TERRANEAN_AXE = register("terranean_axe", new TerraneanAxeItem(ToolMaterials.IRON, 4, -3.1F, simple()));
 
     // Necromancy
     public static final Item SOUL_CRUSHER = register("soul_crusher", new SwordItem(ToolMaterials.NETHERITE, 3, -2.4F, simple()));

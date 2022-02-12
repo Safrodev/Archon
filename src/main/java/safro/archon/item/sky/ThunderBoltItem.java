@@ -5,6 +5,7 @@ import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -23,7 +24,7 @@ public class ThunderBoltItem extends ManaWeapon {
     }
 
     @Override
-    public void activate(World world, PlayerEntity player, ItemStack stack) {
+    public boolean activate(World world, PlayerEntity player, ItemStack stack, Hand hand) {
         BlockPos north = player.getBlockPos().north();
         BlockPos south = player.getBlockPos().south();
         BlockPos east = player.getBlockPos().east();
@@ -48,5 +49,6 @@ public class ThunderBoltItem extends ManaWeapon {
         ((LightningAccess)westE).setFireSpawning(false);
         lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(west));
         world.spawnEntity(westE);
+        return true;
     }
 }

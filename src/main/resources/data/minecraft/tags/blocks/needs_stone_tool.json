@@ -6,6 +6,7 @@
     "archon:earth_node",
     "archon:sky_node",
     "archon:end_node",
-    "archon:cloud_iron"
+    "archon:cloud_iron",
+    "archon:summoning_pedestal"
   ]
 }

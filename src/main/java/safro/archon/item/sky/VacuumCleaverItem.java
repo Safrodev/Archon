@@ -4,8 +4,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import safro.archon.item.ManaWeapon;
+
+import java.util.List;
 
 public class VacuumCleaverItem extends ManaWeapon {
 
@@ -19,15 +22,20 @@ public class VacuumCleaverItem extends ManaWeapon {
     }
 
     @Override
-    public void activate(World world, PlayerEntity player, ItemStack stack) {
-        for (LivingEntity entity : world.getNonSpectatingEntities(LivingEntity.class, player.getBoundingBox().expand(20D))) {
-            if (!(entity == player) || !canPull(entity)) {
-                double d = player.getX() - entity.getX();
-                double e = player.getY() - entity.getY();
-                double f = player.getZ() - entity.getZ();
-                entity.setVelocity(d * 0.3D, e * 0.1D + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.08D, f * 0.3D);
+    public boolean activate(World world, PlayerEntity player, ItemStack stack, Hand hand) {
+        List<LivingEntity> list = world.getNonSpectatingEntities(LivingEntity.class, player.getBoundingBox().expand(20D));
+        if (list.size() > 0) {
+            for (LivingEntity entity : list) {
+                if (!(entity == player) || !canPull(entity)) {
+                    double d = player.getX() - entity.getX();
+                    double e = player.getY() - entity.getY();
+                    double f = player.getZ() - entity.getZ();
+                    entity.setVelocity(d * 0.3D, e * 0.1D + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.08D, f * 0.3D);
+                }
             }
+            return true;
         }
+        return false;
     }
 
     private boolean canPull(LivingEntity entity) {

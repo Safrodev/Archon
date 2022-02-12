@@ -3,20 +3,19 @@ package safro.archon.util;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import safro.archon.block.entity.SummoningPedestalBlockEntity;
 import safro.archon.entity.boss.TarEntity;
 import safro.archon.registry.EntityRegistry;
 import safro.archon.registry.ItemRegistry;
 
 public class SummonUtil {
-    public static boolean canSummonTar(DefaultedList<ItemStack> inv) {
-        if (inv.size() == 4) {
-            return inv.get(0).isOf(ItemRegistry.EARTH_GEM) && inv.get(1).isOf(ItemRegistry.EARTH_GEM) && inv.get(2).isOf(ItemRegistry.EARTH_GEM) && inv.get(3).isOf(ItemRegistry.EARTH_GEM);
-        }
-        return false;
+    public static boolean canSummonTar(SummoningPedestalBlockEntity be) {
+        return be.hasItem(Items.SANDSTONE) && be.hasItem(ItemRegistry.EARTH_GEM) && be.hasItem(Items.DEEPSLATE) && be.hasItem(Items.EMERALD);
     }
 
     public static void summonTar(World world, BlockPos pos) {

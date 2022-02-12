@@ -113,6 +113,7 @@ public class TarEntity extends AbstractBossEntity {
         public void tick() {
             --this.cooldown;
             if (this.cooldown == 0) {
+                TarEntity.this.getLookControl().lookAt(TarEntity.this.getTarget(), 30F, 30F);
                 BlockPos spawnPos = TarEntity.this.getTarget().getBlockPos().up(5);
                 BlockPos east = spawnPos.east();
                 BlockPos north = spawnPos.north();
