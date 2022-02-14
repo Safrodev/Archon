@@ -7,10 +7,7 @@ import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredica
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.util.Identifier;
-import safro.archon.client.render.ManaLeechEntityRenderer;
-import safro.archon.client.render.SkeltEntityRenderer;
-import safro.archon.client.render.TarEntityRenderer;
-import safro.archon.client.render.WaterBoltEntityRenderer;
+import safro.archon.client.render.*;
 import safro.archon.client.render.block.SummoningPedestalBlockEntityRenderer;
 
 public class ClientRegistry {
@@ -19,11 +16,13 @@ public class ClientRegistry {
         // Entity Renderers
         EntityRendererRegistry.register(EntityRegistry.WATER_BOLT, WaterBoltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.ICE_BALL, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.WIND_BALL, WindBallEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.SKELT, SkeltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.PRIME_SKELT, SkeltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.OMEGA_SKELT, SkeltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.MANA_LEECH, ManaLeechEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.TAR, TarEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.ALYA, AlyaEntityRenderer::new);
 
         // Block Renderers
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MANA_BERRY_BUSH, RenderLayer.getCutout());

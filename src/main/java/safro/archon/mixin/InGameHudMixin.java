@@ -42,7 +42,7 @@ public abstract class InGameHudMixin {
     public void render(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
         PlayerEntity player = this.getCameraPlayer();
 
-        if (this.client.player.isAlive()) {
+        if (this.client.player.isAlive() && player != null) {
             if (Archon.CONFIG.displayManaWithItem) {
                 if (isValidManaItem(player.getStackInHand(Hand.MAIN_HAND)) || isValidManaItem(player.getStackInHand(Hand.OFF_HAND))) {
                     renderManaHud(matrices, player);

@@ -11,11 +11,13 @@ import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.entity.OmegaSkeltEntity;
 import safro.archon.entity.PrimeSkeltEntity;
+import safro.archon.entity.boss.AlyaEntity;
 import safro.archon.entity.boss.TarEntity;
 import safro.archon.entity.projectile.IceBallEntity;
 import safro.archon.entity.ManaLeechEntity;
 import safro.archon.entity.SkeltEntity;
 import safro.archon.entity.projectile.WaterBoltEntity;
+import safro.archon.entity.projectile.WindBallEntity;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -26,6 +28,7 @@ public class EntityRegistry {
     // Projectiles
     public static final EntityType<WaterBoltEntity> WATER_BOLT = register("water_bolt", FabricEntityTypeBuilder.<WaterBoltEntity>create(SpawnGroup.MISC, WaterBoltEntity::new).dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeBlocks(4).trackedUpdateRate(10).build());
     public static final EntityType<IceBallEntity> ICE_BALL = register("ice_ball", FabricEntityTypeBuilder.<IceBallEntity>create(SpawnGroup.MISC, IceBallEntity::new).dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeBlocks(4).trackedUpdateRate(10).build());
+    public static final EntityType<WindBallEntity> WIND_BALL = register("wind_ball", FabricEntityTypeBuilder.<WindBallEntity>create(SpawnGroup.MISC, WindBallEntity::new).dimensions(EntityDimensions.fixed(0.3125F, 0.3125F)).trackRangeBlocks(4).trackedUpdateRate(10).build());
 
     // Necromancy
     public static final EntityType<SkeltEntity> SKELT = register("skelt", FabricEntityTypeBuilder.<SkeltEntity>create(SpawnGroup.MISC, SkeltEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.99F)).trackRangeBlocks(8).build());
@@ -37,6 +40,7 @@ public class EntityRegistry {
 
     // Bosses
     public static final EntityType<TarEntity> TAR = register("tar", FabricEntityTypeBuilder.<TarEntity>create(SpawnGroup.MISC, TarEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.96F)).trackRangeBlocks(10).build());
+    public static final EntityType<AlyaEntity> ALYA = register("alya", FabricEntityTypeBuilder.<AlyaEntity>create(SpawnGroup.MISC, AlyaEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.96F)).trackRangeBlocks(10).build());
 
     private static <T extends Entity> EntityType<T> register(String name, EntityType<T> type) {
         ENTITY_TYPES.put(type, new Identifier(Archon.MODID, name));
@@ -51,5 +55,6 @@ public class EntityRegistry {
         FabricDefaultAttributeRegistry.register(OMEGA_SKELT, OmegaSkeltEntity.createOmegaSkeltAttributes());
         FabricDefaultAttributeRegistry.register(MANA_LEECH, ManaLeechEntity.createLeechAttributes());
         FabricDefaultAttributeRegistry.register(TAR, TarEntity.createTarAttributes());
+        FabricDefaultAttributeRegistry.register(ALYA, AlyaEntity.createAlyaAttributes());
     }
 }

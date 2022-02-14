@@ -56,6 +56,7 @@
   "item.archon.combustion_charge": "Combustion Charge",
   "item.archon.spry_dust": "Spry Dust",
   "item.archon.terranean_axe": "Terranean Axe",
+  "Item.archon.terranite_stone": "Terranite Stone",
 
   "entity.archon.water_bolt": "Water Bolt",
   "entity.minecraft.villager.wizard": "Wizard",
@@ -86,6 +87,9 @@
 
   "text.archon.tar.spawn": "[Tar] You think you can challenge me? HOW FOOLISH!",
   "text.archon.tar.kill": "[Tar] Ha! This is too easy!",
+  "text.archon.alya.spawn": "[Ayla] Oh my, such lovely specimen",
+  "text.archon.alya.kill": "[Ayla] Delightful!",
+  "text.archon.ayla.strike": "[Ayla] Away with you!",
 
   "command.archon.mana_add_one": "Added %s mana to %s",
   "command.archon.mana_add_multiple": "Added %s mana to %s players",

@@ -2,13 +2,12 @@ package safro.archon.util;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.block.entity.SummoningPedestalBlockEntity;
+import safro.archon.entity.boss.AlyaEntity;
 import safro.archon.entity.boss.TarEntity;
 import safro.archon.registry.EntityRegistry;
 import safro.archon.registry.ItemRegistry;
@@ -23,6 +22,17 @@ public class SummonUtil {
         tar.refreshPositionAndAngles(pos, 0.0F, 0.0F);
         tar.onSummoned();
         world.spawnEntity(tar);
+    }
+
+    public static boolean canSummonAlya(SummoningPedestalBlockEntity be) {
+        return be.hasItem(Items.GOLD_INGOT) && be.hasItem(ItemRegistry.SKY_GEM) && be.hasItem(Items.FEATHER) && be.hasItem(Items.WHITE_WOOL);
+    }
+
+    public static void summonAlya(World world, BlockPos pos) {
+        AlyaEntity alya = EntityRegistry.ALYA.create(world);
+        alya.refreshPositionAndAngles(pos, 0.0F, 0.0F);
+        alya.onSummoned();
+        world.spawnEntity(alya);
     }
 
     public static void addLightning(World world, BlockPos pos) {

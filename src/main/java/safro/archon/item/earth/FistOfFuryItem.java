@@ -21,6 +21,6 @@ public class FistOfFuryItem extends ManaWeapon {
     }
 
     public int getManaCost() {
-        return 40;
+        return 30;
     }
 }

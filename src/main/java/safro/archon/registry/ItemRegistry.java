@@ -39,7 +39,7 @@ public class ItemRegistry {
     // Weapons
     public static final Item ENDER_BLADE = register("ender_blade", new EnderBladeItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));
     public static final Item VOID_SCEPTER = register("void_scepter", new VoidScepterItem(ToolMaterials.DIAMOND, 1, -2.4F, simple()));
-    public static final Item TERRAIN_MACE = register("terrain_mace", new TerrainMaceItem(ToolMaterials.IRON, 6, -3.1F, simple()));
+    public static final Item TERRAIN_MACE = register("terrain_mace", new TerrainMaceItem(ToolMaterials.IRON, 4, -3.1F, simple()));
     public static final Item WITHER_STAVE = register("wither_stave", new WitherStaveItem(ToolMaterials.DIAMOND, 1, -2.4F, simple()));
     public static final Item THUNDER_BOLT = register("thunder_bolt", new ThunderBoltItem(ToolMaterials.IRON, 1, -1.1F, simple()));
     public static final Item WATER_STAFF = register("water_staff", new WaterStaffItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));
@@ -48,7 +48,7 @@ public class ItemRegistry {
     public static final Item FIST_OF_FURY = register("fist_of_fury", new FistOfFuryItem(ToolMaterials.IRON, 3, -1.8F, simple()));
     public static final Item FROST_SWORD = register("frost_sword", new FrostSwordItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));
 
-    public static final Item TERRANEAN_AXE = register("terranean_axe", new TerraneanAxeItem(ToolMaterials.IRON, 4, -3.1F, simple()));
+    public static final Item TERRANEAN_AXE = register("terranean_axe", new TerraneanAxeItem(ToolMaterials.IRON, 6, -3.1F, simple()));
 
     // Necromancy
     public static final Item SOUL_CRUSHER = register("soul_crusher", new SwordItem(ToolMaterials.NETHERITE, 3, -2.4F, simple()));
@@ -91,6 +91,7 @@ public class ItemRegistry {
     public static final Item LIGHTNING_BOTTLE = register("lightning_bottle", new LightningBottleItem(simple().maxCount(1)));
     public static final Item PIXIE_LEAVES = register("pixie_leaves", new Item(simple()));
     public static final Item SPRY_DUST = register("spry_dust", new Item(simple()));
+    public static final Item TERRANITE_STONE = register("terranite_stone", new Item(simple()));
 
     public static final Item MANA_LEECH_SPAWN_EGG = register("mana_leech_spawn_egg", new SpawnEggItem(EntityRegistry.MANA_LEECH, 0x043C99, 0x1D75B1, simple()));
 

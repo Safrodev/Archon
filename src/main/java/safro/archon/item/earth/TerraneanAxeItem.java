@@ -18,7 +18,7 @@ public class TerraneanAxeItem extends ManaWeapon {
 
     @Override
     public int getManaCost() {
-        return 70;
+        return 40;
     }
 
     @Override

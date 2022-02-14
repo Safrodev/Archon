@@ -24,7 +24,7 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
     private final DefaultedList<ItemStack> inventory;
     // 0 - Not processing anything
     // 1 - Summoning Tar boss
-    // 2 - Summoning -- boss
+    // 2 - Summoning Alya boss
     private int processor = 0;
     private int spawnDelay = 60;
 
@@ -52,14 +52,9 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
                 return ActionResult.SUCCESS;
             } else {
                 if (SummonUtil.canSummonTar(this)) {
-                    if (world.getBlockState(pos.up()).isAir() && world.getBlockState(pos.up().up()).isAir()) {
-                        this.setProcessor(1);
-                        this.clear();
-                        world.updateListeners(pos, state, state, 3);
-                        needsUpdate = true;
-                    } else {
-                        player.sendMessage(new TranslatableText("text.archon.invalid_summon").formatted(Formatting.RED), true);
-                    }
+                    checkAndSpawn(player, world, state, pos, 1);
+                } else if (SummonUtil.canSummonAlya(this)) {
+                    checkAndSpawn(player, world, state, pos, 2);
                 }
                 return ActionResult.CONSUME;
             }
@@ -71,6 +66,17 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
         return ActionResult.PASS;
     }
 
+    public void checkAndSpawn(PlayerEntity player, World world, BlockState state, BlockPos pos, int processor) {
+        if (world.getBlockState(pos.up()).isAir() && world.getBlockState(pos.up().up()).isAir()) {
+            this.setProcessor(processor);
+            this.clear();
+            world.updateListeners(pos, state, state, 3);
+            markDirty(world, pos, state);
+        } else {
+            player.sendMessage(new TranslatableText("text.archon.invalid_summon").formatted(Formatting.RED), true);
+        }
+    }
+
     public static void tick(World world, BlockPos pos, BlockState state, SummoningPedestalBlockEntity be) {
         if (be.isProcessing()) {
             --be.spawnDelay;
@@ -80,6 +86,9 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
             if (be.spawnDelay <= 0) {
                 if (be.getProcessor() == 1) {
                     SummonUtil.summonTar(world, pos.up());
+                    be.setProcessor(0);
+                } else if (be.getProcessor() == 2) {
+                    SummonUtil.summonAlya(world, pos.up());
                     be.setProcessor(0);
                 }
             }
