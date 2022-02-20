@@ -7,6 +7,7 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import safro.archon.item.ManaWeapon;
+import safro.archon.util.ArchonUtil;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class VacuumCleaverItem extends ManaWeapon {
         List<LivingEntity> list = world.getNonSpectatingEntities(LivingEntity.class, player.getBoundingBox().expand(20D));
         if (list.size() > 0) {
             for (LivingEntity entity : list) {
-                if (!(entity == player) || !canPull(entity)) {
+                if (!(entity == player) || !canPull(player, entity)) {
                     double d = player.getX() - entity.getX();
                     double e = player.getY() - entity.getY();
                     double f = player.getZ() - entity.getZ();
@@ -38,12 +39,15 @@ public class VacuumCleaverItem extends ManaWeapon {
         return false;
     }
 
-    private boolean canPull(LivingEntity entity) {
+    private boolean canPull(PlayerEntity player, LivingEntity entity) {
         if (entity instanceof PlayerEntity p) {
             if (p.getAbilities().flying) {
                 return false;
             }
         }
-        return entity.isAlive();
+        if (!ArchonUtil.isOwnedBy(player, entity)) {
+            return entity.isAlive();
+        }
+        return false;
     }
 }

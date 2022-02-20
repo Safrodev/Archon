@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:combustion_charge",
-      "text": "Combustion charges mine out a 5x5 area of a floor or wall, also leaving behind the drops. These can be useful for quick and large scale mining."
+      "text": "Combustion charges mine out a 7x7 area of a floor or wall, also leaving behind the drops. These can be useful for quick and large scale mining."
     },
     {
       "type": "patchouli:crafting",

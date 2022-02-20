@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -49,6 +50,9 @@ public class CombustionChargeItem extends Item {
         }
         float blockHardness = state.calcBlockBreakingDelta(player, world, pos);
         if (blockHardness == -1.0F) {
+            return false;
+        }
+        if (state.isIn(BlockTags.WITHER_IMMUNE)) {
             return false;
         }
         float originalHardness = world.getBlockState(original).getHardness(world, original);

@@ -99,6 +99,9 @@ public class ManaComponent implements AutoSyncedComponent, ServerTickingComponen
 
     public void setMaxMana(int amount) {
         this.maxMana = amount;
+        if (this.getMana() > this.getMaxMana()) {
+            this.setMana(this.getMaxMana());
+        }
         ComponentsRegistry.MANA_COMPONENT.sync(player);
     }
 

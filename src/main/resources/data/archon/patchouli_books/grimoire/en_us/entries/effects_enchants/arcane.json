@@ -2,7 +2,7 @@
   "name": "Arcane Enchantment",
   "icon": "minecraft:enchanted_book",
   "category": "archon:effects_enchants",
-  "sortnum": 2,
+  "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",

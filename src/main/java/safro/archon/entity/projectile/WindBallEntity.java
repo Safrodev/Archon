@@ -82,6 +82,6 @@ public class WindBallEntity extends ExplosiveProjectileEntity {
     }
 
     protected ParticleEffect getParticleType() {
-        return ParticleTypes.ENTITY_EFFECT;
+        return ParticleTypes.CLOUD;
     }
 }

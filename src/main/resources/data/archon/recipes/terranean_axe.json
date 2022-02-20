@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " IT",
+    " EI",
+    "E  "
+  ],
+  "key": {
+    "T": {
+      "item": "archon:terranite_stone"
+    },
+    "E": {
+      "item": "archon:earth_gem"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "archon:terranean_axe"
+  }
+}

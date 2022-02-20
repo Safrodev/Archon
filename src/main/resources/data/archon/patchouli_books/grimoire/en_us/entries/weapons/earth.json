@@ -22,6 +22,16 @@
     {
       "type": "patchouli:crafting",
       "recipe": "archon:fist_of_fury"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "anchor": "terranean",
+      "item": "archon:terranean_axe",
+      "text": "The Terranean Axe is a deadly axe that gives you 20 seconds of Resistance and $(l:archon:effects_enchants/sturdy)Sturdy$() upon using its ability."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:terranean_axe"
     }
   ]
 }

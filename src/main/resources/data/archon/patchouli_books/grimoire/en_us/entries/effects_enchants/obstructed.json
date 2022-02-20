@@ -2,7 +2,7 @@
   "name": "Obstructed",
   "icon": "archon:textures/mob_effect/obstructed.png",
   "category": "archon:effects_enchants",
-  "sortnum": 0,
+  "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",

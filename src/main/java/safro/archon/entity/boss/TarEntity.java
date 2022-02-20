@@ -26,6 +26,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import safro.archon.registry.ItemRegistry;
 
+import java.util.EnumSet;
+
 public class TarEntity extends AbstractBossEntity {
 
     public TarEntity(EntityType<? extends TarEntity> entityType, World world) {
@@ -60,7 +62,7 @@ public class TarEntity extends AbstractBossEntity {
 
     @Override
     public Item getDrop() {
-        return ItemRegistry.EARTH_GEM;
+        return ItemRegistry.TERRANITE_STONE;
     }
 
     @Override
@@ -86,7 +88,9 @@ public class TarEntity extends AbstractBossEntity {
         protected int cooldown;
         protected int startTime;
 
-        protected DropRocksGoal() {}
+        protected DropRocksGoal() {
+            this.setControls(EnumSet.of(Control.LOOK));
+        }
 
         public boolean canStart() {
             LivingEntity livingEntity = TarEntity.this.getTarget();
@@ -108,19 +112,27 @@ public class TarEntity extends AbstractBossEntity {
         public void start() {
             this.cooldown = this.getTickCount(20);
             this.startTime = TarEntity.this.age + 50;
+            TarEntity.this.getLookControl().lookAt(TarEntity.this.getTarget(), 30F, 30F);
         }
 
         public void tick() {
             --this.cooldown;
             if (this.cooldown == 0) {
-                TarEntity.this.getLookControl().lookAt(TarEntity.this.getTarget(), 30F, 30F);
                 BlockPos spawnPos = TarEntity.this.getTarget().getBlockPos().up(5);
                 BlockPos east = spawnPos.east();
                 BlockPos north = spawnPos.north();
                 BlockPos west = spawnPos.west();
                 BlockPos south = spawnPos.south();
+                for (int i = 0; i < 5; i++) {
+                    BlockPos pos = getDirFromInt(spawnPos, i);
+                    FallingBlockEntity block = new FallingBlockEntity(world, pos.getX(), pos.getY(), pos.getZ(), Blocks.COBBLESTONE.getDefaultState());
+                    block.setHurtEntities(20.0F, 40);
+                    block.timeFalling = Integer.MIN_VALUE;
+                    block.dropItem = false;
+                    world.spawnEntity(block);
+                }
 
-                FallingBlockEntity block = new FallingBlockEntity(world, spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(), Blocks.COBBLESTONE.getDefaultState());
+            /*    FallingBlockEntity block = new FallingBlockEntity(world, spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(), Blocks.COBBLESTONE.getDefaultState());
                 block.setHurtEntities(20.0F, 40);
                 block.timeFalling = Integer.MIN_VALUE;
                 world.spawnEntity(block);
@@ -139,10 +151,26 @@ public class TarEntity extends AbstractBossEntity {
                 FallingBlockEntity block4 = new FallingBlockEntity(world, north.getX(), north.getY(), north.getZ(), Blocks.COBBLESTONE.getDefaultState());
                 block4.setHurtEntities(20.0F, 40);
                 block4.timeFalling = Integer.MIN_VALUE;
-                world.spawnEntity(block4);
+                world.spawnEntity(block4); */
+
                 world.playSound(null, spawnPos, SoundEvents.ENTITY_WITHER_BREAK_BLOCK, SoundCategory.HOSTILE, 2.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
                 TarEntity.this.swingHand(Hand.MAIN_HAND);
             }
+        }
+
+        private BlockPos getDirFromInt(BlockPos origin, int x) {
+            if (x == 0) {
+                return origin;
+            } else if (x == 1) {
+                return origin.north();
+            } else if (x == 2) {
+                return origin.south();
+            } else if (x == 3) {
+                return origin.east();
+            } else if (x == 4) {
+                return origin.west();
+            }
+            return origin;
         }
     }
 

@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -78,6 +79,15 @@ public class ArchonUtil {
                 }
             }
         }
+    }
+
+    public static boolean isOwnedBy(PlayerEntity player, LivingEntity entity) {
+        if (entity instanceof TameableEntity tame) {
+            if (tame.getOwner() != null) {
+                return tame.isOwner(player);
+            }
+        }
+        return false;
     }
 
     // Credit to Tech Reborn for this

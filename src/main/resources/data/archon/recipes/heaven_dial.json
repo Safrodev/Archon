@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SGS",
+    "GAG",
+    "SGS"
+  ],
+  "key": {
+    "A": {
+      "item": "archon:angelic_star"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "archon:sky_gem"
+    }
+  },
+  "result": {
+    "item": "archon:heaven_dial"
+  }
+}

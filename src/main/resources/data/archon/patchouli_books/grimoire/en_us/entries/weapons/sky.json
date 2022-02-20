@@ -21,6 +21,15 @@
     {
       "type": "patchouli:crafting",
       "recipe": "archon:vacuum_cleaver"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:heaven_dial",
+      "text": "Upon using the Heaven's Dial, you can heal all players (including yourself), villagers, iron golems, and pets around you for a large amount of HP. Players healed will also receive a hunger boost."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:heaven_dial"
     }
   ]
 }

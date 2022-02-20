@@ -61,7 +61,7 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
 
     @Override
     public Item getDrop() {
-        return ItemRegistry.SKY_GEM;
+        return ItemRegistry.ANGELIC_STAR;
     }
 
     @Override
@@ -100,7 +100,7 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
     }
 
     private double getHeadY(int headIndex) {
-        return headIndex <= 0 ? this.getY() + 3.0D : this.getY() + 2.2D;
+        return headIndex <= 0 ? this.getY() + 1.0D : this.getY() + 2.2D;
     }
 
     private double getHeadZ(int headIndex) {
@@ -134,8 +134,8 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
         this.shootAt(0, target);
     }
 
-    public void mobTick() {
-        super.mobTick();
+    public void tick() {
+        super.tick();
         --strikeCooldown;
         if (this.getInvulnerableTimer() < 0) {
             if (this.getTarget() != null && strikeCooldown < 1) {
@@ -149,14 +149,14 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
                     ((LightningAccess)lightningEntity).setFireSpawning(false);
                     world.spawnEntity(lightningEntity);
                 }
-                strikeCooldown = 400 + random.nextInt(400);
+                strikeCooldown = 200 + random.nextInt(200);
             }
         }
     }
 
     public void onSummoned() {
         super.onSummoned();
-        this.strikeCooldown = 400 + random.nextInt(400);
+        this.strikeCooldown = 200 + random.nextInt(200);
     }
 
     static {

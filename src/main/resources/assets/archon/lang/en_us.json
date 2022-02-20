@@ -56,7 +56,13 @@
   "item.archon.combustion_charge": "Combustion Charge",
   "item.archon.spry_dust": "Spry Dust",
   "item.archon.terranean_axe": "Terranean Axe",
-  "Item.archon.terranite_stone": "Terranite Stone",
+  "item.archon.terranite_stone": "Terranite Stone",
+  "item.archon.angelic_star": "Angelic Star",
+  "item.archon.heaven_dial": "Heaven's Dial",
+
+  "item.archon.capacity_scroll": "Ancient Scroll",
+  "item.archon.accelerate_scroll": "Ancient Scroll",
+  "item.archon.removal_scroll": "Ancient Scroll",
 
   "entity.archon.water_bolt": "Water Bolt",
   "entity.minecraft.villager.wizard": "Wizard",
@@ -65,9 +71,7 @@
   "entity.archon.omega_skelt": "Omega Skelt",
   "entity.archon.mana_leech": "Mana Leech",
   "entity.archon.tar": "Tar",
-
-  "item.archon.capacity_scroll": "Ancient Scroll",
-  "item.archon.accelerate_scroll": "Ancient Scroll",
+  "entity.archon.ayla": "Ayla",
 
   "effect.archon.rage": "Rage",
   "effect.archon.obstructed": "Obstructed",
@@ -78,12 +82,16 @@
 
   "text.archon.capacity": "Capacity",
   "text.archon.accelerate": "Accelerate",
+  "text.archon.removal": "Removal",
   "text.archon.has_scroll": "You already have a scroll",
+  "text.archon.removed_scroll": "Removed Scroll: %s",
   "text.archon.skelt_sit": "Skelt stopped following",
   "text.archon.skelt_stand": "Skelt will now follow",
   "text.archon.mana_cost": "Mana Cost: %s",
   "text.archon.invalid_book": "Patchouli is not installed!",
   "text.archon.invalid_summon": "Must have air above pedestal!",
+  "text.archon.dial_mode_heal": "Dial Set To: Heal",
+  "text.archon.dial_mode_blind": "Dial Set To: Blind",
 
   "text.archon.tar.spawn": "[Tar] You think you can challenge me? HOW FOOLISH!",
   "text.archon.tar.kill": "[Tar] Ha! This is too easy!",
@@ -113,6 +121,6 @@
   "advancements.archon.mask_of_power.title": "Unrivaled Power",
   "advancements.archon.mask_of_power.description": "Craft a Mask of Power",
 
-  "text.archon.book.landing_text": "This magical book will guide you through your adventures as a wizard",
-  "text.archon.book.subtitle": "A wizard's guide"
+  "text.archon.book.landing_text": "This magical book will guide you through your adventures as a sorcerer",
+  "text.archon.book.subtitle": "A sorcerer's guide"
 }

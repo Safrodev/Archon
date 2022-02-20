@@ -60,7 +60,7 @@ public class SummoningPedestalBlock extends Block implements BlockEntityProvider
 
     static {
         TOP_SHAPE = Block.createCuboidShape(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-        BOTTOM_SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 13.0D, 11.0D, 13.0D);
+        BOTTOM_SHAPE = Block.createCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 12.0D, 13.0D);
         SHAPE = VoxelShapes.union(BOTTOM_SHAPE, TOP_SHAPE);
     }
 }

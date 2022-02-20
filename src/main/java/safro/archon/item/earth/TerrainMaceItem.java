@@ -12,6 +12,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import safro.archon.item.ManaWeapon;
+import safro.archon.util.ArchonUtil;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class TerrainMaceItem extends ManaWeapon {
         List<LivingEntity> list = world.getEntitiesByClass(LivingEntity.class, player.getBoundingBox().expand(16D), EntityPredicates.VALID_LIVING_ENTITY);
         if (list.size() > 0) {
             for (LivingEntity e : list) {
-                if (!(e instanceof TameableEntity) && !(e == player)) {
+                if (!ArchonUtil.isOwnedBy(player, e) && !(e == player)) {
                     e.damage(DamageSource.player(player), 5);
                     e.addVelocity(0, 2, 0);
                 }

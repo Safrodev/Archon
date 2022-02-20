@@ -20,6 +20,7 @@ import safro.archon.item.fire.HeatRangerItem;
 import safro.archon.item.fire.WitherStaveItem;
 import safro.archon.item.necromancy.UndeadStaffItem;
 import safro.archon.item.sky.BreezyHarvesterItem;
+import safro.archon.item.sky.HeavenDialItem;
 import safro.archon.item.sky.ThunderBoltItem;
 import safro.archon.item.sky.VacuumCleaverItem;
 import safro.archon.item.water.FrostSwordItem;
@@ -36,7 +37,7 @@ public class ItemRegistry {
     public static Item GRIMOIRE = register("grimoire", new GrimoireItem(simple().maxCount(1)));
     public static final Item CHANNELER = register("channeler", new ChannelerItem(simple().maxCount(1).rarity(Rarity.UNCOMMON)));
 
-    // Weapons
+    // Weapons // Gear
     public static final Item ENDER_BLADE = register("ender_blade", new EnderBladeItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));
     public static final Item VOID_SCEPTER = register("void_scepter", new VoidScepterItem(ToolMaterials.DIAMOND, 1, -2.4F, simple()));
     public static final Item TERRAIN_MACE = register("terrain_mace", new TerrainMaceItem(ToolMaterials.IRON, 4, -3.1F, simple()));
@@ -48,7 +49,8 @@ public class ItemRegistry {
     public static final Item FIST_OF_FURY = register("fist_of_fury", new FistOfFuryItem(ToolMaterials.IRON, 3, -1.8F, simple()));
     public static final Item FROST_SWORD = register("frost_sword", new FrostSwordItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));
 
-    public static final Item TERRANEAN_AXE = register("terranean_axe", new TerraneanAxeItem(ToolMaterials.IRON, 6, -3.1F, simple()));
+    public static final Item TERRANEAN_AXE = register("terranean_axe", new TerraneanAxeItem(ToolMaterials.IRON, 6, -3.1F, simple().rarity(Rarity.RARE)));
+    public static final Item HEAVEN_DIAL = register("heaven_dial", new HeavenDialItem(simple().maxCount(1).rarity(Rarity.RARE)));
 
     // Necromancy
     public static final Item SOUL_CRUSHER = register("soul_crusher", new SwordItem(ToolMaterials.NETHERITE, 3, -2.4F, simple()));
@@ -69,6 +71,7 @@ public class ItemRegistry {
     // Scrolls + Souls
     public static final Item CAPACITY_SCROLL = register("capacity_scroll", new ScrollItem("capacity", simple().maxCount(1).rarity(Rarity.UNCOMMON)));
     public static final Item ACCELERATE_SCROLL = register("accelerate_scroll", new ScrollItem("accelerate", simple().maxCount(1).rarity(Rarity.UNCOMMON)));
+    public static final Item REMOVAL_SCROLL = register("removal_scroll", new RemovalScrollItem(simple().maxCount(1).rarity(Rarity.UNCOMMON)));
 
     public static final Item PLAYER_SOUL = register("player_soul", new SoulItem(SoulType.PLAYER, soul()));
     public static final Item CREATURE_SOUL = register("creature_soul", new SoulItem(SoulType.CREATURE, soul()));
@@ -92,6 +95,7 @@ public class ItemRegistry {
     public static final Item PIXIE_LEAVES = register("pixie_leaves", new Item(simple()));
     public static final Item SPRY_DUST = register("spry_dust", new Item(simple()));
     public static final Item TERRANITE_STONE = register("terranite_stone", new Item(simple()));
+    public static final Item ANGELIC_STAR = register("angelic_star", new Item(simple()));
 
     public static final Item MANA_LEECH_SPAWN_EGG = register("mana_leech_spawn_egg", new SpawnEggItem(EntityRegistry.MANA_LEECH, 0x043C99, 0x1D75B1, simple()));
 
