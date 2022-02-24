@@ -18,9 +18,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import safro.archon.Archon;
 import safro.archon.item.ChannelerItem;
 import safro.archon.item.ManaBerriesItem;
+import safro.archon.item.ManaItem;
 import safro.archon.item.ManaWeapon;
 import safro.archon.item.fire.HeatRangerItem;
-import safro.archon.item.necromancy.UndeadStaffItem;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
 
@@ -71,8 +71,9 @@ public abstract class InGameHudMixin {
         }
     }
 
+    // Not the most efficient way of doing this, but it works for now
     private boolean isValidManaItem(ItemStack stack) {
-        return stack.getItem() instanceof ManaWeapon || stack.getItem() instanceof UndeadStaffItem ||
+        return stack.getItem() instanceof ManaWeapon || stack.getItem() instanceof ManaItem ||
                 stack.getItem() instanceof ChannelerItem || stack.getItem() instanceof HeatRangerItem ||
                 stack.getItem() instanceof ManaBerriesItem || stack.isOf(ItemRegistry.SOUL_CRUSHER);
     }

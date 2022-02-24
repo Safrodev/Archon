@@ -40,7 +40,7 @@ public class EntityRegistry {
 
     // Bosses
     public static final EntityType<TarEntity> TAR = register("tar", FabricEntityTypeBuilder.<TarEntity>create(SpawnGroup.MISC, TarEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.96F)).trackRangeBlocks(10).build());
-    public static final EntityType<AlyaEntity> ALYA = register("alya", FabricEntityTypeBuilder.<AlyaEntity>create(SpawnGroup.MISC, AlyaEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.96F)).trackRangeBlocks(10).build());
+    public static final EntityType<AlyaEntity> ALYA = register("ayla", FabricEntityTypeBuilder.<AlyaEntity>create(SpawnGroup.MISC, AlyaEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.96F)).trackRangeBlocks(10).build());
 
     private static <T extends Entity> EntityType<T> register(String name, EntityType<T> type) {
         ENTITY_TYPES.put(type, new Identifier(Archon.MODID, name));

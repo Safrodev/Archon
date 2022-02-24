@@ -70,13 +70,13 @@ public abstract class AbstractBossEntity extends HostileEntity {
     public void onSummoned() {
         this.setInvulTimer(getInvulTime());
         this.bossBar.setPercent(0.0F);
-        List<ServerPlayerEntity> var = world.getNonSpectatingEntities(ServerPlayerEntity.class, this.getBoundingBox().expand(50));
+        List<PlayerEntity> var = world.getNonSpectatingEntities(PlayerEntity.class, this.getBoundingBox().expand(50));
         sendMessage(getSpawnMessage(), var);
     }
 
-    public void sendMessage(Text text, List<ServerPlayerEntity> list) {
+    public void sendMessage(Text text, List<PlayerEntity> list) {
         while (list.iterator().hasNext()) {
-            ServerPlayerEntity player = (ServerPlayerEntity)list.iterator().next();
+            PlayerEntity player = (PlayerEntity)list.iterator().next();
             player.sendMessage(text, false);
             list.remove(player);
         }
@@ -156,7 +156,7 @@ public abstract class AbstractBossEntity extends HostileEntity {
 
     public void onKilledOther(ServerWorld world, LivingEntity other) {
         if (other instanceof PlayerEntity) {
-            List<ServerPlayerEntity> var = world.getNonSpectatingEntities(ServerPlayerEntity.class, this.getBoundingBox().expand(50));
+            List<PlayerEntity> var = world.getNonSpectatingEntities(PlayerEntity.class, this.getBoundingBox().expand(50));
             sendMessage(getKillMessage(), var);
         }
     }

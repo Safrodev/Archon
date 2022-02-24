@@ -95,13 +95,18 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 50,
+          "weight": 40,
           "name": "archon:capacity_scroll"
         },
         {
           "type": "minecraft:item",
-          "weight": 50,
+          "weight": 40,
           "name": "archon:accelerate_scroll"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "name": "archon:removal_scroll"
         }
       ]
     }

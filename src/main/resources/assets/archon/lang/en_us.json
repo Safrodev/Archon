@@ -97,7 +97,6 @@
   "text.archon.tar.kill": "[Tar] Ha! This is too easy!",
   "text.archon.alya.spawn": "[Ayla] Oh my, such lovely specimen",
   "text.archon.alya.kill": "[Ayla] Delightful!",
-  "text.archon.ayla.strike": "[Ayla] Away with you!",
 
   "command.archon.mana_add_one": "Added %s mana to %s",
   "command.archon.mana_add_multiple": "Added %s mana to %s players",
@@ -120,6 +119,10 @@
   "advancements.archon.druid_boots.description": "Craft Druid Boots",
   "advancements.archon.mask_of_power.title": "Unrivaled Power",
   "advancements.archon.mask_of_power.description": "Craft a Mask of Power",
+  "advancements.archon.kill_tar.title": "Rocky Rumble",
+  "advancements.archon.kill_tar.description": "Defeat Tar",
+  "advancements.archon.kill_ayla.title": "Fall of the Sky",
+  "advancements.archon.kill_ayla.description": "Defeat Ayla",
 
   "text.archon.book.landing_text": "This magical book will guide you through your adventures as a sorcerer",
   "text.archon.book.subtitle": "A sorcerer's guide"

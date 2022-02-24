@@ -2,7 +2,6 @@ package safro.archon.entity.boss;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.control.FlightMoveControl;
@@ -12,6 +11,7 @@ import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -23,13 +23,11 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.entity.projectile.WindBallEntity;
 import safro.archon.registry.ItemRegistry;
-import safro.archon.util.LightningAccess;
 
 import java.util.function.Predicate;
 
 public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
     private static final Predicate<LivingEntity> CAN_ATTACK_PREDICATE;
-    private int strikeCooldown;
 
     public AlyaEntity(EntityType<? extends AlyaEntity> entityType, World world) {
         super(entityType, world);
@@ -72,10 +70,6 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
     @Override
     public Text getKillMessage() {
         return new TranslatableText("text.archon.alya.kill").formatted(Formatting.WHITE);
-    }
-
-    public Text getStrikeMessage() {
-        return new TranslatableText("text.archon.ayla.strike").formatted(Formatting.WHITE);
     }
 
     protected EntityNavigation createNavigation(World world) {
@@ -134,29 +128,17 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
         this.shootAt(0, target);
     }
 
-    public void tick() {
-        super.tick();
-        --strikeCooldown;
-        if (this.getInvulnerableTimer() < 0) {
-            if (this.getTarget() != null && strikeCooldown < 1) {
-                LivingEntity target = this.getTarget();
-                if (world.isSkyVisible(target.getBlockPos())) {
-                    if (target instanceof PlayerEntity player) {
-                        player.sendMessage(getStrikeMessage(), false);
-                    }
-                    LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(world);
-                    lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(target.getBlockPos()));
-                    ((LightningAccess)lightningEntity).setFireSpawning(false);
-                    world.spawnEntity(lightningEntity);
+    public boolean damage(DamageSource source, float amount) {
+        if (super.damage(source, amount)) {
+            double low = 0.3D * this.getMaxHealth();
+            if (this.getHealth() <= low) {
+                if (this.isOnGround() && world.getBlockState(this.getBlockPos().up(2)).isAir()) {
+                    this.setVelocity(this.getVelocity().add(0, 1, 0));
                 }
-                strikeCooldown = 200 + random.nextInt(200);
             }
+            return true;
         }
-    }
-
-    public void onSummoned() {
-        super.onSummoned();
-        this.strikeCooldown = 200 + random.nextInt(200);
+        return false;
     }
 
     static {

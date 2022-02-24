@@ -1,0 +1,39 @@
+{
+  "parent": "archon:kill_tar",
+  "display": {
+    "icon": {
+      "item": "archon:angelic_star"
+    },
+    "title": {
+      "translate": "advancements.archon.kill_ayla.title"
+    },
+    "description": {
+      "translate": "advancements.archon.kill_ayla.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "archon:ayla": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "archon:ayla"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "archon:ayla"
+    ]
+  ]
+}

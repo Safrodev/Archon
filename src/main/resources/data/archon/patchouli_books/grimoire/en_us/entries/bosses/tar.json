@@ -1,0 +1,17 @@
+{
+  "name": "Tar",
+  "icon": "archon:terranite_stone",
+  "category": "archon:bosses",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Tar is an Earth boss who deals deadly melee damage. If you are to wander out of his attack range, he will drop large chunks of cobblestone on you, so keep moving! Tar has knockback resistance and his tough skin deflects projectiles like arrows. Tar drops a Terranite Stone upon death. You can find the items needed to summon him on the next page."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:tar",
+      "text": "Earth Gem, Deepslate, Sandstone, Emerald"
+    }
+  ]
+}
