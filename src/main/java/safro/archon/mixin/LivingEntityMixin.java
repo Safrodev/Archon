@@ -52,9 +52,9 @@ public class LivingEntityMixin {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (TagRegistry.BOSSES.contains(entity.getType())) {
             return ItemRegistry.BOSS_SOUL;
-        } else if (entity.isPlayer()) {
+        } else if (TagRegistry.PLAYERS.contains(entity.getType())) {
             return ItemRegistry.PLAYER_SOUL;
-        } else if (entity instanceof PassiveEntity && !(entity instanceof SkeltEntity)) {
+        } else if (TagRegistry.CREATURES.contains(entity.getType()) && !(entity instanceof SkeltEntity)) {
             return ItemRegistry.CREATURE_SOUL;
         }
         return null;
