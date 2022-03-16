@@ -24,6 +24,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import safro.archon.mixin.FallingBlockEntityAccessor;
 import safro.archon.registry.ItemRegistry;
 
 import java.util.EnumSet;
@@ -119,39 +120,14 @@ public class TarEntity extends AbstractBossEntity {
             --this.cooldown;
             if (this.cooldown == 0) {
                 BlockPos spawnPos = TarEntity.this.getTarget().getBlockPos().up(5);
-                BlockPos east = spawnPos.east();
-                BlockPos north = spawnPos.north();
-                BlockPos west = spawnPos.west();
-                BlockPos south = spawnPos.south();
                 for (int i = 0; i < 5; i++) {
                     BlockPos pos = getDirFromInt(spawnPos, i);
-                    FallingBlockEntity block = new FallingBlockEntity(world, pos.getX(), pos.getY(), pos.getZ(), Blocks.COBBLESTONE.getDefaultState());
+                    FallingBlockEntity block = FallingBlockEntityAccessor.create(world, pos.getX(), pos.getY(), pos.getZ(), Blocks.COBBLESTONE.getDefaultState());
                     block.setHurtEntities(20.0F, 40);
                     block.timeFalling = Integer.MIN_VALUE;
                     block.dropItem = false;
                     world.spawnEntity(block);
                 }
-
-            /*    FallingBlockEntity block = new FallingBlockEntity(world, spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(), Blocks.COBBLESTONE.getDefaultState());
-                block.setHurtEntities(20.0F, 40);
-                block.timeFalling = Integer.MIN_VALUE;
-                world.spawnEntity(block);
-                FallingBlockEntity block1 = new FallingBlockEntity(world, east.getX(), east.getY(), east.getZ(), Blocks.COBBLESTONE.getDefaultState());
-                block1.setHurtEntities(20.0F, 40);
-                block1.timeFalling = Integer.MIN_VALUE;
-                world.spawnEntity(block1);
-                FallingBlockEntity block2 = new FallingBlockEntity(world, west.getX(), west.getY(), west.getZ(), Blocks.COBBLESTONE.getDefaultState());
-                block2.setHurtEntities(20.0F, 40);
-                block2.timeFalling = Integer.MIN_VALUE;
-                world.spawnEntity(block2);
-                FallingBlockEntity block3 = new FallingBlockEntity(world, south.getX(), south.getY(), south.getZ(), Blocks.COBBLESTONE.getDefaultState());
-                block3.setHurtEntities(20.0F, 40);
-                block3.timeFalling = Integer.MIN_VALUE;
-                world.spawnEntity(block3);
-                FallingBlockEntity block4 = new FallingBlockEntity(world, north.getX(), north.getY(), north.getZ(), Blocks.COBBLESTONE.getDefaultState());
-                block4.setHurtEntities(20.0F, 40);
-                block4.timeFalling = Integer.MIN_VALUE;
-                world.spawnEntity(block4); */
 
                 world.playSound(null, spawnPos, SoundEvents.ENTITY_WITHER_BREAK_BLOCK, SoundCategory.HOSTILE, 2.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
                 TarEntity.this.swingHand(Hand.MAIN_HAND);

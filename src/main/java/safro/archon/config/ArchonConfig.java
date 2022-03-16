@@ -139,17 +139,6 @@ public class ArchonConfig implements Config {
 
     @Comment(
             """
-                    The Spacing and Separation of Spire structures in your world. NOTE: The Spacing value MUST be larger than the Separation value.
-                    Default Spacing: 22
-                    Default Separation: 20
-            """
-    )
-    @Syncing
-    public int spire_spacing = 22;
-    public int spire_separation = 20;
-
-    @Comment(
-            """
                     Determines whether the a sound should be played when using a channeler
                     Client-Sided, Accepts "true" or "false"
                     Default: true

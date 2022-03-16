@@ -27,7 +27,7 @@ public class LivingEntityMixin {
             if (player.getMainHandStack().isOf(ItemRegistry.SOUL_CRUSHER) && mana.getMana() < mana.getMaxMana()) {
                 mana.addMana(manaForType());
             } else if (player.getMainHandStack().isOf(ItemRegistry.SOUL_SCYTHE) && soulForType() != null) {
-                if (TagRegistry.BOSSES.contains(entity.getType())) {
+                if (entity.getType().isIn(TagRegistry.BOSSES)) {
                     ArchonUtil.dropItem(entity.world, entity.getBlockPos(), soulForType());
                 } else if (entity.getRandom().nextFloat() <= Archon.CONFIG.soulDropChance) {
                     ArchonUtil.dropItem(entity.world, entity.getBlockPos(), soulForType());
@@ -38,7 +38,7 @@ public class LivingEntityMixin {
 
     private int manaForType() {
         LivingEntity entity = (LivingEntity) (Object) this;
-        if (TagRegistry.BOSSES.contains(entity.getType())) {
+        if (entity.getType().isIn(TagRegistry.BOSSES)) {
             return 50;
         } else if (entity.isPlayer()) {
             return 30;
@@ -50,11 +50,11 @@ public class LivingEntityMixin {
 
     private Item soulForType() {
         LivingEntity entity = (LivingEntity) (Object) this;
-        if (TagRegistry.BOSSES.contains(entity.getType())) {
+        if (entity.getType().isIn(TagRegistry.BOSSES)) {
             return ItemRegistry.BOSS_SOUL;
-        } else if (TagRegistry.PLAYERS.contains(entity.getType())) {
+        } else if (entity.getType().isIn(TagRegistry.PLAYERS)) {
             return ItemRegistry.PLAYER_SOUL;
-        } else if (TagRegistry.CREATURES.contains(entity.getType()) && !(entity instanceof SkeltEntity)) {
+        } else if (entity.getType().isIn(TagRegistry.CREATURES) && !(entity instanceof SkeltEntity)) {
             return ItemRegistry.CREATURE_SOUL;
         }
         return null;

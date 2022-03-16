@@ -11,7 +11,10 @@
     "CreeperEntityMixin",
     "ItemEntityMixin",
     "PotionEntityMixin",
-    "StructurePoolAccessor"
+    "StructurePoolAccessor",
+    "FallingBlockEntityAccessor",
+    "StructurePoolMixin",
+    "StructureFeatureAccessor"
   ],
   "client": [
     "InGameHudMixin"

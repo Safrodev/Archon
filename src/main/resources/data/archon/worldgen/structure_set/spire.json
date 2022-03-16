@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "archon:spire",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1038733,
+    "spacing": 23,
+    "separation": 22,
+    "type": "minecraft:random_spread"
+  }
+}
