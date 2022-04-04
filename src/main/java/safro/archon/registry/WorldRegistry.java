@@ -45,7 +45,7 @@ public class WorldRegistry {
     public static final RegistryEntry<PlacedFeature> END_NODE_PLACED = register("end_node", END_NODE_CONFIGURED, modifiersWithCount(HeightRangePlacementModifier.uniform(YOffset.fixed(Archon.CONFIG.endNodeMin), YOffset.fixed(Archon.CONFIG.endNodeMax))));
     public static final RegistryEntry<PlacedFeature> SKY_NODE_PLACED = register("sky_node", SKY_NODE_CONFIGURED, List.of(RarityFilterPlacementModifier.of(Archon.CONFIG.skyNodeChance), PlacedFeatures.createCountExtraModifier(1, 0.25F, 1), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(192), YOffset.fixed(196)), BiomePlacementModifier.of()));
 
-    public static final RegistryEntry<PlacedFeature> MBB_PATCH_PLACED = register("mana_berry_bush_patch", MBB_PATCH_CONFIGURED, VegetationPlacedFeatures.modifiers(Archon.CONFIG.manaBerryBushChance));
+    public static final RegistryEntry<PlacedFeature> MBB_PATCH_PLACED = register("mana_berry_bush_patch", MBB_PATCH_CONFIGURED, List.of(new PlacementModifier[]{RarityFilterPlacementModifier.of(Archon.CONFIG.manaBerryBushChance), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of()}));
 
     // Structure Features
     public static final StructureFeature<StructurePoolFeatureConfig> SPIRE = new SpireFeature(StructurePoolFeatureConfig.CODEC);

@@ -146,7 +146,6 @@ public class SkeltEntity extends TameableEntity {
     }
 
     public void initEquipment(LocalDifficulty difficulty) {
-        super.initEquipment(difficulty);
     }
 
     public float getScale() {

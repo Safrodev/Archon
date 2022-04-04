@@ -12,11 +12,11 @@ public class ArchonConfig implements Config {
                     Sets the position of the mana display.
                     The x-offset is subtracted from the x pos of the middle of the screen. (Ex: 0 would make it right in the middle)
                     The y-offset is subtracted from the y pos at the bottom of the screen. (Ex: 0 would make it at the very bottom of the screen)
-                    X-Offset Default: 140
+                    X-Offset Default: 160
                     Y-Offset Default: 15
             """
     )
-    public int mana_xoffset = 140;
+    public int mana_xoffset = 160;
     public int mana_yoffset = 15;
 
     @Comment(
@@ -130,12 +130,12 @@ public class ArchonConfig implements Config {
 
     @Comment(
             """
-                    The Chance for Mana Berry Bushes to spawn
-                    Default: 32
+                    The Chance for Mana Berry Bushes to spawn (lower is more common, higher is more rare)
+                    Default: 384
             """
     )
     @Syncing
-    public int manaBerryBushChance = 32;
+    public int manaBerryBushChance = 384;
 
     @Comment(
             """
