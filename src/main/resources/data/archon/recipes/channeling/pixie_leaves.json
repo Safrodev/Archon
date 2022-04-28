@@ -1,6 +1,6 @@
 {
   "type": "archon:channeling",
-  "block": "minecraft:acacia_leaves",
+  "tag": "minecraft:leaves",
   "result": {
     "item": "archon:pixie_leaves",
     "count": 1

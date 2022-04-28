@@ -1,6 +1,6 @@
 {
   "type": "archon:channeling",
-  "block": "minecraft:gold_ore",
+  "tag": "minecraft:gold_ores",
   "result": {
     "item": "minecraft:raw_gold",
     "count": 2

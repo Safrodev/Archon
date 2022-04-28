@@ -1,6 +1,6 @@
 {
   "type": "archon:channeling",
-  "block": "minecraft:redstone_ore",
+  "tag": "minecraft:redstone_ores",
   "result": {
     "item": "minecraft:redstone",
     "count": 7

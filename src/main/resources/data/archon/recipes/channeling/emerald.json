@@ -1,6 +1,6 @@
 {
   "type": "archon:channeling",
-  "block": "minecraft:emerald_ore",
+  "tag": "minecraft:emerald_ores",
   "result": {
     "item": "minecraft:emerald",
     "count": 2

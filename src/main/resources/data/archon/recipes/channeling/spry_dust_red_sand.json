@@ -1,9 +1,0 @@
-{
-  "type": "archon:channeling",
-  "block": "minecraft:red_sand",
-  "result": {
-    "item": "archon:spry_dust",
-    "count": 1
-  },
-  "manaCost": 10
-}

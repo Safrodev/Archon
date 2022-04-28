@@ -1,9 +1,0 @@
-{
-  "type": "archon:channeling",
-  "block": "minecraft:oak_leaves",
-  "result": {
-    "item": "archon:pixie_leaves",
-    "count": 1
-  },
-  "manaCost": 30
-}

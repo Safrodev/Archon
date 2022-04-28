@@ -1,9 +1,0 @@
-{
-  "type": "archon:channeling",
-  "block": "minecraft:deepslate_iron_ore",
-  "result": {
-    "item": "minecraft:raw_iron",
-    "count": 3
-  },
-  "manaCost": 30
-}

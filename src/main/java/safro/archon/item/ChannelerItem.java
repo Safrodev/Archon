@@ -3,7 +3,6 @@ package safro.archon.item;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
@@ -36,22 +35,19 @@ public class ChannelerItem extends Item {
     }
 
     private ActionResult tryRecipe(PlayerEntity player, World world, Block block, BlockPos pos) {
-        ChannelingRecipe channeling = world.getRecipeManager().listAllOfType(MiscRegistry.CHANNELING).stream().filter(recipe -> recipe.getBlock() == block).findFirst().orElse(null);
-        if (channeling != null && ArchonUtil.canRemoveMana(player, channeling.getManaCost())) {
+        ChannelingRecipe recipe = world.getRecipeManager().listAllOfType(MiscRegistry.CHANNELING).stream().filter(entry -> ChannelingRecipe.isValid(entry, block)).findFirst().orElse(null);
+        if (recipe != null && ArchonUtil.canRemoveMana(player, recipe.getManaCost())) {
             if (!world.isClient) {
-                ItemEntity result = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), channeling.getOutput());
-                result.setToDefaultPickupDelay();
-                world.spawnEntity(result);
-
                 world.setBlockState(pos, Blocks.AIR.getDefaultState());
-                ArchonUtil.get(player).removeMana(channeling.getManaCost());
+                Block.dropStack(world, pos, recipe.getOutput().copy());
+                ArchonUtil.get(player).removeMana(recipe.getManaCost());
 
                 if (player instanceof ServerPlayerEntity) {
-                    MiscRegistry.CHANNELED_CRITERION.trigger((ServerPlayerEntity) player, channeling.getOutput().copy());
+                    MiscRegistry.CHANNELED_CRITERION.trigger((ServerPlayerEntity) player, recipe.getOutput().copy());
                 }
             }
             if (Archon.CONFIG.play_channel_sound) {
-                world.playSound(null, pos, SoundRegistry.CHANNEL_MANA, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                world.playSound(null, pos, SoundRegistry.CHANNEL_MANA, SoundCategory.BLOCKS, 0.8F, 1.0F);
             }
             return ActionResult.SUCCESS;
         }

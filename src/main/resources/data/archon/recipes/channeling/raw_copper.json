@@ -1,6 +1,6 @@
 {
   "type": "archon:channeling",
-  "block": "minecraft:copper_ore",
+  "tag": "minecraft:copper_ores",
   "result": {
     "item": "minecraft:raw_copper",
     "count": 4

@@ -1,6 +1,6 @@
 {
   "type": "archon:channeling",
-  "block": "minecraft:diamond_ore",
+  "tag": "minecraft:diamond_ores",
   "result": {
     "item": "minecraft:diamond",
     "count": 2

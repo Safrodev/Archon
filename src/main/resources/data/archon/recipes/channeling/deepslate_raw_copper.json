@@ -1,9 +1,0 @@
-{
-  "type": "archon:channeling",
-  "block": "minecraft:deepslate_copper_ore",
-  "result": {
-    "item": "minecraft:raw_copper",
-    "count": 4
-  },
-  "manaCost": 10
-}
