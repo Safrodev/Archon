@@ -11,7 +11,6 @@ import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.ProjectileDamageSource;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
@@ -24,6 +23,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import safro.archon.entity.ai.DistanceMeleeGoal;
 import safro.archon.mixin.FallingBlockEntityAccessor;
 import safro.archon.registry.ItemRegistry;
 
@@ -38,7 +38,7 @@ public class TarEntity extends AbstractBossEntity {
     protected void initGoals() {
         super.initGoals();
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new TarEntity.AttackGoal(this, 1.5D, false));
+        this.goalSelector.add(1, new DistanceMeleeGoal(this, 1.5D, false, 10));
         this.goalSelector.add(1, new TarEntity.DropRocksGoal());
         this.goalSelector.add(8, new WanderAroundGoal(this, 0.6D));
         this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 3.0F, 1.0F));
@@ -81,6 +81,11 @@ public class TarEntity extends AbstractBossEntity {
             if (!(source.getSource() instanceof PotionEntity)) {
                 return false;
             }
+        }
+
+        if (source.getAttacker() instanceof PlayerEntity p && this.random.nextFloat() <= 0.4F) {
+            this.swingHand(Hand.MAIN_HAND);
+            this.pushEntity(p, 0.75F);
         }
         return super.damage(source, amount);
     }
@@ -147,22 +152,6 @@ public class TarEntity extends AbstractBossEntity {
                 return origin.west();
             }
             return origin;
-        }
-    }
-
-    protected class AttackGoal extends MeleeAttackGoal {
-        public AttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle) {
-            super(mob, speed, pauseWhenMobIdle);
-        }
-
-        public boolean canStart() {
-            LivingEntity livingEntity = TarEntity.this.getTarget();
-            if (super.canStart()) {
-                if (livingEntity != null && livingEntity.isAlive()) {
-                    return TarEntity.this.distanceTo(livingEntity) < 10;
-                }
-            }
-            return false;
         }
     }
 }

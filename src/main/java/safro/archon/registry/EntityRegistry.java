@@ -12,6 +12,7 @@ import safro.archon.Archon;
 import safro.archon.entity.OmegaSkeltEntity;
 import safro.archon.entity.PrimeSkeltEntity;
 import safro.archon.entity.boss.AlyaEntity;
+import safro.archon.entity.boss.LevenEntity;
 import safro.archon.entity.boss.TarEntity;
 import safro.archon.entity.projectile.IceBallEntity;
 import safro.archon.entity.ManaLeechEntity;
@@ -39,8 +40,9 @@ public class EntityRegistry {
     public static final EntityType<ManaLeechEntity> MANA_LEECH = register("mana_leech", FabricEntityTypeBuilder.<ManaLeechEntity>create(SpawnGroup.MONSTER, ManaLeechEntity::new).dimensions(EntityDimensions.fixed(0.4F, 0.3F)).trackRangeBlocks(8).build());
 
     // Bosses
-    public static final EntityType<TarEntity> TAR = register("tar", FabricEntityTypeBuilder.<TarEntity>create(SpawnGroup.MISC, TarEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.96F)).trackRangeBlocks(10).build());
-    public static final EntityType<AlyaEntity> ALYA = register("ayla", FabricEntityTypeBuilder.<AlyaEntity>create(SpawnGroup.MISC, AlyaEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.96F)).trackRangeBlocks(10).build());
+    public static final EntityType<TarEntity> TAR = register("tar", FabricEntityTypeBuilder.<TarEntity>create(SpawnGroup.MISC, TarEntity::new).dimensions(player()).trackRangeBlocks(20).build());
+    public static final EntityType<AlyaEntity> ALYA = register("ayla", FabricEntityTypeBuilder.<AlyaEntity>create(SpawnGroup.MISC, AlyaEntity::new).dimensions(player()).trackRangeBlocks(20).build());
+    public static final EntityType<LevenEntity> LEVEN = register("leven", FabricEntityTypeBuilder.<LevenEntity>create(SpawnGroup.MISC, LevenEntity::new).dimensions(player()).trackRangeBlocks(20).build());
 
     private static <T extends Entity> EntityType<T> register(String name, EntityType<T> type) {
         ENTITY_TYPES.put(type, new Identifier(Archon.MODID, name));
@@ -56,5 +58,10 @@ public class EntityRegistry {
         FabricDefaultAttributeRegistry.register(MANA_LEECH, ManaLeechEntity.createLeechAttributes());
         FabricDefaultAttributeRegistry.register(TAR, TarEntity.createTarAttributes());
         FabricDefaultAttributeRegistry.register(ALYA, AlyaEntity.createAlyaAttributes());
+        FabricDefaultAttributeRegistry.register(LEVEN, LevenEntity.createLevenAttributes());
+    }
+
+    private static EntityDimensions player() {
+        return EntityDimensions.fixed(0.6F, 1.96F);
     }
 }

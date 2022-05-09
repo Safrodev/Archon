@@ -14,7 +14,8 @@
     "StructurePoolAccessor",
     "FallingBlockEntityAccessor",
     "StructurePoolMixin",
-    "StructureFeatureAccessor"
+    "StructureFeatureAccessor",
+    "TridentEntityMixin"
   ],
   "client": [
     "InGameHudMixin"

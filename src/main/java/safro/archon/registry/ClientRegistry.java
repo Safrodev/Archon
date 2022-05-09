@@ -23,6 +23,7 @@ public class ClientRegistry {
         EntityRendererRegistry.register(EntityRegistry.MANA_LEECH, ManaLeechEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.TAR, TarEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.ALYA, AlyaEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.LEVEN, LevenEntityRenderer::new);
 
         // Block Renderers
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MANA_BERRY_BUSH, RenderLayer.getCutout());

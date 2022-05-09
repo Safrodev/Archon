@@ -55,6 +55,8 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
                     checkAndSpawn(player, world, state, pos, 1);
                 } else if (SummonUtil.canSummonAlya(this)) {
                     checkAndSpawn(player, world, state, pos, 2);
+                } else if (SummonUtil.canSummonLeven(this)) {
+                    checkAndSpawn(player, world, state, pos, 3);
                 }
                 return ActionResult.CONSUME;
             }
@@ -89,6 +91,9 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
                     be.setProcessor(0);
                 } else if (be.getProcessor() == 2) {
                     SummonUtil.summonAlya(world, pos.up());
+                    be.setProcessor(0);
+                } else if (be.getProcessor() == 3) {
+                    SummonUtil.summonLeven(world, pos.up());
                     be.setProcessor(0);
                 }
             }

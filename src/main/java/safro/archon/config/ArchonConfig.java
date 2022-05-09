@@ -12,11 +12,11 @@ public class ArchonConfig implements Config {
                     Sets the position of the mana display.
                     The x-offset is subtracted from the x pos of the middle of the screen. (Ex: 0 would make it right in the middle)
                     The y-offset is subtracted from the y pos at the bottom of the screen. (Ex: 0 would make it at the very bottom of the screen)
-                    X-Offset Default: 160
+                    X-Offset Default: 180
                     Y-Offset Default: 15
             """
     )
-    public int mana_xoffset = 160;
+    public int mana_xoffset = 180;
     public int mana_yoffset = 15;
 
     @Comment(

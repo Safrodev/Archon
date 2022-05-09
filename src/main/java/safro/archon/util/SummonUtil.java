@@ -8,6 +8,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.block.entity.SummoningPedestalBlockEntity;
 import safro.archon.entity.boss.AlyaEntity;
+import safro.archon.entity.boss.LevenEntity;
 import safro.archon.entity.boss.TarEntity;
 import safro.archon.registry.EntityRegistry;
 import safro.archon.registry.ItemRegistry;
@@ -35,10 +36,21 @@ public class SummonUtil {
         world.spawnEntity(alya);
     }
 
+    public static boolean canSummonLeven(SummoningPedestalBlockEntity be) {
+        return be.hasItem(Items.CLAY) && be.hasItem(ItemRegistry.WATER_GEM) && be.hasItem(Items.DIAMOND) && be.hasItem(Items.LILY_PAD);
+    }
+
+    public static void summonLeven(World world, BlockPos pos) {
+        LevenEntity leven = EntityRegistry.LEVEN.create(world);
+        leven.refreshPositionAndAngles(pos, 0.0F, 0.0F);
+        leven.onSummoned();
+        world.spawnEntity(leven);
+    }
+
     public static void addLightning(World world, BlockPos pos) {
         LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(world);
         lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(pos.up()));
-        ((LightningAccess)lightningEntity).setFireSpawning(false);
+        ((LightningAccess) lightningEntity).setFireSpawning(false);
         lightningEntity.setCosmetic(true);
         world.spawnEntity(lightningEntity);
     }

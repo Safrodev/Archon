@@ -18,6 +18,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -27,7 +28,6 @@ import java.util.List;
 public abstract class AbstractBossEntity extends HostileEntity {
     private final ServerBossBar bossBar;
     private static final TrackedData<Integer> INVUL_TIMER;
-    private int blockBreakingCooldown;
 
     public AbstractBossEntity(EntityType<? extends AbstractBossEntity> entityType, World world) {
         super(entityType, world);
@@ -70,16 +70,22 @@ public abstract class AbstractBossEntity extends HostileEntity {
     public void onSummoned() {
         this.setInvulTimer(getInvulTime());
         this.bossBar.setPercent(0.0F);
-        List<PlayerEntity> var = world.getNonSpectatingEntities(PlayerEntity.class, this.getBoundingBox().expand(50));
-        sendMessage(getSpawnMessage(), var);
+        this.sendMessage(getSpawnMessage(), 50);
     }
 
-    public void sendMessage(Text text, List<PlayerEntity> list) {
+    public void sendMessage(Text text, double radius) {
+        List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, this.getBoundingBox().expand(radius));
         while (list.iterator().hasNext()) {
-            PlayerEntity player = (PlayerEntity)list.iterator().next();
+            PlayerEntity player = list.iterator().next();
             player.sendMessage(text, false);
             list.remove(player);
         }
+    }
+
+    public void pushEntity(LivingEntity entity, float power) {
+        Vec3d vec = entity.getVelocity();
+        entity.setVelocity((entity.getX() - this.getX()) * power + vec.getX(), 0.2D, (entity.getZ() - this.getZ()) * power + vec.getZ());
+        entity.velocityModified = true;
     }
 
     public void onStartedTrackingBy(ServerPlayerEntity player) {
@@ -156,8 +162,7 @@ public abstract class AbstractBossEntity extends HostileEntity {
 
     public void onKilledOther(ServerWorld world, LivingEntity other) {
         if (other instanceof PlayerEntity) {
-            List<PlayerEntity> var = world.getNonSpectatingEntities(PlayerEntity.class, this.getBoundingBox().expand(50));
-            sendMessage(getKillMessage(), var);
+            sendMessage(getKillMessage(), 50);
         }
     }
 

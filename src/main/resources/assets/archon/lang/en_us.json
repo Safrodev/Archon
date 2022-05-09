@@ -72,6 +72,7 @@
   "entity.archon.mana_leech": "Mana Leech",
   "entity.archon.tar": "Tar",
   "entity.archon.ayla": "Ayla",
+  "entity.archon.leven": "Leven",
 
   "effect.archon.rage": "Rage",
   "effect.archon.obstructed": "Obstructed",
@@ -97,6 +98,8 @@
   "text.archon.tar.kill": "[Tar] Ha! This is too easy!",
   "text.archon.alya.spawn": "[Ayla] Oh my, such lovely specimen",
   "text.archon.alya.kill": "[Ayla] Delightful!",
+  "text.archon.leven.spawn": "[Leven] Embrace the sea, fall into the waves!",
+  "text.archon.leven.kill": "[Level] Good try",
 
   "command.archon.mana_add_one": "Added %s mana to %s",
   "command.archon.mana_add_multiple": "Added %s mana to %s players",
