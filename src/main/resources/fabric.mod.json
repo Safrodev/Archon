@@ -43,7 +43,8 @@
   "custom": {
     "cardinal-components": [
       "archon:mana",
-      "archon:scroll"
+      "archon:scroll",
+      "archon:spell"
     ]
   },
   "accessWidener": "archon.aw"

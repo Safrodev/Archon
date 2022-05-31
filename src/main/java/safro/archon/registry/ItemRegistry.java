@@ -6,6 +6,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
+import safro.archon.api.Element;
 import safro.archon.api.SoulType;
 import safro.archon.item.*;
 import safro.archon.item.earth.FistOfFuryItem;
@@ -27,15 +28,11 @@ import safro.archon.item.water.FrostSwordItem;
 import safro.archon.item.water.SoakingHarvesterItem;
 import safro.archon.item.water.WaterStaffItem;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class ItemRegistry {
-    public static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
-
     // Core
     public static Item GRIMOIRE = register("grimoire", new GrimoireItem(simple().maxCount(1)));
     public static final Item CHANNELER = register("channeler", new ChannelerItem(simple().maxCount(1).rarity(Rarity.UNCOMMON)));
+    public static final Item FIRE_WAND = register("fire_wand", new WandItem(Element.FIRE, simple().maxCount(1)));
 
     // Weapons // Gear
     public static final Item ENDER_BLADE = register("ender_blade", new EnderBladeItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));
@@ -99,7 +96,7 @@ public class ItemRegistry {
 
     public static final Item MANA_LEECH_SPAWN_EGG = register("mana_leech_spawn_egg", new SpawnEggItem(EntityRegistry.MANA_LEECH, 0x043C99, 0x1D75B1, simple()));
 
-    private static Item.Settings simple() {
+    protected static Item.Settings simple() {
         return new Item.Settings().group(Archon.ITEMGROUP);
     }
 
@@ -107,12 +104,10 @@ public class ItemRegistry {
         return new Item.Settings().maxCount(1).fireproof();
     }
 
-    private static <T extends Item> T register(String name, T item) {
-        ITEMS.put(item, new Identifier(Archon.MODID, name));
-        return item;
+    protected static <T extends Item> T register(String name, T item) {
+        return Registry.register(Registry.ITEM, new Identifier(Archon.MODID, name), item);
     }
 
     public static void init() {
-        ITEMS.keySet().forEach(item -> Registry.register(Registry.ITEM, ITEMS.get(item), item));
     }
 }

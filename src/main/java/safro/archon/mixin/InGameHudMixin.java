@@ -43,7 +43,7 @@ public abstract class InGameHudMixin {
         PlayerEntity player = this.getCameraPlayer();
         if (this.client.player != null && this.client.player.isAlive() && player != null) {
             if (Archon.CONFIG.displayManaWithItem) {
-                if (isValidManaItem(player.getStackInHand(Hand.MAIN_HAND)) || isValidManaItem(player.getStackInHand(Hand.OFF_HAND))) {
+                if (ArchonUtil.isValidManaItem(player.getStackInHand(Hand.MAIN_HAND)) || ArchonUtil.isValidManaItem(player.getStackInHand(Hand.OFF_HAND))) {
                     renderManaHud(matrices, player);
                 }
             } else {
@@ -69,12 +69,5 @@ public abstract class InGameHudMixin {
             this.getTextRenderer().draw(matrices, string, a - xoffset, n, 16777215);
             this.client.getProfiler().pop();
         }
-    }
-
-    // Not the most efficient way of doing this, but it works for now
-    private boolean isValidManaItem(ItemStack stack) {
-        return stack.getItem() instanceof ManaWeapon || stack.getItem() instanceof ManaItem ||
-                stack.getItem() instanceof ChannelerItem || stack.getItem() instanceof HeatRangerItem ||
-                stack.getItem() instanceof ManaBerriesItem || stack.isOf(ItemRegistry.SOUL_CRUSHER);
     }
 }

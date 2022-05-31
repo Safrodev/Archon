@@ -64,6 +64,10 @@
   "item.archon.accelerate_scroll": "Ancient Scroll",
   "item.archon.removal_scroll": "Ancient Scroll",
 
+  "item.archon.fire_wand": "Fire Wand",
+
+  "item.archon.tome": "Spell Tome",
+
   "entity.archon.water_bolt": "Water Bolt",
   "entity.minecraft.villager.wizard": "Wizard",
   "entity.archon.skelt": "Skelt",
@@ -81,6 +85,10 @@
   "enchantment.archon.arcane": "Arcane",
   "enchantment.archon.arcane.desc": "Reduces the mana cost of weapons by 20%",
 
+  "spell.archon.fireball": "Fireball",
+  "spell.archon.incombustible": "Incombustible",
+  "spell.archon.scorch": "Scorch",
+
   "text.archon.capacity": "Capacity",
   "text.archon.accelerate": "Accelerate",
   "text.archon.removal": "Removal",
@@ -91,8 +99,10 @@
   "text.archon.mana_cost": "Mana Cost: %s",
   "text.archon.invalid_book": "Patchouli is not installed!",
   "text.archon.invalid_summon": "Must have air above pedestal!",
+  "text.archon.invalid_spell": "Wand has no spells!",
   "text.archon.dial_mode_heal": "Dial Set To: Heal",
   "text.archon.dial_mode_blind": "Dial Set To: Blind",
+  "text.archon.obj": "%s",
 
   "text.archon.tar.spawn": "[Tar] You think you can challenge me? HOW FOOLISH!",
   "text.archon.tar.kill": "[Tar] Ha! This is too easy!",

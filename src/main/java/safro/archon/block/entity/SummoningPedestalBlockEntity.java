@@ -1,6 +1,5 @@
 package safro.archon.block.entity;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,10 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Clearable;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -25,6 +21,7 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
     // 0 - Not processing anything
     // 1 - Summoning Tar boss
     // 2 - Summoning Alya boss
+    // 3 - Summoning Leven boss
     private int processor = 0;
     private int spawnDelay = 60;
 
@@ -34,20 +31,14 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand) {
-        boolean needsUpdate = false;
         ItemStack stack = player.getStackInHand(hand);
         if (this.isIdle() && !world.isClient) {
             if (player.isSneaking()) {
-                for (int i = 0; i < inventory.size(); i++) {
-                    if (!inventory.get(i).isEmpty()) {
-                        Block.dropStack(world, pos, inventory.get(i));
-                        inventory.set(i, ItemStack.EMPTY);
-                        world.updateListeners(pos, state, state, 3);
-                        needsUpdate = true;
-                        break;
-                    }
-                }
+                ItemScatterer.spawn(world, pos, inventory);
+                world.updateListeners(pos, state, state, 3);
+                markDirty(world, pos, state);
                 return ActionResult.SUCCESS;
+
             } else if (!stack.isEmpty() && this.addItem(player.getAbilities().creativeMode ? stack.copy() : stack)) {
                 return ActionResult.SUCCESS;
             } else {
@@ -60,10 +51,6 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
                 }
                 return ActionResult.CONSUME;
             }
-        }
-
-        if (needsUpdate) {
-            markDirty(world, pos, state);
         }
         return ActionResult.PASS;
     }

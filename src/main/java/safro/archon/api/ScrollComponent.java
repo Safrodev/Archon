@@ -20,9 +20,7 @@ public class ScrollComponent implements AutoSyncedComponent {
 
     @Override
     public void writeToNbt(NbtCompound tag) {
-        if (hasScroll()) {
-            tag.putString("scroll", scroll);
-        }
+        tag.putString("scroll", scroll);
     }
 
     public String getScroll() {

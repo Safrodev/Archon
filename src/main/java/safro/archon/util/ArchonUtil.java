@@ -17,7 +17,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import safro.archon.api.ManaComponent;
+import safro.archon.api.Spell;
+import safro.archon.item.ChannelerItem;
+import safro.archon.item.ManaBerriesItem;
+import safro.archon.item.ManaItem;
+import safro.archon.item.ManaWeapon;
+import safro.archon.item.fire.HeatRangerItem;
 import safro.archon.registry.ComponentsRegistry;
+import safro.archon.registry.ItemRegistry;
 
 import java.util.*;
 
@@ -40,6 +47,20 @@ public class ArchonUtil {
 
     public static String getScroll(PlayerEntity player) {
         return ComponentsRegistry.SCROLL_COMPONENT.get(player).getScroll();
+    }
+
+    public static List<Spell> getSpells(PlayerEntity player) {
+        return ComponentsRegistry.SPELL_COMPONENT.get(player).getSpells();
+    }
+
+    public static boolean addSpell(PlayerEntity player, Spell spell) {
+        return ComponentsRegistry.SPELL_COMPONENT.get(player).addSpell(spell);
+    }
+
+    public static boolean isValidManaItem(ItemStack stack) {
+        return stack.getItem() instanceof ManaWeapon || stack.getItem() instanceof ManaItem ||
+                stack.getItem() instanceof ChannelerItem || stack.getItem() instanceof HeatRangerItem ||
+                stack.getItem() instanceof ManaBerriesItem || stack.isOf(ItemRegistry.SOUL_CRUSHER);
     }
 
     public static void dropItem(World world, BlockPos pos, Item item) {

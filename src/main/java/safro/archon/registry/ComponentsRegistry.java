@@ -9,15 +9,17 @@ import net.minecraft.util.Identifier;
 import safro.archon.Archon;
 import safro.archon.api.ManaComponent;
 import safro.archon.api.ScrollComponent;
+import safro.archon.api.SpellComponent;
 
 public class ComponentsRegistry implements EntityComponentInitializer {
     public static final ComponentKey<ManaComponent> MANA_COMPONENT = ComponentRegistry.getOrCreate(new Identifier(Archon.MODID, "mana"), ManaComponent.class);
     public static final ComponentKey<ScrollComponent> SCROLL_COMPONENT = ComponentRegistry.getOrCreate(new Identifier(Archon.MODID, "scroll"), ScrollComponent.class);
-
+    public static final ComponentKey<SpellComponent> SPELL_COMPONENT = ComponentRegistry.getOrCreate(new Identifier(Archon.MODID, "spell"), SpellComponent.class);
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
         registry.registerForPlayers(SCROLL_COMPONENT, ScrollComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
         registry.registerForPlayers(MANA_COMPONENT, ManaComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
+        registry.registerForPlayers(SPELL_COMPONENT, SpellComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
     }
 }

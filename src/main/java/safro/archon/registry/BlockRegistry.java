@@ -3,7 +3,6 @@ package safro.archon.registry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -45,7 +44,7 @@ public class BlockRegistry {
     private static <T extends Block> T register(String name, T block, boolean createItem) {
         BLOCKS.put(block, new Identifier(Archon.MODID, name));
         if (createItem) {
-            ItemRegistry.ITEMS.put(new BlockItem(block, new Item.Settings().group(Archon.ITEMGROUP)), BLOCKS.get(block));
+            ItemRegistry.register(name, new BlockItem(block, new Item.Settings().group(Archon.ITEMGROUP)));
         }
         return block;
     }
