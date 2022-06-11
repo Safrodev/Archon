@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.World;
-import safro.archon.registry.MiscRegistry;
+import safro.archon.registry.RecipeRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,12 +88,12 @@ public class ChannelingRecipe implements Recipe<ChannelingInventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return MiscRegistry.CHANNELING_SERIALIZER;
+        return RecipeRegistry.CHANNELING_SERIALIZER;
     }
 
     @Override
     public RecipeType<?> getType() {
-        return MiscRegistry.CHANNELING;
+        return RecipeRegistry.CHANNELING;
     }
 
     /**

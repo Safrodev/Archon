@@ -32,7 +32,8 @@ public class ItemRegistry {
     // Core
     public static Item GRIMOIRE = register("grimoire", new GrimoireItem(simple().maxCount(1)));
     public static final Item CHANNELER = register("channeler", new ChannelerItem(simple().maxCount(1).rarity(Rarity.UNCOMMON)));
-    public static final Item FIRE_WAND = register("fire_wand", new WandItem(Element.FIRE, simple().maxCount(1)));
+    public static final Item FIRE_WAND = register("fire_wand", wand(Element.FIRE));
+    public static final Item WATER_WAND = register("water_wand", wand(Element.WATER));
 
     // Weapons // Gear
     public static final Item ENDER_BLADE = register("ender_blade", new EnderBladeItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));
@@ -102,6 +103,10 @@ public class ItemRegistry {
 
     private static Item.Settings soul() {
         return new Item.Settings().maxCount(1).fireproof();
+    }
+
+    private static WandItem wand(Element element) {
+        return new WandItem(element, simple().maxCount(1));
     }
 
     protected static <T extends Item> T register(String name, T item) {

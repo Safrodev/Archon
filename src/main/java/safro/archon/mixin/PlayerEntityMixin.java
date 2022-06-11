@@ -1,10 +1,7 @@
 package safro.archon.mixin;
 
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.ProjectileDamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -13,8 +10,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import safro.archon.registry.EffectRegistry;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
 
@@ -58,18 +53,6 @@ public abstract class PlayerEntityMixin {
                 ArchonUtil.get(player).removeMana(20);
             } else
                 --druidBootsTimer;
-        }
-    }
-
-    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
-    private void deflectProjectile(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.hasStatusEffect(EffectRegistry.STURDY)) {
-            if (source instanceof ProjectileDamageSource) {
-                if (!(source.getSource() instanceof PotionEntity)) {
-                    cir.setReturnValue(false);
-                }
-            }
         }
     }
 }

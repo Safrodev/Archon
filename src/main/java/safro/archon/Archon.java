@@ -37,6 +37,7 @@ public class Archon implements ModInitializer {
 		VillagerRegistry.init();
 		EffectRegistry.init();
 		MiscRegistry.init();
+		RecipeRegistry.init();
 		SpellRegistry.init();
 
 		// Init Commands

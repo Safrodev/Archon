@@ -3,7 +3,10 @@ package safro.archon.spell;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
+import safro.archon.Archon;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
 
@@ -17,6 +20,12 @@ public class EffectSpell extends Spell {
 
     @Override
     public void cast(World world, PlayerEntity player, ItemStack stack) {
-        player.addStatusEffect(instance);
+        StatusEffectInstance effect = new StatusEffectInstance(instance.getEffectType(), instance.getDuration(), instance.getAmplifier(), instance.isAmbient(), instance.shouldShowParticles(), instance.shouldShowIcon());
+        player.addStatusEffect(effect);
+    }
+
+    @Override
+    public SoundEvent getCastSound() {
+        return SoundEvents.ENTITY_ILLUSIONER_CAST_SPELL;
     }
 }

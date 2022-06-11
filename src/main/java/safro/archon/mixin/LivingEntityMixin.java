@@ -2,22 +2,58 @@ package safro.archon.mixin;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.ProjectileDamageSource;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleTypes;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import safro.archon.Archon;
 import safro.archon.api.ManaComponent;
 import safro.archon.entity.SkeltEntity;
+import safro.archon.registry.EffectRegistry;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.registry.TagRegistry;
 import safro.archon.util.ArchonUtil;
 
 @Mixin(LivingEntity.class)
-public class LivingEntityMixin {
+public abstract class LivingEntityMixin {
+
+    @Shadow public abstract boolean hasStatusEffect(StatusEffect effect);
+
+    @Inject(method = "tickMovement", at = @At("TAIL"))
+    private void tickAquaShield(CallbackInfo ci) {
+        LivingEntity entity = (LivingEntity) (Object) this;
+        if (entity.hasStatusEffect(EffectRegistry.AQUA_SHIELD)) {
+            if (entity.getRandom().nextFloat() < 0.1F) {
+                entity.world.addParticle(ParticleTypes.BUBBLE_COLUMN_UP, entity.getParticleX(1.0D), entity.getRandomBodyY() + 0.5D, entity.getParticleZ(1.0D), 0.0D, 0.0D, 0.0D);
+            }
+        }
+    }
+
+    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
+    private void aquaShieldDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        if (this.hasStatusEffect(EffectRegistry.STURDY)) {
+            if (source instanceof ProjectileDamageSource) {
+                if (!(source.getSource() instanceof PotionEntity)) {
+                    cir.setReturnValue(false);
+                }
+            }
+        }
+        if (this.hasStatusEffect(EffectRegistry.AQUA_SHIELD)) {
+            if (source.getAttacker() != null && source.getAttacker().isAlive() && source.getAttacker() instanceof LivingEntity) {
+                cir.setReturnValue(false);
+            }
+        }
+    }
 
     @Inject(method = "onDeath", at = @At("HEAD"))
     private void soulCrusherMana(DamageSource source, CallbackInfo ci) {
@@ -36,11 +72,12 @@ public class LivingEntityMixin {
         }
     }
 
+    @Unique
     private int manaForType() {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (entity.getType().isIn(TagRegistry.BOSSES)) {
             return 50;
-        } else if (entity.isPlayer()) {
+        } else if (entity instanceof PlayerEntity) {
             return 30;
         } else if (entity instanceof PassiveEntity) {
             return 20;
@@ -48,11 +85,12 @@ public class LivingEntityMixin {
         return 0;
     }
 
+    @Unique
     private Item soulForType() {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (entity.getType().isIn(TagRegistry.BOSSES)) {
             return ItemRegistry.BOSS_SOUL;
-        } else if (entity.getType().isIn(TagRegistry.PLAYERS)) {
+        } else if (entity.getType().isIn(TagRegistry.PLAYERS) || entity instanceof PlayerEntity) {
             return ItemRegistry.PLAYER_SOUL;
         } else if (entity.getType().isIn(TagRegistry.CREATURES) && !(entity instanceof SkeltEntity)) {
             return ItemRegistry.CREATURE_SOUL;

@@ -65,6 +65,7 @@
   "item.archon.removal_scroll": "Ancient Scroll",
 
   "item.archon.fire_wand": "Fire Wand",
+  "item.archon.water_wand": "Water Wand",
 
   "item.archon.tome": "Spell Tome",
 
@@ -81,6 +82,7 @@
   "effect.archon.rage": "Rage",
   "effect.archon.obstructed": "Obstructed",
   "effect.archon.sturdy": "Sturdy",
+  "effect.archon.aqua_shield": "Aqua Shield",
 
   "enchantment.archon.arcane": "Arcane",
   "enchantment.archon.arcane.desc": "Reduces the mana cost of weapons by 20%",
@@ -88,6 +90,8 @@
   "spell.archon.fireball": "Fireball",
   "spell.archon.incombustible": "Incombustible",
   "spell.archon.scorch": "Scorch",
+  "spell.archon.aqua_shield": "Aqua Shield",
+  "spell.archon.freeze": "Freeze",
 
   "text.archon.capacity": "Capacity",
   "text.archon.accelerate": "Accelerate",
@@ -103,13 +107,16 @@
   "text.archon.dial_mode_heal": "Dial Set To: Heal",
   "text.archon.dial_mode_blind": "Dial Set To: Blind",
   "text.archon.obj": "%s",
+  "text.archon.none": "None",
 
   "text.archon.tar.spawn": "[Tar] You think you can challenge me? HOW FOOLISH!",
   "text.archon.tar.kill": "[Tar] Ha! This is too easy!",
   "text.archon.alya.spawn": "[Ayla] Oh my, such lovely specimen",
   "text.archon.alya.kill": "[Ayla] Delightful!",
   "text.archon.leven.spawn": "[Leven] Embrace the sea, fall into the waves!",
-  "text.archon.leven.kill": "[Level] Good try",
+  "text.archon.leven.kill": "[Leven] Good try",
+
+  "container.archon.scripture": "Scripture Table",
 
   "command.archon.mana_add_one": "Added %s mana to %s",
   "command.archon.mana_add_multiple": "Added %s mana to %s players",

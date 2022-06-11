@@ -11,14 +11,13 @@
     "CreeperEntityMixin",
     "ItemEntityMixin",
     "PotionEntityMixin",
-    "StructurePoolAccessor",
     "FallingBlockEntityAccessor",
     "StructurePoolMixin",
     "StructureFeatureAccessor",
     "TridentEntityMixin"
   ],
   "client": [
-    "InGameHudMixin"
+    "client.InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

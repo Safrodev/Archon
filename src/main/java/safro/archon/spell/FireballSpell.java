@@ -18,17 +18,15 @@ public class FireballSpell extends Spell {
 
     @Override
     public void cast(World world, PlayerEntity player, ItemStack stack) {
-        if (!world.isClient) {
-            Vec3d vec3d = player.getRotationVec(0.0F);
-            double vX = (player.getX() + vec3d.x * 4.0D) - player.getX();
-            double vY = (player.getY() + vec3d.y * 4.0D) - player.getY();
-            double vZ = (player.getZ() + vec3d.z * 4.0D) - player.getZ();
+        Vec3d vec3d = player.getRotationVec(0.0F);
+        double vX = (player.getX() + vec3d.x * 4.0D) - player.getX();
+        double vY = (player.getY() + vec3d.y * 4.0D) - player.getY();
+        double vZ = (player.getZ() + vec3d.z * 4.0D) - player.getZ();
 
-            FireballEntity fireball = new FireballEntity(world, player, vX, vY, vZ, 2);
-            fireball.updatePosition(player.getX(), player.getEyeY(), player.getZ() + vec3d.z * 2.0D);
-            fireball.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 2.0F, 1.0F);
-            world.spawnEntity(fireball);
-        }
+        FireballEntity fireball = new FireballEntity(world, player, vX, vY, vZ, 2);
+        fireball.updatePosition(player.getX(), player.getEyeY(), player.getZ() + vec3d.z * 2.0D);
+        fireball.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 2.0F, 1.0F);
+        world.spawnEntity(fireball);
     }
 
     @Override

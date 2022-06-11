@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import safro.archon.Archon;
 import safro.archon.recipe.ChannelingRecipe;
 import safro.archon.registry.MiscRegistry;
+import safro.archon.registry.RecipeRegistry;
 import safro.archon.registry.SoundRegistry;
 import safro.archon.util.ArchonUtil;
 
@@ -35,7 +36,7 @@ public class ChannelerItem extends Item {
     }
 
     private ActionResult tryRecipe(PlayerEntity player, World world, Block block, BlockPos pos) {
-        ChannelingRecipe recipe = world.getRecipeManager().listAllOfType(MiscRegistry.CHANNELING).stream().filter(entry -> ChannelingRecipe.isValid(entry, block)).findFirst().orElse(null);
+        ChannelingRecipe recipe = world.getRecipeManager().listAllOfType(RecipeRegistry.CHANNELING).stream().filter(entry -> ChannelingRecipe.isValid(entry, block)).findFirst().orElse(null);
         if (recipe != null && ArchonUtil.canRemoveMana(player, recipe.getManaCost())) {
             if (!world.isClient) {
                 world.setBlockState(pos, Blocks.AIR.getDefaultState());

@@ -17,6 +17,7 @@ import safro.archon.entity.boss.TarEntity;
 import safro.archon.entity.projectile.IceBallEntity;
 import safro.archon.entity.ManaLeechEntity;
 import safro.archon.entity.SkeltEntity;
+import safro.archon.entity.projectile.SpellProjectileEntity;
 import safro.archon.entity.projectile.WaterBoltEntity;
 import safro.archon.entity.projectile.WindBallEntity;
 
@@ -30,6 +31,7 @@ public class EntityRegistry {
     public static final EntityType<WaterBoltEntity> WATER_BOLT = register("water_bolt", FabricEntityTypeBuilder.<WaterBoltEntity>create(SpawnGroup.MISC, WaterBoltEntity::new).dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeBlocks(4).trackedUpdateRate(10).build());
     public static final EntityType<IceBallEntity> ICE_BALL = register("ice_ball", FabricEntityTypeBuilder.<IceBallEntity>create(SpawnGroup.MISC, IceBallEntity::new).dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeBlocks(4).trackedUpdateRate(10).build());
     public static final EntityType<WindBallEntity> WIND_BALL = register("wind_ball", FabricEntityTypeBuilder.<WindBallEntity>create(SpawnGroup.MISC, WindBallEntity::new).dimensions(EntityDimensions.fixed(0.3125F, 0.3125F)).trackRangeBlocks(4).trackedUpdateRate(10).build());
+    public static final EntityType<SpellProjectileEntity> SPELL_PROJECTILE = register("spell_projectile", FabricEntityTypeBuilder.<SpellProjectileEntity>create(SpawnGroup.MISC, SpellProjectileEntity::new).dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeBlocks(10).trackedUpdateRate(10).build());
 
     // Necromancy
     public static final EntityType<SkeltEntity> SKELT = register("skelt", FabricEntityTypeBuilder.<SkeltEntity>create(SpawnGroup.MISC, SkeltEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.99F)).trackRangeBlocks(8).build());

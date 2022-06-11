@@ -3,10 +3,10 @@ package safro.archon.effect;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 
-public class SturdyStatusEffect extends StatusEffect {
+public class ObstructedEffect extends StatusEffect {
 
-    public SturdyStatusEffect() {
-        super(StatusEffectCategory.BENEFICIAL, 0xA06A41);
+    public ObstructedEffect() {
+        super(StatusEffectCategory.HARMFUL, 0x20156E);
     }
 
     @Override

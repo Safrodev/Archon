@@ -4,11 +4,13 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.util.Identifier;
 import safro.archon.client.render.*;
 import safro.archon.client.render.block.SummoningPedestalBlockEntityRenderer;
+import safro.archon.client.screen.ScriptureTableScreen;
 
 public class ClientRegistry {
 
@@ -17,6 +19,8 @@ public class ClientRegistry {
         EntityRendererRegistry.register(EntityRegistry.WATER_BOLT, WaterBoltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.ICE_BALL, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.WIND_BALL, WindBallEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.SPELL_PROJECTILE, FlyingItemEntityRenderer::new);
+
         EntityRendererRegistry.register(EntityRegistry.SKELT, SkeltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.PRIME_SKELT, SkeltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.OMEGA_SKELT, SkeltEntityRenderer::new);
@@ -40,5 +44,8 @@ public class ClientRegistry {
             }
         });
         FabricModelPredicateProviderRegistry.register(ItemRegistry.HEAT_RANGER, new Identifier("pulling"), (stack, clientWorld, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
+
+        // Screens
+        HandledScreens.register(MiscRegistry.SCRIPTURE_TABLE_SH, ScriptureTableScreen::new);
     }
 }

@@ -12,7 +12,9 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.block.ManaBerryBushBlock;
+import safro.archon.block.ScriptureTableBlock;
 import safro.archon.block.SummoningPedestalBlock;
+import safro.archon.block.entity.ScriptureTableBlockEntity;
 import safro.archon.block.entity.SummoningPedestalBlockEntity;
 
 import java.util.LinkedHashMap;
@@ -21,9 +23,11 @@ import java.util.Map;
 public class BlockRegistry {
     private static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
 
-    // Progression
+    // Core
     public static final Block SUMMONING_PEDESTAL = register("summoning_pedestal", new SummoningPedestalBlock(FabricBlockSettings.copyOf(Blocks.STONE_BRICKS).nonOpaque()), true);
     public static BlockEntityType<SummoningPedestalBlockEntity> SUMMONING_PEDESTAL_BE;
+    public static final Block SCRIPTURE_TABLE = register("scripture_table", new ScriptureTableBlock(FabricBlockSettings.of(Material.STONE).strength(2.5F, 8.0F).requiresTool()), true);
+    public static BlockEntityType<ScriptureTableBlockEntity> SCRIPTURE_TABLE_BE;
 
     // Misc + Building
     public static final Block GLISTEEL_BLOCK = register("glisteel_block", new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)), true);
@@ -51,6 +55,8 @@ public class BlockRegistry {
 
     public static void init() {
         SUMMONING_PEDESTAL_BE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Archon.MODID, "summoning_pedestal"), FabricBlockEntityTypeBuilder.create(SummoningPedestalBlockEntity::new, SUMMONING_PEDESTAL).build(null));
+        SCRIPTURE_TABLE_BE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Archon.MODID, "scripture_table"), FabricBlockEntityTypeBuilder.create(ScriptureTableBlockEntity::new, SCRIPTURE_TABLE).build(null));
+
         BLOCKS.keySet().forEach(block -> Registry.register(Registry.BLOCK, BLOCKS.get(block), block));
     }
 }
