@@ -31,20 +31,10 @@ public class TomeItem extends Item {
         if (!world.isClient) {
             if (ArchonUtil.addSpell(player, this.spell)) {
                 stack.decrement(1);
-                this.updateWands(player, stack);
                 return TypedActionResult.success(stack);
             }
         }
         return TypedActionResult.pass(stack);
-    }
-
-    // Updates wand tooltips
-    private void updateWands(PlayerEntity player, ItemStack stack) {
-        for (int i = 0; i < player.getInventory().size(); i++) {
-            if (player.getInventory().getStack(i).getItem() instanceof WandItem wand) {
-                wand.getCurrentSpell(stack, player);
-            }
-        }
     }
 
     @Override

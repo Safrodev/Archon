@@ -14,7 +14,7 @@ import safro.archon.Archon;
 
 @Environment(EnvType.CLIENT)
 public class ScriptureTableScreen extends HandledScreen<ScriptureTableScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(Archon.MODID, "textures/gui/scripture_table.png");
+    public static final Identifier TEXTURE = new Identifier(Archon.MODID, "textures/gui/scripture_table.png");
 
     public ScriptureTableScreen(ScriptureTableScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);

@@ -43,7 +43,7 @@ public class ScrollItem extends Item {
 
     private void addBonus(String name, PlayerEntity player) {
         if (name.equals("capacity")) {
-            ArchonUtil.get(player).setMaxMana(200);
+            ArchonUtil.get(player).setMaxMana(ArchonUtil.get(player).getMaxMana() + 100);
         } else if (name.equals("accelerate")) {
             ArchonUtil.get(player).setRegenSpeed(10);
         }

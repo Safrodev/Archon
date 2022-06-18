@@ -9,6 +9,8 @@ import safro.archon.Archon;
 import safro.archon.item.WandItem;
 import safro.archon.util.ArchonUtil;
 
+import javax.annotation.Nullable;
+
 public abstract class Spell {
     private final Element element;
     private final int cost;
@@ -53,9 +55,8 @@ public abstract class Spell {
     }
 
     /**
-     * @return The sound played when this spell is successfully casted
+     * @return The sound played when this spell is successfully casted. Can be null.
      */
-    public SoundEvent getCastSound() {
-        return null;
-    }
+    @Nullable
+    public abstract SoundEvent getCastSound();
 }

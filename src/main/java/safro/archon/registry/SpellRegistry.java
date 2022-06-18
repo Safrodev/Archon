@@ -8,10 +8,7 @@ import safro.archon.Archon;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
 import safro.archon.item.TomeItem;
-import safro.archon.spell.EffectSpell;
-import safro.archon.spell.FireballSpell;
-import safro.archon.spell.FreezeSpell;
-import safro.archon.spell.ScorchSpell;
+import safro.archon.spell.*;
 
 public class SpellRegistry {
     // Fire
@@ -22,6 +19,12 @@ public class SpellRegistry {
     // Water
     public static Spell AQUA_SHIELD = register("aqua_shield", new EffectSpell(new StatusEffectInstance(EffectRegistry.AQUA_SHIELD, 400, 0, false, false, true), Element.WATER, 30));
     public static Spell FREEZE = register("freeze", new FreezeSpell(Element.WATER, 10));
+    public static Spell DROWN = register("drown", new DrownSpell(Element.WATER, 30));
+
+    // Sky
+    public static Spell PROPEL = register("propel", new PropelSpell(Element.SKY, 10));
+    public static Spell GUST = register("gust", new GustSpell(Element.SKY, 20));
+    public static Spell THUNDER_STRIKE = register("thunder_strike", new ThunderStrikeSpell(Element.SKY, 40));
 
     public static void init() {
     }

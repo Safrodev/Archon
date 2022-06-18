@@ -26,7 +26,7 @@ public class BlockRegistry {
     // Core
     public static final Block SUMMONING_PEDESTAL = register("summoning_pedestal", new SummoningPedestalBlock(FabricBlockSettings.copyOf(Blocks.STONE_BRICKS).nonOpaque()), true);
     public static BlockEntityType<SummoningPedestalBlockEntity> SUMMONING_PEDESTAL_BE;
-    public static final Block SCRIPTURE_TABLE = register("scripture_table", new ScriptureTableBlock(FabricBlockSettings.of(Material.STONE).strength(2.5F, 8.0F).requiresTool()), true);
+    public static final Block SCRIPTURE_TABLE = register("scripture_table", new ScriptureTableBlock(FabricBlockSettings.of(Material.STONE).strength(2.5F, 8.0F).requiresTool().nonOpaque()), true);
     public static BlockEntityType<ScriptureTableBlockEntity> SCRIPTURE_TABLE_BE;
 
     // Misc + Building

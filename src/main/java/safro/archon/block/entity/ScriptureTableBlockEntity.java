@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
@@ -16,6 +17,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -114,11 +116,32 @@ public class ScriptureTableBlockEntity extends LockableContainerBlockEntity impl
     public static void craftTome(World world, BlockPos pos) {
         if (world.getBlockEntity(pos) instanceof ScriptureTableBlockEntity be) {
             for (int i = 0; i < 4; i++) {
-                be.inventory.get(i).decrement(1);
+                ItemStack stack = be.inventory.get(i);
+
+                // Handles items with recipe remainder
+                if (stack.getItem().hasRecipeRemainder()) {
+                    Item remainder = stack.getItem().getRecipeRemainder();
+                    stack.decrement(1);
+                    if (stack.isEmpty()) {
+                        be.inventory.set(i, new ItemStack(remainder));
+                    } else {
+                        ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(remainder));
+                    }
+                } else {
+                    stack.decrement(1);
+                }
             }
             be.fuel -= 10;
-            world.playSound(null, pos, SoundEvents.ITEM_BOOK_PUT, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(null, pos, SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, SoundCategory.BLOCKS, 1.0F, 1.0F);
             markDirty(world, pos, world.getBlockState(pos));
+        }
+    }
+
+    public static void clearTome(World world, BlockPos pos) {
+        if (world.getBlockEntity(pos) instanceof ScriptureTableBlockEntity be) {
+            if (!be.inventory.get(5).isEmpty()) {
+                be.inventory.set(5, ItemStack.EMPTY);
+            }
         }
     }
 
@@ -204,5 +227,9 @@ public class ScriptureTableBlockEntity extends LockableContainerBlockEntity impl
             }
         }
         return false;
+    }
+
+    public int getFuel() {
+        return this.fuel;
     }
 }

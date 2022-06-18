@@ -6,10 +6,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
-import safro.archon.util.ProjectileHelper;
+import safro.archon.util.SpellUtil;
 
 public class FreezeSpell extends Spell {
 
@@ -19,9 +21,14 @@ public class FreezeSpell extends Spell {
 
     @Override
     public void cast(World world, PlayerEntity player, ItemStack stack) {
-        ProjectileHelper.create(world, player, ParticleTypes.SNOWFLAKE, Items.SNOW_BLOCK, (target, owner) -> {
+        SpellUtil.create(world, player, ParticleTypes.SNOWFLAKE, Items.SNOW_BLOCK, (target, owner, projectile) -> {
           target.setFrozenTicks(200);
           target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 1, false, false, false));
         });
+    }
+
+    @Override
+    public SoundEvent getCastSound() {
+        return SoundEvents.ENTITY_PLAYER_HURT_FREEZE;
     }
 }

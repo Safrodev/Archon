@@ -1,0 +1,17 @@
+{
+  "type": "archon:scripting",
+  "ingredients": [
+    {
+      "item": "minecraft:ice"
+    },
+    {
+      "item": "minecraft:snow"
+    },
+    {
+      "item": "minecraft:fermented_spider_eye"
+    }
+  ],
+  "result": {
+    "item": "archon:freeze_tome"
+  }
+}

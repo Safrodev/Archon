@@ -40,7 +40,7 @@ public class RemovalScrollItem extends Item {
 
     private void removeBonus(String name, PlayerEntity player) {
         if (name.equals("capacity")) {
-            ArchonUtil.get(player).setMaxMana(100);
+            ArchonUtil.get(player).setMaxMana(ArchonUtil.get(player).getMaxMana() - 100);
         } else if (name.equals("accelerate")) {
             ArchonUtil.get(player).setRegenSpeed(20);
         }

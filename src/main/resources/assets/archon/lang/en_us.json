@@ -12,6 +12,7 @@
   "block.archon.glisteel_block": "Glisteel Block",
   "block.archon.mana_berry_bush": "Mana Berry Bush",
   "block.archon.summoning_pedestal": "Summoning Pedestal",
+  "block.archon.scripture_table": "Scripture Table",
 
   "item.archon.grimoire": "Grimoire",
   "item.archon.channeler": "Channeler",
@@ -66,6 +67,7 @@
 
   "item.archon.fire_wand": "Fire Wand",
   "item.archon.water_wand": "Water Wand",
+  "item.archon.sky_wand": "Sky Wand",
 
   "item.archon.tome": "Spell Tome",
 
@@ -92,6 +94,10 @@
   "spell.archon.scorch": "Scorch",
   "spell.archon.aqua_shield": "Aqua Shield",
   "spell.archon.freeze": "Freeze",
+  "spell.archon.drown": "Drown",
+  "spell.archon.propel": "Propel",
+  "spell.archon.gust": "Gust",
+  "spell.archon.thunder_strike": "Thunder Strike",
 
   "text.archon.capacity": "Capacity",
   "text.archon.accelerate": "Accelerate",
@@ -124,6 +130,7 @@
   "command.archon.mana_set_multiple": "Set max mana %s players to %s",
 
   "rei.archon.channeling": "Channeling",
+  "rei.archon.scripting": "Scripting",
 
   "advancements.archon.root.title": "Archon",
   "advancements.archon.root.description": "Welcome to Archon!",

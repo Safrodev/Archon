@@ -22,6 +22,7 @@ import safro.archon.registry.ComponentsRegistry;
 import safro.archon.util.ArchonUtil;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class WandItem extends Item {
 
             Spell current = getCurrentSpell(stack, player);
             if (player.isSneaking()) {
-                cycleSpells(stack, player);
+                ComponentsRegistry.SPELL_COMPONENT.get(player).setSpells(cycleSpells(stack, player));
                 player.sendMessage(new TranslatableText(getCurrentSpell(stack, player).getTranslationKey()).formatted(Formatting.GREEN), true);
                 return TypedActionResult.success(stack);
 
@@ -79,14 +80,23 @@ public class WandItem extends Item {
     }
 
     public List<Spell> cycleSpells(ItemStack stack, PlayerEntity player) {
-        Collections.rotate(getSpells(player), 1);
-        ComponentsRegistry.SPELL_COMPONENT.sync(player);
-        stack.getOrCreateSubNbt(Archon.MODID).putString("CurrentSpell", Archon.SPELL.getId(getSpells(player).get(0)).toString());
-        return getSpells(player);
+        List<Spell> spells = getSpells(player);
+        if (spells.size() > 1) {
+            Collections.rotate(spells, 1);
+            ComponentsRegistry.SPELL_COMPONENT.sync(player);
+            stack.getOrCreateSubNbt(Archon.MODID).putString("CurrentSpell", Archon.SPELL.getId(spells.get(0)).toString());
+        }
+        return spells;
     }
 
-    public List<Spell> getSpells(PlayerEntity player) {
-        return ArchonUtil.getSpells(player).stream().filter(spell -> spell.getElement() == this.getElement()).toList();
+    public ArrayList<Spell> getSpells(PlayerEntity player) {
+        ArrayList<Spell> list = new ArrayList<>();
+        for (Spell spell : ArchonUtil.getSpells(player)) {
+            if (spell.getElement() == this.getElement()) {
+                list.add(spell);
+            }
+        }
+        return list;
     }
 
     @Environment(EnvType.CLIENT)

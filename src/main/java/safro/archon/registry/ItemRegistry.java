@@ -34,6 +34,7 @@ public class ItemRegistry {
     public static final Item CHANNELER = register("channeler", new ChannelerItem(simple().maxCount(1).rarity(Rarity.UNCOMMON)));
     public static final Item FIRE_WAND = register("fire_wand", wand(Element.FIRE));
     public static final Item WATER_WAND = register("water_wand", wand(Element.WATER));
+    public static final Item SKY_WAND = register("sky_wand", wand(Element.SKY));
 
     // Weapons // Gear
     public static final Item ENDER_BLADE = register("ender_blade", new EnderBladeItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));

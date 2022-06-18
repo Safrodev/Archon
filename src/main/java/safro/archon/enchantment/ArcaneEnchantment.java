@@ -7,6 +7,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import safro.archon.item.ManaWeapon;
+import safro.archon.item.WandItem;
 import safro.archon.registry.MiscRegistry;
 import safro.archon.util.ArchonUtil;
 
@@ -29,11 +30,11 @@ public class ArcaneEnchantment extends Enchantment {
     }
 
     public int getMaxLevel() {
-        return 1;
+        return 3;
     }
 
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof ManaWeapon;
+        return stack.getItem() instanceof ManaWeapon || stack.getItem() instanceof WandItem;
     }
 
     /**
@@ -43,8 +44,10 @@ public class ArcaneEnchantment extends Enchantment {
      * @param manaCost Mana to be removed
      */
     public static void applyArcane(PlayerEntity player, ItemStack stack, int manaCost) {
-        if (EnchantmentHelper.getLevel(MiscRegistry.ARCANE, stack) >= 1) {
-            int removed = (int) (manaCost * 0.2);
+        int level = EnchantmentHelper.getLevel(MiscRegistry.ARCANE, stack);
+        if (level >= 1) {
+            double raw = manaCost * (0.1 * level);
+            int removed = (int) Math.round(raw);
             ArchonUtil.get(player).removeMana(manaCost - removed);
         } else {
             ArchonUtil.get(player).removeMana(manaCost);

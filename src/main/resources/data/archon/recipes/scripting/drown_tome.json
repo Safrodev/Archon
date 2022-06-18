@@ -1,0 +1,17 @@
+{
+  "type": "archon:scripting",
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "minecraft:prismarine_crystals"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "archon:drown_tome"
+  }
+}

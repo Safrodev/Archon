@@ -9,9 +9,7 @@ public class SoundRegistry {
     // Used Sounds
     public static SoundEvent CHANNEL_MANA = register("channel_mana");
     public static SoundEvent COMBUSTION = register("combustion");
-
-    // Unused Sounds (for now)
-    public static SoundEvent SOUL_CONVERSION = register("soul_conversion");
+    public static SoundEvent GUST = register("gust");
 
     static SoundEvent register(String id) {
         SoundEvent sound = new SoundEvent(new Identifier(Archon.MODID, id));

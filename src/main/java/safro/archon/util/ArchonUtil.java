@@ -4,7 +4,9 @@ import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Fertilizable;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,13 +17,11 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.api.ManaComponent;
 import safro.archon.api.Spell;
-import safro.archon.item.ChannelerItem;
-import safro.archon.item.ManaBerriesItem;
-import safro.archon.item.ManaItem;
-import safro.archon.item.ManaWeapon;
+import safro.archon.item.*;
 import safro.archon.item.fire.HeatRangerItem;
 import safro.archon.registry.ComponentsRegistry;
 import safro.archon.registry.ItemRegistry;
@@ -60,7 +60,7 @@ public class ArchonUtil {
     public static boolean isValidManaItem(ItemStack stack) {
         return stack.getItem() instanceof ManaWeapon || stack.getItem() instanceof ManaItem ||
                 stack.getItem() instanceof ChannelerItem || stack.getItem() instanceof HeatRangerItem ||
-                stack.getItem() instanceof ManaBerriesItem || stack.isOf(ItemRegistry.SOUL_CRUSHER);
+                stack.getItem() instanceof ManaBerriesItem || stack.isOf(ItemRegistry.SOUL_CRUSHER) || stack.getItem() instanceof WandItem;
     }
 
     public static void dropItem(World world, BlockPos pos, Item item) {
@@ -109,6 +109,15 @@ public class ArchonUtil {
             }
         }
         return false;
+    }
+
+    public static void createLightning(World world, BlockPos pos, boolean spawnFire) {
+        LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);
+        lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(pos.up()));
+        if (!spawnFire) {
+            ((LightningAccess) lightningEntity).setFireSpawning(false);
+        }
+        world.spawnEntity(lightningEntity);
     }
 
     // Credit to Tech Reborn for this

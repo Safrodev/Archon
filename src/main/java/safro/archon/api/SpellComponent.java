@@ -23,8 +23,8 @@ public class SpellComponent implements AutoSyncedComponent {
     @Override
     public void readFromNbt(NbtCompound tag) {
         if (tag.contains("Spells")) {
-            getSpells().clear();
             NbtList list = tag.getList("Spells", NbtElement.COMPOUND_TYPE);
+
             for (int i = 0; i < list.size(); i++) {
                 NbtCompound nbt = list.getCompound(i);
                 Spell s = Archon.SPELL.get(new Identifier(nbt.getString("Spell")));
@@ -57,4 +57,11 @@ public class SpellComponent implements AutoSyncedComponent {
         return false;
     }
 
+    public void setSpells(List<Spell> list) {
+        if (list.size() != getSpells().size()) return;
+        for (int i = 0; i < list.size(); i++) {
+            this.spells.set(i, list.get(i));
+        }
+        ComponentsRegistry.SPELL_COMPONENT.sync(player);
+    }
 }

@@ -1,11 +1,4 @@
 {
-  "soul_conversion": {
-    "sounds": [
-      {
-        "name": "archon:soul_conversion"
-      }
-    ]
-  },
   "channel_mana": {
     "sounds": [
       {
@@ -17,6 +10,13 @@
     "sounds": [
       {
         "name": "archon:combustion"
+      }
+    ]
+  },
+  "gust": {
+    "sounds": [
+      {
+        "name": "archon:gust"
       }
     ]
   }

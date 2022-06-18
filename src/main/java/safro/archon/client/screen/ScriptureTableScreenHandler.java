@@ -56,8 +56,12 @@ public class ScriptureTableScreenHandler extends ScreenHandler {
         return this.inventory.canPlayerUse(player);
     }
 
-    public void onTakeOutput() {
-        this.context.run(ScriptureTableBlockEntity::craftTome);
+    public void onTakeOutput(boolean craft) {
+        if (craft) {
+            this.context.run(ScriptureTableBlockEntity::craftTome);
+        } else {
+            this.context.run(ScriptureTableBlockEntity::clearTome);
+        }
     }
 
     public ItemStack transferSlot(PlayerEntity player, int index) {
@@ -132,12 +136,12 @@ public class ScriptureTableScreenHandler extends ScreenHandler {
         }
 
         public void onTakeItem(PlayerEntity player, ItemStack stack) {
-            ScriptureTableScreenHandler.this.onTakeOutput();
+            ScriptureTableScreenHandler.this.onTakeOutput(true);
             super.onTakeItem(player, stack);
         }
     }
 
-    private static class IngredientSlot extends Slot {
+    class IngredientSlot extends Slot {
         public IngredientSlot(Inventory inventory, int i, int j, int k) {
             super(inventory, i, j, k);
         }
@@ -149,9 +153,14 @@ public class ScriptureTableScreenHandler extends ScreenHandler {
         public int getMaxItemCount() {
             return 64;
         }
+
+        public void onTakeItem(PlayerEntity player, ItemStack stack) {
+            ScriptureTableScreenHandler.this.onTakeOutput(false);
+            super.onTakeItem(player, stack);
+        }
     }
 
-    private static class FuelSlot extends Slot {
+    static class FuelSlot extends Slot {
         public FuelSlot(Inventory inventory, int i, int j, int k) {
             super(inventory, i, j, k);
         }
@@ -169,7 +178,7 @@ public class ScriptureTableScreenHandler extends ScreenHandler {
         }
     }
 
-    private static class BookSlot extends Slot {
+    class BookSlot extends Slot {
         public BookSlot(Inventory inventory, int i, int j, int k) {
             super(inventory, i, j, k);
         }
@@ -184,6 +193,11 @@ public class ScriptureTableScreenHandler extends ScreenHandler {
 
         public int getMaxItemCount() {
             return 64;
+        }
+
+        public void onTakeItem(PlayerEntity player, ItemStack stack) {
+            ScriptureTableScreenHandler.this.onTakeOutput(false);
+            super.onTakeItem(player, stack);
         }
     }
 }

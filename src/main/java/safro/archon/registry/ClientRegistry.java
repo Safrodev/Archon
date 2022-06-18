@@ -9,6 +9,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.util.Identifier;
 import safro.archon.client.render.*;
+import safro.archon.client.render.block.ScriptureTableBlockEntityRenderer;
 import safro.archon.client.render.block.SummoningPedestalBlockEntityRenderer;
 import safro.archon.client.screen.ScriptureTableScreen;
 
@@ -32,8 +33,10 @@ public class ClientRegistry {
         // Block Renderers
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MANA_BERRY_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SUMMONING_PEDESTAL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SCRIPTURE_TABLE, RenderLayer.getCutout());
 
         BlockEntityRendererRegistry.register(BlockRegistry.SUMMONING_PEDESTAL_BE, SummoningPedestalBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(BlockRegistry.SCRIPTURE_TABLE_BE, ScriptureTableBlockEntityRenderer::new);
 
         // Model Predicates
         FabricModelPredicateProviderRegistry.register(ItemRegistry.HEAT_RANGER, new Identifier("pull"),(stack, clientWorld, entity, seed) -> {

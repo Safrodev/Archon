@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.AbstractFireballEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -12,17 +13,16 @@ import safro.archon.registry.EntityRegistry;
 
 public class SpellProjectileEntity extends AbstractFireballEntity {
     private final HitExecutor executor;
-    private ParticleEffect particle;
+    private DefaultParticleType particle;
 
     public SpellProjectileEntity(EntityType<? extends SpellProjectileEntity> entityType, World world) {
         super(entityType, world);
         this.executor = HitExecutor.EMPTY;
     }
 
-    public SpellProjectileEntity(World world, LivingEntity owner, double velocityX, double velocityY, double velocityZ, HitExecutor executor, ParticleEffect effect, ItemStack item) {
+    public SpellProjectileEntity(World world, LivingEntity owner, double velocityX, double velocityY, double velocityZ, HitExecutor executor, ItemStack item) {
         super(EntityRegistry.SPELL_PROJECTILE, owner, velocityX, velocityY, velocityZ, world);
         this.executor = executor;
-        this.particle = effect;
         this.setItem(item);
     }
 
@@ -31,7 +31,7 @@ public class SpellProjectileEntity extends AbstractFireballEntity {
         super.onEntityHit(entityHitResult);
         if (!this.world.isClient) {
             if (entityHitResult.getEntity() instanceof LivingEntity target && this.getOwner() instanceof LivingEntity owner) {
-                this.executor.onHit(target, owner);
+                this.executor.onHit(target, owner, this);
             }
         }
     }
@@ -39,6 +39,10 @@ public class SpellProjectileEntity extends AbstractFireballEntity {
     @Override
     protected boolean isBurning() {
         return false;
+    }
+
+    public void setParticle(DefaultParticleType particle) {
+        this.particle = particle;
     }
 
     @Override
