@@ -12,8 +12,10 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.block.ManaBerryBushBlock;
+import safro.archon.block.ManaCatalystBlock;
 import safro.archon.block.ScriptureTableBlock;
 import safro.archon.block.SummoningPedestalBlock;
+import safro.archon.block.entity.ManaCatalystBlockEntity;
 import safro.archon.block.entity.ScriptureTableBlockEntity;
 import safro.archon.block.entity.SummoningPedestalBlockEntity;
 
@@ -29,7 +31,11 @@ public class BlockRegistry {
     public static final Block SCRIPTURE_TABLE = register("scripture_table", new ScriptureTableBlock(FabricBlockSettings.of(Material.STONE).strength(2.5F, 8.0F).requiresTool().nonOpaque()), true);
     public static BlockEntityType<ScriptureTableBlockEntity> SCRIPTURE_TABLE_BE;
 
-    // Misc + Building
+    // Misc
+    public static final Block MANA_CATALYST = register("mana_catalyst", new ManaCatalystBlock(0, FabricBlockSettings.copyOf(Blocks.DEEPSLATE).luminance(8)), true);
+    public static final Block DIAMOND_MANA_CATALYST = register("diamond_mana_catalyst", new ManaCatalystBlock(1, FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK).luminance(8)), true);
+    public static final Block NETHERITE_MANA_CATALYST = register("netherite_mana_catalyst", new ManaCatalystBlock(3, FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK).luminance(8)), true);
+    public static BlockEntityType<ManaCatalystBlockEntity> MANA_CATALYST_BE;
     public static final Block GLISTEEL_BLOCK = register("glisteel_block", new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)), true);
     public static final Block MAGICAL_BOOKSHELF = register("magical_bookshelf", new Block(FabricBlockSettings.of(Material.WOOD).strength(1.5F).sounds(BlockSoundGroup.WOOD)), true);
     public static final Block MANA_BERRY_BUSH = register("mana_berry_bush", new ManaBerryBushBlock(FabricBlockSettings.of(Material.PLANT).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH)), false);
@@ -56,6 +62,7 @@ public class BlockRegistry {
     public static void init() {
         SUMMONING_PEDESTAL_BE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Archon.MODID, "summoning_pedestal"), FabricBlockEntityTypeBuilder.create(SummoningPedestalBlockEntity::new, SUMMONING_PEDESTAL).build(null));
         SCRIPTURE_TABLE_BE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Archon.MODID, "scripture_table"), FabricBlockEntityTypeBuilder.create(ScriptureTableBlockEntity::new, SCRIPTURE_TABLE).build(null));
+        MANA_CATALYST_BE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Archon.MODID, "mana_catalyst"), FabricBlockEntityTypeBuilder.create(ManaCatalystBlockEntity::new, MANA_CATALYST, DIAMOND_MANA_CATALYST, NETHERITE_MANA_CATALYST).build(null));
 
         BLOCKS.keySet().forEach(block -> Registry.register(Registry.BLOCK, BLOCKS.get(block), block));
     }

@@ -24,6 +24,7 @@ public class TerrainMaceItem extends ManaWeapon {
 
     public boolean activate(World world, PlayerEntity player, ItemStack stack, Hand hand) {
         List<LivingEntity> list = world.getEntitiesByClass(LivingEntity.class, player.getBoundingBox().expand(16D), EntityPredicates.VALID_LIVING_ENTITY);
+        list.remove(player);
         if (list.size() > 0) {
             for (LivingEntity e : list) {
                 if (!ArchonUtil.isOwnedBy(player, e) && !(e == player)) {

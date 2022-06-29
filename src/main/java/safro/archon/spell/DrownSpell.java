@@ -14,7 +14,7 @@ import safro.archon.api.Element;
 public class DrownSpell extends RaycastSpell {
 
     public DrownSpell(Element type, int manaCost) {
-        super(type, manaCost, 8);
+        super(type, manaCost, 10);
     }
 
     @Override

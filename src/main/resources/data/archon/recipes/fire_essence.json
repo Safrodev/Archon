@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "c:lapis_lazulis"
+    },
+    {
+      "tag": "archon:fire_items"
+    }
+  ],
+  "result": {
+    "item": "archon:fire_essence",
+    "count": 1
+  }
+}

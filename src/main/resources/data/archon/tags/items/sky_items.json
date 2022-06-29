@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:feather",
+    "archon:lightning_bottle",
+    "minecraft:ghast_tear",
+    "minecraft:phantom_membrane",
+    { "id": "bewitchment:heaven_extract", "required": false }
+  ]
+}

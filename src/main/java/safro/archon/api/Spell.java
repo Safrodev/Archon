@@ -3,7 +3,9 @@ package safro.archon.api;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import safro.archon.Archon;
 import safro.archon.item.WandItem;
@@ -51,6 +53,25 @@ public abstract class Spell {
         if (stack.getItem() instanceof WandItem wand && wand.getElement() == this.getElement()) {
             return ArchonUtil.canRemoveMana(player, this.getManaCost());
         }
+        return false;
+    }
+
+    /**
+     * Called when the player uses the spell on a block. MUST return either PASS or SUCCESS
+     * @param world World the spell is being executed in
+     * @param player Player casting the spell
+     * @param stack Stack of the wand item
+     * @return Returns an ActionResult for a successful or passed cast.
+     */
+    public ActionResult castOnBlock(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
+        return ActionResult.PASS;
+    }
+
+    /**
+     * Used to check if a block needs to be casted on a block or not
+     * @return Returns true if the spell needs to be used on a block
+     */
+    public boolean isBlockCasted() {
         return false;
     }
 

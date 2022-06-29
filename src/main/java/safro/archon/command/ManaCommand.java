@@ -7,6 +7,7 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.TranslatableText;
+import safro.archon.api.ManaAttributes;
 import safro.archon.util.ArchonUtil;
 
 import java.util.Collection;
@@ -14,6 +15,8 @@ import java.util.Collection;
 public class ManaCommand {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
+        int cap = (int)ManaAttributes.MAX_MANA.getMaxValue();
+
         dispatcher.register(CommandManager.literal("mana")
                 .requires(source -> source.hasPermissionLevel(2))
 
@@ -24,7 +27,7 @@ public class ManaCommand {
 
                 .then(CommandManager.literal("setMax")
                         .then(CommandManager.argument("targets", EntityArgumentType.players())
-                                .then(CommandManager.argument("amount", IntegerArgumentType.integer(1))
+                                .then(CommandManager.argument("amount", IntegerArgumentType.integer(1, cap))
                                         .executes(context -> executeMax(context.getSource(), EntityArgumentType.getPlayers(context, "targets"), IntegerArgumentType.getInteger(context, "amount"))))))
         );
     }

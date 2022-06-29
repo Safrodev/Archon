@@ -13,6 +13,9 @@
   "block.archon.mana_berry_bush": "Mana Berry Bush",
   "block.archon.summoning_pedestal": "Summoning Pedestal",
   "block.archon.scripture_table": "Scripture Table",
+  "block.archon.mana_catalyst": "Mana Catalyst",
+  "block.archon.diamond_mana_catalyst": "Diamond Mana Catalyst",
+  "block.archon.netherite_mana_catalyst": "Netherite Mana Catalyst",
 
   "item.archon.grimoire": "Grimoire",
   "item.archon.channeler": "Channeler",
@@ -32,6 +35,11 @@
   "item.archon.earth_gem": "Earth Gem",
   "item.archon.sky_gem": "Sky Gem",
   "item.archon.end_gem": "End Gem",
+  "item.archon.fire_essence": "Fire Essence",
+  "item.archon.water_essence": "Water Essence",
+  "item.archon.earth_essence": "Earth Essence",
+  "item.archon.sky_essence": "Sky Essence",
+  "item.archon.end_essence": "End Essence",
   "item.archon.player_soul": "Soul",
   "item.archon.creature_soul": "Soul",
   "item.archon.boss_soul": "Soul",
@@ -68,6 +76,7 @@
   "item.archon.fire_wand": "Fire Wand",
   "item.archon.water_wand": "Water Wand",
   "item.archon.sky_wand": "Sky Wand",
+  "item.archon.earth_wand": "Earth Wand",
 
   "item.archon.tome": "Spell Tome",
 
@@ -89,6 +98,8 @@
   "enchantment.archon.arcane": "Arcane",
   "enchantment.archon.arcane.desc": "Reduces the mana cost of weapons by 20%",
 
+  "attribute.name.generic.max_mana": "Max Mana",
+
   "spell.archon.fireball": "Fireball",
   "spell.archon.incombustible": "Incombustible",
   "spell.archon.scorch": "Scorch",
@@ -98,6 +109,9 @@
   "spell.archon.propel": "Propel",
   "spell.archon.gust": "Gust",
   "spell.archon.thunder_strike": "Thunder Strike",
+  "spell.archon.rumble": "Rumble",
+  "spell.archon.crush": "Crush",
+  "spell.archon.spike": "Spike",
 
   "text.archon.capacity": "Capacity",
   "text.archon.accelerate": "Accelerate",
@@ -110,6 +124,8 @@
   "text.archon.invalid_book": "Patchouli is not installed!",
   "text.archon.invalid_summon": "Must have air above pedestal!",
   "text.archon.invalid_spell": "Wand has no spells!",
+  "text.archon.learn_spell": "You learned a new spell!",
+  "text.archon.known_spell": "You already know this spell!",
   "text.archon.dial_mode_heal": "Dial Set To: Heal",
   "text.archon.dial_mode_blind": "Dial Set To: Blind",
   "text.archon.obj": "%s",

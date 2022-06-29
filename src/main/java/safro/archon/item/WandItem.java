@@ -6,13 +6,11 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import safro.archon.Archon;
 import safro.archon.api.Element;
@@ -53,7 +51,7 @@ public class WandItem extends Item {
                 player.sendMessage(new TranslatableText(getCurrentSpell(stack, player).getTranslationKey()).formatted(Formatting.GREEN), true);
                 return TypedActionResult.success(stack);
 
-            } else if (current != null && current.canCast(world, player, stack)) {
+            } else if (current != null && !current.isBlockCasted() && current.canCast(world, player, stack)) {
                 current.cast(world, player, stack);
                 ArcaneEnchantment.applyArcane(player, stack, current.getManaCost());
 
@@ -64,6 +62,24 @@ public class WandItem extends Item {
             }
         }
         return TypedActionResult.pass(stack);
+    }
+
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        ItemStack stack = context.getStack();
+        PlayerEntity player = context.getPlayer();
+        Spell current = getCurrentSpell(stack, player);
+
+        if (current != null && current.isBlockCasted() && ArchonUtil.canRemoveMana(player, current.getManaCost())) {
+            if (current.castOnBlock(context.getWorld(), context.getBlockPos(), player, stack) == ActionResult.SUCCESS) {
+                ArcaneEnchantment.applyArcane(player, stack, current.getManaCost());
+
+                if (current.getCastSound() != null) {
+                    context.getWorld().playSound(null, player.getBlockPos(), current.getCastSound(), SoundCategory.PLAYERS, 0.9F, 1.0F);
+                }
+                return ActionResult.SUCCESS;
+            }
+        }
+        return ActionResult.PASS;
     }
 
     @Nullable

@@ -15,7 +15,7 @@ import safro.archon.registry.ItemRegistry;
 
 public class SummonUtil {
     public static boolean canSummonTar(SummoningPedestalBlockEntity be) {
-        return be.hasItem(Items.SANDSTONE) && be.hasItem(ItemRegistry.EARTH_GEM) && be.hasItem(Items.DEEPSLATE) && be.hasItem(Items.EMERALD);
+        return be.hasItem(ItemRegistry.EARTH_ESSENCE) && be.hasItem(ItemRegistry.EARTH_GEM) && be.hasItem(Items.DEEPSLATE) && be.hasItem(Items.EMERALD);
     }
 
     public static void summonTar(World world, BlockPos pos) {
@@ -26,7 +26,7 @@ public class SummonUtil {
     }
 
     public static boolean canSummonAlya(SummoningPedestalBlockEntity be) {
-        return be.hasItem(Items.GOLD_INGOT) && be.hasItem(ItemRegistry.SKY_GEM) && be.hasItem(Items.FEATHER) && be.hasItem(Items.WHITE_WOOL);
+        return be.hasItem(Items.GOLD_INGOT) && be.hasItem(ItemRegistry.SKY_GEM) && be.hasItem(Items.FEATHER) && be.hasItem(ItemRegistry.SKY_ESSENCE);
     }
 
     public static void summonAlya(World world, BlockPos pos) {
@@ -37,7 +37,7 @@ public class SummonUtil {
     }
 
     public static boolean canSummonLeven(SummoningPedestalBlockEntity be) {
-        return be.hasItem(Items.CLAY) && be.hasItem(ItemRegistry.WATER_GEM) && be.hasItem(Items.DIAMOND) && be.hasItem(Items.LILY_PAD);
+        return be.hasItem(Items.KELP) && be.hasItem(ItemRegistry.WATER_GEM) && be.hasItem(Items.DIAMOND) && be.hasItem(ItemRegistry.WATER_ESSENCE);
     }
 
     public static void summonLeven(World world, BlockPos pos) {

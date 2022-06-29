@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "archon:block/glisteel_block",
+    "side": "archon:block/mana_catalyst"
+  }
+}

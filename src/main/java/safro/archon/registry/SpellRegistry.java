@@ -26,6 +26,11 @@ public class SpellRegistry {
     public static Spell GUST = register("gust", new GustSpell(Element.SKY, 20));
     public static Spell THUNDER_STRIKE = register("thunder_strike", new ThunderStrikeSpell(Element.SKY, 40));
 
+    // Earth
+    public static Spell RUMBLE = register("rumble", new RumbleSpell(Element.EARTH, 30));
+    public static Spell CRUSH = register("crush", new CrushSpell(Element.EARTH, 2));
+    public static Spell SPIKE = register("spike", new SpikeSpell(Element.EARTH, 10));
+
     public static void init() {
     }
 

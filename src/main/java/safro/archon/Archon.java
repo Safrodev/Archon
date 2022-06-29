@@ -11,9 +11,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import safro.archon.api.ManaAttributes;
 import safro.archon.api.Spell;
 import safro.archon.command.ManaCommand;
 import safro.archon.config.ArchonConfig;
+import safro.archon.network.NetworkManager;
 import safro.archon.registry.*;
 
 public class Archon implements ModInitializer {
@@ -28,6 +30,10 @@ public class Archon implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		// Setup
+		NetworkManager.initServer();
+		ManaAttributes.init();
+
 		// Init Content
 		EntityRegistry.init();
 		ItemRegistry.init();

@@ -35,6 +35,7 @@ public class ItemRegistry {
     public static final Item FIRE_WAND = register("fire_wand", wand(Element.FIRE));
     public static final Item WATER_WAND = register("water_wand", wand(Element.WATER));
     public static final Item SKY_WAND = register("sky_wand", wand(Element.SKY));
+    public static final Item EARTH_WAND = register("earth_wand", wand(Element.EARTH));
 
     // Weapons // Gear
     public static final Item ENDER_BLADE = register("ender_blade", new EnderBladeItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));
@@ -88,6 +89,11 @@ public class ItemRegistry {
     public static final Item EARTH_GEM = register("earth_gem", new Item(simple()));
     public static final Item SKY_GEM = register("sky_gem", new Item(simple()));
     public static final Item END_GEM = register("end_gem", new Item(simple()));
+    public static final Item FIRE_ESSENCE = register("fire_essence", new Item(simple()));
+    public static final Item WATER_ESSENCE = register("water_essence", new Item(simple()));
+    public static final Item EARTH_ESSENCE = register("earth_essence", new Item(simple()));
+    public static final Item SKY_ESSENCE = register("sky_essence", new Item(simple()));
+    public static final Item END_ESSENCE = register("end_essence", new Item(simple()));
     public static final Item COMBUSTION_CHARGE = register("combustion_charge", new CombustionChargeItem(simple()));
     public static final Item MANA_BERRIES = register("mana_berries", new ManaBerriesItem(BlockRegistry.MANA_BERRY_BUSH, simple().food(FoodComponents.GLOW_BERRIES)));
     public static final Item LIGHTNING_BOTTLE = register("lightning_bottle", new LightningBottleItem(simple().maxCount(1)));

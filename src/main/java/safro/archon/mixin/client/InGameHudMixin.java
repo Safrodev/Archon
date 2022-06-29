@@ -6,7 +6,6 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
@@ -16,12 +15,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import safro.archon.Archon;
-import safro.archon.item.ChannelerItem;
-import safro.archon.item.ManaBerriesItem;
-import safro.archon.item.ManaItem;
-import safro.archon.item.ManaWeapon;
-import safro.archon.item.fire.HeatRangerItem;
-import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
 
 @Mixin(InGameHud.class)

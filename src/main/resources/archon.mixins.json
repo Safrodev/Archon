@@ -14,7 +14,8 @@
     "FallingBlockEntityAccessor",
     "StructurePoolMixin",
     "StructureFeatureAccessor",
-    "TridentEntityMixin"
+    "TridentEntityMixin",
+    "ArmorItemAccessor"
   ],
   "client": [
     "client.InGameHudMixin"

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "minecraft:block/netherite_block",
+    "side": "archon:block/netherite_mana_catalyst"
+  }
+}

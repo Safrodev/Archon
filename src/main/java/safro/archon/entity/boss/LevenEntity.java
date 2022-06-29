@@ -29,6 +29,7 @@ import safro.archon.entity.ai.DistanceMeleeGoal;
 import safro.archon.entity.ai.DistanceRangedGoal;
 import safro.archon.entity.projectile.WaterBoltEntity;
 import safro.archon.registry.ItemRegistry;
+import safro.archon.util.TridentAccess;
 
 public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
 
@@ -72,6 +73,7 @@ public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
                 trident.teleport(this.getX(), this.getEyeY(), this.getZ());
                 trident.setVelocity(new Vec3d(random.nextGaussian(), random.nextGaussian() / 2, random.nextGaussian()).normalize().multiply(0.75));
                 trident.pickupType = PersistentProjectileEntity.PickupPermission.DISALLOWED;
+                ((TridentAccess)trident).setQuickDespawn();
                 world.spawnEntity(trident);
             }
         }

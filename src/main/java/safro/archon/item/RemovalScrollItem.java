@@ -13,6 +13,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import safro.archon.api.ManaAttributes;
 import safro.archon.util.ArchonUtil;
 
 import java.util.List;
@@ -40,7 +41,8 @@ public class RemovalScrollItem extends Item {
 
     private void removeBonus(String name, PlayerEntity player) {
         if (name.equals("capacity")) {
-            ArchonUtil.get(player).setMaxMana(ArchonUtil.get(player).getMaxMana() - 100);
+            ArchonUtil.get(player).removeMaxModifier(ManaAttributes.CAPACITY_SCROLL_MODIFIER);
+            ArchonUtil.get(player).clampMana();
         } else if (name.equals("accelerate")) {
             ArchonUtil.get(player).setRegenSpeed(20);
         }

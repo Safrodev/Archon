@@ -16,7 +16,7 @@ public class ScorchSpell extends RaycastSpell {
 
     @Override
     public void onRaycast(World world, PlayerEntity player, ItemStack stack, LivingEntity target) {
-        target.setOnFireFor(5);
+        target.setOnFireFor(10);
     }
 
     @Override

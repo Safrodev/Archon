@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.10-SNAPSHOT'
+	id 'fabric-loom' version '0.12-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -11,10 +11,7 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	maven {
-		name = "Ladysnake Mods"
-		url = 'https://ladysnake.jfrog.io/artifactory/mods'
-	}
+	maven { url 'https://ladysnake.jfrog.io/artifactory/mods' }
 
 	maven { url 'https://maven.blamejared.com' }
 
