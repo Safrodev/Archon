@@ -1,0 +1,34 @@
+{
+  "parent": "archon:learn_spell",
+  "display": {
+    "icon": {
+      "item": "archon:gust_tome"
+    },
+    "title": {
+      "translate": "advancements.archon.learn_all_spells.title"
+    },
+    "description": {
+      "translate": "advancements.archon.learn_all_spells.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "spell": {
+      "trigger": "archon:learn_spell",
+      "conditions": {
+        "amount": "all"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "spell"
+    ]
+  ]
+}

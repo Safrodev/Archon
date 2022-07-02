@@ -33,14 +33,14 @@ public abstract class LivingEntityMixin {
     private void tickAquaShield(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (entity.hasStatusEffect(EffectRegistry.AQUA_SHIELD)) {
-            if (entity.getRandom().nextFloat() < 0.1F) {
-                entity.world.addParticle(ParticleTypes.BUBBLE_COLUMN_UP, entity.getParticleX(1.0D), entity.getRandomBodyY() + 0.5D, entity.getParticleZ(1.0D), 0.0D, 0.0D, 0.0D);
+            if (entity.getRandom().nextFloat() < 0.3F) {
+                entity.world.addParticle(ParticleTypes.NAUTILUS, entity.getParticleX(1.0D), entity.getRandomBodyY() + 0.5D, entity.getParticleZ(1.0D), 0.0D, 0.0D, 0.0D);
             }
         }
     }
 
     @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
-    private void aquaShieldDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    private void archonStatusEffectDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if (this.hasStatusEffect(EffectRegistry.STURDY)) {
             if (source instanceof ProjectileDamageSource) {
                 if (!(source.getSource() instanceof PotionEntity)) {
@@ -77,9 +77,9 @@ public abstract class LivingEntityMixin {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (entity.getType().isIn(TagRegistry.BOSSES)) {
             return 50;
-        } else if (entity instanceof PlayerEntity) {
+        } else if (entity.getType().isIn(TagRegistry.PLAYERS) || entity instanceof PlayerEntity) {
             return 30;
-        } else if (entity instanceof PassiveEntity) {
+        } else if ((entity.getType().isIn(TagRegistry.CREATURES) || entity instanceof PassiveEntity) && !(entity instanceof SkeltEntity)) {
             return 20;
         }
         return 0;

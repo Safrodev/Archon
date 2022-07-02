@@ -1,0 +1,35 @@
+{
+  "parent": "archon:obtain_essence",
+  "display": {
+    "icon": {
+      "item": "archon:water_wand"
+    },
+    "title": {
+      "translate": "advancements.archon.obtain_wand.title"
+    },
+    "description": {
+      "translate": "advancements.archon.obtain_wand.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "wand": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "archon:wands"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "wand"
+    ]
+  ]
+}

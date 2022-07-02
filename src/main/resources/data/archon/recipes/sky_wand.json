@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " EE",
+    " GE",
+    "G  "
+  ],
+  "key": {
+    "E": {
+      "item": "archon:sky_essence"
+    },
+    "G": {
+      "item": "archon:sky_gem"
+    }
+  },
+  "result": {
+    "item": "archon:sky_wand"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " EE",
+    " GE",
+    "G  "
+  ],
+  "key": {
+    "E": {
+      "item": "archon:end_essence"
+    },
+    "G": {
+      "item": "archon:end_gem"
+    }
+  },
+  "result": {
+    "item": "archon:end_wand"
+  }
+}

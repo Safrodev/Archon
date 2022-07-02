@@ -1,10 +1,13 @@
 package safro.archon.spell;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
@@ -25,6 +28,7 @@ public class CrushSpell extends Spell {
         if (isValid(world, pos)) {
             BlockState state = world.getBlockState(pos);
             state.getBlock().afterBreak(world, player, pos, state, world.getBlockEntity(pos), stack);
+            world.syncWorldEvent(2001, pos, Block.getRawIdFromState(state));
             world.removeBlock(pos, false);
             world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
             return ActionResult.SUCCESS;

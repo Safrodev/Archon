@@ -42,7 +42,7 @@ public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
         this.goalSelector.add(1, new DistanceRangedGoal(this, 1.2D, 40, 40.0F, 10));
         this.goalSelector.add(8, new WanderAroundGoal(this, 0.7D));
         this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 3.0F, 1.0F));
-        this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
+        this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(2, new ActiveTargetGoal(this, PlayerEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal(this, IronGolemEntity.class, true));
     }
@@ -74,6 +74,7 @@ public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
                 trident.setVelocity(new Vec3d(random.nextGaussian(), random.nextGaussian() / 2, random.nextGaussian()).normalize().multiply(0.75));
                 trident.pickupType = PersistentProjectileEntity.PickupPermission.DISALLOWED;
                 ((TridentAccess)trident).setQuickDespawn();
+                trident.setPunch(2);
                 world.spawnEntity(trident);
             }
         }

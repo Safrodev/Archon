@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "archon:fire_wand",
+    "archon:water_wand",
+    "archon:earth_wand",
+    "archon:sky_wand",
+    "archon:end_wand"
+  ]
+}

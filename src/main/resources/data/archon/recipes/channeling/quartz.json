@@ -1,0 +1,9 @@
+{
+  "type": "archon:channeling",
+  "tag": "c:quartz_ores",
+  "result": {
+    "item": "minecraft:quartz",
+    "count": 2
+  },
+  "manaCost": 10
+}

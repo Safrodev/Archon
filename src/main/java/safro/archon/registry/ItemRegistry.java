@@ -19,7 +19,7 @@ import safro.archon.item.end.WarpingHarvesterItem;
 import safro.archon.item.fire.FlamingHarvesterItem;
 import safro.archon.item.fire.HeatRangerItem;
 import safro.archon.item.fire.WitherStaveItem;
-import safro.archon.item.necromancy.UndeadStaffItem;
+import safro.archon.item.UndeadStaffItem;
 import safro.archon.item.sky.BreezyHarvesterItem;
 import safro.archon.item.sky.HeavenDialItem;
 import safro.archon.item.sky.ThunderBoltItem;
@@ -36,6 +36,7 @@ public class ItemRegistry {
     public static final Item WATER_WAND = register("water_wand", wand(Element.WATER));
     public static final Item SKY_WAND = register("sky_wand", wand(Element.SKY));
     public static final Item EARTH_WAND = register("earth_wand", wand(Element.EARTH));
+    public static final Item END_WAND = register("end_wand", wand(Element.END));
 
     // Weapons // Gear
     public static final Item ENDER_BLADE = register("ender_blade", new EnderBladeItem(ToolMaterials.DIAMOND, 3, -2.4F, simple()));

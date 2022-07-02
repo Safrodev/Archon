@@ -41,10 +41,6 @@ public class ChanneledCriterion extends AbstractCriterion<ChanneledCriterion.Con
             this.item = item;
         }
 
-        public static ChanneledCriterion.Conditions any() {
-            return new ChanneledCriterion.Conditions(EntityPredicate.Extended.EMPTY, ItemPredicate.ANY);
-        }
-
         public boolean matches(ItemStack stack) {
             return this.item.test(stack);
         }

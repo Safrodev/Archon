@@ -7,13 +7,16 @@ import me.shedaniel.rei.api.client.gui.widgets.Widget;
 import me.shedaniel.rei.api.client.gui.widgets.Widgets;
 import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
+import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.tag.TagKey;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.registry.Registry;
 import safro.archon.client.screen.ScriptureTableScreen;
 import safro.archon.registry.BlockRegistry;
 import safro.archon.registry.TagRegistry;
@@ -46,10 +49,21 @@ public class ScriptingCategory implements DisplayCategory<ScriptingDisplay> {
         int x = bounds.getMinX();
         int y = bounds.getMinY();
 
-        widgets.add(Widgets.createTexturedWidget(ScriptureTableScreen.TEXTURE, bounds, 15, 15));
-        widgets.add(Widgets.createTexturedWidget(ScriptureTableScreen.TEXTURE, x + 10, y + 50, 176, 29, 18, 4));
-        widgets.add(Widgets.createSlot(new Point(x + 10, y + 30)).entries(EntryIngredients.ofIngredient(Ingredient.fromTag(TagRegistry.LAPIS_LAZULIS))));
-        widgets.add(Widgets.createSlot(new Point(x + 50, y + 30)).entries(EntryIngredients.ofIngredient(Ingredient.fromTag(TagRegistry.BOOKS))));
+        widgets.add(Widgets.createTexturedWidget(ScriptureTableScreen.TEXTURE, bounds, 13, 13));
+        widgets.add(Widgets.createTexturedWidget(ScriptureTableScreen.TEXTURE, x + 3, y + 26, 176, 29, 18, 4));
+        widgets.add(Widgets.createSlot(new Point(x + 4, y + 4)).entries(getFromTag(TagRegistry.LAPIS_LAZULIS)));
+        widgets.add(Widgets.createSlot(new Point(x + 127, y + 4)).entries(getFromTag(TagRegistry.BOOKS)));
+
+        widgets.add(Widgets.createSlot(new Point(x + 66, y + 4)).entries(display.getOutputEntries().get(0)).markOutput());
+        widgets.add(Widgets.createSlot(new Point(x + 66, y + 45)).entries(display.getInputEntries().get(1)).markInput());
+        widgets.add(Widgets.createSlot(new Point(x + 31, y + 45)).entries(display.getInputEntries().get(0)).markInput());
+        widgets.add(Widgets.createSlot(new Point(x + 103, y + 45)).entries(display.getInputEntries().get(2)).markInput());
         return widgets;
+    }
+
+    private static EntryIngredient getFromTag(TagKey<Item> tag) {
+        List<ItemStack> list = new ArrayList<>();
+        Registry.ITEM.iterateEntries(tag).forEach(entry -> list.add(new ItemStack(entry)));
+        return EntryIngredients.ofItemStacks(list);
     }
 }

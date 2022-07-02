@@ -29,6 +29,7 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.Archon;
+import safro.archon.registry.CriteriaRegistry;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.registry.MiscRegistry;
 
@@ -134,7 +135,7 @@ public class SkeltEntity extends TameableEntity {
         this.setTamed(true);
         this.setOwnerUuid(player.getUuid());
         if (player instanceof ServerPlayerEntity) {
-            MiscRegistry.SUMMON_UNDEAD_CRITERION.trigger((ServerPlayerEntity)player, this);
+            CriteriaRegistry.SUMMON_UNDEAD_CRITERION.trigger((ServerPlayerEntity)player, this);
         }
     }
 

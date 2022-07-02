@@ -29,7 +29,12 @@ public class ManaCatalystBlockEntity extends BlockEntity {
 
                 for (PlayerEntity player : list) {
                     if (pos.isWithinDistance(player.getBlockPos(), range)) {
-                        player.addStatusEffect(new StatusEffectInstance(EffectRegistry.MANA_BOOST, 40, mana, true, false, true));
+                        if (!player.hasStatusEffect(EffectRegistry.MANA_BOOST)) {
+                            player.addStatusEffect(new StatusEffectInstance(EffectRegistry.MANA_BOOST, 70, mana, true, false, true));
+
+                        } else if (player.getStatusEffect(EffectRegistry.MANA_BOOST).getDuration() <= 20) {
+                            player.getStatusEffect(EffectRegistry.MANA_BOOST).upgrade(new StatusEffectInstance(EffectRegistry.MANA_BOOST, 70, mana, true, false, true));
+                        }
                     }
                 }
             }

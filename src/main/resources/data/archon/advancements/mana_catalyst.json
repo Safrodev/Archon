@@ -1,0 +1,45 @@
+{
+  "parent": "archon:channel",
+  "display": {
+    "icon": {
+      "item": "archon:mana_catalyst"
+    },
+    "title": {
+      "translate": "advancements.archon.mana_catalyst.title"
+    },
+    "description": {
+      "translate": "advancements.archon.mana_catalyst.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "catalyst": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "archon:mana_catalyst"
+      }
+    },
+    "diamond_catalyst": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "archon:diamond_mana_catalyst"
+      }
+    },
+    "netherite_catalyst": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "archon:netherite_mana_catalyst"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "catalyst",
+      "diamond_catalyst",
+      "netherite_catalyst"
+    ]
+  ]
+}

@@ -3,7 +3,6 @@ package safro.archon.entity.ai;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.util.Hand;
 
 public class DistanceMeleeGoal extends MeleeAttackGoal {
     private final PathAwareEntity mob;
@@ -24,15 +23,4 @@ public class DistanceMeleeGoal extends MeleeAttackGoal {
         }
         return false;
     }
-
- /*   @Override
-    protected void attack(LivingEntity target, double sq) {
-        double d = this.getSquaredMaxAttackDistance(target);
-        if (sq <= d && this.getCooldown() <= 0) {
-            this.resetCooldown();
-            this.mob.swingHand(Hand.MAIN_HAND);
-            this.mob.tryAttack(target);
-            if (this.mob instanceof TickingAttack a) a.tickMeleeAttack(target);
-        }
-    } */
 }

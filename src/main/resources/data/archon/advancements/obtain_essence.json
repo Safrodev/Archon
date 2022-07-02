@@ -1,0 +1,35 @@
+{
+  "parent": "archon:root",
+  "display": {
+    "icon": {
+      "item": "archon:end_essence"
+    },
+    "title": {
+      "translate": "advancements.archon.obtain_essence.title"
+    },
+    "description": {
+      "translate": "advancements.archon.obtain_essence.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "essence": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "archon:essences"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "essence"
+    ]
+  ]
+}

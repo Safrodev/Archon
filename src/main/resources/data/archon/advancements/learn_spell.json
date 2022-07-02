@@ -1,0 +1,31 @@
+{
+  "parent": "archon:obtain_wand",
+  "display": {
+    "icon": {
+      "item": "archon:crush_tome"
+    },
+    "title": {
+      "translate": "advancements.archon.learn_spell.title"
+    },
+    "description": {
+      "translate": "advancements.archon.learn_spell.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "spell": {
+      "trigger": "archon:learn_spell",
+      "conditions": {
+        "amount": "one"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "spell"
+    ]
+  ]
+}

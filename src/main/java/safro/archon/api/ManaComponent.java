@@ -121,14 +121,14 @@ public class ManaComponent implements AutoSyncedComponent, ServerTickingComponen
     }
 
     public void addMaxModifier(UUID id, String name, double amt, boolean temp) {
-        EntityAttributeModifier modifier = new EntityAttributeModifier(id, name, amt, EntityAttributeModifier.Operation.MULTIPLY_BASE);
+        EntityAttributeModifier modifier = new EntityAttributeModifier(id, name, amt, EntityAttributeModifier.Operation.ADDITION);
         EntityAttributeInstance instance = player.getAttributeInstance(ManaAttributes.MAX_MANA);
         if (instance.hasModifier(modifier)) return;
 
         if (temp) {
-            instance.addTemporaryModifier(new EntityAttributeModifier(id, name, amt, EntityAttributeModifier.Operation.ADDITION));
+            instance.addTemporaryModifier(modifier);
         } else
-            instance.addPersistentModifier(new EntityAttributeModifier(id, name, amt, EntityAttributeModifier.Operation.ADDITION));
+            instance.addPersistentModifier(modifier);
     }
 
     public int getMana() {

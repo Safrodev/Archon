@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " EE",
+    " GE",
+    "G  "
+  ],
+  "key": {
+    "E": {
+      "item": "archon:fire_essence"
+    },
+    "G": {
+      "item": "archon:fire_gem"
+    }
+  },
+  "result": {
+    "item": "archon:fire_wand"
+  }
+}

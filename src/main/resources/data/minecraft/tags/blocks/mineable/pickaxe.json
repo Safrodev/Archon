@@ -9,6 +9,9 @@
     "archon:cloud_iron",
     "archon:glisteel_block",
     "archon:summoning_pedestal",
-    "archon:scripture_table"
+    "archon:scripture_table",
+    "archon:mana_catalyst",
+    "archon:diamond_mana_catalyst",
+    "archon:netherite_mana_catalyst"
   ]
 }

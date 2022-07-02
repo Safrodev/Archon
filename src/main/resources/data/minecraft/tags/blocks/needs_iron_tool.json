@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "archon:glisteel_block"
+    "archon:glisteel_block",
+    "archon:mana_catalyst"
   ]
 }

@@ -3,20 +3,16 @@ package safro.archon.item;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.enchantment.ArcaneEnchantment;
-import safro.archon.registry.MiscRegistry;
 import safro.archon.util.ArchonUtil;
 
 import java.util.List;
@@ -54,6 +50,6 @@ public abstract class ManaWeapon extends SwordItem {
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("text.archon.mana_cost", getManaCost()).formatted(Formatting.BLUE));
+        tooltip.add(ArchonUtil.createManaText(getManaCost(), true));
     }
 }

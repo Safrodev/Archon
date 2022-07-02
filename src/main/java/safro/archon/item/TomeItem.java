@@ -6,6 +6,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -15,6 +16,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Spell;
+import safro.archon.registry.CriteriaRegistry;
 import safro.archon.util.ArchonUtil;
 
 import java.util.List;
@@ -32,12 +34,19 @@ public class TomeItem extends Item {
         if (!world.isClient) {
             if (ArchonUtil.addSpell(player, this.spell)) {
                 player.sendMessage(new TranslatableText("text.archon.learn_spell").setStyle(Style.EMPTY.withColor(this.spell.getElement().getColor())), false);
+                if (player instanceof ServerPlayerEntity) {
+                    CriteriaRegistry.LEARN_SPELL_CRITERION.trigger((ServerPlayerEntity)player);
+                }
                 stack.decrement(1);
                 return TypedActionResult.success(stack);
             } else
                 player.sendMessage(new TranslatableText("text.archon.known_spell"), false);
         }
         return TypedActionResult.pass(stack);
+    }
+
+    public Spell getSpell() {
+        return this.spell;
     }
 
     @Override

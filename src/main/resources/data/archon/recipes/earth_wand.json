@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " EE",
+    " GE",
+    "G  "
+  ],
+  "key": {
+    "E": {
+      "item": "archon:earth_essence"
+    },
+    "G": {
+      "item": "archon:earth_gem"
+    }
+  },
+  "result": {
+    "item": "archon:earth_wand"
+  }
+}

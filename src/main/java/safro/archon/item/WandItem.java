@@ -82,6 +82,10 @@ public class WandItem extends Item {
         return ActionResult.PASS;
     }
 
+    public int getEnchantability() {
+        return 1;
+    }
+
     @Nullable
     public Spell getCurrentSpell(ItemStack stack, PlayerEntity player) {
         if (stack.getOrCreateSubNbt(Archon.MODID).contains("CurrentSpell")) {
@@ -122,6 +126,7 @@ public class WandItem extends Item {
             String name = stack.getOrCreateSubNbt(Archon.MODID).getString("CurrentSpell");
             Spell spell = Archon.SPELL.get(new Identifier(name));
             tooltip.add(new TranslatableText(spell.getTranslationKey()).formatted(Formatting.GRAY));
+            tooltip.add(ArchonUtil.createManaText(spell.getManaCost(), false));
         } else
             tooltip.add(new TranslatableText("text.archon.none").formatted(Formatting.GRAY));
     }

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "archon:fire_essence",
+    "archon:water_essence",
+    "archon:earth_essence",
+    "archon:sky_essence",
+    "archon:end_essence"
+  ]
+}

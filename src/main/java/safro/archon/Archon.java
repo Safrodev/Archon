@@ -45,6 +45,7 @@ public class Archon implements ModInitializer {
 		MiscRegistry.init();
 		RecipeRegistry.init();
 		SpellRegistry.init();
+		CriteriaRegistry.init();
 
 		// Init Commands
 		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {

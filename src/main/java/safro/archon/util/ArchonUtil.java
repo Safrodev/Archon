@@ -13,6 +13,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
@@ -63,6 +66,10 @@ public class ArchonUtil {
                 stack.getItem() instanceof ManaBerriesItem || stack.isOf(ItemRegistry.SOUL_CRUSHER) || stack.getItem() instanceof WandItem;
     }
 
+    public static Text createManaText(int amt, boolean blue) {
+        return new TranslatableText("text.archon.mana_cost", amt).formatted(blue ? Formatting.BLUE : Formatting.GRAY);
+    }
+
     public static void dropItem(World world, BlockPos pos, Item item) {
         double d = (double) (world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
         double e = (double) (world.random.nextFloat() * 0.7F) + 0.06000000238418579D + 0.6D;
@@ -90,8 +97,7 @@ public class ArchonUtil {
 
     public static void growBlock(World world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos);
-        if (blockState.getBlock() instanceof Fertilizable) {
-            Fertilizable fertilizable = (Fertilizable)blockState.getBlock();
+        if (blockState.getBlock() instanceof Fertilizable fertilizable) {
             if (fertilizable.isFertilizable(world, pos, blockState, world.isClient)) {
                 if (world instanceof ServerWorld) {
                     if (fertilizable.canGrow(world, world.random, pos, blockState)) {

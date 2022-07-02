@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GEG",
+    "ELE",
+    "GEG"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:lapis_block"
+    },
+    "E": {
+      "tag": "archon:essences"
+    },
+    "G": {
+      "item": "archon:glisteel_ingot"
+    }
+  },
+  "result": {
+    "item": "archon:mana_catalyst"
+  }
+}
