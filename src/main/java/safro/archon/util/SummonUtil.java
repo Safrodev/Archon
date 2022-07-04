@@ -37,7 +37,7 @@ public class SummonUtil {
     }
 
     public static boolean canSummonLeven(SummoningPedestalBlockEntity be) {
-        return be.hasItem(Items.KELP) && be.hasItem(ItemRegistry.WATER_GEM) && be.hasItem(Items.DIAMOND) && be.hasItem(ItemRegistry.WATER_ESSENCE);
+        return be.hasItem(Items.KELP) && be.hasItem(ItemRegistry.WATER_GEM) && be.hasItem(Items.PUFFERFISH) && be.hasItem(ItemRegistry.WATER_ESSENCE);
     }
 
     public static void summonLeven(World world, BlockPos pos) {

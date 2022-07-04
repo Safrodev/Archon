@@ -7,8 +7,10 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.tag.FluidTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -24,10 +26,21 @@ import safro.archon.registry.ItemRegistry;
 import safro.archon.registry.TagRegistry;
 import safro.archon.util.ArchonUtil;
 
+import java.util.Set;
+
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
 
     @Shadow public abstract boolean hasStatusEffect(StatusEffect effect);
+
+    @Inject(method = "canWalkOnFluid", at = @At("HEAD"), cancellable = true)
+    private void seaMasterCharm(FluidState fluidState, CallbackInfoReturnable<Boolean> cir) {
+        if (((LivingEntity)(Object) this) instanceof PlayerEntity p) {
+            if (p.getInventory().containsAny(Set.of(ItemRegistry.SEA_MASTER_CHARM))) {
+                cir.setReturnValue(fluidState.isIn(FluidTags.WATER));
+            }
+        }
+    }
 
     @Inject(method = "tickMovement", at = @At("TAIL"))
     private void tickAquaShield(CallbackInfo ci) {

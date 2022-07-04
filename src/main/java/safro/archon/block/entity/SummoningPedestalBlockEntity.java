@@ -91,7 +91,7 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
         this.inventory.clear();
         Inventories.readNbt(nbt, this.inventory);
         if (nbt.contains("processor")) {
-            processor = nbt.getInt("processing");
+            processor = nbt.getInt("processor");
         }
     }
 
@@ -112,12 +112,14 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
     }
 
     public boolean addItem(ItemStack item) {
-        for(int i = 0; i < this.inventory.size(); ++i) {
-            ItemStack itemStack = this.inventory.get(i);
-            if (itemStack.isEmpty()) {
-                this.inventory.set(i, item.split(1));
-                this.updateListeners();
-                return true;
+        if (!this.hasItem(item.getItem())) {
+            for (int i = 0; i < this.inventory.size(); ++i) {
+                ItemStack itemStack = this.inventory.get(i);
+                if (itemStack.isEmpty()) {
+                    this.inventory.set(i, item.split(1));
+                    this.updateListeners();
+                    return true;
+                }
             }
         }
         return false;
@@ -139,12 +141,6 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
     private void updateListeners() {
         this.markDirty();
         this.getWorld().updateListeners(this.getPos(), this.getCachedState(), this.getCachedState(), 3);
-    }
-
-    public void updateItems() {
-        if (this.world != null) {
-            this.updateListeners();
-        }
     }
 
     public boolean isProcessing() {

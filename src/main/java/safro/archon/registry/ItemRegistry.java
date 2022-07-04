@@ -52,6 +52,7 @@ public class ItemRegistry {
 
     public static final Item TERRANEAN_AXE = register("terranean_axe", new TerraneanAxeItem(ToolMaterials.IRON, 6, -3.1F, simple().rarity(Rarity.RARE)));
     public static final Item HEAVEN_DIAL = register("heaven_dial", new HeavenDialItem(simple().maxCount(1).rarity(Rarity.RARE)));
+    public static final Item SEA_MASTER_CHARM = register("sea_master_charm", new Item(simple().maxCount(1).rarity(Rarity.RARE)));
 
     // Necromancy
     public static final Item SOUL_CRUSHER = register("soul_crusher", new SwordItem(ToolMaterials.NETHERITE, 3, -2.4F, simple()));
@@ -102,6 +103,7 @@ public class ItemRegistry {
     public static final Item SPRY_DUST = register("spry_dust", new Item(simple()));
     public static final Item TERRANITE_STONE = register("terranite_stone", new Item(simple()));
     public static final Item ANGELIC_STAR = register("angelic_star", new Item(simple()));
+    public static final Item WAVE_CRYSTAL = register("wave_crystal", new Item(simple()));
 
     public static final Item MANA_LEECH_SPAWN_EGG = register("mana_leech_spawn_egg", new SpawnEggItem(EntityRegistry.MANA_LEECH, 0x043C99, 0x1D75B1, simple()));
 

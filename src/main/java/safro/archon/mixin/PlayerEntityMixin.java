@@ -2,6 +2,8 @@ package safro.archon.mixin;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
@@ -16,6 +18,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import safro.archon.api.ManaAttributes;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
+
+import java.util.Set;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
@@ -64,6 +68,14 @@ public abstract class PlayerEntityMixin {
                 ArchonUtil.get(player).removeMana(20);
             } else
                 --druidBootsTimer;
+        }
+    }
+
+    @Inject(method = "tick", at = @At("TAIL"))
+    private void seaMasterCharmSpeed(CallbackInfo ci) {
+        PlayerEntity player = (PlayerEntity) (Object) this;
+        if (player.getInventory().containsAny(Set.of(ItemRegistry.SEA_MASTER_CHARM)) && player.isTouchingWaterOrRain()) {
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 60, 2, true, false, false));
         }
     }
 }

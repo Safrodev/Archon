@@ -113,7 +113,7 @@ public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
 
     @Override
     public Item getDrop() {
-        return ItemRegistry.WATER_GEM;
+        return ItemRegistry.WAVE_CRYSTAL;
     }
 
     @Override

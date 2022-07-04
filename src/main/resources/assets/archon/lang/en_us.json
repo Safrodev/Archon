@@ -68,6 +68,8 @@
   "item.archon.terranite_stone": "Terranite Stone",
   "item.archon.angelic_star": "Angelic Star",
   "item.archon.heaven_dial": "Heaven's Dial",
+  "item.archon.wave_crystal": "Wave Crystal",
+  "item.archon.sea_master_charm": "Sea Master Charm",
 
   "item.archon.capacity_scroll": "Ancient Scroll",
   "item.archon.accelerate_scroll": "Ancient Scroll",
@@ -170,6 +172,8 @@
   "advancements.archon.kill_tar.description": "Defeat Tar",
   "advancements.archon.kill_ayla.title": "Fall of the Sky",
   "advancements.archon.kill_ayla.description": "Defeat Ayla",
+  "advancements.archon.kill_leven.title": "Washed Away",
+  "advancements.archon.kill_leven.description": "Defeat Leven",
   "advancements.archon.mana_catalyst.title": "Buffed Up",
   "advancements.archon.mana_catalyst.description": "Place a Mana Catalyst",
   "advancements.archon.obtain_essence.title": "Essence-tial",

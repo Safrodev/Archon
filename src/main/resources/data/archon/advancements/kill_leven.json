@@ -1,0 +1,39 @@
+{
+  "parent": "archon:kill_ayla",
+  "display": {
+    "icon": {
+      "item": "archon:wave_crystal"
+    },
+    "title": {
+      "translate": "advancements.archon.kill_leven.title"
+    },
+    "description": {
+      "translate": "advancements.archon.kill_leven.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "archon:leven": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "archon:leven"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "archon:leven"
+    ]
+  ]
+}

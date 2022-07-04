@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "GWG",
+    " G "
+  ],
+  "key": {
+    "W": {
+      "item": "archon:wave_crystal"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "archon:water_gem"
+    }
+  },
+  "result": {
+    "item": "archon:sea_master_charm"
+  }
+}
