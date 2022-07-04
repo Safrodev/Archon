@@ -1,0 +1,27 @@
+{
+  "name": "Water Spells",
+  "icon": "archon:freeze_tome",
+  "category": "archon:spells",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Water spells can be found in Ocean Ruins or from fishing"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Aqua Shield",
+      "text": "Grants the user a shield from direct mob damage for 20 seconds $(li)Mana Cost: 50"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Freeze",
+      "text": "Shoots a chunk of snow that freezes and slows the target $(li)Mana Cost: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Drown",
+      "text": "Places water on the target's head $(li)Mana Cost: 30 $(li)Range: 10"
+    }
+  ]
+}

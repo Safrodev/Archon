@@ -1,0 +1,27 @@
+{
+  "name": "End Spells",
+  "icon": "archon:ender_tome",
+  "category": "archon:spells",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "End spells can be found in End Cities or Stronghold Libraries"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Darkball",
+      "text": "Shoots an Ender Dragon fireball that creates a deadly damage zone upon impact. $(li)Mana Cost: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Swap",
+      "text": "Allows the user to swap places with the target $(li)Mana Cost: 40 $(li)Range: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ender",
+      "text": "Instantly opens the user's ender chest inventory $(li)Mana Cost: 20"
+    }
+  ]
+}

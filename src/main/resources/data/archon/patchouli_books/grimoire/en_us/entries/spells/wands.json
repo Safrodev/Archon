@@ -1,0 +1,26 @@
+{
+  "name": "Wands",
+  "icon": "archon:water_wand",
+  "category": "archon:spells",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Wands are a core component to spellcasting. Wands can only cast spells of that match its element. To use a wand, you must know at least one spell. You can cycle between spells by pressing shift + right-click. Your current spell and its mana cost will be displayed on the wand's tooltip."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:fire_wand",
+      "recipe2": "archon:water_wand"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:earth_wand",
+      "recipe2": "archon:sky_wand"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:end_wand"
+    }
+  ]
+}

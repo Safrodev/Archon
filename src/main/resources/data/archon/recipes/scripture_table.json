@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PIP",
+    "WWW",
+    "D D"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "I": {
+      "item": "minecraft:ink_sac"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "D": {
+      "tag": "c:deepslates"
+    }
+  },
+  "result": {
+    "item": "archon:scripture_table"
+  }
+}
