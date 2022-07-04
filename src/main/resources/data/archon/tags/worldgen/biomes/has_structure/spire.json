@@ -3,7 +3,6 @@
   "values": [
     "#minecraft:is_mountain",
     "minecraft:grove",
-    "#minecraft:is_forest",
     "#minecraft:is_hill"
   ]
 }

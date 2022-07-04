@@ -31,14 +31,13 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand) {
-        ItemStack stack = player.getStackInHand(hand);
+        ItemStack stack = player.getMainHandStack();
         if (this.isIdle() && !world.isClient) {
             if (player.isSneaking()) {
                 ItemScatterer.spawn(world, pos, inventory);
                 world.updateListeners(pos, state, state, 3);
                 markDirty(world, pos, state);
                 return ActionResult.SUCCESS;
-
             } else if (!stack.isEmpty() && this.addItem(player.getAbilities().creativeMode ? stack.copy() : stack)) {
                 return ActionResult.SUCCESS;
             } else {

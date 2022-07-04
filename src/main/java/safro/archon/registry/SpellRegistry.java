@@ -2,6 +2,7 @@ package safro.archon.registry;
 
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
@@ -46,5 +47,11 @@ public class SpellRegistry {
 
     public static TomeItem createTome(String name, Spell spell) {
         return ItemRegistry.register(name, new TomeItem(spell, ItemRegistry.simple().maxCount(1)));
+    }
+
+    public static Item getTome(Spell spell) {
+        String s = Archon.SPELL.getId(spell).toString();
+        Identifier tome = new Identifier(s + "_tome");
+        return Registry.ITEM.get(tome);
     }
 }
