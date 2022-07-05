@@ -7,8 +7,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import safro.archon.Archon;
 import safro.archon.item.WandItem;
+import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;
 
 import javax.annotation.Nullable;
@@ -31,7 +31,7 @@ public abstract class Spell {
     }
 
     public String getTranslationKey() {
-        Identifier id = Archon.SPELL.getId(this);
+        Identifier id = SpellRegistry.REGISTRY.getId(this);
         return "spell." + id.getNamespace() + "." + id.getPath();
     }
 

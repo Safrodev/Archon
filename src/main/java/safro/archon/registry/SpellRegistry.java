@@ -1,5 +1,6 @@
 package safro.archon.registry;
 
+import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
@@ -12,6 +13,8 @@ import safro.archon.item.TomeItem;
 import safro.archon.spell.*;
 
 public class SpellRegistry {
+    public static final Registry<Spell> REGISTRY = FabricRegistryBuilder.createSimple(Spell.class, new Identifier(Archon.MODID, "spell")).buildAndRegister();
+
     // Fire
     public static Spell FIREBALL = register("fireball", new FireballSpell(Element.FIRE, 20));
     public static Spell INCOMBUSTIBLE = register("incombustible", new EffectSpell(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 1200), Element.FIRE, 50));
@@ -42,7 +45,7 @@ public class SpellRegistry {
 
     private static Spell register(String name, Spell spell) {
         createTome(name + "_tome", spell);
-        return Registry.register(Archon.SPELL, new Identifier(Archon.MODID, name), spell);
+        return Registry.register(REGISTRY, new Identifier(Archon.MODID, name), spell);
     }
 
     public static TomeItem createTome(String name, Spell spell) {
@@ -50,7 +53,7 @@ public class SpellRegistry {
     }
 
     public static Item getTome(Spell spell) {
-        String s = Archon.SPELL.getId(spell).toString();
+        String s = REGISTRY.getId(spell).toString();
         Identifier tome = new Identifier(s + "_tome");
         return Registry.ITEM.get(tome);
     }

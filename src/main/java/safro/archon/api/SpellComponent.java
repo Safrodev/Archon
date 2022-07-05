@@ -6,8 +6,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.util.Identifier;
-import safro.archon.Archon;
 import safro.archon.registry.ComponentsRegistry;
+import safro.archon.registry.SpellRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class SpellComponent implements AutoSyncedComponent {
 
             for (int i = 0; i < list.size(); i++) {
                 NbtCompound nbt = list.getCompound(i);
-                Spell s = Archon.SPELL.get(new Identifier(nbt.getString("Spell")));
+                Spell s = SpellRegistry.REGISTRY.get(new Identifier(nbt.getString("Spell")));
                 getSpells().add(s);
             }
         }
@@ -38,7 +38,7 @@ public class SpellComponent implements AutoSyncedComponent {
         NbtList list = new NbtList();
         for (int i = 0; i < getSpells().size(); i++) {
             NbtCompound nbt = new NbtCompound();
-            nbt.putString("Spell", Archon.SPELL.getId(getSpells().get(i)).toString());
+            nbt.putString("Spell", SpellRegistry.REGISTRY.getId(getSpells().get(i)).toString());
             list.add(nbt);
         }
         tag.put("Spells", list);

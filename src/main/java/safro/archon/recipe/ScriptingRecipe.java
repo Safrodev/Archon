@@ -8,23 +8,22 @@ import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 import safro.archon.registry.RecipeRegistry;
 
-import java.util.List;
-
 public class ScriptingRecipe implements Recipe<Inventory> {
     private final Identifier id;
-    private final List<Ingredient> inputs;
+    private final DefaultedList<Ingredient> inputs;
     private final Item result;
 
-    public ScriptingRecipe(Identifier id, List<Ingredient> inputs, Item result) {
+    public ScriptingRecipe(Identifier id, DefaultedList<Ingredient> inputs, Item result) {
         this.id = id;
         this.inputs = checkInputs(inputs);
         this.result = result;
     }
 
-    public static List<Ingredient> checkInputs(List<Ingredient> in) {
+    public static DefaultedList<Ingredient> checkInputs(DefaultedList<Ingredient> in) {
         if (in.size() != 3) throw new IllegalArgumentException("Scripting Recipe can only have 3 ingredients!");
         return in;
     }
@@ -55,7 +54,7 @@ public class ScriptingRecipe implements Recipe<Inventory> {
         return new ItemStack(this.result);
     }
 
-    public List<Ingredient> getInputs() {
+    public DefaultedList<Ingredient> getInputs() {
         return this.inputs;
     }
 

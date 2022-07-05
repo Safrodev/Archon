@@ -17,6 +17,7 @@ import safro.archon.api.Element;
 import safro.archon.api.Spell;
 import safro.archon.enchantment.ArcaneEnchantment;
 import safro.archon.registry.ComponentsRegistry;
+import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;
 
 import javax.annotation.Nullable;
@@ -90,12 +91,12 @@ public class WandItem extends Item {
     public Spell getCurrentSpell(ItemStack stack, PlayerEntity player) {
         if (stack.getOrCreateSubNbt(Archon.MODID).contains("CurrentSpell")) {
             String name = stack.getOrCreateSubNbt(Archon.MODID).getString("CurrentSpell");
-            return Archon.SPELL.get(new Identifier(name));
+            return SpellRegistry.REGISTRY.get(new Identifier(name));
         }
 
         if (getSpells(player).isEmpty()) return null;
         Spell spell = getSpells(player).get(0);
-        stack.getOrCreateSubNbt(Archon.MODID).putString("CurrentSpell", Archon.SPELL.getId(spell).toString());
+        stack.getOrCreateSubNbt(Archon.MODID).putString("CurrentSpell", SpellRegistry.REGISTRY.getId(spell).toString());
         return spell;
     }
 
@@ -104,7 +105,7 @@ public class WandItem extends Item {
         if (spells.size() > 1) {
             Collections.rotate(spells, 1);
             ComponentsRegistry.SPELL_COMPONENT.sync(player);
-            stack.getOrCreateSubNbt(Archon.MODID).putString("CurrentSpell", Archon.SPELL.getId(spells.get(0)).toString());
+            stack.getOrCreateSubNbt(Archon.MODID).putString("CurrentSpell", SpellRegistry.REGISTRY.getId(spells.get(0)).toString());
         }
         return spells;
     }
@@ -124,7 +125,7 @@ public class WandItem extends Item {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.getOrCreateSubNbt(Archon.MODID).contains("CurrentSpell")) {
             String name = stack.getOrCreateSubNbt(Archon.MODID).getString("CurrentSpell");
-            Spell spell = Archon.SPELL.get(new Identifier(name));
+            Spell spell = SpellRegistry.REGISTRY.get(new Identifier(name));
             tooltip.add(new TranslatableText(spell.getTranslationKey()).formatted(Formatting.GRAY));
             tooltip.add(ArchonUtil.createManaText(spell.getManaCost(), false));
         } else

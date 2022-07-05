@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import safro.archon.Archon;
 import safro.archon.api.Spell;
+import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;
 
 import java.util.List;
@@ -51,7 +52,7 @@ public class LearnSpellCriterion extends AbstractCriterion<LearnSpellCriterion.C
             if (type.equals(LearnSpellCriterion.ONE)) {
                 return list.size() >= 1;
             }
-            return list.size() == Archon.SPELL.size();
+            return list.size() == SpellRegistry.REGISTRY.size();
         }
 
         public JsonObject toJson(AdvancementEntityPredicateSerializer predicateSerializer) {
