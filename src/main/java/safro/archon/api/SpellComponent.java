@@ -58,10 +58,8 @@ public class SpellComponent implements AutoSyncedComponent {
     }
 
     public void setSpells(List<Spell> list) {
-        if (list.size() != getSpells().size()) return;
-        for (int i = 0; i < list.size(); i++) {
-            this.spells.set(i, list.get(i));
-        }
+        this.getSpells().clear();
+        this.getSpells().addAll(list);
         ComponentsRegistry.SPELL_COMPONENT.sync(player);
     }
 }

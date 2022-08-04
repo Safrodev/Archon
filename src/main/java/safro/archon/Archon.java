@@ -11,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import safro.archon.api.ManaAttributes;
 import safro.archon.command.ManaCommand;
+import safro.archon.command.SpellCommand;
 import safro.archon.config.ArchonConfig;
 import safro.archon.network.NetworkManager;
 import safro.archon.registry.*;
@@ -45,6 +46,7 @@ public class Archon implements ModInitializer {
 		// Init Commands
 		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
 			ManaCommand.register(dispatcher);
+			SpellCommand.register(dispatcher);
 		});
 
 		// Init Sounds

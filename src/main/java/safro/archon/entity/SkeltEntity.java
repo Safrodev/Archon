@@ -7,7 +7,11 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.AbstractSkeletonEntity;
+import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.HorseBaseEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -16,7 +20,6 @@ import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
@@ -25,15 +28,20 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TimeHelper;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import safro.archon.Archon;
 import safro.archon.registry.CriteriaRegistry;
 import safro.archon.registry.ItemRegistry;
-import safro.archon.registry.MiscRegistry;
 
-public class SkeltEntity extends TameableEntity {
+import java.util.UUID;
+
+public class SkeltEntity extends TameableEntity implements Angerable {
+    private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(WolfEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    @Nullable
+    private UUID angryAt;
 
     public SkeltEntity(EntityType<? extends SkeltEntity> entityType, World world) {
         super(entityType, world);
@@ -50,9 +58,9 @@ public class SkeltEntity extends TameableEntity {
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
         this.targetSelector.add(2, new AttackWithOwnerGoal(this));
-        this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));
-        this.targetSelector.add(4, new ActiveTargetGoal(this, AbstractSkeletonEntity.class, false));
-        this.targetSelector.add(5, new UniversalAngerGoal(this, true));
+        this.targetSelector.add(3, (new RevengeGoal(this)).setGroupRevenge());
+        this.targetSelector.add(4, new ActiveTargetGoal<>(this, AbstractSkeletonEntity.class, false));
+        this.targetSelector.add(5, new UniversalAngerGoal<>(this, true));
     }
 
     public static DefaultAttributeContainer.Builder createSkeltAttributes() {
@@ -110,7 +118,7 @@ public class SkeltEntity extends TameableEntity {
                     if (stack.isOf(ItemRegistry.UNDEAD_STAFF)) {
                         this.setSitting(!this.isSitting());
                         this.navigation.stop();
-                        this.setTarget((LivingEntity) null);
+                        this.setTarget(null);
                         this.messageSitting(player);
                         return ActionResult.SUCCESS;
                     }
@@ -151,5 +159,30 @@ public class SkeltEntity extends TameableEntity {
 
     public float getScale() {
         return 1;
+    }
+
+    public int getAngerTime() {
+        return this.dataTracker.get(ANGER_TIME);
+    }
+
+    public void setAngerTime(int angerTime) {
+        this.dataTracker.set(ANGER_TIME, angerTime);
+    }
+
+    @Nullable
+    @Override
+    public UUID getAngryAt() {
+        return this.angryAt;
+    }
+
+    @Override
+    public void setAngryAt(@Nullable UUID angryAt) {
+        this.angryAt = angryAt;
+    }
+
+    @Override
+    public void chooseRandomAngerTime() {
+        UniformIntProvider range = TimeHelper.betweenSeconds(20, 39);
+        this.setAngerTime(range.get(this.random));
     }
 }

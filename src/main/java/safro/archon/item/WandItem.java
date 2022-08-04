@@ -16,7 +16,6 @@ import safro.archon.Archon;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
 import safro.archon.enchantment.ArcaneEnchantment;
-import safro.archon.registry.ComponentsRegistry;
 import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;
 
@@ -48,7 +47,7 @@ public class WandItem extends Item {
 
             Spell current = getCurrentSpell(stack, player);
             if (player.isSneaking()) {
-                ComponentsRegistry.SPELL_COMPONENT.get(player).setSpells(cycleSpells(stack, player));
+                this.cycleSpells(stack, player);
                 player.sendMessage(new TranslatableText(getCurrentSpell(stack, player).getTranslationKey()).formatted(Formatting.GREEN), true);
                 return TypedActionResult.success(stack);
 
@@ -100,14 +99,14 @@ public class WandItem extends Item {
         return spell;
     }
 
-    public List<Spell> cycleSpells(ItemStack stack, PlayerEntity player) {
-        List<Spell> spells = getSpells(player);
-        if (spells.size() > 1) {
-            Collections.rotate(spells, 1);
-            ComponentsRegistry.SPELL_COMPONENT.sync(player);
-            stack.getOrCreateSubNbt(Archon.MODID).putString("CurrentSpell", SpellRegistry.REGISTRY.getId(spells.get(0)).toString());
+    public void cycleSpells(ItemStack stack, PlayerEntity player) {
+        if (getSpells(player).size() > 1) {
+            List<Spell> spells = ArchonUtil.getSpells(player);
+            do {
+                Collections.rotate(spells, 1);
+                stack.getOrCreateSubNbt(Archon.MODID).putString("CurrentSpell", SpellRegistry.REGISTRY.getId(spells.get(0)).toString());
+            } while (getCurrentSpell(stack, player).getElement() != this.getElement());
         }
-        return spells;
     }
 
     public ArrayList<Spell> getSpells(PlayerEntity player) {

@@ -150,6 +150,7 @@
   "command.archon.mana_add_multiple": "Added %s mana to %s players",
   "command.archon.mana_set_one": "Set max mana of %s for %s",
   "command.archon.mana_set_multiple": "Set max mana %s players to %s",
+  "command.archon.spell.no_spells": "Selected player does not know any spells",
 
   "rei.archon.channeling": "Channeling",
   "rei.archon.scripting": "Scripting",
