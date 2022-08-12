@@ -16,7 +16,6 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -64,12 +63,12 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
 
     @Override
     public Text getSpawnMessage() {
-        return new TranslatableText("text.archon.alya.spawn").formatted(Formatting.WHITE);
+        return Text.translatable("text.archon.alya.spawn").formatted(Formatting.WHITE);
     }
 
     @Override
     public Text getKillMessage() {
-        return new TranslatableText("text.archon.alya.kill").formatted(Formatting.WHITE);
+        return Text.translatable("text.archon.alya.kill").formatted(Formatting.WHITE);
     }
 
     protected EntityNavigation createNavigation(World world) {

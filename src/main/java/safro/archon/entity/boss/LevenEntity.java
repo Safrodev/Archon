@@ -20,7 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
@@ -118,11 +117,11 @@ public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
 
     @Override
     public Text getSpawnMessage() {
-        return new TranslatableText("text.archon.leven.spawn").formatted(Formatting.BLUE);
+        return Text.translatable("text.archon.leven.spawn").formatted(Formatting.BLUE);
     }
 
     @Override
     public Text getKillMessage() {
-        return new TranslatableText("text.archon.leven.kill").formatted(Formatting.BLUE);
+        return Text.translatable("text.archon.leven.kill").formatted(Formatting.BLUE);
     }
 }

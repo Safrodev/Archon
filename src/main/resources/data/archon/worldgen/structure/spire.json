@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:jigsaw",
+  "start_pool": "archon:spire",
+  "size": 1,
+  "max_distance_from_center": 10,
+  "biomes": "#archon:has_structure/spire",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "start_height": {
+    "absolute": 0
+  },
+  "use_expansion_hack": false,
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "spawn_overrides": {}
+}

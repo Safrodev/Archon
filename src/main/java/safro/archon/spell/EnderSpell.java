@@ -9,7 +9,6 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
@@ -24,7 +23,7 @@ public class EnderSpell extends Spell {
     @Override
     public void cast(World world, PlayerEntity player, ItemStack stack) {
         EnderChestInventory enderChestInventory = player.getEnderChestInventory();
-        Text container = new TranslatableText("container.enderchest");
+        Text container = Text.translatable("container.enderchest");
 
         player.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inventory, playerx) -> GenericContainerScreenHandler.createGeneric9x3(syncId, inventory, enderChestInventory), container));
         player.incrementStat(Stats.OPEN_ENDERCHEST);

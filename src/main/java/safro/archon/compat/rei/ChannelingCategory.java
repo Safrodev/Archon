@@ -11,7 +11,6 @@ import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import safro.archon.registry.ItemRegistry;
 
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChannelingCategory implements DisplayCategory<ChannelingDisplay> {
-    public static final TranslatableText TITLE = new TranslatableText("rei.archon.channeling");
+    public static final Text TITLE = Text.translatable("rei.archon.channeling");
     public static final EntryStack<ItemStack> ICON = EntryStacks.of(ItemRegistry.CHANNELER);
 
     @Override
@@ -48,7 +47,7 @@ public class ChannelingCategory implements DisplayCategory<ChannelingDisplay> {
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 27, startPoint.y + 8)).entries(display.getInputEntries().get(0)).markInput());
         widgets.add(Widgets.createResultSlotBackground(outputPoint));
         widgets.add(Widgets.createSlot(outputPoint).entries(display.getOutputEntries().get(0)).disableBackground().markOutput());
-        widgets.add(Widgets.createLabel(textPoint, new TranslatableText("text.archon.mana_cost", display.getManaCost()).formatted(Formatting.DARK_AQUA)));
+        widgets.add(Widgets.createLabel(textPoint, Text.translatable("text.archon.mana_cost", display.getManaCost()).formatted(Formatting.DARK_AQUA)));
         return widgets;
     }
 }

@@ -5,11 +5,10 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.rule.BlockStateMatchRuleTest;
+import net.minecraft.tag.BiomeTags;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.*;
@@ -17,9 +16,7 @@ import net.minecraft.world.gen.placementmodifier.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import safro.archon.Archon;
 import safro.archon.block.ManaBerryBushBlock;
-import safro.archon.mixin.StructureFeatureAccessor;
 import safro.archon.world.feature.CloudFeature;
-import safro.archon.world.feature.SpireFeature;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -47,11 +44,8 @@ public class WorldRegistry {
 
     public static final RegistryEntry<PlacedFeature> MBB_PATCH_PLACED = register("mana_berry_bush_patch", MBB_PATCH_CONFIGURED, List.of(new PlacementModifier[]{RarityFilterPlacementModifier.of(Archon.CONFIG.manaBerryBushChance), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of()}));
 
-    // Structure Features
-    public static final StructureFeature<StructurePoolFeatureConfig> SPIRE = new SpireFeature(StructurePoolFeatureConfig.CODEC);
-
-    private static <C extends FeatureConfig, F extends Feature<C>> RegistryEntry<ConfiguredFeature<C, ?>> registerOre(String id, C config) {
-        return BuiltinRegistries.method_40360(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Archon.MODID, id).toString(), new ConfiguredFeature(Feature.ORE, config));
+    private static RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> registerOre(String id, OreFeatureConfig config) {
+        return ConfiguredFeatures.register(new Identifier(Archon.MODID, id).toString(), Feature.ORE, config);
     }
 
     private static RandomPatchFeatureConfig createPatch(BlockStateProvider block, int tries) {
@@ -59,7 +53,7 @@ public class WorldRegistry {
     }
 
     private static <C extends FeatureConfig, F extends Feature<C>> RegistryEntry<ConfiguredFeature<C, ?>> register(String id, F feature, C config) {
-        return BuiltinRegistries.method_40360(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Archon.MODID, id).toString(), new ConfiguredFeature<>(feature, config));
+        return ConfiguredFeatures.register(new Identifier(Archon.MODID, id).toString(), feature, config);
     }
 
     private static RegistryEntry<PlacedFeature> register(String id, RegistryEntry<? extends ConfiguredFeature<?, ?>> feature, List<PlacementModifier> modifiers) {
@@ -77,22 +71,15 @@ public class WorldRegistry {
     public static void init() {
         Registry.register(Registry.FEATURE, new Identifier(Archon.MODID, "sky_node"), SKY_NODE);
 
-        structure("spire", SPIRE, GenerationStep.Feature.SURFACE_STRUCTURES);
-
         add(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, EARTH_NODE_PLACED);
-        add(BiomeSelectors.categories(Biome.Category.OCEAN), GenerationStep.Feature.UNDERGROUND_ORES, WATER_NODE_PLACED);
+        add(BiomeSelectors.tag(BiomeTags.IS_OCEAN), GenerationStep.Feature.UNDERGROUND_ORES, WATER_NODE_PLACED);
         add(BiomeSelectors.foundInTheNether(), GenerationStep.Feature.UNDERGROUND_ORES, FIRE_NODE_PLACED);
         add(BiomeSelectors.foundInTheEnd(), GenerationStep.Feature.UNDERGROUND_ORES, END_NODE_PLACED);
         add(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.TOP_LAYER_MODIFICATION, SKY_NODE_PLACED);
-        add(BiomeSelectors.categories(Biome.Category.TAIGA), GenerationStep.Feature.VEGETAL_DECORATION, MBB_PATCH_PLACED);
+        add(BiomeSelectors.tag(BiomeTags.IS_TAIGA), GenerationStep.Feature.VEGETAL_DECORATION, MBB_PATCH_PLACED);
     }
 
     private static void add(Predicate<BiomeSelectionContext> ctx, GenerationStep.Feature step, RegistryEntry<PlacedFeature> feature) {
         feature.getKey().ifPresent(key -> BiomeModifications.addFeature(ctx, step, key));
-    }
-
-    private static void structure(String name, StructureFeature feature, GenerationStep.Feature step) {
-        Registry.register(Registry.STRUCTURE_FEATURE, new Identifier(Archon.MODID, name), feature);
-        StructureFeatureAccessor.getStep().put(feature, step);
     }
 }

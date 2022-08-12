@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import safro.archon.Archon;
@@ -41,14 +40,14 @@ public class WandItem extends Item {
 
         if (!world.isClient) {
             if (getSpells(player).isEmpty()) {
-                player.sendMessage(new TranslatableText("text.archon.invalid_spell").formatted(Formatting.RED), true);
+                player.sendMessage(Text.translatable("text.archon.invalid_spell").formatted(Formatting.RED), true);
                 return TypedActionResult.pass(stack);
             }
 
             Spell current = getCurrentSpell(stack, player);
             if (player.isSneaking()) {
                 this.cycleSpells(stack, player);
-                player.sendMessage(new TranslatableText(getCurrentSpell(stack, player).getTranslationKey()).formatted(Formatting.GREEN), true);
+                player.sendMessage(Text.translatable(getCurrentSpell(stack, player).getTranslationKey()).formatted(Formatting.GREEN), true);
                 return TypedActionResult.success(stack);
 
             } else if (current != null && !current.isBlockCasted() && current.canCast(world, player, stack)) {
@@ -125,9 +124,9 @@ public class WandItem extends Item {
         if (stack.getOrCreateSubNbt(Archon.MODID).contains("CurrentSpell")) {
             String name = stack.getOrCreateSubNbt(Archon.MODID).getString("CurrentSpell");
             Spell spell = SpellRegistry.REGISTRY.get(new Identifier(name));
-            tooltip.add(new TranslatableText(spell.getTranslationKey()).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable(spell.getTranslationKey()).formatted(Formatting.GRAY));
             tooltip.add(ArchonUtil.createManaText(spell.getManaCost(), false));
         } else
-            tooltip.add(new TranslatableText("text.archon.none").formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("text.archon.none").formatted(Formatting.GRAY));
     }
 }

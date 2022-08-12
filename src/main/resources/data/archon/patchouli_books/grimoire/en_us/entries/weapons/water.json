@@ -21,6 +21,15 @@
     {
       "type": "patchouli:crafting",
       "recipe": "archon:frost_sword"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:sea_master_charm",
+      "text": "The Sea Master Charm grants the player the ability to walk on water and breath underwater. The charm works as long as it's in the player's inventory."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:sea_master_charm"
     }
   ]
 }

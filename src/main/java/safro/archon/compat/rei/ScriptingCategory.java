@@ -15,7 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tag.TagKey;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.registry.Registry;
 import safro.archon.client.screen.ScriptureTableScreen;
 import safro.archon.registry.BlockRegistry;
@@ -25,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScriptingCategory implements DisplayCategory<ScriptingDisplay> {
-    public static final TranslatableText TITLE = new TranslatableText("rei.archon.scripting");
+    public static final Text TITLE = Text.translatable("rei.archon.scripting");
     public static final EntryStack<ItemStack> ICON = EntryStacks.of(BlockRegistry.SCRIPTURE_TABLE);
 
     @Override

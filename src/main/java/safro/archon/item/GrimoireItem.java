@@ -5,7 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -27,7 +27,7 @@ public class GrimoireItem extends Item {
                 PatchouliAPI.get().openBookGUI((ServerPlayerEntity) user, new Identifier(Archon.MODID, "grimoire"));
                 return TypedActionResult.success(user.getStackInHand(hand));
             } else {
-                user.sendMessage(new TranslatableText("text.archon.invalid_book").formatted(Formatting.RED), true);
+                user.sendMessage(Text.translatable("text.archon.invalid_book").formatted(Formatting.RED), true);
             }
         }
         return TypedActionResult.pass(user.getStackInHand(hand));

@@ -14,7 +14,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -67,7 +66,7 @@ public class ArchonUtil {
     }
 
     public static Text createManaText(int amt, boolean blue) {
-        return new TranslatableText("text.archon.mana_cost", amt).formatted(blue ? Formatting.BLUE : Formatting.GRAY);
+        return Text.translatable("text.archon.mana_cost", amt).formatted(blue ? Formatting.BLUE : Formatting.GRAY);
     }
 
     public static void dropItem(World world, BlockPos pos, Item item) {

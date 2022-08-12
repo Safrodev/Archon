@@ -7,11 +7,10 @@ import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradeOffers;
 import safro.archon.registry.MiscRegistry;
-
-import java.util.Random;
 
 public class WizardEnchantBookFactory implements TradeOffers.Factory {
     private final int experience;

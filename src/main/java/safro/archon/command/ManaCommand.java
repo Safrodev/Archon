@@ -6,7 +6,7 @@ import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import safro.archon.api.ManaAttributes;
 import safro.archon.util.ArchonUtil;
 
@@ -38,9 +38,9 @@ public class ManaCommand {
         }
 
         if (players.size() == 1) {
-            source.sendFeedback(new TranslatableText("command.archon.mana_add_one", amount, players.iterator().next().getDisplayName()), true);
+            source.sendFeedback(Text.translatable("command.archon.mana_add_one", amount, players.iterator().next().getDisplayName()), true);
         } else {
-            source.sendFeedback(new TranslatableText("command.archon.mana_add_multiple", amount, players.size()), true);
+            source.sendFeedback(Text.translatable("command.archon.mana_add_multiple", amount, players.size()), true);
         }
         return players.size();
     }
@@ -51,9 +51,9 @@ public class ManaCommand {
         }
 
         if (players.size() == 1) {
-            source.sendFeedback(new TranslatableText("command.archon.mana_set_one", amount, players.iterator().next().getDisplayName()), true);
+            source.sendFeedback(Text.translatable("command.archon.mana_set_one", amount, players.iterator().next().getDisplayName()), true);
         } else {
-            source.sendFeedback(new TranslatableText("command.archon.mana_set_multiple", amount, players.size()), true);
+            source.sendFeedback(Text.translatable("command.archon.mana_set_multiple", amount, players.size()), true);
         }
         return players.size();
     }

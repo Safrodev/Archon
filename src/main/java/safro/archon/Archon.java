@@ -3,7 +3,7 @@ package safro.archon;
 import draylar.omegaconfig.OmegaConfig;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -44,7 +44,7 @@ public class Archon implements ModInitializer {
 		LootTableRegistry.init();
 
 		// Init Commands
-		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated, env) -> {
 			ManaCommand.register(dispatcher);
 			SpellCommand.register(dispatcher);
 		});

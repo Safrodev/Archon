@@ -13,7 +13,6 @@
     "PotionEntityMixin",
     "FallingBlockEntityAccessor",
     "StructurePoolMixin",
-    "StructureFeatureAccessor",
     "TridentEntityMixin",
     "ArmorItemAccessor",
     "EnchantingTableBlockMixin"

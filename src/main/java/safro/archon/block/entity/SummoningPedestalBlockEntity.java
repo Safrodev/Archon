@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -61,7 +61,7 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
             world.updateListeners(pos, state, state, 3);
             markDirty(world, pos, state);
         } else {
-            player.sendMessage(new TranslatableText("text.archon.invalid_summon").formatted(Formatting.RED), true);
+            player.sendMessage(Text.translatable("text.archon.invalid_summon").formatted(Formatting.RED), true);
         }
     }
 

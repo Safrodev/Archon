@@ -54,7 +54,7 @@ dependencies {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/archon.aw")
+	accessWidenerPath = file("src/main/resources/archon.accesswidener")
 }
 
 processResources {

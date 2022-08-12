@@ -13,7 +13,7 @@
     "sources": "https://github.com/Safrodev/Archon"
   },
 
-  "license": "GPLv3",
+  "license": "GNU GPLv3",
   "icon": "assets/archon/icon.png",
 
   "environment": "*",
@@ -27,7 +27,7 @@
     "cardinal-components-entity": [
       "safro.archon.registry.ComponentsRegistry"
     ],
-    "rei_plugins": [
+    "rei_client": [
       "safro.archon.compat.rei.ArchonREIPlugin"
     ]
   },
@@ -37,7 +37,7 @@
   "depends": {
     "fabricloader": ">=0.14.8",
     "fabric": "*",
-    "minecraft": "1.18.x",
+    "minecraft": "1.19.x",
     "java": ">=17"
   },
   "custom": {
@@ -47,5 +47,5 @@
       "archon:spell"
     ]
   },
-  "accessWidener": "archon.aw"
+  "accessWidener": "archon.accesswidener"
 }

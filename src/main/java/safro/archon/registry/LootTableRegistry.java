@@ -20,10 +20,10 @@ public class LootTableRegistry {
                 LootPool pool = create(0.25F, SpellRegistry.FIREBALL, SpellRegistry.INCOMBUSTIBLE, SpellRegistry.SCORCH);
                 tableBuilder.pool(pool);
             } else if (LootTables.FISHING_TREASURE_GAMEPLAY.equals(id) || LootTables.UNDERWATER_RUIN_BIG_CHEST.equals(id)) {
-                LootPool pool = create(0.65F, SpellRegistry.AQUA_SHIELD, SpellRegistry.DROWN, SpellRegistry.FREEZE);
+                LootPool pool = create(0.6F, SpellRegistry.AQUA_SHIELD, SpellRegistry.DROWN, SpellRegistry.FREEZE);
                 tableBuilder.pool(pool);
             } else if (Arrays.stream(VILLAGE_CHESTS).toList().contains(id)) {
-                LootPool pool = create(0.3F, SpellRegistry.PROPEL, SpellRegistry.GUST, SpellRegistry.THUNDER_STRIKE);
+                LootPool pool = create(0.15F, SpellRegistry.PROPEL, SpellRegistry.GUST, SpellRegistry.THUNDER_STRIKE);
                 tableBuilder.pool(pool);
             } else if (LootTables.ABANDONED_MINESHAFT_CHEST.equals(id) || LootTables.DESERT_PYRAMID_CHEST.equals(id)) {
                 LootPool pool = create(0.3F, SpellRegistry.RUMBLE, SpellRegistry.CRUSH, SpellRegistry.SPIKE);

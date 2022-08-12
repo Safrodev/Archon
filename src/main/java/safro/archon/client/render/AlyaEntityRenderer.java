@@ -17,7 +17,7 @@ public class AlyaEntityRenderer extends LivingEntityRenderer<AlyaEntity, PlayerE
     public AlyaEntityRenderer(EntityRendererFactory.Context context) {
         super(context, new PlayerEntityModel(context.getPart(EntityModelLayers.PLAYER), false), 0.5F);
         this.addFeature(new ArmorFeatureRenderer(this, new BipedEntityModel(context.getPart(EntityModelLayers.PLAYER_SLIM_INNER_ARMOR)), new BipedEntityModel(context.getPart(EntityModelLayers.PLAYER_SLIM_OUTER_ARMOR))));
-        this.addFeature(new PlayerHeldItemFeatureRenderer(this));
+        this.addFeature(new PlayerHeldItemFeatureRenderer(this, context.getHeldItemRenderer()));
     }
 
     @Override

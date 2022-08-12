@@ -13,7 +13,7 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.HorseBaseEntity;
+import net.minecraft.entity.passive.AbstractHorseEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.WolfEntity;
@@ -24,7 +24,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -131,7 +131,7 @@ public class SkeltEntity extends TameableEntity implements Angerable {
     public boolean canAttackWithOwner(LivingEntity target, LivingEntity owner) {
         if (target instanceof SkeltEntity e && e.isTamed()) {
             return false;
-        } else if (target instanceof HorseBaseEntity && ((HorseBaseEntity)target).isTame()) {
+        } else if (target instanceof AbstractHorseEntity && ((AbstractHorseEntity)target).isTame()) {
             return false;
         } else if (target instanceof WolfEntity w && w.isTamed()) {
             return false;
@@ -149,9 +149,9 @@ public class SkeltEntity extends TameableEntity implements Angerable {
 
     public void messageSitting(PlayerEntity player) {
         if (this.isSitting()) {
-            player.sendMessage(new TranslatableText("text.archon.skelt_sit").formatted(Formatting.DARK_AQUA), true);
+            player.sendMessage(Text.translatable("text.archon.skelt_sit").formatted(Formatting.DARK_AQUA), true);
         } else
-            player.sendMessage(new TranslatableText("text.archon.skelt_stand").formatted(Formatting.DARK_AQUA), true);
+            player.sendMessage(Text.translatable("text.archon.skelt_stand").formatted(Formatting.DARK_AQUA), true);
     }
 
     public void initEquipment(LocalDifficulty difficulty) {

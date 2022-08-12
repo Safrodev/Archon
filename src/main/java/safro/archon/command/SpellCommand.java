@@ -6,7 +6,7 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Style;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import safro.archon.api.Spell;
 import safro.archon.util.ArchonUtil;
 
@@ -28,10 +28,10 @@ public class SpellCommand {
     private static int getAllSpells(ServerCommandSource source, ServerPlayerEntity player) {
         List<Spell> spells = ArchonUtil.getSpells(player);
         if (spells.size() <= 0) {
-            source.sendFeedback(new TranslatableText("command.archon.spell.no_spells"), false);
+            source.sendFeedback(Text.translatable("command.archon.spell.no_spells"), false);
         } else {
             for (Spell s : spells) {
-                source.sendFeedback(new TranslatableText(s.getTranslationKey()).setStyle(Style.EMPTY.withColor(s.getElement().getColor())), false);
+                source.sendFeedback(Text.translatable(s.getTranslationKey()).setStyle(Style.EMPTY.withColor(s.getElement().getColor())), false);
             }
         }
         return spells.size();

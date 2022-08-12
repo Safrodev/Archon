@@ -6,6 +6,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,6 +25,8 @@ import java.util.Set;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
     @Shadow public abstract Iterable<ItemStack> getArmorItems();
+
+    @Shadow public abstract void playSound(SoundEvent sound, float volume, float pitch);
 
     @Inject(method = "createPlayerAttributes", require = 1, allow = 1, at = @At("RETURN"))
     private static void addAttributes(final CallbackInfoReturnable<DefaultAttributeContainer.Builder> info) {
@@ -72,10 +75,13 @@ public abstract class PlayerEntityMixin {
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
-    private void seaMasterCharmSpeed(CallbackInfo ci) {
+    private void seaMasterCharmEffects(CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getInventory().containsAny(Set.of(ItemRegistry.SEA_MASTER_CHARM)) && player.isTouchingWaterOrRain()) {
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 60, 2, true, false, false));
+        if (player.getInventory().containsAny(Set.of(ItemRegistry.SEA_MASTER_CHARM))) {
+            if (player.isTouchingWaterOrRain()) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 60, 2, true, false, false));
+            }
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 60, 0, true, false, false));
         }
     }
 }

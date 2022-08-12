@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -33,14 +32,14 @@ public class TomeItem extends Item {
         ItemStack stack = player.getStackInHand(hand);
         if (!world.isClient) {
             if (ArchonUtil.addSpell(player, this.spell)) {
-                player.sendMessage(new TranslatableText("text.archon.learn_spell").setStyle(Style.EMPTY.withColor(this.spell.getElement().getColor())), false);
+                player.sendMessage(Text.translatable("text.archon.learn_spell").setStyle(Style.EMPTY.withColor(this.spell.getElement().getColor())), false);
                 if (player instanceof ServerPlayerEntity) {
                     CriteriaRegistry.LEARN_SPELL_CRITERION.trigger((ServerPlayerEntity)player);
                 }
                 stack.decrement(1);
                 return TypedActionResult.success(stack);
             } else
-                player.sendMessage(new TranslatableText("text.archon.known_spell"), false);
+                player.sendMessage(Text.translatable("text.archon.known_spell"), false);
         }
         return TypedActionResult.pass(stack);
     }
@@ -57,6 +56,6 @@ public class TomeItem extends Item {
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText(this.spell.getTranslationKey()).formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable(this.spell.getTranslationKey()).formatted(Formatting.GRAY));
     }
 }

@@ -12,7 +12,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -70,6 +69,6 @@ public class HeatRangerItem extends BowItem {
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("text.archon.mana_cost", 10).formatted(Formatting.BLUE));
+        tooltip.add(Text.translatable("text.archon.mana_cost", 10).formatted(Formatting.BLUE));
     }
 }

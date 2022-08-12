@@ -160,10 +160,12 @@ public abstract class AbstractBossEntity extends HostileEntity {
         }
     }
 
-    public void onKilledOther(ServerWorld world, LivingEntity other) {
-        if (other instanceof PlayerEntity) {
+    public boolean onKilledOther(ServerWorld world, LivingEntity other) {
+        if (super.onKilledOther(world, other) && other instanceof PlayerEntity) {
             sendMessage(getKillMessage(), 50);
+            return true;
         }
+        return false;
     }
 
     public void checkDespawn() {

@@ -16,7 +16,6 @@ import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -61,7 +60,7 @@ public class ScriptureTableBlockEntity extends LockableContainerBlockEntity impl
     }
 
     protected Text getContainerName() {
-        return new TranslatableText("container.archon.scripture");
+        return Text.translatable("container.archon.scripture");
     }
 
     public int size() {

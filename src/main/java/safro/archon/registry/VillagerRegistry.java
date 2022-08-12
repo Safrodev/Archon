@@ -3,21 +3,28 @@ package safro.archon.registry;
 import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.poi.PointOfInterestType;
+import safro.archon.Archon;
 import safro.archon.util.WizardEnchantBookFactory;
 
 public class VillagerRegistry {
     // Workstations
-    public static final PointOfInterestType WIZARD_POI = PointOfInterestType.register("wizard", PointOfInterestType.getAllStatesOf(BlockRegistry.MAGICAL_BOOKSHELF), 1, 1);
+    public static final RegistryKey<PointOfInterestType> WIZARD_POI_KEY = RegistryKey.of(Registry.POINT_OF_INTEREST_TYPE_KEY, new Identifier(Archon.MODID, "wizard"));
 
     // Professions
-    public static final VillagerProfession WIZARD = VillagerProfession.register("wizard", WIZARD_POI, SoundEvents.ENTITY_VILLAGER_WORK_LIBRARIAN);
+    public static final VillagerProfession WIZARD = VillagerProfession.register("wizard", WIZARD_POI_KEY, SoundEvents.ENTITY_VILLAGER_WORK_LIBRARIAN);
 
-    // Trades & Houses
+    // Trades
     public static void init() {
+        PointOfInterestHelper.register(new Identifier(Archon.MODID, "wizard"), 1, 1, BlockRegistry.MAGICAL_BOOKSHELF);
+
         TradeOffers.Factory[] WIZARD_LVL1 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.EARTH_GEM, 3, 64, 1), new TradeOffers.SellItemFactory(ItemRegistry.MANA_BERRIES, 2, 2, 40, 2)};
         TradeOffers.Factory[] WIZARD_LVL2 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.SKY_GEM, 3, 64, 2), new WizardEnchantBookFactory(5)};
         TradeOffers.Factory[] WIZARD_LVL3 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.WATER_GEM, 3, 64, 3), new TradeOffers.SellItemFactory(ItemRegistry.LIGHTNING_BOTTLE, 13, 1, 16, 8)};

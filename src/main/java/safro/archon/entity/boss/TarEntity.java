@@ -18,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -68,12 +67,12 @@ public class TarEntity extends AbstractBossEntity {
 
     @Override
     public Text getSpawnMessage() {
-        return new TranslatableText("text.archon.tar.spawn").formatted(Formatting.YELLOW);
+        return Text.translatable("text.archon.tar.spawn").formatted(Formatting.YELLOW);
     }
 
     @Override
     public Text getKillMessage() {
-        return new TranslatableText("text.archon.tar.kill").formatted(Formatting.YELLOW);
+        return Text.translatable("text.archon.tar.kill").formatted(Formatting.YELLOW);
     }
 
     public boolean damage(DamageSource source, float amount) {

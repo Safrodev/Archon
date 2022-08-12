@@ -7,7 +7,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -29,7 +28,7 @@ public class RemovalScrollItem extends Item {
         if (!world.isClient) {
             if (ArchonUtil.hasScroll(player)) {
                 String current = ArchonUtil.getScroll(player).substring(0, 1).toUpperCase() + ArchonUtil.getScroll(player).substring(1);
-                player.sendMessage(new TranslatableText("text.archon.removed_scroll", current).formatted(Formatting.GREEN), true);
+                player.sendMessage(Text.translatable("text.archon.removed_scroll", current).formatted(Formatting.GREEN), true);
                 this.removeBonus(ArchonUtil.getScroll(player), player);
                 ArchonUtil.setScroll(player, "none");
                 stack.decrement(1);
@@ -51,6 +50,6 @@ public class RemovalScrollItem extends Item {
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("text.archon.removal").formatted(Formatting.ITALIC));
+        tooltip.add(Text.translatable("text.archon.removal").formatted(Formatting.ITALIC));
     }
 }
