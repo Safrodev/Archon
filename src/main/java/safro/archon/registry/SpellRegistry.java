@@ -12,13 +12,20 @@ import safro.archon.api.Spell;
 import safro.archon.item.TomeItem;
 import safro.archon.spell.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class SpellRegistry {
     public static final Registry<Spell> REGISTRY = FabricRegistryBuilder.createSimple(Spell.class, new Identifier(Archon.MODID, "spell")).buildAndRegister();
+    public static final Map<Element, List<Spell>> SPELLS = new HashMap<>();
 
     // Fire
     public static Spell FIREBALL = register("fireball", new FireballSpell(Element.FIRE, 20));
     public static Spell INCOMBUSTIBLE = register("incombustible", new EffectSpell(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 1200), Element.FIRE, 50));
     public static Spell SCORCH = register("scorch", new ScorchSpell(Element.FIRE, 30));
+    public static Spell HELLBEAM = register("hellbeam", new HellbeamSpell(Element.FIRE, 10));
 
     // Water
     public static Spell AQUA_SHIELD = register("aqua_shield", new EffectSpell(new StatusEffectInstance(EffectRegistry.AQUA_SHIELD, 400, 0, false, false, true), Element.WATER, 50));
@@ -45,6 +52,7 @@ public class SpellRegistry {
 
     private static Spell register(String name, Spell spell) {
         createTome(name + "_tome", spell);
+        addToLists(spell);
         return Registry.register(REGISTRY, new Identifier(Archon.MODID, name), spell);
     }
 
@@ -56,5 +64,14 @@ public class SpellRegistry {
         String s = REGISTRY.getId(spell).toString();
         Identifier tome = new Identifier(s + "_tome");
         return Registry.ITEM.get(tome);
+    }
+
+    private static void addToLists(Spell spell) {
+        if (SPELLS.isEmpty()) {
+            for (Element e : Element.values()) {
+                SPELLS.put(e, new ArrayList<>());
+            }
+        }
+        SPELLS.get(spell.getElement()).add(spell);
     }
 }

@@ -30,7 +30,7 @@ import safro.archon.item.water.WaterStaffItem;
 
 public class ItemRegistry {
     // Core
-    public static Item GRIMOIRE = register("grimoire", new GrimoireItem(simple().maxCount(1)));
+    public static final Item GRIMOIRE = register("grimoire", new GrimoireItem(simple().maxCount(1)));
     public static final Item CHANNELER = register("channeler", new ChannelerItem(simple().maxCount(1).rarity(Rarity.UNCOMMON)));
     public static final Item FIRE_WAND = register("fire_wand", wand(Element.FIRE));
     public static final Item WATER_WAND = register("water_wand", wand(Element.WATER));

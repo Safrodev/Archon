@@ -97,6 +97,7 @@
   "effect.archon.obstructed": "Obstructed",
   "effect.archon.sturdy": "Sturdy",
   "effect.archon.aqua_shield": "Aqua Shield",
+  "effect.archon.mana_boost": "Mana Boost",
 
   "enchantment.archon.arcane": "Arcane",
   "enchantment.archon.arcane.desc": "Reduces the mana cost of weapons by 20%",

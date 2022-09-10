@@ -2,6 +2,9 @@ package safro.archon.entity.projectile;
 
 import net.minecraft.entity.LivingEntity;
 
+/**
+ * Used for running actions when a SpellProjectile hits an entity
+ */
 public interface HitExecutor {
     HitExecutor EMPTY = new HitExecutor() {
         @Override
