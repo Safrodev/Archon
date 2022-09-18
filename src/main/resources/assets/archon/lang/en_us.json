@@ -107,12 +107,14 @@
   "spell.archon.fireball": "Fireball",
   "spell.archon.incombustible": "Incombustible",
   "spell.archon.scorch": "Scorch",
+  "spell.archon.hellbeam": "Hellbeam",
   "spell.archon.aqua_shield": "Aqua Shield",
   "spell.archon.freeze": "Freeze",
   "spell.archon.drown": "Drown",
   "spell.archon.propel": "Propel",
   "spell.archon.gust": "Gust",
   "spell.archon.thunder_strike": "Thunder Strike",
+  "spell.archon.cloudshot": "Cloudshot",
   "spell.archon.rumble": "Rumble",
   "spell.archon.crush": "Crush",
   "spell.archon.spike": "Spike",
@@ -146,12 +148,17 @@
   "text.archon.leven.kill": "[Leven] Good try",
 
   "container.archon.scripture": "Scripture Table",
+  "container.archon.add_xp": "Add XP",
+  "container.archon.remove_xp": "Remove XP",
 
   "command.archon.mana_add_one": "Added %s mana to %s",
   "command.archon.mana_add_multiple": "Added %s mana to %s players",
   "command.archon.mana_set_one": "Set max mana of %s for %s",
   "command.archon.mana_set_multiple": "Set max mana %s players to %s",
   "command.archon.spell.no_spells": "Selected player does not know any spells",
+
+  "death.attack.hellbeam.player": "%1$s was sizzled by %2$s",
+  "death.attack.hellbeam": "%1$s was incinerated",
 
   "rei.archon.channeling": "Channeling",
   "rei.archon.scripting": "Scripting",

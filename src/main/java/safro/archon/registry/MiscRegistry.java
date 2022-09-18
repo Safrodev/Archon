@@ -6,18 +6,21 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
+import safro.archon.client.screen.ExperiencePouchScreenHandler;
 import safro.archon.client.screen.ScriptureTableScreenHandler;
 import safro.archon.enchantment.ArcaneEnchantment;
 
 public class MiscRegistry {
     // Screen Handlers
     public static ScreenHandlerType<ScriptureTableScreenHandler> SCRIPTURE_TABLE_SH;
+    public static ScreenHandlerType<ExperiencePouchScreenHandler> EXPERIENCE_POUCH_SH;
 
     // Enchantments
     public static Enchantment ARCANE;
 
     public static void init() {
         SCRIPTURE_TABLE_SH = ScreenHandlerRegistry.registerSimple(new Identifier(Archon.MODID, "scripture_table"), ScriptureTableScreenHandler::new);
+        EXPERIENCE_POUCH_SH = ScreenHandlerRegistry.registerSimple(new Identifier(Archon.MODID, "experience_pouch"), ExperiencePouchScreenHandler::new);
 
         ARCANE = Registry.register(Registry.ENCHANTMENT, new Identifier(Archon.MODID, "arcane"), new ArcaneEnchantment());
     }

@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 import safro.archon.client.render.*;
 import safro.archon.client.render.block.ScriptureTableBlockEntityRenderer;
 import safro.archon.client.render.block.SummoningPedestalBlockEntityRenderer;
+import safro.archon.client.screen.ExperiencePouchScreen;
 import safro.archon.client.screen.ScriptureTableScreen;
 
 public class ClientRegistry {
@@ -21,6 +22,8 @@ public class ClientRegistry {
         EntityRendererRegistry.register(EntityRegistry.ICE_BALL, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.WIND_BALL, WindBallEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.SPELL_PROJECTILE, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.HELLBEAM, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.CLOUDSHOT, FlyingItemEntityRenderer::new);
 
         EntityRendererRegistry.register(EntityRegistry.SKELT, SkeltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.PRIME_SKELT, SkeltEntityRenderer::new);
@@ -50,5 +53,6 @@ public class ClientRegistry {
 
         // Screens
         HandledScreens.register(MiscRegistry.SCRIPTURE_TABLE_SH, ScriptureTableScreen::new);
+        HandledScreens.register(MiscRegistry.EXPERIENCE_POUCH_SH, ExperiencePouchScreen::new);
     }
 }

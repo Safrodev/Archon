@@ -36,6 +36,7 @@ public class SpellRegistry {
     public static Spell PROPEL = register("propel", new PropelSpell(Element.SKY, 10));
     public static Spell GUST = register("gust", new GustSpell(Element.SKY, 20));
     public static Spell THUNDER_STRIKE = register("thunder_strike", new ThunderStrikeSpell(Element.SKY, 30));
+    public static Spell CLOUDSHOT = register("cloudshot", new CloudshotSpell(Element.SKY, 30));
 
     // Earth
     public static Spell RUMBLE = register("rumble", new RumbleSpell(Element.EARTH, 40));
