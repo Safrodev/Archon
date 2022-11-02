@@ -11,6 +11,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.entity.projectile.spell.HitExecutor;
 import safro.archon.entity.projectile.spell.SpellProjectileEntity;
+import safro.archon.registry.EntityRegistry;
 
 import javax.annotation.Nullable;
 
@@ -21,17 +22,12 @@ public class SpellUtil {
     }
 
     public static SpellProjectileEntity create(World world, PlayerEntity player, ItemConvertible item, HitExecutor hitExecutor, float speed) {
-        Vec3d vec3d = player.getRotationVec(0.0F);
-        double vX = (player.getX() + vec3d.x * 4.0D) - player.getX();
-        double vY = (player.getY() + vec3d.y * 4.0D) - player.getY();
-        double vZ = (player.getZ() + vec3d.z * 4.0D) - player.getZ();
-        return spawn(world, player, new SpellProjectileEntity(world, player, vX, vY, vZ, hitExecutor, new ItemStack(item)), speed);
+        return spawn(world, player, new SpellProjectileEntity(EntityRegistry.SPELL_PROJECTILE, world, player, hitExecutor, new ItemStack(item)), speed);
     }
 
     public static SpellProjectileEntity spawn(World world, PlayerEntity player, SpellProjectileEntity projectile, float speed) {
         projectile.updatePosition(player.getX(), player.getEyeY(), player.getZ());
         projectile.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, speed, 1.0F);
-
         world.spawnEntity(projectile);
         return projectile;
     }
@@ -49,5 +45,17 @@ public class SpellUtil {
             return null;
         }
         return hit.getEntity();
+    }
+
+    public static double getRotationX(PlayerEntity player) {
+        return (player.getX() + player.getRotationVec(0.0F).x * 4.0D) - player.getX();
+    }
+
+    public static double getRotationY(PlayerEntity player) {
+        return (player.getY() + player.getRotationVec(0.0F).y * 4.0D) - player.getY();
+    }
+
+    public static double getRotationZ(PlayerEntity player) {
+        return (player.getZ() + player.getRotationVec(0.0F).z * 4.0D) - player.getZ();
     }
 }

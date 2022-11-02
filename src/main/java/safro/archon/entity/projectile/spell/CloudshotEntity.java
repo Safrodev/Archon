@@ -1,7 +1,7 @@
 package safro.archon.entity.projectile.spell;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -14,8 +14,8 @@ public class CloudshotEntity extends SpellProjectileEntity {
         super(entityType, world);
     }
 
-    public CloudshotEntity(World world, LivingEntity owner, double velocityX, double velocityY, double velocityZ, ItemStack item, HitExecutor hitExecutor) {
-        super(EntityRegistry.CLOUDSHOT, world, owner, velocityX, velocityY, velocityZ, hitExecutor, item);
+    public CloudshotEntity(World world, PlayerEntity owner, ItemStack item, HitExecutor hitExecutor) {
+        super(EntityRegistry.CLOUDSHOT, world, owner, hitExecutor, item);
     }
 
     protected ParticleEffect getParticleType() {

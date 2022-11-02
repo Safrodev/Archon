@@ -42,7 +42,7 @@ public class HeavenDialItem extends ManaItem {
     private void heal(World world, LivingEntity entity) {
         if (!world.isClient) {
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 20, 1));
-            entity.heal(20);
+            entity.heal(entity.getMaxHealth());
         }
         for (int i = 0; i < 15; i++) {
             world.addParticle(ParticleTypes.HAPPY_VILLAGER, entity.getParticleX(1.0D), entity.getRandomBodyY() + 0.5D, entity.getParticleZ(1.0D), 0.0D, 0.0D, 0.0D);

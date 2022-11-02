@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import safro.archon.api.ManaAttributes;
+import safro.archon.registry.EffectRegistry;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
 
@@ -82,6 +83,15 @@ public abstract class PlayerEntityMixin {
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 60, 2, true, false, false));
             }
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 60, 0, true, false, false));
+        }
+    }
+
+    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;isSpectator()Z", shift = At.Shift.AFTER))
+    private void shadowSpellNoClip(CallbackInfo ci) {
+        PlayerEntity player = (PlayerEntity) (Object) this;
+        if (player.hasStatusEffect(EffectRegistry.SHADOW)) {
+            player.noClip = true;
+            player.setOnGround(false);
         }
     }
 }

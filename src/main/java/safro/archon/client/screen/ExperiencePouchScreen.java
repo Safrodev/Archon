@@ -32,7 +32,7 @@ public class ExperiencePouchScreen extends HandledScreen<ExperiencePouchScreenHa
         this.buttons.clear();
 
         for (int i = 0; i < 3; i++) {
-            ExperienceButtonWidget button = new ExperienceButtonWidget(this.x + (15 + (i * 38)), this.y + 41, i == 0 ? 5 : i * 10, true, this.textRenderer);
+            ExperienceButtonWidget button = new ExperienceButtonWidget(this.x + (14 + (i * 38)), this.y + 41, i == 0 ? 5 : i * 10, true, this.textRenderer);
             this.addButton(button);
         }
 
@@ -47,6 +47,12 @@ public class ExperiencePouchScreen extends HandledScreen<ExperiencePouchScreenHa
         this.buttons.add(button);
     }
 
+    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+        this.renderBackground(matrices);
+        super.render(matrices, mouseX, mouseY, delta);
+        this.drawMouseoverTooltip(matrices, mouseX, mouseY);
+    }
+
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -59,6 +65,8 @@ public class ExperiencePouchScreen extends HandledScreen<ExperiencePouchScreenHa
 
     protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
         drawCenteredText(matrices, this.textRenderer, ADD_TEXT, 58, 17, 14737632);
-        drawCenteredText(matrices, this.textRenderer, REMOVE_TEXT, 173, 10, 14737632);
+        drawCenteredText(matrices, this.textRenderer, REMOVE_TEXT, 170, 17, 14737632);
+        Text xp = Text.literal(this.handler.getExperience() + "/" + this.handler.getMaxExperience());
+        drawCenteredText(matrices, this.textRenderer, xp, 116, 85, 14737632);
     }
 }

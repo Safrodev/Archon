@@ -9,6 +9,7 @@ import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.effect.CustomStatusEffect;
 import safro.archon.effect.ManaBoostStatusEffect;
+import safro.archon.effect.ShadowStatusEffect;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -21,6 +22,7 @@ public class EffectRegistry {
     public static final StatusEffect STURDY = register("sturdy", new CustomStatusEffect(StatusEffectCategory.BENEFICIAL, 0xA06A41));
     public static final StatusEffect AQUA_SHIELD = register("aqua_shield", new CustomStatusEffect(StatusEffectCategory.BENEFICIAL, 0x1CDFEC));
     public static final StatusEffect MANA_BOOST = register("mana_boost", new ManaBoostStatusEffect(StatusEffectCategory.BENEFICIAL, 0x5978D3));
+    public static final StatusEffect SHADOW = register("shadow", new ShadowStatusEffect(StatusEffectCategory.BENEFICIAL, 0x232323));
 
     private static <T extends StatusEffect> T register(String name, T effect) {
         STATUS_EFFECTS.put(effect, new Identifier(Archon.MODID, name));

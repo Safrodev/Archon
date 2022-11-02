@@ -1,6 +1,7 @@
 package safro.archon.registry;
 
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
@@ -8,6 +9,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.util.Identifier;
+import safro.archon.client.particle.WaterBallParticle;
 import safro.archon.client.render.*;
 import safro.archon.client.render.block.ScriptureTableBlockEntityRenderer;
 import safro.archon.client.render.block.SummoningPedestalBlockEntityRenderer;
@@ -24,6 +26,7 @@ public class ClientRegistry {
         EntityRendererRegistry.register(EntityRegistry.SPELL_PROJECTILE, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.HELLBEAM, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.CLOUDSHOT, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.TERRAIN, TerrainEntityRenderer::new);
 
         EntityRendererRegistry.register(EntityRegistry.SKELT, SkeltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.PRIME_SKELT, SkeltEntityRenderer::new);
@@ -54,5 +57,8 @@ public class ClientRegistry {
         // Screens
         HandledScreens.register(MiscRegistry.SCRIPTURE_TABLE_SH, ScriptureTableScreen::new);
         HandledScreens.register(MiscRegistry.EXPERIENCE_POUCH_SH, ExperiencePouchScreen::new);
+
+        // Particles
+        ParticleFactoryRegistry.getInstance().register(MiscRegistry.WATER_BALL_PARTICLE, WaterBallParticle.WaterBallFactory::new);
     }
 }

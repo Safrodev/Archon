@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -59,11 +60,25 @@ public class ExperiencePouchItem extends Item implements NamedScreenHandlerFacto
 
     public static boolean canAddXp(ServerPlayerEntity player, ItemStack stack, int amount) {
         if (stack.getItem() instanceof ExperiencePouchItem pouch) {
-            if (player.totalExperience >= amount) {
+            if (getTotalXp(player) >= amount) {
                 return getExperience(stack) < pouch.getMaxXp();
             }
         }
         return false;
+    }
+
+    // Credit to XP Tome mod
+    private static int getTotalXp(ServerPlayerEntity player) {
+        int level = player.experienceLevel;
+        if (level == 0) return 0;
+        if (level <= 15) return sum(level, 7, 2);
+        if (level <= 30) return 315 + sum(level - 15, 37, 5);
+        int i = 1395 + sum(level - 30, 112, 9);
+        return (int) (i + (player.experienceProgress * player.getNextLevelExperience()));
+    }
+
+    private static int sum(int n, int a0, int d) {
+        return n * (2 * a0 + (n - 1) * d) / 2;
     }
 
     public boolean hasGlint(ItemStack stack) {
@@ -84,6 +99,19 @@ public class ExperiencePouchItem extends Item implements NamedScreenHandlerFacto
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return new ExperiencePouchScreenHandler(syncId, inv, player.getMainHandStack());
+        ItemStack stack = player.getMainHandStack();
+        PropertyDelegate propertyDelegate = new PropertyDelegate() {
+            public int get(int index) {
+                return index == 0 ? getExperience(stack) : 0;
+            }
+
+            public void set(int index, int value) {
+            }
+
+            public int size() {
+                return 1;
+            }
+        };
+        return new ExperiencePouchScreenHandler(syncId, inv, stack, propertyDelegate);
     }
 }

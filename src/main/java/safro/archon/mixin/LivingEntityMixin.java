@@ -26,8 +26,6 @@ import safro.archon.registry.ItemRegistry;
 import safro.archon.registry.TagRegistry;
 import safro.archon.util.ArchonUtil;
 
-import java.util.Set;
-
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
 
@@ -36,7 +34,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "canWalkOnFluid", at = @At("HEAD"), cancellable = true)
     private void seaMasterCharm(FluidState fluidState, CallbackInfoReturnable<Boolean> cir) {
         if (((LivingEntity)(Object) this) instanceof PlayerEntity p) {
-            if (p.getInventory().containsAny(Set.of(ItemRegistry.SEA_MASTER_CHARM))) {
+            if (p.getMainHandStack().isOf(ItemRegistry.SEA_MASTER_CHARM)) {
                 cir.setReturnValue(fluidState.isIn(FluidTags.WATER));
             }
         }
@@ -61,6 +59,7 @@ public abstract class LivingEntityMixin {
                 }
             }
         }
+
         if (this.hasStatusEffect(EffectRegistry.AQUA_SHIELD)) {
             if (source.getAttacker() != null && source.getAttacker().isAlive() && source.getAttacker() instanceof LivingEntity) {
                 cir.setReturnValue(false);

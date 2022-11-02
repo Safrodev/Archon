@@ -28,9 +28,10 @@ public class SpellRegistry {
     public static Spell HELLBEAM = register("hellbeam", new HellbeamSpell(Element.FIRE, 10));
 
     // Water
-    public static Spell AQUA_SHIELD = register("aqua_shield", new EffectSpell(new StatusEffectInstance(EffectRegistry.AQUA_SHIELD, 400, 0, false, false, true), Element.WATER, 50));
+    public static Spell AQUA_SHIELD = register("aqua_shield", new EffectSpell(new StatusEffectInstance(EffectRegistry.AQUA_SHIELD, 300, 0, false, false, true), Element.WATER, 50));
     public static Spell FREEZE = register("freeze", new FreezeSpell(Element.WATER, 10));
     public static Spell DROWN = register("drown", new DrownSpell(Element.WATER, 30));
+    public static Spell MEND = register("mend", new MendSpell(Element.WATER, 40));
 
     // Sky
     public static Spell PROPEL = register("propel", new PropelSpell(Element.SKY, 10));
@@ -42,11 +43,13 @@ public class SpellRegistry {
     public static Spell RUMBLE = register("rumble", new RumbleSpell(Element.EARTH, 40));
     public static Spell CRUSH = register("crush", new CrushSpell(Element.EARTH, 2));
     public static Spell SPIKE = register("spike", new SpikeSpell(Element.EARTH, 20));
+    public static Spell TERRAIN_TOSS = register("terrain_toss", new TerrainTossSpell(Element.EARTH, 15));
 
     // End
     public static Spell DARKBALL = register("darkball", new DarkballSpell(Element.END, 10));
     public static Spell SWAP = register("swap", new SwapSpell(Element.END, 40));
     public static Spell ENDER = register("ender", new EnderSpell(Element.END, 20));
+    public static Spell SHADOW = register("shadow", new EffectSpell(new StatusEffectInstance(EffectRegistry.SHADOW, 200, 0, false, false, true), Element.END, 50));
 
     public static void init() {
     }

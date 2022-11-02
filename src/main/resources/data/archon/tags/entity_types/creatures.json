@@ -29,6 +29,32 @@
     "minecraft:mooshroom",
     "minecraft:strider",
     "minecraft:bee",
-    "minecraft:polar_bear"
+    "minecraft:polar_bear",
+    "minecraft:frog",
+
+    { "id": "naturalist:snail", "required": false },
+    { "id": "naturalist:bear", "required": false },
+    { "id": "naturalist:butterfly", "required": false },
+    { "id": "naturalist:snake", "required": false },
+    { "id": "naturalist:deer", "required": false },
+    { "id": "naturalist:lion", "required": false },
+    { "id": "naturalist:boar", "required": false },
+    { "id": "naturalist:rhino", "required": false },
+    { "id": "naturalist:elephant", "required": false },
+    { "id": "naturalist:giraffe", "required": false },
+    { "id": "goodall:rhino", "required": false },
+    { "id": "goodall:dumbo_octopus", "required": false },
+    { "id": "goodall:blue_footed_booby", "required": false },
+    { "id": "goodall:fennec_fox", "required": false },
+    { "id": "goodall:kiwi", "required": false },
+    { "id": "goodall:manatee", "required": false },
+    { "id": "goodall:seal", "required": false },
+    { "id": "goodall:white_tailed_deer", "required": false },
+    { "id": "goodall:red_deer", "required": false },
+    { "id": "goodall:flamingo", "required": false },
+    { "id": "ecologics:coconut_crab", "required": false },
+    { "id": "ecologics:camel", "required": false },
+    { "id": "ecologics:penguin", "required": false },
+    { "id": "ecologics:squirrel", "required": false }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "type": "archon:scripting",
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "minecraft:granite"
+    },
+    {
+      "item": "minecraft:rooted_dirt"
+    }
+  ],
+  "result": {
+    "item": "archon:terrain_toss_tome"
+  }
+}

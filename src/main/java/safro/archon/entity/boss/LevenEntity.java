@@ -3,10 +3,7 @@ package safro.archon.entity.boss;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
-import net.minecraft.entity.ai.goal.ActiveTargetGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.RevengeGoal;
-import net.minecraft.entity.ai.goal.WanderAroundGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
@@ -86,6 +83,12 @@ public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
             if (this.distanceTo(getTarget()) < 10) {
                 this.tickMeleeAttack();
             }
+        }
+
+        if (this.isTouchingWater()) {
+            this.setMovementSpeed(0.3F);
+        } else {
+            this.setMovementSpeed((float) this.getAttributeBaseValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
         }
     }
 

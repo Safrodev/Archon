@@ -9,9 +9,7 @@ import net.minecraft.client.gui.widget.PressableWidget;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.MutableText;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.text.Texts;
 import net.minecraft.util.math.MathHelper;
 import safro.archon.network.ExperienceChangePacket;
 
@@ -20,7 +18,6 @@ public class ExperienceButtonWidget extends PressableWidget {
     private final TextRenderer textRenderer;
     protected final int value;
     private final Text text;
-    private final Text hoverText;
     protected final boolean add;
 
     protected ExperienceButtonWidget(int x, int y, int value, boolean add, TextRenderer textRenderer) {
@@ -28,7 +25,6 @@ public class ExperienceButtonWidget extends PressableWidget {
         this.value = value;
         this.textRenderer = textRenderer;
         this.text = Text.of(Integer.toString(value));
-        this.hoverText = Texts.setStyleIfAbsent(text.copy(), Style.EMPTY.withUnderline(true));
         this.add = add;
     }
 
@@ -46,8 +42,8 @@ public class ExperienceButtonWidget extends PressableWidget {
     }
 
     private void drawText(MatrixStack matrices) {
-        Text text = this.isHovered() ? this.hoverText : this.text;
-        drawCenteredTextWithShadow(matrices, this.textRenderer, text.asOrderedText(), this.x, this.y, 16777215 | MathHelper.ceil(this.alpha * 255.0F) << 24);
+        int x = this.value >= 10 ? 6 : 8;
+        drawTextWithShadow(matrices, this.textRenderer, this.text, this.x + x, this.y + 7, 16777215 | MathHelper.ceil(this.alpha * 255.0F) << 24);
     }
 
     public void appendNarrations(NarrationMessageBuilder builder) {
