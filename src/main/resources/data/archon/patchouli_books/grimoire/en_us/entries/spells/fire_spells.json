@@ -22,6 +22,11 @@
       "type": "patchouli:text",
       "title": "Scorch",
       "text": "Sets the target on fire for 10 seconds $(li)Mana Cost: 30 $(li)Range: 5"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Hellbeam",
+      "text": "Fires a quick beam of heat that deals damage to targets $(li)Mana Cost: 10"
     }
   ]
 }

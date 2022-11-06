@@ -11,7 +11,7 @@
     {
       "type": "patchouli:text",
       "title": "Aqua Shield",
-      "text": "Grants the user a shield from direct mob damage for 20 seconds $(li)Mana Cost: 50"
+      "text": "Grants the user a shield from direct mob damage for 15 seconds $(li)Mana Cost: 50"
     },
     {
       "type": "patchouli:text",
@@ -22,6 +22,11 @@
       "type": "patchouli:text",
       "title": "Drown",
       "text": "Places water on the target's head $(li)Mana Cost: 30 $(li)Range: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mend",
+      "text": "Heals the user for 4 hearts and clear all negative effects $(li)Mana Cost: 40"
     }
   ]
 }

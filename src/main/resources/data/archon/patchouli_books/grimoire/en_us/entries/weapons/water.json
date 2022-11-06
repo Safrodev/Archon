@@ -25,7 +25,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:sea_master_charm",
-      "text": "The Sea Master Charm grants the player the ability to walk on water and breath underwater. The charm works as long as it's in the player's inventory."
+      "text": "The Sea Master Charm grants the player the ability to walk on water and breath underwater. Water-walking works when the item held in the main-hand, and water breathing works when the item is in the player's inventory."
     },
     {
       "type": "patchouli:crafting",

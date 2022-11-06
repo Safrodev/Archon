@@ -22,6 +22,11 @@
       "type": "patchouli:text",
       "title": "Spike",
       "text": "Creates a spike underneath the target that flings them up and makes them take damage if landed upon. $(li)Mana Cost: 20 $(li)Range: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Terrain Toss",
+      "text": "Launches a chunk of terrain that deals damage and high knockback $(li)Mana Cost: 15"
     }
   ]
 }

@@ -22,6 +22,11 @@
       "type": "patchouli:text",
       "title": "Thunder Strike",
       "text": "Strikes lightning down upon the target's head $(li)Mana Cost: 30 $(li)Range: 15"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Cloudshot",
+      "text": "Fire a slow moving cloud that deals high damage $(li)Mana Cost: 30"
     }
   ]
 }

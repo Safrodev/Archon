@@ -22,6 +22,11 @@
       "type": "patchouli:text",
       "title": "Ender",
       "text": "Instantly opens the user's ender chest inventory $(li)Mana Cost: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Shadow",
+      "text": "Turns the user into a shadow that can fly and phase through walls for 10s $(li)Mana Cost: 50"
     }
   ]
 }
