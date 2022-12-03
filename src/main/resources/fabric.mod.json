@@ -29,6 +29,9 @@
     ],
     "rei_client": [
       "safro.archon.compat.rei.ArchonREIPlugin"
+    ],
+    "emi": [
+      "safro.archon.compat.emi.ArchonEmiPlugin"
     ]
   },
   "mixins": [
