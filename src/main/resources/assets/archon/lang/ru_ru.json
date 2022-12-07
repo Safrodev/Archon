@@ -104,6 +104,10 @@
   "command.archon.mana_set_multiple": "Установите максимальное количество маны %s для игроков %s",
 
   "rei.archon.channeling": "Запаковщик",
+  "rei.archon.scripting": "Писание",
+
+  "emi.category.archon.channeling": "Запаковщик",
+  "emi.category.archon.scripting": "Писание",
 
   "advancements.archon.root.title": "Archon",
   "advancements.archon.root.description": "Добро пожаловать в Archon!",

@@ -166,6 +166,9 @@
   "rei.archon.channeling": "Channeling",
   "rei.archon.scripting": "Scripting",
 
+  "emi.category.archon.channeling": "Channeling",
+  "emi.category.archon.scripting": "Scripting",
+
   "advancements.archon.root.title": "Archon",
   "advancements.archon.root.description": "Welcome to Archon!",
   "advancements.archon.soul_scythe.title": "Your Soul Shall Be Mine",
