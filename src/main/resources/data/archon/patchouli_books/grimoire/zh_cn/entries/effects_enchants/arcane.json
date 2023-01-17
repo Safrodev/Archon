@@ -1,0 +1,12 @@
+{
+  "name": "奥术魔法",
+  "icon": "minecraft:enchanted_book",
+  "category": "archon:effects_enchants",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "奥术附魔使武器的法力值在每一级附魔中减少 $(#2895CB)10%$() （例如：奥术II=20%）。这不能应用于特殊物品，如崩解法杖和 $(l:archon:necromancy/undead_staff)亡灵法杖$()。奥术是一种宝藏附魔，它只能从$(l:archon:world/wizard)巫师$()村民或图书管理员村民处获得。"
+    }
+  ]
+}

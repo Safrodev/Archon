@@ -1,0 +1,26 @@
+{
+  "name": "火系",
+  "icon": "archon:fire_gem",
+  "category": "archon:weapons",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:heat_ranger",
+      "text": "邪火魔弓是一种不消耗箭矢的弓。它射出强大的火球，其速度相对于射程的拉回。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:heat_ranger"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:wither_stave",
+      "text": "凋灵之杖是一种发射凋灵头颅的法杖。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:wither_stave"
+    }
+  ]
+}

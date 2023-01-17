@@ -1,0 +1,16 @@
+{
+  "name": "魔法蠹虫",
+  "icon": "archon:mana_leech_spawn_egg",
+  "category": "archon:misc",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "魔法蠹虫是弱小但敏捷的生物。它们会对玩家造成$(l:archon:effect_enchants/obstructed)阻塞$()的效果，并在$(l:archon:world/spires)Spires$()中产卵。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:mana_leech"
+    }
+  ]
+}

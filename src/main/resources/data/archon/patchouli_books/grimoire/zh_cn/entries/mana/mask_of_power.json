@@ -1,0 +1,17 @@
+{
+  "name": "格列钢面具",
+  "icon": "archon:mask_of_power",
+  "category": "archon:mana",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:mask_of_power",
+      "text": "格列钢面具是一个钻石等级级的头盔，它能将使用者的魔力再生速度提高到每秒$(#2895CB)4法力值()。格列钢面具不能与加速卷轴一起使用。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:mask_of_power"
+    }
+  ]
+}

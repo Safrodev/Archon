@@ -1,0 +1,21 @@
+{
+  "name": "魔法汇聚方块",
+  "icon": "archon:mana_catalyst",
+  "category": "archon:mana",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "魔法汇聚方块是可以增加半径范围内所有玩家的最大魔力的区块。每个汇聚方块都有不同的范围和魔力值增加，这取决于等级的不同。普通的范围为16，提升为$(#2895CB)50$()，钻石的范围为22，提升为$(#2895CB)100$()，下界合金的范围为34，提升为$(#2895CB)200$()。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:mana_catalyst",
+      "recipe2": "archon:diamond_mana_catalyst"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:netherite_mana_catalyst"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "魔杖",
+  "icon": "archon:water_wand",
+  "category": "archon:spells",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "魔杖是施法的一个核心组成部分。魔杖只能施放与其元素相匹配的法术。要使用魔杖，你必须知道至少一个法术。你可以通过按下shift键+右键在不同的法术间循环。你当前的法术和它的法力消耗将显示在魔杖的工具提示上。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:fire_wand",
+      "recipe2": "archon:water_wand"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:earth_wand",
+      "recipe2": "archon:sky_wand"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:end_wand"
+    }
+  ]
+}
