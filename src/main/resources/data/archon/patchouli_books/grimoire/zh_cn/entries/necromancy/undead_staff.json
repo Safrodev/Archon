@@ -1,0 +1,17 @@
+{
+  "name": "亡灵法杖",
+  "icon": "archon:undead_staff",
+  "category": "archon:necromancy",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:undead_staff",
+      "text": "亡灵法杖是用来召唤$(l:archon:necromancy/skelts)亡灵骷髅$()的物品。为了召唤亡灵骷髅，你需要掉落一个你想召唤的相应亡灵骷髅的灵魂核心，然后用法杖来转化它们。法杖对于指挥你的骷髅头至关重要，所以要随身携带。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:undead_staff"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Summoning Pedestal",
+  "icon": "archon:summoning_pedestal",
+  "category": "archon:bosses",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "召唤基座允许你根据给定的物品来召唤Boss。只需右键单击方块以放置物品，或者潜行+右键点击来移除所有物品。一旦放入了BOSS所需的所有物品，闪电将开始产生。这预示着BOSS即将出现，所以要做好准备!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:summoning_pedestal"
+    }
+  ]
+}

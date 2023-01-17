@@ -1,0 +1,17 @@
+{
+  "name": "燃烧弹",
+  "icon": "archon:combustion_charge",
+  "category": "archon:misc",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:combustion_charge",
+      "text": "燃烧弹在地板或墙壁上开采出一个7x7的区域，同时也会掉落物品。这对于快速和大规模的采矿是很有用的。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:combustion_charge"
+    }
+  ]
+}

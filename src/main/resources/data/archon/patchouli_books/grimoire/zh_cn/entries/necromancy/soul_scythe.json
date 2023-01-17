@@ -1,0 +1,17 @@
+{
+  "name": "灵魂收割者",
+  "icon": "archon:soul_scythe",
+  "category": "archon:necromancy",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:soul_scythe",
+      "text": "灵魂收割者是亡灵法术中的一个重要工具，它允许你在杀死生物、玩家和BOSS时获得$(l:archon:necromancy/souls)灵魂$()。默认情况下，生物和玩家的灵魂有5%的几率掉落，而BOSS总是掉落他们的灵魂。玩家的灵魂可以被玩家和掠夺者、驱逐者、复仇者和女巫杀死而掉落。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:soul_scythe"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "法术宝典",
+  "icon": "minecraft:book",
+  "category": "archon:spells",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "法术宝典是包含学习法术知识的特殊书籍。要学习一个法术，只需使用法术通书。玩家可以学习任意多的法术，但只有与他们的$(l:archon:spells/wands)法杖$()元素相符的法术才能被施放。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "宝典可以用经文表制作，也可以在不同的结构中找到。经文表需要3种材料、青金石和一本写法术的书。合成配方可以用REI或类似的MOD查看。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:scripture_table"
+    }
+  ]
+}

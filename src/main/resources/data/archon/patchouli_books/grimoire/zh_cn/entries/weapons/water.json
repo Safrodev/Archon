@@ -1,0 +1,35 @@
+{
+  "name": "水系",
+  "icon": "archon:water_gem",
+  "category": "archon:weapons",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:water_staff",
+      "text": "向你的目标发射小的、高速的水球。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:water_staff"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:frost_sword",
+      "text": "冰霜之剑可以投掷冰球，在它们落地的地方形成减速区。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:frost_sword"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:sea_master_charm",
+      "text": "波塞冬的祝福赋予玩家在水上行走和水下呼吸的能力。水上行走在主手拿着的物品时起作用，而水上呼吸在玩家的库存中起作用。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:sea_master_charm"
+    }
+  ]
+}

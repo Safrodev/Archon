@@ -1,0 +1,17 @@
+{
+  "name": "崩解法杖",
+  "icon": "archon:channeler",
+  "category": "archon:mana",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:channeler",
+      "text": "崩解法杖是一个核心物品，它允许你将魔力导入方块中，从而产生特定的物品。每个配方需要不同数量的魔力，产生的物品也有不同用途。要看到所有的崩解配方，建议使用REI。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:channeler"
+    }
+  ]
+}
