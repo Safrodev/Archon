@@ -1,5 +1,5 @@
 {
-  "name": "Nodes",
+  "name": "矿物",
   "icon": "archon:end_node",
   "category": "archon:world",
   "sortnum": 0,
@@ -22,12 +22,12 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:end_node",
-      "text": "末影元素宝石矿在整个末地岛屿的任何地方生成。它们会掉落1个末影宝石。"
+      "text": "末影宝石矿在整个末地岛屿的任何地方生成。它们会掉落1个末影宝石。"
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:sky_node",
-      "text": "风元素宝石矿在Overloard的小云中生成。这些云在y轴192和196之间产生，也含有铁的碎片。它们会掉落1颗风元素宝石。"
+      "text": "天空宝石矿在主世界的小型云彩中生成。这些云在y轴192和196之间产生，也含有铁的碎片。它们会掉落1颗天空宝石。"
     }
   ]
 }

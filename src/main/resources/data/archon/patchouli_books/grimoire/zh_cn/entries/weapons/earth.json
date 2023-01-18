@@ -27,7 +27,7 @@
       "type": "patchouli:spotlight",
       "anchor": "terranean",
       "item": "archon:terranean_axe",
-      "text": "盖亚神斧是一把致命的斧头，在使用它的能力时，会给你带来20秒的抵抗和$(l:archon:effect_enchants/sturdy)Sturdy$()。"
+      "text": "盖亚神斧是一把致命的斧头，在使用它的能力时，会给你带来20秒的抵抗和$(l:archon:effect_enchants/sturdy)强壮$()效果。"
     },
     {
       "type": "patchouli:crafting",
