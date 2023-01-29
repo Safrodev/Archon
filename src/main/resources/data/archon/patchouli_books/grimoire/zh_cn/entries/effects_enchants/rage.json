@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "狂怒效果使玩家的攻击速度加倍。它可以通过$(l:archon:weapons/earth#fist)盖亚神拳$()或通过命令获得。"
+      "text": "狂怒效果使玩家的攻击速度加倍。它可以通过$(l:archon:weapons/earth#fist)愤怒之拳$()或通过命令获得。"
     }
   ]
 }

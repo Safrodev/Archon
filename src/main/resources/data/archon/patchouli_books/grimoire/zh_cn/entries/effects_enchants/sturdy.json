@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "强壮效果可以使大多数弹射物偏离使用者的身体。它可以通过$(l:archon:weapons/earth#terranean)盖亚神斧$()或通过指令获得。"
+      "text": "强壮效果可以使大多数弹射物偏离使用者的身体。它可以通过$(l:archon:weapons/earth#terranean)地狱之斧$()或通过指令获得。"
     }
   ]
 }
