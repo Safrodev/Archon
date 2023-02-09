@@ -17,7 +17,7 @@
       "type": "patchouli:spotlight",
       "anchor": "fist",
       "item": "archon:fist_of_fury",
-      "text": "盖亚神拳是一个快速攻击的铠甲物品。它的能力将给予使用者$(l:archon:effects_enchants/rage)狂怒$()效果，持续5秒。."
+      "text": "愤怒之拳是一个快速攻击的铠甲物品。它的能力将给予使用者$(l:archon:effects_enchants/rage)狂怒$()效果，持续5秒。."
     },
     {
       "type": "patchouli:crafting",
@@ -27,7 +27,7 @@
       "type": "patchouli:spotlight",
       "anchor": "terranean",
       "item": "archon:terranean_axe",
-      "text": "盖亚神斧是一把致命的斧头，在使用它的能力时，会给你带来20秒的抵抗和$(l:archon:effect_enchants/sturdy)Sturdy$()。"
+      "text": "地狱之斧是一把致命的斧头，在使用它的能力时，会给你带来20秒的抵抗和$(l:archon:effect_enchants/sturdy)强壮$()效果。"
     },
     {
       "type": "patchouli:crafting",

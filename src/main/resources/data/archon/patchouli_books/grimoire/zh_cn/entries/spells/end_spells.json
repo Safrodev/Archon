@@ -1,12 +1,12 @@
 {
-  "name": "混沌法术",
+  "name": "末影法术",
   "icon": "archon:ender_tome",
   "category": "archon:spells",
   "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "混沌法术可以在末地城市或堡垒图书馆找到。"
+      "text": "末影法术可以在末地城市或堡垒图书馆找到。"
     },
     {
       "type": "patchouli:text",

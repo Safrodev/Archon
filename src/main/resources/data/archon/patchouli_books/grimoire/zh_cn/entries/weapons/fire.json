@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:heat_ranger",
-      "text": "邪火魔弓是一种不消耗箭矢的弓。它射出强大的火球，其速度相对于射程的拉回。"
+      "text": "邪火魔弓是一种不消耗箭矢的弓，可以发射出强大的火球。"
     },
     {
       "type": "patchouli:crafting",
