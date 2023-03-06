@@ -189,17 +189,17 @@
   "advancements.archon.kill_ayla.description": "Besiege Ayla",
   "advancements.archon.kill_leven.title": "Davongeschwemmt",
   "advancements.archon.kill_leven.description": "Besiege Leven",
-  "advancements.archon.mana_catalyst.title": "Buffed Up",
-  "advancements.archon.mana_catalyst.description": "Place a Mana Catalyst",
-  "advancements.archon.obtain_essence.title": "Essence-tial",
+  "advancements.archon.mana_catalyst.title": "Aufgeputscht",
+  "advancements.archon.mana_catalyst.description": "Platziere einen Mana Katalysator",
+  "advancements.archon.obtain_essence.title": "Essenz-iel",
   "advancements.archon.obtain_essence.description": "Sammle einige elementare Essenzen",
   "advancements.archon.obtain_wand.title": "Starte zu Zaubern",
   "advancements.archon.obtain_wand.description": "Baue einen elementaren Gegenstand",
-  "advancements.archon.learn_spell.title": "Zauberspruchlehrling",
-  "advancements.archon.learn_spell.description": "Lerne einen Zauberspruch",
-  "advancements.archon.learn_all_spells.title": "Zauberspruchmeister",
-  "advancements.archon.learn_all_spells.description": "Lerne jeden Zauber",
+  "advancements.archon.learn_spell.title": "Zauberer Novize",
+  "advancements.archon.learn_spell.description": "Einen Zauberspruch lernen",
+  "advancements.archon.learn_all_spells.title": "Zauberer Meister",
+  "advancements.archon.learn_all_spells.description": "Alle Zaubersprüche lernen",
 
-  "text.archon.book.landing_text": "Dieses magische Buch wird dir dein Abenteuer als Zauberer leiten.",
-  "text.archon.book.subtitle": "Zauberer Anleitung"
+  "text.archon.book.landing_text": "Dieses magische Buch wird dich durch dein Abenteuer als Zauberer begleiten.",
+  "text.archon.book.subtitle": "Ein Leitfaden für Zauberer"
 }
