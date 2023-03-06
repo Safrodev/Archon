@@ -1,0 +1,32 @@
+{
+  "name": "Fire Spells",
+  "icon": "archon:fireball_tome",
+  "category": "archon:spells",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Fire spells can be found in Nether Fortresses and Bastions"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Fireball",
+      "text": "Shoots an explosive fireball $(li)Mana Cost: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Incombustible",
+      "text": "Grants fire resistance for 1 minute  $(li)Mana Cost: 50"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Scorch",
+      "text": "Sets the target on fire for 10 seconds $(li)Mana Cost: 30 $(li)Range: 5"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Hellbeam",
+      "text": "Fires a quick beam of heat that deals damage to targets $(li)Mana Cost: 10"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Summoning Pedestal",
+  "icon": "archon:summoning_pedestal",
+  "category": "archon:bosses",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Summoning Pedestal allow you do summon in bosses depending on the given items. Simply right-click the block to place an item in, or sneak + right-click to remove all items. Once all items required for the boss are entered, lightning will start to spawn. This signals that the boss is about to appear, so get ready!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:summoning_pedestal"
+    }
+  ]
+}

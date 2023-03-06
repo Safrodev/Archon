@@ -1,0 +1,20 @@
+{
+  "name": "Spell Tomes",
+  "icon": "minecraft:book",
+  "category": "archon:spells",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Spell Tomes are special books that contain the knowledge to learn a spell. To learn a spell simply use the spell to tome. A player can learn as many spells as they want, but only spells matching the element of their $(l:archon:spells/wands)wand$() can be casted."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Tomes can be crafted using a scripture table or found in different structures. The scripture table requires 3 ingredients, lapis lazuli, and a book to write a spell. Recipes can be viewed using REI or a similar mod."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:scripture_table"
+    }
+  ]
+}

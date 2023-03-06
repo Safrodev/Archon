@@ -1,0 +1,20 @@
+{
+  "name": "Spires",
+  "icon": "minecraft:deepslate_bricks",
+  "category": "archon:world",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Spires generate in forest and mountain biomes at higher y levels. These structures contain loot such as $(l:archon:mana/scrolls)scrolls$(), glisteel ingots, bread, and lapis lazuli. You will also find some $(l:archon:misc/mana_leech)mana leeches$() spawning from the ceiling."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "archon:textures/gui/book/spire.png"
+      ],
+      "title": "Spire",
+      "border": true
+    }
+  ]
+}

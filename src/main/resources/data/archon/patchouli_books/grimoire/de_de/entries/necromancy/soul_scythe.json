@@ -1,0 +1,17 @@
+{
+  "name": "Soul Scythe",
+  "icon": "archon:soul_scythe",
+  "category": "archon:necromancy",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:soul_scythe",
+      "text": "The Soul Scythe is a crucial tool in necromancy, allowing you to receive $(l:archon:necromancy/souls)souls$() upon killing creatures, players, and bosses. By default, creature and player souls have a 5% chance to drop their souls while bosses always drop their soul. Player souls can be dropped by players AND pillagers, evokers, vindicators, and witches."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:soul_scythe"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Earth Spells",
+  "icon": "archon:rumble_tome",
+  "category": "archon:spells",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Earth spells can be found in mineshafts or Desert Temples"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Rumble",
+      "text": "Creates an earthquake that slows targets and shakes the screen (configurable) of affected players. $(li)Mana Cost: 40 $(li)Range: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Crush",
+      "text": "Instantly destroys and drops the targeted block. Only works for pickaxe mineable blocks up to iron level. $(li)Mana Cost: 2"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spike",
+      "text": "Creates a spike underneath the target that flings them up and makes them take damage if landed upon. $(li)Mana Cost: 20 $(li)Range: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Terrain Toss",
+      "text": "Launches a chunk of terrain that deals damage and high knockback $(li)Mana Cost: 15"
+    }
+  ]
+}

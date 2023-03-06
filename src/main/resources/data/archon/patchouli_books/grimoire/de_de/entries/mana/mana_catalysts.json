@@ -1,0 +1,21 @@
+{
+  "name": "Mana Catalysts",
+  "icon": "archon:mana_catalyst",
+  "category": "archon:mana",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Mana Catalysts are blocks that increase the max mana of all players within a radius. Each catalyst has a different range and mana increase depending on the tier. The Normal has a range of 16 and boost of $(#2895CB)50$(), Diamond has a range of 22 and boost of $(#2895CB)100$(), and Netherite has a range of 34 and boost of $(#2895CB)200$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:mana_catalyst",
+      "recipe2": "archon:diamond_mana_catalyst"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:netherite_mana_catalyst"
+    }
+  ]
+}

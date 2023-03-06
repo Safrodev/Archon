@@ -1,0 +1,12 @@
+{
+  "name": "Sturdy",
+  "icon": "archon:textures/mob_effect/sturdy.png",
+  "category": "archon:effects_enchants",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Sturdy Status Effect deflects most projectiles off the user's body. It can be obtained using a $(l:archon:weapons/earth#terranean)Terranean Axe$() or through commands."
+    }
+  ]
+}

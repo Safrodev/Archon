@@ -1,0 +1,35 @@
+{
+  "name": "Sky",
+  "icon": "archon:sky_gem",
+  "category": "archon:weapons",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:thunder_bolt",
+      "text": "The Thunder Bolt will strike lightning on 4 blocks around you. The lightning does not produce fire and will not damage you."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:thunder_bolt"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:vacuum_cleaver",
+      "text": "The Vacuum Cleaver is a strong weapon that can quickly pull enemies towards you."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:vacuum_cleaver"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:heaven_dial",
+      "text": "Upon using the Heaven's Dial, you can heal all players (including yourself), villagers, iron golems, and pets around you for a large amount of HP. Players healed will also receive a hunger boost."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:heaven_dial"
+    }
+  ]
+}

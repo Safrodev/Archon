@@ -1,0 +1,30 @@
+{
+  "name": "Harvesters",
+  "icon": "archon:warping_harvester",
+  "category": "archon:misc",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Harvesters act as normal weapons, but with additional drop bonuses. Each element of harvester gives drops from mobs related to that element."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)Rocky Harvester: Zombie -> Rotten Flesh, Skeleton -> Bone, Slime -> Slime Ball$(li)Warping Harvester: Enderman -> Ender Pearl, Shulker -> Shulker Shell, Endermite -> Obsidian$(li)Flaming Harvester: Blaze -> Blaze Rod, Magma Cube -> Magma Cream, Zombie Piglin -> Gold Ingot$(li)Breezy Harvester: Ghast -> Ghast Tear, Phantom -> Phantom Membrane, Vex -> Emerald$(li)Soaking Harvester: Squid -> Ink Sac, Drowned -> Copper Ingot, Guardian -> Prismarine Shard"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:rocky_harvester",
+      "recipe2": "archon:warping_harvester"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:flaming_harvester",
+      "recipe2": "archon:breezy_harvester"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:soaking_harvester"
+    }
+  ]
+}
