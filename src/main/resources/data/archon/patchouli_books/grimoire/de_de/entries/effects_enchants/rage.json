@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The Rage Status Effect doubles the user's attack speed. It can be obtained using a $(l:archon:weapons/earth#fist)Fist of Fury$() or through commands."
+      "text": "Der Statuseffekt Wut verdoppelt die Angriffsgeschwindigkeit des Benutzers. Er kann mit einer $(l:archon:weapons/earth#fist)Faust des Zorns$() oder durch Commands erlangt werden."
     }
   ]
 }
