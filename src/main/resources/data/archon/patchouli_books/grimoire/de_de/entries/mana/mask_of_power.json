@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:mask_of_power",
-      "text": "The Mask of Power is a diamond tier helmet that increases the user's mana regen speed to $(#2895CB)4 mana per second$(). The Mask of Power does not combine with the accelerate scroll."
+      "text": "Die Maske der Macht ist ein Helm wie der Diamanthelm, der die Manaregenerationsgeschwindigkeit des Anwenders auf $(#2895CB)4 Mana pro Sekunde$() erhöht. Die Maske der Macht lässt sich nicht mit der Erhöhungsschriftrolle kombinieren."
     },
     {
       "type": "patchouli:crafting",
