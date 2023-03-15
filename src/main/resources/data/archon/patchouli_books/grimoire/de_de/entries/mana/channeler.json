@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:channeler",
-      "text": "The Channeler is a core item that allows you to channel mana into blocks, resulting in specific items. Channeling requires different amounts of mana per recipe, and the items produced are used for different things. To see all channeling recipes, it is recommended to use REI."
+      "text": "Der Kanalisierer ist ein zentraler Gegenstand, der es dir ermöglicht, Mana in Blöcke zu kanalisieren, was zu bestimmten Gegenständen führt. Die Kanalisierung erfordert unterschiedliche Mengen an Mana pro Rezept, und die hergestellten Gegenstände werden für unterschiedliche Dinge verwendet. Um alle Rezepte zu sehen, wird die Mod REI empfohlen."
     },
     {
       "type": "patchouli:crafting",
