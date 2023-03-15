@@ -6,22 +6,22 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Ancient Scrolls are special items that when used, provide the player with a specific mana enhancement. Please note that you can only bind $(#2895CB)1 Scroll$() to yourself at a time, so choose carefully!"
+      "text": "Antike Schriftrollen sind besondere Gegenstände, die dem Spieler eine bestimmte Manaverstärkung verleihen, wenn er sie benutzt. Bitte beachte, dass du immer nur $(#2895CB)1 Schriftrolle$() an dich selbst binden kannst, also wähle sorgfältig!"
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:capacity_scroll",
-      "text": "The Capacity scroll can be obtained as a trade from the $(l:archon:world/wizard)Wizard$() villager or from $(l:archon:world/spires)Spires$(), and increases the player's $(#2895CB)max mana to 200$()."
+      "text": "Die Vermehrungsschriftrolle kann vom $(l:archon:world/wizard)Zauberer$() Dorfbewohner oder von $(l:archon:world/spires)Spires$() erworben werden und erhöht das maximale Mana des Spielers auf 200$()."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:accelerate_scroll",
-      "text": "The Accelerate scroll can be obtained as a trade from the $(l:archon:world/wizard)Wizard$() villager or from $(l:archon:world/spires)Spires$(), and increases the player's mana regen speed to $(#2895CB)2 mana per second$()."
+      "text": "Die Schriftrolle 'Erhöhen' kann beim Dorfbewohner $(l:archon:world/wizard)Zauberer$() oder bei $(l:archon:world/spires)Spires$() erworben werden und erhöht die Manaregenerationsgeschwindigkeit des Spielers auf $(#2895CB)2 Mana pro Sekunde$()."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:removal_scroll",
-      "text": "The Scroll of Removal can be obtained from $(l:archon:world/spires)Spires$(). This will remove the currently applied scroll for the player."
+      "text": "Die Schriftrolle der Entfernung kann von $(l:archon:world/spires)Spires$() bezogen werden. Sie entfernt die aktuell angewendete Schriftrolle vom Spieler."
     }
   ]
 }
