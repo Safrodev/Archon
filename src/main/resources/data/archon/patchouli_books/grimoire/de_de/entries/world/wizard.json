@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Wizard Villagers are a new type of villager profession. You can find their houses in villers or assign a villager to the profession with a magical bookshelf. Their trades include $(l:archon:mana/scrolls)scrolls$(), crafting items, and the $(l:archon:effects_enchants/arcane)Arcane$() enchantment."
+      "text": "Zauberer ist eine neuer Dorfbewohner-Beruf. Du kannst ihre Häuser in Dörfern finden oder ihr könnt einen Dorfbewohner mit einem magischen Bücherregal diesem Beruf zuordnen. Zu ihren Berufen gehören $(l:archon:mana/scrolls)scrolls$(), das Herstellen von Gegenständen und die Verzauberung $(l:archon:effects_enchants/arcane)Arcane$()."
     },
     {
       "type": "patchouli:image",
