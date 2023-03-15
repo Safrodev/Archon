@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Tar is an Earth boss who deals deadly melee damage. If you are to wander out of his attack range, he will drop large chunks of cobblestone on you, so keep moving! Tar has knockback resistance and his tough skin deflects projectiles like arrows. Tar drops a Terranite Stone upon death. You can find the items needed to summon him on the next page."
+      "text": "Tar ist ein Erdboss, der im Nahkampf tödlichen Schaden verursacht. Wenn Sie sich aus seiner Angriffsreichweite entfernen, lässt er große Pflastersteinbrocken auf Sie fallen, also bleiben Sie in Bewegung! Tar hat eine Rückstoßresistenz und seine zähe Haut lenkt Geschosse wie Pfeile ab. Tar lässt nach seinem Tod einen Terranit Stein fallen. Die Gegenstände, die du brauchst, um ihn zu beschwören, findest du auf der nächsten Seite."
     },
     {
       "type": "patchouli:entity",
       "entity": "archon:tar",
-      "text": "Earth Gem, Deepslate, Earth Essence, Emerald"
+      "text": "Erd Juwel, Tiefenschiefer, Erd Essenz, Smaragd"
     }
   ]
 }
