@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Summoning Pedestal allow you do summon in bosses depending on the given items. Simply right-click the block to place an item in, or sneak + right-click to remove all items. Once all items required for the boss are entered, lightning will start to spawn. This signals that the boss is about to appear, so get ready!"
+      "text": "Mit dem Beschwörungssockel könnt ihr Bosse beschwören. Dafür gibt es gewisse vorausgesetzte Gegenstände. Klicken Sie einfach mit der rechten Maustaste auf den Block, um einen Gegenstand hineinzulegen, oder sneaked und klickt Rechtsklick, um alle Gegenstände wieder zu entfernen. Sobald alle für den jeweiligen Boss benötigten Gegenstände eingefügt sind, werden Blitze erzeugt. Dies signalisiert, dass der beschwörte Boss gleich erscheinen wird, also mach dich bereit!"
     },
     {
       "type": "patchouli:crafting",
