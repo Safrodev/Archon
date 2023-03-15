@@ -1,6 +1,6 @@
 {
   "name": "Miscellaneous",
-  "description": "Andere Blöcke, Items und Entitys die spezifisch verwendet werden.",
+  "description": "Other Blocks, Items, and Entities that have specific uses",
   "icon": "archon:glisteel_ingot",
   "sortnum": 5
 }

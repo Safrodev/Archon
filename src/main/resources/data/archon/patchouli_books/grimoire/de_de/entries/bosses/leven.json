@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Leven ist ein Wasserboss mit schnellen AOE-Angriffen. Aus der Entfernung feuert er kleine Wasserblitze ab, welche auf dem getroffenem Ziel, Pfützen bilden können. Seine Nahkampfangriffe bestehen aus langsamen Schlägen und er feuert Wellen von Dreizacks ab. Leven lässt nach seinem Tod einen Wellenkristall fallen. Die Gegenstände, die du benötigst um ihn zu beschwören zu beschwören, findet ihr auf der nächsten Seite."
+      "text": "Leven is a water boss with rapid, AOE melee attacks. From a distance, he will fire small water bolts that can create puddles on the hit target. His melee attack consists of slow punches and launching waves of short-range tridents. Leven drops a Wave Crystal upon death. You can find the items needed to summon him on the next page."
     },
     {
       "type": "patchouli:entity",
       "entity": "archon:leven",
-      "text": "Wasser Juwel, Seetang, Kugelfisch, Wasser Essenz"
+      "text": "Water Gem, Kelp, Pufferfish, Water Essence"
     }
   ]
 }
