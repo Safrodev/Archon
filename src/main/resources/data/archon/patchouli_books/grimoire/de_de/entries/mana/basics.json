@@ -6,11 +6,11 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "You may have already noticed the counter at the bottom left of your screen. That counter represents your mana and max mana. Mana flows through all living entities and can be used by players for different things."
+      "text": "Du hast vielleicht schon die Anzeige unten links auf deinem Bildschirm bemerkt. Diese Anzeige zeigt dein Mana und dein maximales Mana an. Mana fließt durch alle Lebewesen und kann von den Spielern für verschiedene Dinge verwendet werden."
     },
     {
       "type": "patchouli:text",
-      "text": "Mana is passively generated at a base rate of $(#2895CB)1 mana per second$(). Your mana regen speed and max mana can be upgraded with the use of different items like $(l:archon:mana/scrolls)Scrolls$()."
+      "text": "Mana wird mit Zeit erzeugt und dadurch wird $(#2895CB)1 Mana pro Sekunde$() aufgefüllt. Deine Manaregenerationsgeschwindigkeit und dein maximales Mana können mit verschiedenen Gegenständen wie $(l:archon:mana/scrolls)Scrolls$() erhöht werden."
     }
   ]
 }
