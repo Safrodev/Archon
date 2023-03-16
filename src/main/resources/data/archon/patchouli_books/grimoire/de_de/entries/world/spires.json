@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Antike Türme entstehen in Wald und Berg Biomen auf höheren Ebenen. Diese Strukturen enthalten Beute wie $(l:archon:mana/scrolls)scrolls$(), Glisteel Barren, Brot und Lapislazuli. Du wirst auch einige $(l:archon:misc/mana_leech)mana leeches$() finden, die von der Decke spawnen."
+      "text": "Antike Türme entstehen in Wald und Berg Biomen auf höheren Ebenen. Diese Strukturen enthalten Beute wie $(l:archon:mana/scrolls)Schriftrollen$(), Glisteel Barren, Brot und Lapislazuli. Du wirst auch einige $(l:archon:misc/mana_leech)Mana Silberfische$() finden, die von der Decke spawnen."
     },
     {
       "type": "patchouli:image",
