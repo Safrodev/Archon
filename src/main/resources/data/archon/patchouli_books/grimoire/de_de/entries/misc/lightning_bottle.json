@@ -1,5 +1,5 @@
 {
-  "name": "Lightning in a Bottle",
+  "name": "Blitz in der Flasche",
   "icon": "archon:lightning_bottle",
   "category": "archon:misc",
   "sortnum": 2,
@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:lightning_bottle",
-      "text": "Lightning in a Bottle can be thrown a short distance, striking lightning where it lands. It can also be used on creepers to make them charged. These can be obtained from $(l:archon:world/wizard)Wizard$() villagers or by throwing an empty bottle in lightning."
+      "text": "Der Blitz in der Flasche kann über eine kurze Distanz geworfen werden und lässt dort, wo er landet, Blitze einschlagen. Sie kann auch auf Creeper geworfen werden, um sie aufzuladen. Diese kann man von $(l:archon:world/wizard)Zauberer$() erhalten oder indem man eine leere Flasche in einen Blitz wirft."
     }
   ]
 }
