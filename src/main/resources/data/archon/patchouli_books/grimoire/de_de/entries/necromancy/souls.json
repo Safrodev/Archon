@@ -1,5 +1,5 @@
 {
-  "name": "Souls and Cores",
+  "name": "Seelen und Seelenkerne",
   "icon": "archon:soul_core_creature",
   "category": "archon:necromancy",
   "sortnum": 0,
@@ -7,12 +7,12 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:player_soul",
-      "text": "Souls are special items obtained from killing mobs with a $(l:archon:necromancy/soul_scythe)Soul Scythe$(). These souls are used to craft Soul Cores, and are important in summoning undead."
+      "text": "Seelen sind besondere Gegenstände, die man durch das Töten von Mobs mit einer $(l:archon:nekromantie/soul_scythe)Seelensense$() erhält. Diese Seelen werden zur Herstellung von Seelenkernen verwendet und sind wichtig für die Beschwörung von Untoten."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:soul_core_boss",
-      "text": "Soul Cores are items crafting from souls and bones. These cores are the main components to summon undead."
+      "text": "Seelenkerne sind Gegenstände, die aus Seelen und Knochen hergestellt werden. Diese Kerne sind die wichtigsten Komponenten, um Untote zu beschwören."
     },
     {
       "type": "patchouli:crafting",
