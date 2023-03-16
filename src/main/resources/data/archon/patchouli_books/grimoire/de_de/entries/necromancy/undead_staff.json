@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:undead_staff",
-      "text": "Der Stab der Untoten ist ein Gegenstand, mit dem man $(l:archon:nekromantie/skelts)Skelts$() beschwören kann. Um einen Skelt zu beschwören, lässt du einen Seelenkern des entsprechenden Skelts fallen, den du beschwören möchtest, und verwandelst ihn mit dem Stab. Der Stab ist wichtig, um deine Skelts zu befehligen, also halte ihn immer griffbereit."
+      "text": "Der Stab der Untoten ist ein Gegenstand, mit dem man $(l:archon:necromancy/skelts)Skelts$() beschwören kann. Um einen Skelt zu beschwören, lässt du einen Seelenkern des entsprechenden Skelts fallen, den du beschwören möchtest, und verwandelst ihn mit dem Stab. Der Stab ist wichtig, um deine Skelts zu befehligen, also halte ihn immer griffbereit."
     },
     {
       "type": "patchouli:crafting",
