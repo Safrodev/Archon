@@ -11,17 +11,17 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:capacity_scroll",
-      "text": "Die Vermehrungsschriftrolle kann vom $(l:archon:world/wizard)Zauberer$() Dorfbewohner oder von $(l:archon:world/spires)Spires$() erworben werden und erhöht das maximale Mana des Spielers auf 200$()."
+      "text": "Die Vermehrungsschriftrolle kann vom $(l:archon:world/wizard)Zauberer$() eworben oder $(l:archon:world/spires)Antike Türme$() gefunden werden und erhöht das maximale Mana des Spielers auf 200$()."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:accelerate_scroll",
-      "text": "Die Schriftrolle 'Erhöhen' kann beim Dorfbewohner $(l:archon:world/wizard)Zauberer$() oder bei $(l:archon:world/spires)Spires$() erworben werden und erhöht die Manaregenerationsgeschwindigkeit des Spielers auf $(#2895CB)2 Mana pro Sekunde$()."
+      "text": "Die Schriftrolle 'Erhöhen' kann bei $(l:archon:world/wizard)Zauberer$() erworben oder in $(l:archon:world/spires)Antike Türme$() gefunden werden und erhöht die Manaregenerationsgeschwindigkeit des Spielers auf $(#2895CB)2 Mana pro Sekunde$()."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:removal_scroll",
-      "text": "Die Schriftrolle der Entfernung kann von $(l:archon:world/spires)Spires$() bezogen werden. Sie entfernt die aktuell angewendete Schriftrolle vom Spieler."
+      "text": "Die Schriftrolle der Entfernung kann in $(l:archon:world/spires)Antiken Türmen$() gefunden werden. Sie entfernt die aktuell angewendete Schriftrolle vom Spieler."
     }
   ]
 }
