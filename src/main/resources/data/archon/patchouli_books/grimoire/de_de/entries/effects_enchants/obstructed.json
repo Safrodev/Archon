@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Der Statuseffekt 'Unterdrückt' hindert das Ziel daran, Mana zu verbrauchen. Er wird von $(l:archon:misc/mana_leech)Mana Leeches$() zugefügt oder kann durch Commands angewendet werden."
+      "text": "Der Statuseffekt 'Unterdrückt' hindert das Ziel daran, Mana zu verbrauchen. Er wird von $(l:archon:misc/mana_leech)Mana Silberfische$() zugefügt oder kann durch Commands angewendet werden."
     }
   ]
 }
