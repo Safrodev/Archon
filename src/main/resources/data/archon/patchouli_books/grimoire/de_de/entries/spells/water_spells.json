@@ -1,32 +1,32 @@
 {
-  "name": "Water Spells",
+  "name": "Wasser Zaubersprüche",
   "icon": "archon:freeze_tome",
   "category": "archon:spells",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Water spells can be found in Ocean Ruins or from fishing"
+      "text": "Wasserzauber können in Ozeanruinen oder beim Fischen gefunden werden"
     },
     {
       "type": "patchouli:text",
-      "title": "Aqua Shield",
-      "text": "Grants the user a shield from direct mob damage for 15 seconds $(li)Mana Cost: 50"
+      "title": "Wasser Schild",
+      "text": "Gewährt dem Anwender 15 Sekunden lang einen Schutzschild gegen direkten Mob-Schaden $(li)Manakosten: 50"
     },
     {
       "type": "patchouli:text",
-      "title": "Freeze",
-      "text": "Shoots a chunk of snow that freezes and slows the target $(li)Mana Cost: 10"
+      "title": "Einfrieren",
+      "text": "Schießt einen Schneebrocken, der das Ziel einfriert und verlangsamt $(li)Manakosten: 10"
     },
     {
       "type": "patchouli:text",
-      "title": "Drown",
-      "text": "Places water on the target's head $(li)Mana Cost: 30 $(li)Range: 10"
+      "title": "Ertrinken",
+      "text": "Plaziert Wasser auf den Kopf des Ziels $(li)Manakosten: 30 $(li)Reichweite: 10"
     },
     {
       "type": "patchouli:text",
-      "title": "Mend",
-      "text": "Heals the user for 4 hearts and clear all negative effects $(li)Mana Cost: 40"
+      "title": "Kurieren",
+      "text": "Heilt den Anwender für 4 Herzen und entfernt alle negativen Effekte $(li)Manakosten: 40"
     }
   ]
 }
