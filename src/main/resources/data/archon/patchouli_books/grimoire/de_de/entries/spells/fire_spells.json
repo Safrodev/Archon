@@ -1,32 +1,32 @@
 {
-  "name": "Fire Spells",
+  "name": "Feuer Zaubersprüche",
   "icon": "archon:fireball_tome",
   "category": "archon:spells",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Fire spells can be found in Nether Fortresses and Bastions"
+      "text": "Feuerzauber können in Netherfestungen und Bastionen gefunden werden."
     },
     {
       "type": "patchouli:text",
-      "title": "Fireball",
-      "text": "Shoots an explosive fireball $(li)Mana Cost: 20"
+      "title": "Feuerball",
+      "text": "SSchießt einen explosiven Feuerball $(li)Manakosten: 20"
     },
     {
       "type": "patchouli:text",
-      "title": "Incombustible",
-      "text": "Grants fire resistance for 1 minute  $(li)Mana Cost: 50"
+      "title": "Hitzeschild",
+      "text": "Gewährt Feuerresistenz für 1 Minute $(li)Manakosten: 50"
     },
     {
       "type": "patchouli:text",
-      "title": "Scorch",
-      "text": "Sets the target on fire for 10 seconds $(li)Mana Cost: 30 $(li)Range: 5"
+      "title": "Verbrennen",
+      "text": "Setzt das Ziel für 10 Sekunden in Brand $(li)Manakosten: 30 $(li)Reichweite: 5"
     },
     {
       "type": "patchouli:text",
-      "title": "Hellbeam",
-      "text": "Fires a quick beam of heat that deals damage to targets $(li)Mana Cost: 10"
+      "title": "Höllenstrahl",
+      "text": "Feuert einen schnellen Hitzestrahl ab, der dem Ziel Schaden zufügt $(li)Manakosten: 10"
     }
   ]
 }
