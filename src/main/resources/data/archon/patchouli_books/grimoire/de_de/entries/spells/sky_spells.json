@@ -1,32 +1,32 @@
 {
-  "name": "Sky Spells",
+  "name": "Himmels Zaubersprüche",
   "icon": "archon:gust_tome",
   "category": "archon:spells",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Sky spells can be found in Villages"
+      "text": "Himmelszauber finden man in Dörfern"
     },
     {
       "type": "patchouli:text",
-      "title": "Propel",
-      "text": "Launches the user in the air for a short distance $(li)Mana Cost: 10"
+      "title": "Aufsteigen",
+      "text": "Schleudert den Anwender für eine kurze Strecke in die Luft $(li)Mana Kosten: 10"
     },
     {
       "type": "patchouli:text",
-      "title": "Gust",
-      "text": "Shoots a gust of wind that pushes back the target  $(li)Mana Cost: 20"
+      "title": "Böe",
+      "text": "Schießt eine Windböe, die das Ziel zurückstößt $(li)Manakosten: 20"
     },
     {
       "type": "patchouli:text",
-      "title": "Thunder Strike",
-      "text": "Strikes lightning down upon the target's head $(li)Mana Cost: 30 $(li)Range: 15"
+      "title": "Blitschlag",
+      "text": "Schlägt Blitze auf den Kopf des Ziels $(li)Manakosten: 30 $(li)Reichweite: 15"
     },
     {
       "type": "patchouli:text",
-      "title": "Cloudshot",
-      "text": "Fire a slow moving cloud that deals high damage $(li)Mana Cost: 30"
+      "title": "Wolkenschuss",
+      "text": "Feuert eine sich langsam bewegende Wolke ab, die hohen Schaden verursacht $(li)Manakosten: 30"
     }
   ]
 }
