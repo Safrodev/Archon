@@ -1,5 +1,5 @@
 {
-  "name": "Sky",
+  "name": "Himmels Waffen",
   "icon": "archon:sky_gem",
   "category": "archon:weapons",
   "sortnum": 3,
@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:thunder_bolt",
-      "text": "The Thunder Bolt will strike lightning on 4 blocks around you. The lightning does not produce fire and will not damage you."
+      "text": "Der Blitz Stab schlägt Blitze auf 4 Blöcke um dich herum. Der Blitz erzeugt kein Feuer und fügt dir keinen Schaden zu."
     },
     {
       "type": "patchouli:crafting",
@@ -16,7 +16,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:vacuum_cleaver",
-      "text": "The Vacuum Cleaver is a strong weapon that can quickly pull enemies towards you."
+      "text": "Der Vakuum Spalter ist eine starke Waffe, mit der man Feinde schnell zu sich ziehen kann."
     },
     {
       "type": "patchouli:crafting",
@@ -25,7 +25,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:heaven_dial",
-      "text": "Upon using the Heaven's Dial, you can heal all players (including yourself), villagers, iron golems, and pets around you for a large amount of HP. Players healed will also receive a hunger boost."
+      "text": "Wenn du die Himmelsscheibe benutzt, kannst du alle Spieler (einschließlich dir selbst), Dorfbewohner, Eisengolems und Haustiere um dich herum heilen. Spieler, die geheilt werden, erhalten außerdem einen Hungerregeneration."
     },
     {
       "type": "patchouli:crafting",

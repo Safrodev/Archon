@@ -1,6 +1,6 @@
 {
-  "name": "World Generation",
-  "description": "Information on everything that you may find in your world.",
+  "name": "Weltgenerierung",
+  "description": "Informationen über alles, was ihr in der Welt finden könnt.",
   "icon": "archon:fire_node",
   "sortnum": 3
 }

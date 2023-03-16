@@ -1,6 +1,6 @@
 {
-  "name": "Spells",
-  "description": "Spells and Wands",
+  "name": "Zaubersprüche",
+  "description": "Zauber und Zauberstäbe",
   "icon": "archon:end_wand",
   "sortnum": 4
 }

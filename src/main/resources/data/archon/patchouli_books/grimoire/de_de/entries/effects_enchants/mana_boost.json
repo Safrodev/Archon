@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The Mana Boost Status Effect increases the user's max mana by $(#2895CB)50$() per level. It is added by $(l:archon:mana/mana_catalysts)Mana Catalysts$() or can be applied through commands."
+      "text": "Der Mana Boost Effekt erhöht das maximale Mana des Benutzers um $(#2895CB)50$() pro Stufe. Er wird durch $(l:archon:mana/mana_catalysts)Mana Katalysatoren$() hinzugefügt oder kann durch Commands angewendet werden."
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
-  "name": "Harvesters",
+  "name": "Ernter",
   "icon": "archon:warping_harvester",
   "category": "archon:misc",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Harvesters act as normal weapons, but with additional drop bonuses. Each element of harvester gives drops from mobs related to that element."
+      "text": "Ernter verhalten sich wie normale Waffen, aber mit zusätzlichen Drop-Boni. Jedes Element der Ertner gibt Drops von Mobs, die mit diesem Element verbunden sind."
     },
     {
       "type": "patchouli:text",
-      "text": "$(li)Rocky Harvester: Zombie -> Rotten Flesh, Skeleton -> Bone, Slime -> Slime Ball$(li)Warping Harvester: Enderman -> Ender Pearl, Shulker -> Shulker Shell, Endermite -> Obsidian$(li)Flaming Harvester: Blaze -> Blaze Rod, Magma Cube -> Magma Cream, Zombie Piglin -> Gold Ingot$(li)Breezy Harvester: Ghast -> Ghast Tear, Phantom -> Phantom Membrane, Vex -> Emerald$(li)Soaking Harvester: Squid -> Ink Sac, Drowned -> Copper Ingot, Guardian -> Prismarine Shard"
+      "text": "Steiniger Ernter: Zombie -> Verdorbenes Fleisch, Skelett -> Knochen, Schleim -> Schleimkugel$(li)Teleportierender Ernter: Enderman -> Enderperle, Shulker -> Shulker-Schale, Endermite -> Obsidian$(li)Flammender Ernter: Lohe -> Lohenrute, Magmawürfel -> Magmacreme, Zombie Piglin -> Gold Barren$(li)Windiger Ernter: Ghast -> Ghast-Träne, Phantom -> Phantomhaut, Plagegeist -> Smaragd$(li)Wässender Ernter: Tintenfisch -> Tintensack, Ertrunkener -> Kupferbarren, Wächter -> Prismarinsscherbe"
     },
     {
       "type": "patchouli:crafting",

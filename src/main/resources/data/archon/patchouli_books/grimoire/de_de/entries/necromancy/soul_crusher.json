@@ -1,5 +1,5 @@
 {
-  "name": "Soul Crusher",
+  "name": "Seelenbrecher",
   "icon": "archon:soul_crusher",
   "category": "archon:necromancy",
   "sortnum": 2,
@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:soul_crusher",
-      "text": "The Soul Crusher is a special necromancy item that condenses souls of those you kill into mana. Instead of dropping souls, killing mobs will give you 20 mana for creatures, 30 for players, and 50 for bosses."
+      "text": "Der Seelenbrecher ist ein spezieller Nekromantie-Gegenstand, der die Seelen derer, die du tötest, zu Mana kondensiert. Anstatt Seelen fallen zu lassen, erhaltest du beim Töten von Mobs 20 Mana für Kreaturen, 30 für Spieler und 50 für Bosse."
     },
     {
       "type": "patchouli:crafting",

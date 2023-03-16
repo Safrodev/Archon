@@ -1,12 +1,12 @@
 {
-  "name": "Shadow",
+  "name": "Schatten",
   "icon": "archon:textures/mob_effect/shadow.png",
   "category": "archon:effects_enchants",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The Shadow Status Effect gives the user the ability to fly and phase through walls. It can be obtained using the Shadow spell or through commands."
+      "text": "Der Schatten Effekt verleiht dem Anwender die Fähigkeit, zu fliegen und durch Wände zu gehen. Er kann durch den Zauber 'Schatten' oder durch Commands erlangt werden."
     }
   ]
 }

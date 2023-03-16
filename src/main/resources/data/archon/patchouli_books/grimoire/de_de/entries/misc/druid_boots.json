@@ -1,5 +1,5 @@
 {
-  "name": "Druid Boots",
+  "name": "Druidenstiefel",
   "icon": "archon:druid_boots",
   "category": "archon:misc",
   "sortnum": 3,
@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:druid_boots",
-      "text": "Druid Boots are leather tier boots that allow you to fertilize blocks around you. You can activate this by sneaking, though it requires 30 mana and has a cooldown of 3 seconds."
+      "text": "Druidenstiefel sind Lederstiefel, die es dir ermöglichen, Blöcke um dich herum zu düngen. Durch Schleichen kann man es aktivieren, aber es erfordert 30 Mana und hat eine Abklingzeit von 3 Sekunden."
     },
     {
       "type": "patchouli:crafting",

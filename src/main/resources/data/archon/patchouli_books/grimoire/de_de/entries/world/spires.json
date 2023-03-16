@@ -1,19 +1,19 @@
 {
-  "name": "Spires",
+  "name": "Antike Türme",
   "icon": "minecraft:deepslate_bricks",
   "category": "archon:world",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Spires generate in forest and mountain biomes at higher y levels. These structures contain loot such as $(l:archon:mana/scrolls)scrolls$(), glisteel ingots, bread, and lapis lazuli. You will also find some $(l:archon:misc/mana_leech)mana leeches$() spawning from the ceiling."
+      "text": "Antike Türme entstehen in Wald und Berg Biomen auf höheren Ebenen. Diese Strukturen enthalten Beute wie $(l:archon:mana/scrolls)Schriftrollen$(), Glisteel Barren, Brot und Lapislazuli. Du wirst auch einige $(l:archon:misc/mana_leech)Mana Silberfische$() finden, die von der Decke spawnen."
     },
     {
       "type": "patchouli:image",
       "images": [
         "archon:textures/gui/book/spire.png"
       ],
-      "title": "Spire",
+      "title": "Antiker Turm",
       "border": true
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "name": "Fire",
+  "name": "Feuer Waffen",
   "icon": "archon:fire_gem",
   "category": "archon:weapons",
   "sortnum": 0,
@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:heat_ranger",
-      "text": "The Heat Ranger is a bow that does not consume arrows. It shoots powerful fire balls with speed relative to the pull back of the shot."
+      "text": "Der Hitze Bogem benötigt keine Pfeile. Er verschießt mächtige Feuerbälle mit einer Geschwindigkeit, die einem Schuss entspricht."
     },
     {
       "type": "patchouli:crafting",
@@ -16,7 +16,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:wither_stave",
-      "text": "The Wither Stave is a type of staff that launches wither skulls."
+      "text": "Der Verwelk Stab ist eine Art Stab, der Wither Schädel schießt."
     },
     {
       "type": "patchouli:crafting",

@@ -1,5 +1,5 @@
 {
-  "name": "Nodes",
+  "name": "Juwelenerze",
   "icon": "archon:end_node",
   "category": "archon:world",
   "sortnum": 0,
@@ -7,27 +7,27 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:earth_node",
-      "text": "Earth Node veins generate underground in the Overworld between y-levels -64 and 0 (configurable). They drop 1 Earth Gem."
+      "text": "Erd Juwelenerze entstehen unterirdisch in der Überwelt zwischen der höhe -64 und 0 (konfigurierbar). Man erhält beim abbauen jeweils 1 Erd Juwel."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:water_node",
-      "text": "Water Node veins generate underground in Ocean biomes between y-levels 40 and 27 (configurable). They drop 1 Water Gem."
+      "text": "Wasser Juwelenerze entstehen unterirdisch in Ozean Biomen zwischen 40 und 27 (konfigurierbar). Beim abbeuen erhält man 1 Wasser Juwel."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:fire_node",
-      "text": "Fire Node veins generate in the Nether between y-levels 10 and 117 (configurable). They drop 1 Fire Gem."
+      "text": "Feuer Juwelenerz entstehen im Nether zwischen den 10 und 117 (konfigurierbar). Man erhält 1 Feuer Juwel beim abbauen."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:end_node",
-      "text": "End Node veins generate anywhere inside of end islands throughout the End. They drop 1 End Gem."
+      "text": "End Juwelenerze entstehen überall innerhalb von Endinseln im gesamten End. Man erhält beim abbauen 1 Juwelen Erz."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:sky_node",
-      "text": "Sky node veins generate in small clouds in the Overloard. The clouds generate between y 192 and 196, also containing bits of iron. The nodes drop 1 Sky Gem."
+      "text": "Himmels Juwelenerze entstehen in kleinen Wolken in der Overworld. Die Wolken entstehen auf der Höhe von 192 und 196 und enthalten auch Eisenstücke. Beim abbau erhält man 1 Himmels Juwel."
     }
   ]
 }

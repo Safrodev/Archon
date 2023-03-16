@@ -1,32 +1,32 @@
 {
-  "name": "End Spells",
+  "name": "End Zaubersprüche",
   "icon": "archon:ender_tome",
   "category": "archon:spells",
   "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "End spells can be found in End Cities or Stronghold Libraries"
+      "text": "Endzauber können in End Cities oder Stronghold Bibilotheken gefunden werden."
     },
     {
       "type": "patchouli:text",
       "title": "Darkball",
-      "text": "Shoots an Ender Dragon fireball that creates a deadly damage zone upon impact. $(li)Mana Cost: 10"
+      "text": "Schießt einen Enderdrachen Feuerball ab, der beim Aufprall eine tödliche Schadenszone erzeugt. $(li)Manakosten: 10"
     },
     {
       "type": "patchouli:text",
-      "title": "Swap",
-      "text": "Allows the user to swap places with the target $(li)Mana Cost: 40 $(li)Range: 20"
+      "title": "Tausch",
+      "text": "Erlaubt dem Anwender, den Platz mit dem Ziel zu tauschen $(li)Manakosten: 40 $(li)Reichweite: 20"
     },
     {
       "type": "patchouli:text",
       "title": "Ender",
-      "text": "Instantly opens the user's ender chest inventory $(li)Mana Cost: 20"
+      "text": "Öffnet sofort die eigene Endertruhe $(li)Manakosten: 20"
     },
     {
       "type": "patchouli:text",
-      "title": "Shadow",
-      "text": "Turns the user into a shadow that can fly and phase through walls for 10s $(li)Mana Cost: 50"
+      "title": "Schatten",
+      "text": "Verwandelt den Anwender in einen Schatten, der 10s lang fliegen und durch Wände gehen kann $(li)Manakosten: 50"
     }
   ]
 }
