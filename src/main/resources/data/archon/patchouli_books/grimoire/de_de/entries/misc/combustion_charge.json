@@ -1,5 +1,5 @@
 {
-  "name": "Combustion Charge",
+  "name": "Verbrennungsladung",
   "icon": "archon:combustion_charge",
   "category": "archon:misc",
   "sortnum": 1,
@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:combustion_charge",
-      "text": "Combustion charges mine out a 7x7 area of a floor or wall, also leaving behind the drops. These can be useful for quick and large scale mining."
+      "text": "Verbrennungsladungen bauen einen 7x7 großen Bereich eines Bodens oder einer Wand ab und lassen auch die Drops zurück. Diese können für schnellen und großflächigen Abbau nützlich sein."
     },
     {
       "type": "patchouli:crafting",
