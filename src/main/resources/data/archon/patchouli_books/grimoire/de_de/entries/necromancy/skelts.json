@@ -6,22 +6,22 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Skelts are special skeletons summoned using a $(l:archon:necromancy/undead_staff)Staff of Undead$(). There are three type of skelts, each being summoned from a different $(l:archon:necromancy/souls)soul core$() type. A skelt will follow you around and attack with you. You can stop them from following you by sneaking and right-clicking them with a Staff of Undead."
+      "text": "Skelts sind spezielle Skelette, die mit einem $(l:archon:necromancy/undead_staff)Stab der Untoten$() beschworen werden. Es gibt drei Arten von Skelts, die jeweils von einem anderen $(l:archon:nekromantie/souls)Seelenkern$()-Typ beschworen werden. Ein Skelt wird dir folgen und mit dir angreifen. Du kannst sie davon abhalten, dir zu folgen, indem du sneakest und sie mit deinem Stab der Untoten rechtsklickst."
     },
     {
       "type": "patchouli:entity",
       "entity": "archon:skelt",
-      "text": "Normal Skelts do not have any special properties and walk slowly."
+      "text": "Normale Skelts haben keine besonderen Eigenschaften und laufen langsam."
     },
     {
       "type": "patchouli:entity",
       "entity": "archon:prime_skelt",
-      "text": "Prime Skelts are faster skelts with iron swords. You can give them armor by shift right-clicking them."
+      "text": "Primus Skelts sind schnellere Skelts mit Eisenschwertern. Du kannst ihnen Rüstung geben, indem du mit der rechten Maustaste auf sie klickst."
     },
     {
       "type": "patchouli:entity",
       "entity": "archon:omega_skelt",
-      "text": "Omega Skelts are massive skelts with lots of HP. They are slow but tanky, with stronger attacks.",
+      "text": "Omega Skelts sind massive Skelts mit vielen HP. Sie sind langsam, aber robust und haben stärkere Angriffe.",
       "scale": 1.2
     }
   ]
