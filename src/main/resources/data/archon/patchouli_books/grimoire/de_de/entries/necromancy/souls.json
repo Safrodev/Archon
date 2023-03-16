@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:player_soul",
-      "text": "Seelen sind besondere Gegenstände, die man durch das Töten von Mobs mit einer $(l:archon:nekromantie/soul_scythe)Seelensense$() erhält. Diese Seelen werden zur Herstellung von Seelenkernen verwendet und sind wichtig für die Beschwörung von Untoten."
+      "text": "Seelen sind besondere Gegenstände, die man durch das Töten von Mobs mit einer $(l:archon:necromancy/soul_scythe)Seelensense$() erhält. Diese Seelen werden zur Herstellung von Seelenkernen verwendet und sind wichtig für die Beschwörung von Untoten."
     },
     {
       "type": "patchouli:spotlight",
