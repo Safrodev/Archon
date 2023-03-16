@@ -1,16 +1,16 @@
 {
-  "name": "Spell Tomes",
+  "name": "Zauber Foliant",
   "icon": "minecraft:book",
   "category": "archon:spells",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Spell Tomes are special books that contain the knowledge to learn a spell. To learn a spell simply use the spell to tome. A player can learn as many spells as they want, but only spells matching the element of their $(l:archon:spells/wands)wand$() can be casted."
+      "text": "Zauber Folianten sind spezielle Bücher, die das Wissen zum Erlernen eines Zaubers enthalten. Um einen Zauber zu erlernen, liest man einfach den Zauber Folianten. Ein Spieler kann so viele Zaubersprüche lernen, wie er will, aber nur solche, die dem Element seines $(l:archon:spells/wands)Zauberstabes$() entsprechen, können gewirkt werden."
     },
     {
       "type": "patchouli:text",
-      "text": "Tomes can be crafted using a scripture table or found in different structures. The scripture table requires 3 ingredients, lapis lazuli, and a book to write a spell. Recipes can be viewed using REI or a similar mod."
+      "text": "Folianten können mithilfe einer Schrifttafel hergestellt oder in verschiedenen Strukturen gefunden werden. Die Schrifttafel benötigt 3 Zutaten, Lapislazuli und ein Buch, um einen Zauberspruch schreiben zu können. Rezepte können mit REI oder einem ähnlichen Mod angezeigt werden."
     },
     {
       "type": "patchouli:crafting",
