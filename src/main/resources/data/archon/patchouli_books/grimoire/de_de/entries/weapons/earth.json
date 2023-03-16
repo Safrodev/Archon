@@ -1,5 +1,5 @@
 {
-  "name": "Earth",
+  "name": "Erd Waffen",
   "icon": "archon:earth_gem",
   "category": "archon:weapons",
   "sortnum": 2,
@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:terrain_mace",
-      "text": "The Terrain Mace allows you to fling up and damage living entities around you. It will not damage mobs tamed to you."
+      "text": "Mit dem Donner Streitkolben kannst du Lebewesen um dich herum hochschleudern und ihnen Schaden zufügen. Mobs, die du gezähmt hast, werden dadurch nicht verletzt."
     },
     {
       "type": "patchouli:crafting",
@@ -17,7 +17,7 @@
       "type": "patchouli:spotlight",
       "anchor": "fist",
       "item": "archon:fist_of_fury",
-      "text": "The Fist of Fury is a fast attacking gauntlet item. It's ability will grant the user the $(l:archon:effects_enchants/rage)Rage$() effect for 5 seconds."
+      "text": "Die Faust des Zorns ist ein schneller Angriffshandschuh. Seine Fähigkeit verleiht dem Benutzer den Effekt $(l:archon:effects_enchants/rage)Wut$() für 5 Sekunden."
     },
     {
       "type": "patchouli:crafting",
@@ -27,7 +27,7 @@
       "type": "patchouli:spotlight",
       "anchor": "terranean",
       "item": "archon:terranean_axe",
-      "text": "The Terranean Axe is a deadly axe that gives you 20 seconds of Resistance and $(l:archon:effects_enchants/sturdy)Sturdy$() upon using its ability."
+      "text": "Die Terranitische Axt ist eine tödliche Waffe, die dir 20 Sekunden Widerstand und $(l:archon:effects_enchants/sturdy)Robustheid$() verleiht, wenn du ihre Fähigkeit einsetzt."
     },
     {
       "type": "patchouli:crafting",
