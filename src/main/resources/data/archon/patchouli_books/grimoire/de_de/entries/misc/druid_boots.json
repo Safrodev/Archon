@@ -1,0 +1,17 @@
+{
+  "name": "Druidenstiefel",
+  "icon": "archon:druid_boots",
+  "category": "archon:misc",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:druid_boots",
+      "text": "Druidenstiefel sind Lederstiefel, die es dir ermöglichen, Blöcke um dich herum zu düngen. Durch Schleichen kann man es aktivieren, aber es erfordert 30 Mana und hat eine Abklingzeit von 3 Sekunden."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:druid_boots"
+    }
+  ]
+}

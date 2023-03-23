@@ -1,0 +1,32 @@
+{
+  "name": "Himmels Zaubersprüche",
+  "icon": "archon:gust_tome",
+  "category": "archon:spells",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Himmelszauber finden man in Dörfern"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Aufsteigen",
+      "text": "Schleudert den Anwender für eine kurze Strecke in die Luft $(li)Mana Kosten: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Böe",
+      "text": "Schießt eine Windböe, die das Ziel zurückstößt $(li)Manakosten: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Blitschlag",
+      "text": "Schlägt Blitze auf den Kopf des Ziels $(li)Manakosten: 30 $(li)Reichweite: 15"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Wolkenschuss",
+      "text": "Feuert eine sich langsam bewegende Wolke ab, die hohen Schaden verursacht $(li)Manakosten: 30"
+    }
+  ]
+}

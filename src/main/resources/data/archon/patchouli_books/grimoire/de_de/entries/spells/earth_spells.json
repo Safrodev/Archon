@@ -1,0 +1,32 @@
+{
+  "name": "Erd Zaubersprüche",
+  "icon": "archon:rumble_tome",
+  "category": "archon:spells",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Erdzauber können in Minenschächten oder Wüstentempeln gefunden werden."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Erdbeben",
+      "text": "Erzeugt ein Erdbeben, das Ziele verlangsamt und den Bildschirm (konfigurierbar) der betroffenen Spieler erschüttert. $(li)Manakosten: 40 $(li)Reichweite: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Zerstören",
+      "text": "Zerstört sofort den anvisierten Block und lässt ihn fallen. Funktioniert nur bei Blöcken, welche mit der Eisen Spitzhacke abbaubar sind. $(li)Manakosten: 2"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spike",
+      "text": "Erzeugt einen Spike unter dem Ziel, der es hochschleudert und ihm Schaden zufügt, wenn es darauf landet. $(li)Manakosten: 20 $(li)Reichweite: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Erdbrocken",
+      "text": "Schleudert einen Erdbrocken, der Schaden und hohen Rückstoß verursacht $(li)Manakosten: 15"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Feuer Waffen",
+  "icon": "archon:fire_gem",
+  "category": "archon:weapons",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:heat_ranger",
+      "text": "Der Hitze Bogem benötigt keine Pfeile. Er verschießt mächtige Feuerbälle mit einer Geschwindigkeit, die einem Schuss entspricht."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:heat_ranger"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:wither_stave",
+      "text": "Der Verwelk Stab ist eine Art Stab, der Wither Schädel schießt."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:wither_stave"
+    }
+  ]
+}

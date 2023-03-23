@@ -1,0 +1,30 @@
+{
+  "name": "Ernter",
+  "icon": "archon:warping_harvester",
+  "category": "archon:misc",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Ernter verhalten sich wie normale Waffen, aber mit zusätzlichen Drop-Boni. Jedes Element der Ertner gibt Drops von Mobs, die mit diesem Element verbunden sind."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Steiniger Ernter: Zombie -> Verdorbenes Fleisch, Skelett -> Knochen, Schleim -> Schleimkugel$(li)Teleportierender Ernter: Enderman -> Enderperle, Shulker -> Shulker-Schale, Endermite -> Obsidian$(li)Flammender Ernter: Lohe -> Lohenrute, Magmawürfel -> Magmacreme, Zombie Piglin -> Gold Barren$(li)Windiger Ernter: Ghast -> Ghast-Träne, Phantom -> Phantomhaut, Plagegeist -> Smaragd$(li)Wässender Ernter: Tintenfisch -> Tintensack, Ertrunkener -> Kupferbarren, Wächter -> Prismarinsscherbe"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:rocky_harvester",
+      "recipe2": "archon:warping_harvester"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:flaming_harvester",
+      "recipe2": "archon:breezy_harvester"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:soaking_harvester"
+    }
+  ]
+}

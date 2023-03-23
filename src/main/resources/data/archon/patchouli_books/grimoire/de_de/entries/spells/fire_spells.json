@@ -1,0 +1,32 @@
+{
+  "name": "Feuer Zaubersprüche",
+  "icon": "archon:fireball_tome",
+  "category": "archon:spells",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Feuerzauber können in Netherfestungen und Bastionen gefunden werden."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Feuerball",
+      "text": "SSchießt einen explosiven Feuerball $(li)Manakosten: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Hitzeschild",
+      "text": "Gewährt Feuerresistenz für 1 Minute $(li)Manakosten: 50"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Verbrennen",
+      "text": "Setzt das Ziel für 10 Sekunden in Brand $(li)Manakosten: 30 $(li)Reichweite: 5"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Höllenstrahl",
+      "text": "Feuert einen schnellen Hitzestrahl ab, der dem Ziel Schaden zufügt $(li)Manakosten: 10"
+    }
+  ]
+}

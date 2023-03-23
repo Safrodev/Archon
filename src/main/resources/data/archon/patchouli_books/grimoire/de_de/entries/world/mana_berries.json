@@ -1,0 +1,17 @@
+{
+  "name": "Manabeerensträucher",
+  "icon": "archon:textures/block/mana_berry_bush_stage3.png",
+  "category": "archon:world",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Manabeerensträucher wachsen in großen Büscheln in allen Taiga Biomen, ähnlich wie Süßbeeren. Wenn sie im Höchstalter geerntet werden, erhält man 2-3 Mana Beeren fallen."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:mana_berries",
+      "text": "Mana Beeren ist Nahrung, die 0,1 Sättigung und 2 Hunger gibt. Außerdem füllen sie nach dem Verzehr 10 Mana auf."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Seelenbrecher",
+  "icon": "archon:soul_crusher",
+  "category": "archon:necromancy",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:soul_crusher",
+      "text": "Der Seelenbrecher ist ein spezieller Nekromantie-Gegenstand, der die Seelen derer, die du tötest, zu Mana kondensiert. Anstatt Seelen fallen zu lassen, erhaltest du beim Töten von Mobs 20 Mana für Kreaturen, 30 für Spieler und 50 für Bosse."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:soul_crusher"
+    }
+  ]
+}

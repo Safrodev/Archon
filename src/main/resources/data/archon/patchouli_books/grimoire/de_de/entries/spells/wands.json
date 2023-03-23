@@ -1,0 +1,26 @@
+{
+  "name": "Zauberstäbe",
+  "icon": "archon:water_wand",
+  "category": "archon:spells",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Zauberstäbe sind ein zentraler Bestandteil der Zauberei. Stäbe können nur Zaubersprüche wirken, die zu ihrem Element passen. Um einen Zauberstab zu benutzen, musst du mindestens einen Zauberspruch beherrschen. Du kannst zwischen den Zaubern wechseln, indem du Shift + Rechtsklick drückst. Der aktuelle Zauberspruch und seine Manakosten werden im Tooltip des Zauberstabs angezeigt."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:fire_wand",
+      "recipe2": "archon:water_wand"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:earth_wand",
+      "recipe2": "archon:sky_wand"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:end_wand"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Tar",
+  "icon": "archon:terranite_stone",
+  "category": "archon:bosses",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Tar ist ein Erdboss, der im Nahkampf tödlichen Schaden verursacht. Wenn Sie sich aus seiner Angriffsreichweite entfernen, lässt er große Pflastersteinbrocken auf Sie fallen, also bleiben Sie in Bewegung! Tar hat eine Rückstoßresistenz und seine zähe Haut lenkt Geschosse wie Pfeile ab. Tar lässt nach seinem Tod einen Terranit Stein fallen. Die Gegenstände, die du brauchst, um ihn zu beschwören, findest du auf der nächsten Seite."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:tar",
+      "text": "Erd Juwel, Tiefenschiefer, Erd Essenz, Smaragd"
+    }
+  ]
+}

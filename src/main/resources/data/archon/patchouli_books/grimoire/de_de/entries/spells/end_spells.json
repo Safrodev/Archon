@@ -1,0 +1,32 @@
+{
+  "name": "End Zaubersprüche",
+  "icon": "archon:ender_tome",
+  "category": "archon:spells",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Endzauber können in End Cities oder Stronghold Bibilotheken gefunden werden."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Darkball",
+      "text": "Schießt einen Enderdrachen Feuerball ab, der beim Aufprall eine tödliche Schadenszone erzeugt. $(li)Manakosten: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tausch",
+      "text": "Erlaubt dem Anwender, den Platz mit dem Ziel zu tauschen $(li)Manakosten: 40 $(li)Reichweite: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ender",
+      "text": "Öffnet sofort die eigene Endertruhe $(li)Manakosten: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Schatten",
+      "text": "Verwandelt den Anwender in einen Schatten, der 10s lang fliegen und durch Wände gehen kann $(li)Manakosten: 50"
+    }
+  ]
+}

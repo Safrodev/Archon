@@ -1,0 +1,17 @@
+{
+  "name": "Maske der Macht",
+  "icon": "archon:mask_of_power",
+  "category": "archon:mana",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:mask_of_power",
+      "text": "Die Maske der Macht ist ein Helm wie der Diamanthelm, der die Manaregenerationsgeschwindigkeit des Anwenders auf $(#2895CB)4 Mana pro Sekunde$() erhöht. Die Maske der Macht lässt sich nicht mit der Erhöhungsschriftrolle kombinieren."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:mask_of_power"
+    }
+  ]
+}

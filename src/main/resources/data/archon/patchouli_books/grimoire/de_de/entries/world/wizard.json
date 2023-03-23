@@ -1,0 +1,23 @@
+{
+  "name": "Zauberer",
+  "icon": "archon:magical_bookshelf",
+  "category": "archon:world",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Zauberer ist eine neuer Dorfbewohner Beruf. Du kannst ihre Häuser in Dörfern finden oder ihr könnt einen Dorfbewohner mit einem magischen Bücherregal diesem Beruf zuordnen. Zu ihren Berufen gehören $(l:archon:mana/scrolls)Schriftrollen$(), das Herstellen von Gegenständen und die $(l:archon:effects_enchants/arcane)Arkane Verzauberung$()."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "archon:textures/gui/book/wizard.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:magical_bookshelf"
+    }
+  ]
+}

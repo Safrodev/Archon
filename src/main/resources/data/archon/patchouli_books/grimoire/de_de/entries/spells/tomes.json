@@ -1,0 +1,20 @@
+{
+  "name": "Zauber Foliant",
+  "icon": "minecraft:book",
+  "category": "archon:spells",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Zauber Folianten sind spezielle Bücher, die das Wissen zum Erlernen eines Zaubers enthalten. Um einen Zauber zu erlernen, liest man einfach den Zauber Folianten. Ein Spieler kann so viele Zaubersprüche lernen, wie er will, aber nur solche, die dem Element seines $(l:archon:spells/wands)Zauberstabes$() entsprechen, können gewirkt werden."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Folianten können mithilfe einer Schrifttafel hergestellt oder in verschiedenen Strukturen gefunden werden. Die Schrifttafel benötigt 3 Zutaten, Lapislazuli und ein Buch, um einen Zauberspruch schreiben zu können. Rezepte können mit REI oder einem ähnlichen Mod angezeigt werden."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:scripture_table"
+    }
+  ]
+}

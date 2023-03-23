@@ -1,0 +1,32 @@
+{
+  "name": "Wasser Zaubersprüche",
+  "icon": "archon:freeze_tome",
+  "category": "archon:spells",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Wasserzauber können in Ozeanruinen oder beim Fischen gefunden werden"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Wasser Schild",
+      "text": "Gewährt dem Anwender 15 Sekunden lang einen Schutzschild gegen direkten Mob-Schaden $(li)Manakosten: 50"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Einfrieren",
+      "text": "Schießt einen Schneebrocken, der das Ziel einfriert und verlangsamt $(li)Manakosten: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ertrinken",
+      "text": "Plaziert Wasser auf den Kopf des Ziels $(li)Manakosten: 30 $(li)Reichweite: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Kurieren",
+      "text": "Heilt den Anwender für 4 Herzen und entfernt alle negativen Effekte $(li)Manakosten: 40"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Ayla",
+  "icon": "archon:angelic_star",
+  "category": "archon:bosses",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Ayla ist ein Himmelsboss, der Windangriffe einsetzt. Ihre Windstöße werden dich viel herumschleudern, also ist es am besten, schnell auszuweichen. Sie wird gelegentlich in der Luft schweben, also stelle sicher, dass du eine Fernkampfwaffe hast. Ayla lässt nach ihrem Tod einen Engelsstern fallen. Die Gegenstände, die du brauchst um sie zu beschwören, findest du auf der nächsten Seite."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:ayla",
+      "text": "Himmels Juwel, Feder, Goldbarren, Himmels Essenz"
+    }
+  ]
+}

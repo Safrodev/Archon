@@ -1,0 +1,12 @@
+{
+  "name": "Robust",
+  "icon": "archon:textures/mob_effect/sturdy.png",
+  "category": "archon:effects_enchants",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Der Effekt 'Robust' lenkt die meisten Geschosse vom Körper des Benutzers ab. Er kann mit einer $(l:archon:weapons/earth#terranean)Terranitischen Axt$() oder durch Commands erlangt werden."
+    }
+  ]
+}

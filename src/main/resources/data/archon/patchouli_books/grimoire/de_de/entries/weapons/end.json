@@ -1,0 +1,26 @@
+{
+  "name": "End Waffen",
+  "icon": "archon:end_gem",
+  "category": "archon:weapons",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:ender_blade",
+      "text": "Mit dem Ender Schwert kannst du dich bis zu 8 Blöcke in die Richtung teleportieren, in die du gerade schaust."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:ender_blade"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:void_scepter",
+      "text": "Das Leere Zepter, ähnlich wie das Ender Schwert, ermöglicht es dir, dich bis zu 10 Blöcke in die Richtung zu teleportieren, in die du schaust. Allerdings implodierst du beim Teleportieren und verletzt dadurch die Mobs um dich herum."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:void_scepter"
+    }
+  ]
+}

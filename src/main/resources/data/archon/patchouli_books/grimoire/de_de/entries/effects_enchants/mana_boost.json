@@ -1,0 +1,12 @@
+{
+  "name": "Mana Boost",
+  "icon": "archon:textures/mob_effect/mana_boost.png",
+  "category": "archon:effects_enchants",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Der Mana Boost Effekt erhöht das maximale Mana des Benutzers um $(#2895CB)50$() pro Stufe. Er wird durch $(l:archon:mana/mana_catalysts)Mana Katalysatoren$() hinzugefügt oder kann durch Commands angewendet werden."
+    }
+  ]
+}

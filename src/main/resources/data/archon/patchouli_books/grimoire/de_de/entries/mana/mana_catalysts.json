@@ -1,0 +1,21 @@
+{
+  "name": "Mana Katalysator",
+  "icon": "archon:mana_catalyst",
+  "category": "archon:mana",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Mana Katalysatoren sind Blöcke, die das maximale Mana aller Spieler innerhalb eines Radius erhöhen. Jeder Katalysator hat eine andere Reichweite und erhöht je nach Stufe das Mana. Der Normale hat eine Reichweite von 16 und einen Boost von $(#2895CB)50$(), der Diamant hat eine Reichweite von 22 und einen Boost von $(#2895CB)100$(), und der Netherit hat eine Reichweite von 34 und einen Boost von $(#2895CB)200$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:mana_catalyst",
+      "recipe2": "archon:diamond_mana_catalyst"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:netherite_mana_catalyst"
+    }
+  ]
+}
