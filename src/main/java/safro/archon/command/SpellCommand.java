@@ -15,10 +15,8 @@ import java.util.List;
 public class SpellCommand {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register(CommandManager.literal("spell")
-                .requires(source -> source.hasPermissionLevel(2))
-
-                .then(CommandManager.literal("getAll")
+        dispatcher.register(CommandManager.literal("spells")
+                .then(CommandManager.literal("list")
                     .then(CommandManager.argument("target", EntityArgumentType.player())
                         .executes(context -> getAllSpells(context.getSource(), EntityArgumentType.getPlayer(context, "target")))))
 

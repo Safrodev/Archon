@@ -3,6 +3,8 @@ package safro.archon.client;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.entity.player.PlayerEntity;
 import safro.archon.Archon;
+import safro.archon.network.InfernalImplodePacket;
+import safro.archon.registry.ClientRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 public class ClientEvents {
     private static final List<PlayerEntity> SHAKE_QUEUE = new ArrayList<>();
     private static int tick = 0;
+    private static boolean pressed = false;
 
     public static void init() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -23,6 +26,17 @@ public class ClientEvents {
                    --tick;
                }
            }
+        });
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (ClientRegistry.IC_KEY.wasPressed()) {
+                if (!pressed) {
+                    InfernalImplodePacket.send();
+                }
+                pressed = true;
+            } else {
+                pressed = false;
+            }
         });
     }
 

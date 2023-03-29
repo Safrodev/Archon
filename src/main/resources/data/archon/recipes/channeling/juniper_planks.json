@@ -1,0 +1,15 @@
+{
+  "fabric:load_conditions": [{
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "bewitchment"
+      ]
+    }],
+  "type": "archon:channeling",
+  "block": "bewitchment:juniper_log",
+  "result": {
+    "item": "bewitchment:juniper_planks",
+    "count": 4
+  },
+  "manaCost": 10
+}

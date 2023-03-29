@@ -70,6 +70,8 @@
   "item.archon.heaven_dial": "Heaven's Dial",
   "item.archon.wave_crystal": "Wave Crystal",
   "item.archon.sea_master_charm": "Sea Master Charm",
+  "item.archon.charred_eye": "Charred Eye",
+  "item.archon.infernal_coat": "Infernal Coat",
 
   "item.archon.capacity_scroll": "Ancient Scroll",
   "item.archon.accelerate_scroll": "Ancient Scroll",
@@ -92,6 +94,7 @@
   "entity.archon.tar": "Tar",
   "entity.archon.ayla": "Ayla",
   "entity.archon.leven": "Leven",
+  "entity.archon.inigo": "Inigo",
 
   "effect.archon.rage": "Rage",
   "effect.archon.obstructed": "Obstructed",
@@ -100,7 +103,7 @@
   "effect.archon.mana_boost": "Mana Boost",
 
   "enchantment.archon.arcane": "Arcane",
-  "enchantment.archon.arcane.desc": "Reduces the mana cost of weapons by 20%",
+  "enchantment.archon.arcane.desc": "Reduces the mana cost of weapons by 10% per level",
 
   "attribute.name.generic.max_mana": "Max Mana",
 
@@ -133,6 +136,7 @@
   "text.archon.skelt_sit": "Skelt stopped following",
   "text.archon.skelt_stand": "Skelt will now follow",
   "text.archon.mana_cost": "Mana Cost: %s",
+  "text.archon.mana_cost_all": "Mana Cost: All",
   "text.archon.invalid_book": "Patchouli is not installed!",
   "text.archon.invalid_summon": "Must have air above pedestal!",
   "text.archon.invalid_spell": "Wand has no spells!",
@@ -142,6 +146,16 @@
   "text.archon.dial_mode_blind": "Dial Set To: Blind",
   "text.archon.obj": "%s",
   "text.archon.none": "None",
+  "text.archon.shift": "Hold Shift For Info",
+  "text.archon.infernal_coat1": "Grants permanent fire resistance",
+  "text.archon.infernal_coat2": "Press the infernal coat key to create an",
+  "text.archon.infernal_coat3": "explosion dealing more damage the more mana you have",
+  "text.archon.sea_charm1": "Grants water breathing",
+  "text.archon.sea_charm2": "Allows the user to walk on water",
+  "text.archon.sea_charm3": "when held in hand",
+  "text.archon.heaven_dial1": "Heals all players, villagers, pets, and iron golems",
+  "text.archon.heaven_dial2": "to full health and replenishes hunger",
+  "text.archon.terranean1": "Gain resistance and deflect projectiles for 20s",
 
   "text.archon.tar.spawn": "[Tar] You think you can challenge me? HOW FOOLISH!",
   "text.archon.tar.kill": "[Tar] Ha! This is too easy!",
@@ -149,6 +163,8 @@
   "text.archon.alya.kill": "[Ayla] Delightful!",
   "text.archon.leven.spawn": "[Leven] Embrace the sea, fall into the waves!",
   "text.archon.leven.kill": "[Leven] Good try",
+  "text.archon.inigo.spawn": "[Inigo] Primed. Begin melting.",
+  "text.archon.inigo.kill": "[Inigo] Target dispatched.",
 
   "container.archon.scripture": "Scripture Table",
   "container.archon.add_xp": "Add XP",
@@ -165,9 +181,17 @@
 
   "rei.archon.channeling": "Channeling",
   "rei.archon.scripting": "Scripting",
+  "rei.archon.terranite_stone": "Dropped from killing the boss Tar. Craft and read the Grimoire for more information.",
+  "rei.archon.angelic_star": "Dropped from killing the boss Ayla. Craft and read the Grimoire for more information.",
+  "rei.archon.wave_crystal": "Dropped from killing the boss Leven. Craft and read the Grimoire for more information.",
+  "rei.archon.charred_eye": "Dropped from killing the boss Inigo. Craft and read the Grimoire for more information.",
 
   "emi.category.archon.channeling": "Channeling",
   "emi.category.archon.scripting": "Scripting",
+
+  "key.archon.infernal_coat": "Infernal Coat Implode",
+
+  "category.archon.archon": "Archon",
 
   "advancements.archon.root.title": "Archon",
   "advancements.archon.root.description": "Welcome to Archon!",

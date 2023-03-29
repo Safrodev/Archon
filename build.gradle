@@ -20,6 +20,8 @@ repositories {
 	maven { url "https://maven.shedaniel.me" }
 
 	maven { url "https://maven.terraformersmc.com" }
+
+	maven { url 'https://api.modrinth.com/maven' }
 }
 
 dependencies {
@@ -29,10 +31,10 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// CCA (Base + Entity module)
-	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
-	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
-	include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
-	include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
+	include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
+	include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
 
 	// Omega Config
 	modImplementation include("com.github.Draylar.omega-config:omega-config-base:${project.config_version}")
@@ -47,13 +49,16 @@ dependencies {
 	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin:${project.rei_version}"
 
-	// EMI
-	modImplementation "dev.emi:emi:${project.emi_version}"
+	// EMI (Compile only)
+	modCompileOnly "dev.emi:emi:${project.emi_version}"
 
 	// ModMenu (Runtime only)
 	modCompileOnly modRuntimeOnly("com.terraformersmc:modmenu:${project.modmenu_version}"), {
 				exclude(group: "net.fabricmc.fabric-api")
 	}
+
+	// SpellPower
+	modCompileOnly "maven.modrinth:spell-power:${project.sp_version}-fabric"
 }
 
 loom {

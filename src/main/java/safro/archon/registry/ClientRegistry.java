@@ -1,14 +1,19 @@
 package safro.archon.registry;
 
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
+import org.lwjgl.glfw.GLFW;
+import safro.archon.client.particle.InfernoLaserParticle;
 import safro.archon.client.particle.WaterBallParticle;
 import safro.archon.client.render.*;
 import safro.archon.client.render.block.ScriptureTableBlockEntityRenderer;
@@ -17,14 +22,15 @@ import safro.archon.client.screen.ExperiencePouchScreen;
 import safro.archon.client.screen.ScriptureTableScreen;
 
 public class ClientRegistry {
+    public static final KeyBinding IC_KEY = new KeyBinding("key.archon.infernal_coat", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_PERIOD, "category.archon.archon");
 
     public static void init() {
         // Entity Renderers
         EntityRendererRegistry.register(EntityRegistry.WATER_BOLT, WaterBoltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.ICE_BALL, FlyingItemEntityRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.WIND_BALL, WindBallEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.WIND_BALL, EmptyEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.SPELL_PROJECTILE, FlyingItemEntityRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.HELLBEAM, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.HELLBEAM, EmptyEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.CLOUDSHOT, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.TERRAIN, TerrainEntityRenderer::new);
 
@@ -35,6 +41,7 @@ public class ClientRegistry {
         EntityRendererRegistry.register(EntityRegistry.TAR, TarEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.ALYA, AlyaEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.LEVEN, LevenEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.INIGO, InigoEntityRenderer::new);
 
         // Block Renderers
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MANA_BERRY_BUSH, RenderLayer.getCutout());
@@ -59,6 +66,10 @@ public class ClientRegistry {
         HandledScreens.register(MiscRegistry.EXPERIENCE_POUCH_SH, ExperiencePouchScreen::new);
 
         // Particles
-        ParticleFactoryRegistry.getInstance().register(MiscRegistry.WATER_BALL_PARTICLE, WaterBallParticle.WaterBallFactory::new);
+        ParticleFactoryRegistry.getInstance().register(ParticleRegistry.WATER_BALL, WaterBallParticle.WaterBallFactory::new);
+        ParticleFactoryRegistry.getInstance().register(ParticleRegistry.INFERNO_LASER, InfernoLaserParticle.Factory::new);
+
+        // Keybinds
+        KeyBindingHelper.registerKeyBinding(IC_KEY);
     }
 }

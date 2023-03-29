@@ -1,6 +1,8 @@
 package safro.archon.util;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.ItemConvertible;
@@ -9,6 +11,9 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import safro.archon.Archon;
+import safro.archon.api.Spell;
+import safro.archon.compat.SpellPowerCompat;
 import safro.archon.entity.projectile.spell.HitExecutor;
 import safro.archon.entity.projectile.spell.SpellProjectileEntity;
 import safro.archon.registry.EntityRegistry;
@@ -25,11 +30,24 @@ public class SpellUtil {
         return spawn(world, player, new SpellProjectileEntity(EntityRegistry.SPELL_PROJECTILE, world, player, hitExecutor, new ItemStack(item)), speed);
     }
 
-    public static SpellProjectileEntity spawn(World world, PlayerEntity player, SpellProjectileEntity projectile, float speed) {
+    public static SpellProjectileEntity spawn(World world, LivingEntity player, SpellProjectileEntity projectile, float speed) {
         projectile.updatePosition(player.getX(), player.getEyeY(), player.getZ());
         projectile.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, speed, 1.0F);
         world.spawnEntity(projectile);
         return projectile;
+    }
+
+    public static boolean damage(PlayerEntity caster, LivingEntity target, Spell spell, float damage) {
+        return damage(caster, target, spell, damage, DamageSource.MAGIC.setProjectile());
+    }
+
+    public static boolean damage(PlayerEntity caster, LivingEntity target, Spell spell, float damage, DamageSource source) {
+        if (CompatUtil.isSpellPowerInstalled() && Archon.CONFIG.enableSpellPowerCompat) {
+            double i = SpellPowerCompat.getBonusDamage(caster, target, spell);
+            float bonus = damage + Double.valueOf(i).floatValue();
+            return SpellPowerCompat.damage(caster, target, spell, bonus);
+        }
+        return target.damage(source, damage);
     }
 
     @Nullable

@@ -165,6 +165,14 @@ public class ArchonConfig implements Config {
     )
     public boolean enableScreenShake = true;
 
+    @Comment(
+            """
+            Whether bonus spell critical damage should be added when Spell Power is installed
+            Default: true
+            """
+    )
+    public boolean enableSpellPowerCompat = true;
+
     @Override
     public String getName() {
         return "archon";

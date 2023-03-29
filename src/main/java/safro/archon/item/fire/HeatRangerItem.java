@@ -50,7 +50,7 @@ public class HeatRangerItem extends BowItem {
                     world.spawnEntity(fireball);
                 }
                 ArchonUtil.get(player).removeMana(10);
-                world.playSound((PlayerEntity)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                 player.incrementStat(Stats.USED.getOrCreateStat(this));
             }
         }

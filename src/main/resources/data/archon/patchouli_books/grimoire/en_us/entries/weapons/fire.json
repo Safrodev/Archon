@@ -21,6 +21,11 @@
     {
       "type": "patchouli:crafting",
       "recipe": "archon:wither_stave"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:infernal_coat",
+      "text": "The Infernal Coat is a strong piece of armor that will give you fire resistance and has a special ability. Upon pressing the implode key (default '.'), the player will create an explosion that does more damage the more mana you have. Can be created by combining a netherite chestplate and a charred eye in a smithing table."
     }
   ]
 }

@@ -5,7 +5,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -31,7 +30,7 @@ public class TerrainTossSpell extends Spell {
     public void cast(World world, PlayerEntity player, ItemStack stack) {
         TerrainEntity terrain = new TerrainEntity(world, player, ((target, owner, projectile) -> {
             target.takeKnockback(3 * 0.5F, MathHelper.sin(projectile.getYaw() * 0.017453292F), -MathHelper.cos(projectile.getYaw() * 0.017453292F));
-            target.damage(DamageSource.mob(owner), 4.0F);
+            SpellUtil.damage(player, target, this, 4.0F);
         }), this.getTerrain(player));
         SpellUtil.spawn(world, player, terrain, 2.0F);
     }

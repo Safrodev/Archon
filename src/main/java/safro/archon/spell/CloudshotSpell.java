@@ -1,6 +1,5 @@
 package safro.archon.spell;
 
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -21,7 +20,9 @@ public class CloudshotSpell extends Spell {
 
     @Override
     public void cast(World world, PlayerEntity player, ItemStack stack) {
-        CloudshotEntity cloudshot = new CloudshotEntity(world, player, new ItemStack(BlockRegistry.SOLID_CLOUD), ((target, owner, projectile) -> target.damage(DamageSource.mob(owner), 8.0F)));
+        CloudshotEntity cloudshot = new CloudshotEntity(world, player, new ItemStack(BlockRegistry.SOLID_CLOUD), ((target, owner, projectile) -> {
+            SpellUtil.damage(player, target, this, 8.0F);
+        }));
         SpellUtil.spawn(world, player, cloudshot, 1.0F);
     }
 

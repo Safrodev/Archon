@@ -37,11 +37,15 @@ public class Archon implements ModInitializer {
 		TagRegistry.init();
 		EffectRegistry.init();
 		MiscRegistry.init();
+		ParticleRegistry.init();
 		RecipeRegistry.init();
 		CriteriaRegistry.init();
 		WorldRegistry.init();
 		VillagerRegistry.init();
 		LootTableRegistry.init();
+
+		// Events
+		ComponentsRegistry.initEvents();
 
 		// Init Commands
 		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated, env) -> {

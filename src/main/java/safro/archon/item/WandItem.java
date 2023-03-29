@@ -82,7 +82,11 @@ public class WandItem extends Item {
     }
 
     public int getEnchantability() {
-        return 1;
+        return 3;
+    }
+
+    public boolean isEnchantable(ItemStack stack) {
+        return true;
     }
 
     @Nullable

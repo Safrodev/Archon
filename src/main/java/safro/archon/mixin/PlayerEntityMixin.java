@@ -56,7 +56,6 @@ public abstract class PlayerEntityMixin {
         }
     }
 
-
     @Unique
     private int druidBootsTimer = 60;
 
@@ -83,6 +82,14 @@ public abstract class PlayerEntityMixin {
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 60, 2, true, false, false));
             }
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 60, 0, true, false, false));
+        }
+    }
+
+    @Inject(method = "tick", at = @At("TAIL"))
+    private void infernalCoatEffects(CallbackInfo ci) {
+        PlayerEntity player = (PlayerEntity) (Object) this;
+        if (player.getEquippedStack(EquipmentSlot.CHEST).isOf(ItemRegistry.INFERNAL_COAT)) {
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 60, 0, true, false, false));
         }
     }
 

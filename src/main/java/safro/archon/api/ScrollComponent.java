@@ -3,14 +3,13 @@ package safro.archon.api;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
-import safro.archon.registry.ComponentsRegistry;
 
 public class ScrollComponent implements AutoSyncedComponent {
-    private final PlayerEntity holder;
+    private final PlayerEntity player;
     private String scroll = "none";
 
     public ScrollComponent(PlayerEntity holder) {
-        this.holder = holder;
+        this.player = holder;
     }
 
     @Override
@@ -20,16 +19,15 @@ public class ScrollComponent implements AutoSyncedComponent {
 
     @Override
     public void writeToNbt(NbtCompound tag) {
-        tag.putString("scroll", scroll);
+        tag.putString("scroll", getScroll());
     }
 
     public String getScroll() {
-        return scroll;
+        return this.scroll;
     }
 
     public void setScroll(String name) {
         this.scroll = name;
-        ComponentsRegistry.SCROLL_COMPONENT.sync(holder);
     }
 
     public boolean hasScroll() {

@@ -35,7 +35,7 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
 
     protected void initGoals() {
         this.goalSelector.add(2, new ProjectileAttackGoal(this, 1.0D, 40, 20.0F));
-        this.goalSelector.add(5, new FlyGoal(this, 1.0D));
+        this.goalSelector.add(3, new FlyGoal(this, 1.0D));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
@@ -82,6 +82,33 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
     public void slowMovement(BlockState state, Vec3d multiplier) {
     }
 
+    public void tickMovement() {
+        Vec3d vec3d = this.getVelocity().multiply(1.0D, 0.6D, 1.0D);
+        if (!this.world.isClient && this.getTarget() != null) {
+            LivingEntity entity = this.getTarget();
+            if (entity != null) {
+                double d = vec3d.y;
+                if (this.getY() < entity.getY()) {
+                    d = Math.max(0.0D, d);
+                    d += 0.3D - d * 0.6000000238418579D;
+                }
+
+                vec3d = new Vec3d(vec3d.x, d, vec3d.z);
+                Vec3d vec3d2 = new Vec3d(entity.getX() - this.getX(), 0.0D, entity.getZ() - this.getZ());
+                if (vec3d2.horizontalLengthSquared() > 9.0D) {
+                    Vec3d vec3d3 = vec3d2.normalize();
+                    vec3d = vec3d.add(vec3d3.x * 0.3D - vec3d.x * 0.6D, 0.0D, vec3d3.z * 0.3D - vec3d.z * 0.6D);
+                }
+            }
+        }
+
+        this.setVelocity(vec3d);
+        if (vec3d.horizontalLengthSquared() > 0.05D) {
+            this.setYaw((float)MathHelper.atan2(vec3d.z, vec3d.x) * 57.295776F - 90.0F);
+        }
+        super.tickMovement();
+    }
+
     private double getHeadX(int headIndex) {
         if (headIndex <= 0) {
             return this.getX();
@@ -124,6 +151,7 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
     }
 
     public void attack(LivingEntity target, float pullProgress) {
+        this.setTarget(target);
         this.shootAt(0, target);
     }
 

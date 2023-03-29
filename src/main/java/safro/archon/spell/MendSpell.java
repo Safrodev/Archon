@@ -5,7 +5,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleEffect;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -14,7 +14,8 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
-import safro.archon.registry.MiscRegistry;
+import safro.archon.network.ParticlePacket;
+import safro.archon.registry.ParticleRegistry;
 
 import java.util.List;
 
@@ -30,15 +31,17 @@ public class MendSpell extends Spell {
         list.forEach(player::removeStatusEffect);
 
         player.heal(8.0F);
-        for (int i = 0; i < 3; i++) {
-            this.displayParticles(world, player.getBlockPos().up(), player.getRandom());
+        if (player instanceof ServerPlayerEntity serverPlayer) {
+            for (int i = 0; i < 3; i++) {
+                this.displayParticles(serverPlayer, player.getBlockPos().up(), player.getRandom());
+            }
         }
     }
 
-    private void displayParticles(World world, BlockPos pos, Random random) {
+    private void displayParticles(ServerPlayerEntity player, BlockPos pos, Random random) {
         for (BlockPos blockPos : EnchantingTableBlock.BOOKSHELF_OFFSETS) {
             if (random.nextInt(16) == 0) {
-                world.addParticle((ParticleEffect) MiscRegistry.WATER_BALL_PARTICLE, (double) pos.getX() + 0.5D, (double) pos.getY() + 2.0D, (double) pos.getZ() + 0.5D, (double) ((float) blockPos.getX() + random.nextFloat()) - 0.5D, (float) blockPos.getY() - random.nextFloat() - 1.0F, (double) ((float) blockPos.getZ() + random.nextFloat()) - 0.5D);
+                ParticlePacket.send(player, ParticleRegistry.WATER_BALL, (double) pos.getX() + 0.5D, (double) pos.getY() + 2.0D, (double) pos.getZ() + 0.5D, (double) ((float) blockPos.getX() + random.nextFloat()) - 0.5D, (float) blockPos.getY() - random.nextFloat() - 1.0F, (double) ((float) blockPos.getZ() + random.nextFloat()) - 0.5D);
             }
         }
     }

@@ -18,6 +18,7 @@ import safro.archon.item.end.VoidScepterItem;
 import safro.archon.item.end.WarpingHarvesterItem;
 import safro.archon.item.fire.FlamingHarvesterItem;
 import safro.archon.item.fire.HeatRangerItem;
+import safro.archon.item.fire.InfernalCoatItem;
 import safro.archon.item.fire.WitherStaveItem;
 import safro.archon.item.UndeadStaffItem;
 import safro.archon.item.sky.BreezyHarvesterItem;
@@ -25,6 +26,7 @@ import safro.archon.item.sky.HeavenDialItem;
 import safro.archon.item.sky.ThunderBoltItem;
 import safro.archon.item.sky.VacuumCleaverItem;
 import safro.archon.item.water.FrostSwordItem;
+import safro.archon.item.water.SeaMasterCharmItem;
 import safro.archon.item.water.SoakingHarvesterItem;
 import safro.archon.item.water.WaterStaffItem;
 
@@ -52,7 +54,8 @@ public class ItemRegistry {
 
     public static final Item TERRANEAN_AXE = register("terranean_axe", new TerraneanAxeItem(ToolMaterials.IRON, 6, -3.1F, simple().rarity(Rarity.RARE)));
     public static final Item HEAVEN_DIAL = register("heaven_dial", new HeavenDialItem(simple().maxCount(1).rarity(Rarity.RARE)));
-    public static final Item SEA_MASTER_CHARM = register("sea_master_charm", new Item(simple().maxCount(1).rarity(Rarity.RARE)));
+    public static final Item SEA_MASTER_CHARM = register("sea_master_charm", new SeaMasterCharmItem(simple().maxCount(1).rarity(Rarity.RARE)));
+    public static final Item INFERNAL_COAT = register("infernal_coat", new InfernalCoatItem(MaterialRegistry.INFERNAL_COAT, EquipmentSlot.CHEST, simple().fireproof().rarity(Rarity.RARE)));
 
     // Necromancy
     public static final Item SOUL_CRUSHER = register("soul_crusher", new SwordItem(ToolMaterials.NETHERITE, 3, -2.4F, simple()));
@@ -104,6 +107,7 @@ public class ItemRegistry {
     public static final Item TERRANITE_STONE = register("terranite_stone", new Item(simple()));
     public static final Item ANGELIC_STAR = register("angelic_star", new Item(simple()));
     public static final Item WAVE_CRYSTAL = register("wave_crystal", new Item(simple()));
+    public static final Item CHARRED_EYE = register("charred_eye", new Item(simple()));
 
     public static final Item MANA_LEECH_SPAWN_EGG = register("mana_leech_spawn_egg", new SpawnEggItem(EntityRegistry.MANA_LEECH, 0x043C99, 0x1D75B1, simple()));
 

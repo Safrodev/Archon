@@ -25,10 +25,12 @@ public class HellbeamEntity extends SpellProjectileEntity {
         Entity entity = this.getOwner();
         if (this.world.isClient || (entity == null || !entity.isRemoved()) && this.world.isChunkLoaded(this.getBlockPos())) {
             Vec3d vec3d = this.getVelocity();
-            double d = this.getX() + vec3d.x;
-            double e = this.getY() + vec3d.y;
-            double f = this.getZ() + vec3d.z;
-            this.world.addParticle(ParticleTypes.SMALL_FLAME, d, e + 0.5D, f, 0.0D, 0.0D, 0.0D);
+            double d = this.getX();
+            double e = this.getY();
+            double f = this.getZ();
+            for (int i = 0; i < 5; i++) {
+                this.world.addParticle(ParticleTypes.SMALL_FLAME, d, e + 0.5D, f, 0.0D, 0.0D, 0.0D);
+            }
         }
     }
 

@@ -1,0 +1,15 @@
+{
+  "fabric:load_conditions": [{
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "bewitchment"
+      ]
+    }],
+  "type": "archon:channeling",
+  "block": "bewitchment:elder_log",
+  "result": {
+    "item": "bewitchment:elder_planks",
+    "count": 4
+  },
+  "manaCost": 10
+}

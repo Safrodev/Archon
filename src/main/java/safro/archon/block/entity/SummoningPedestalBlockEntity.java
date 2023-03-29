@@ -22,6 +22,7 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
     // 1 - Summoning Tar boss
     // 2 - Summoning Alya boss
     // 3 - Summoning Leven boss
+    // 4 - Summoning Inigo boss
     private int processor = 0;
     private int spawnDelay = 60;
 
@@ -47,6 +48,8 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
                     checkAndSpawn(player, world, state, pos, 2);
                 } else if (SummonUtil.canSummonLeven(this)) {
                     checkAndSpawn(player, world, state, pos, 3);
+                } else if (SummonUtil.canSummonInigo(this)) {
+                    checkAndSpawn(player, world, state, pos, 4);
                 }
                 return ActionResult.CONSUME;
             }
@@ -80,6 +83,9 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
                     be.setProcessor(0);
                 } else if (be.getProcessor() == 3) {
                     SummonUtil.summonLeven(world, pos.up());
+                    be.setProcessor(0);
+                } else if (be.getProcessor() == 4) {
+                    SummonUtil.summonInigo(world, pos.up());
                     be.setProcessor(0);
                 }
             }

@@ -26,7 +26,7 @@ public class HellbeamSpell extends RaycastSpell {
         double g = target.getBodyY(0.5D) - player.getEyeY() - 0.5D;
         double h = target.getZ() - (player.getZ() + vec3d.z * 4.0D);
         HellbeamEntity beam = new HellbeamEntity(world, player, f, g, h, new ItemStack(Items.BLAZE_POWDER), ((target1, owner, projectile) -> {
-            target1.damage(ArchonDamageSource.HELLBEAM, 5.0F);
+            SpellUtil.damage(player, target1, this, 5.0F, ArchonDamageSource.HELLBEAM);
         }));
         SpellUtil.spawn(world, player, beam, 5.0F);
     }

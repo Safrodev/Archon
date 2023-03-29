@@ -56,7 +56,7 @@ public abstract class AbstractBossEntity extends HostileEntity {
 
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        this.setInvulTimer(nbt.getInt("Invul"));
+        this.setInvulnerableTimer(nbt.getInt("Invul"));
         if (this.hasCustomName()) {
             this.bossBar.setName(this.getDisplayName());
         }
@@ -68,18 +68,22 @@ public abstract class AbstractBossEntity extends HostileEntity {
     }
 
     public void onSummoned() {
-        this.setInvulTimer(getInvulTime());
+        this.setInvulnerableTimer(getInvulTime());
         this.bossBar.setPercent(0.0F);
-        this.sendMessage(getSpawnMessage(), 50);
+        this.sendMessage(getSpawnMessage(), 50.0D);
     }
 
     public void sendMessage(Text text, double radius) {
-        List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, this.getBoundingBox().expand(radius));
+        List<PlayerEntity> list = getPlayers(radius);
         while (list.iterator().hasNext()) {
             PlayerEntity player = list.iterator().next();
             player.sendMessage(text, false);
             list.remove(player);
         }
+    }
+
+    protected List<PlayerEntity> getPlayers(double radius) {
+        return this.world.getNonSpectatingEntities(PlayerEntity.class, this.getBoundingBox().expand(radius));
     }
 
     public void pushEntity(LivingEntity entity, float power) {
@@ -115,7 +119,7 @@ public abstract class AbstractBossEntity extends HostileEntity {
             if (i <= 0) {
                 this.onInvulComplete();
             }
-            this.setInvulTimer(i);
+            this.setInvulnerableTimer(i);
             if (this.age % 10 == 0) {
                 this.heal(10.0F);
             }
@@ -145,10 +149,10 @@ public abstract class AbstractBossEntity extends HostileEntity {
     }
 
     public int getInvulnerableTimer() {
-        return (Integer)this.dataTracker.get(INVUL_TIMER);
+        return this.dataTracker.get(INVUL_TIMER);
     }
 
-    public void setInvulTimer(int ticks) {
+    public void setInvulnerableTimer(int ticks) {
         this.dataTracker.set(INVUL_TIMER, ticks);
     }
 

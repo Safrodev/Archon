@@ -41,7 +41,7 @@ public class ScrollItem extends Item {
         return TypedActionResult.pass(stack);
     }
 
-    private void addBonus(String name, PlayerEntity player) {
+    public static void addBonus(String name, PlayerEntity player) {
         if (name.equals("capacity")) {
             ArchonUtil.get(player).addMaxModifier(ManaAttributes.CAPACITY_SCROLL_MODIFIER, "Capacity Scroll", 100, false);
         } else if (name.equals("accelerate")) {

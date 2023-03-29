@@ -8,6 +8,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.block.entity.SummoningPedestalBlockEntity;
 import safro.archon.entity.boss.AlyaEntity;
+import safro.archon.entity.boss.InigoEntity;
 import safro.archon.entity.boss.LevenEntity;
 import safro.archon.entity.boss.TarEntity;
 import safro.archon.registry.EntityRegistry;
@@ -47,8 +48,19 @@ public class SummonUtil {
         world.spawnEntity(leven);
     }
 
+    public static boolean canSummonInigo(SummoningPedestalBlockEntity be) {
+        return be.hasItem(Items.BLAZE_POWDER) && be.hasItem(ItemRegistry.FIRE_GEM) && be.hasItem(Items.MAGMA_CREAM) && be.hasItem(ItemRegistry.FIRE_ESSENCE);
+    }
+
+    public static void summonInigo(World world, BlockPos pos) {
+        InigoEntity inigo = EntityRegistry.INIGO.create(world);
+        inigo.refreshPositionAndAngles(pos, 0.0F, 0.0F);
+        inigo.onSummoned();
+        world.spawnEntity(inigo);
+    }
+
     public static void addLightning(World world, BlockPos pos) {
-        LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(world);
+        LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);
         lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(pos.up()));
         ((LightningAccess) lightningEntity).setFireSpawning(false);
         lightningEntity.setCosmetic(true);
