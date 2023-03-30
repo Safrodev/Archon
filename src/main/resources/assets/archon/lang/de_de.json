@@ -148,7 +148,7 @@
   "text.archon.none": "Keine",
   "text.archon.shift": "Halte Shift für Informationen",
   "text.archon.infernal_coat1": "Garantiert permanente Feuerresistenz",
-  "text.archon.infernal_coat2": "Drücke den Höllenfeuer Mantel Schlüssel um einen Explosionsschutz",
+  "text.archon.infernal_coat2": "Drücke die Höllenfeuer Mantel Taste um eine Explosion",
   "text.archon.infernal_coat3": "zu erzeugen. Mehr Schaden man aushält umso mehr Mana benötigt man",
   "text.archon.sea_charm1": "Garantiert Wasseratmung",
   "text.archon.sea_charm2": "Erlaubt den Spieler auf Wasser zu laufen",
@@ -189,7 +189,7 @@
   "emi.category.archon.channeling": "Aufladen",
   "emi.category.archon.scripting": "Verfassen",
   
-  "key.archon.infernal_coat": "Höllenfeuer Mantel Explosionsschutz",
+  "key.archon.infernal_coat": "Höllenfeuer Mantel Explosion",
 
   "category.archon.archon": "Archon",
 
