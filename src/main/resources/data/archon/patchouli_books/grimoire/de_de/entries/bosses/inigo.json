@@ -1,0 +1,17 @@
+{
+  "name": "Inigo",
+  "icon": "archon:charred_eye",
+  "category": "archon:bosses",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Inigo ist ein Feuerboss, der Laser mit hohem Schaden abschießt. Er läuft in regelmäßigen Abständen vor den Spielern weg, um auf Distanz zu gehen und implodiert bei Zielen, die ihm zu nahe kommen. Inigo lässt nach seinem Tod ein verbranntes Auge fallen. Die Gegenstände, die du brauchst, um ihn zu beschwören, findest du auf der nächsten Seite."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:inigo",
+      "text": "Feuer Juwel, Magmacreme, Lohenstaub, Feuer Essenz"
+    }
+  ]
+}
