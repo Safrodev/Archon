@@ -2,7 +2,7 @@
   "name": "Arkane Verzauberung",
   "icon": "minecraft:enchanted_book",
   "category": "archon:effects_enchants",
-  "sortnum": 4,
+  "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
