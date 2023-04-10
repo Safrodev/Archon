@@ -9,7 +9,7 @@ public class ArchonConfig implements Config {
 
     @Comment(
             """
-            Sets the position of the mana display.
+            Sets the position of the mana display; Client-sided
             The x-offset is subtracted from the x pos of the middle of the screen. (Ex: 0 would make it right in the middle)
             The y-offset is subtracted from the y pos at the bottom of the screen. (Ex: 0 would make it at the very bottom of the screen)
             X-Offset Default: 180
@@ -49,96 +49,6 @@ public class ArchonConfig implements Config {
 
     @Comment(
             """
-            The vein size of all element nodes except sky.
-            Default: 4
-            """
-    )
-    @Syncing
-    public int nodeVeinSize = 4;
-
-    @Comment(
-            """
-            The amount of veins per chunk of all element nodes except sky.
-            Default: 4
-            """
-    )
-    @Syncing
-    public int nodeChunkRate = 4;
-
-    @Comment(
-            """
-            The minimum y-height that Earth nodes can generate at.
-            Default: -64
-            """
-    )
-    @Syncing
-    public int earthNodeMin = -64;
-
-    @Comment(
-            """
-            The maximum y-height that Earth nodes can generate at.
-            Default: 0
-            """
-    )
-    @Syncing
-    public int earthNodeMax = 0;
-
-    @Comment(
-            """
-            The minimum y-height that Warth nodes can generate at.
-            Default: 27
-            """
-    )
-    @Syncing
-    public int waterNodeMin = 27;
-
-    @Comment(
-            """
-            The maximum y-height that Water nodes can generate at.
-            Default: 40
-            """
-    )
-    @Syncing
-    public int waterNodeMax = 40;
-
-    @Comment(
-            """
-            The minimum y-height that End nodes can generate at.
-            Default: 8
-            """
-    )
-    @Syncing
-    public int endNodeMin = 8;
-
-    @Comment(
-            """
-            The maximum y-height that End nodes can generate at.
-            Default: 180
-            """
-    )
-    @Syncing
-    public int endNodeMax = 180;
-
-    @Comment(
-            """
-            The Chance for Sky Node Features to spawn (lower is more common, higher is more rare)
-            Default: 400
-            """
-    )
-    @Syncing
-    public int skyNodeChance = 400;
-
-    @Comment(
-            """
-            The Chance for Mana Berry Bushes to spawn (lower is more common, higher is more rare)
-            Default: 384
-            """
-    )
-    @Syncing
-    public int manaBerryBushChance = 384;
-
-    @Comment(
-            """
             Determines whether the a sound should be played when using a channeler
             Client-Sided, Accepts "true" or "false"
             Default: true
@@ -171,6 +81,7 @@ public class ArchonConfig implements Config {
             Default: true
             """
     )
+    @Syncing
     public boolean enableSpellPowerCompat = true;
 
     @Override

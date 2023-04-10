@@ -1,8 +1,9 @@
 package safro.archon.registry;
 
+import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 import safro.archon.Archon;
 
 public class SoundRegistry {
@@ -12,8 +13,8 @@ public class SoundRegistry {
     public static SoundEvent GUST = register("gust");
 
     static SoundEvent register(String id) {
-        SoundEvent sound = new SoundEvent(new Identifier(Archon.MODID, id));
-        Registry.register(Registry.SOUND_EVENT, new Identifier(Archon.MODID, id), sound);
+        SoundEvent sound = SoundEvent.of(new Identifier(Archon.MODID, id));
+        Registry.register(Registries.SOUND_EVENT, new Identifier(Archon.MODID, id), sound);
         return sound;
     }
 }

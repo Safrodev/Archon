@@ -22,6 +22,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import safro.archon.registry.ItemRegistry;
 
 public class ManaBerryBushBlock extends PlantBlock implements Fertilizable {
@@ -85,7 +86,7 @@ public class ManaBerryBushBlock extends PlantBlock implements Fertilizable {
         super.appendProperties(builder);
     }
 
-    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
         return state.get(AGE) < 3;
     }
 

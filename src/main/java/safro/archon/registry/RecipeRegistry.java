@@ -3,8 +3,9 @@ package safro.archon.registry;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.recipe.ChannelingRecipe;
 import safro.archon.recipe.ChannelingSerializer;
@@ -19,7 +20,7 @@ public class RecipeRegistry {
     public static final RecipeSerializer<ScriptingRecipe> SCRIPTING_SERIALIZER = register("scripting", new ScriptingSerializer());
 
     static <T extends Recipe<?>> RecipeType<T> register(String id) {
-        return Registry.register(Registry.RECIPE_TYPE, new Identifier(Archon.MODID, id), new RecipeType<T>() {
+        return Registry.register(Registries.RECIPE_TYPE, new Identifier(Archon.MODID, id), new RecipeType<T>() {
             public String toString() {
                 return id;
             }
@@ -27,7 +28,7 @@ public class RecipeRegistry {
     }
 
     static <S extends RecipeSerializer<T>, T extends Recipe<?>> S register(String id, S serializer) {
-        return Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Archon.MODID, id), serializer);
+        return Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(Archon.MODID, id), serializer);
     }
 
     public static void init() {

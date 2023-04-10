@@ -15,12 +15,12 @@ public class ExperiencePouchScreenHandler extends ScreenHandler {
     private final PropertyDelegate propertyDelegate;
 
     public ExperiencePouchScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, ItemStack.EMPTY, new ArrayPropertyDelegate(1));
+        this(syncId, playerInventory, new ArrayPropertyDelegate(1));
     }
 
-    public ExperiencePouchScreenHandler(int syncId, PlayerInventory playerInventory, ItemStack stack, PropertyDelegate propertyDelegate) {
+    public ExperiencePouchScreenHandler(int syncId, PlayerInventory playerInventory, PropertyDelegate propertyDelegate) {
         super(MiscRegistry.EXPERIENCE_POUCH_SH, syncId);
-        this.stack = stack;
+        this.stack = playerInventory.getMainHandStack();
         this.propertyDelegate = propertyDelegate;
 
         int k;
@@ -46,7 +46,7 @@ public class ExperiencePouchScreenHandler extends ScreenHandler {
     }
 
     @Override
-    public ItemStack transferSlot(PlayerEntity player, int index) {
+    public ItemStack quickMove(PlayerEntity player, int index) {
         return ItemStack.EMPTY;
     }
 

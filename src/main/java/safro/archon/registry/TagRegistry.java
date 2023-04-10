@@ -2,9 +2,9 @@ package safro.archon.registry;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
 
 public class TagRegistry {
@@ -18,11 +18,11 @@ public class TagRegistry {
     public static final TagKey<Item> LAPIS_LAZULIS = item(new Identifier("c:lapis_lazulis"));
 
     private static TagKey<EntityType<?>> entity(Identifier id) {
-        return TagKey.of(Registry.ENTITY_TYPE_KEY, id);
+        return TagKey.of(RegistryKeys.ENTITY_TYPE, id);
     }
 
     private static TagKey<Item> item(Identifier id) {
-        return TagKey.of(Registry.ITEM_KEY, id);
+        return TagKey.of(RegistryKeys.ITEM, id);
     }
 
     public static void init() {

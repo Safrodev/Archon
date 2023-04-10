@@ -4,8 +4,9 @@ import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
@@ -67,7 +68,7 @@ public class SpellRegistry {
     public static Item getTome(Spell spell) {
         String s = REGISTRY.getId(spell).toString();
         Identifier tome = new Identifier(s + "_tome");
-        return Registry.ITEM.get(tome);
+        return Registries.ITEM.get(tome);
     }
 
     private static void addToLists(Spell spell) {

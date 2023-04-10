@@ -7,9 +7,9 @@ import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntryList;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.Archon;
 import safro.archon.client.screen.ScriptureTableScreen;
@@ -28,12 +28,12 @@ public class ScriptingEmiRecipe implements EmiRecipe {
         //EmiIngredients are a custom ingredient that can also do other things like rendering etc.
         this.inputs = new LinkedList<>();
         //fancy way to grab the current items in the LAPIS_LAZULI tag. ifPresentOrElse will give an empty stack to lapis if no candidates are found
-        Optional<RegistryEntryList.Named<Item>> opt = Registry.ITEM.getEntryList(TagRegistry.LAPIS_LAZULIS);
+        Optional<RegistryEntryList.Named<Item>> opt = Registries.ITEM.getEntryList(TagRegistry.LAPIS_LAZULIS);
         opt.ifPresentOrElse((named) -> lapis = EmiIngredient.of(named.stream().map((item) -> EmiStack.of(item.value())).toList()),() -> lapis = EmiStack.EMPTY);
         //add the three inputs from the recipe itself
         this.inputs.addAll(recipe.getInputs().stream().map(EmiIngredient::of).toList());
         //same tag fanciness as above for the books tag, this time adding into the inputs list, as a book is required to complete the recipe
-        Optional<RegistryEntryList.Named<Item>> opt2 = Registry.ITEM.getEntryList(TagRegistry.BOOKS);
+        Optional<RegistryEntryList.Named<Item>> opt2 = Registries.ITEM.getEntryList(TagRegistry.BOOKS);
         opt2.ifPresentOrElse((named) -> inputs.add(EmiIngredient.of(named.stream().map((item) -> EmiStack.of(item.value())).toList())),() ->inputs.add(EmiStack.EMPTY));
         //simple stack and list representation of the output
         output = EmiStack.of(recipe.getOutput());

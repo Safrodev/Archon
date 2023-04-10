@@ -2,9 +2,10 @@ package safro.archon.registry;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.registry.Registries;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.client.screen.ExperiencePouchScreenHandler;
 import safro.archon.client.screen.ScriptureTableScreenHandler;
@@ -22,6 +23,6 @@ public class MiscRegistry {
         SCRIPTURE_TABLE_SH = ScreenHandlerRegistry.registerSimple(new Identifier(Archon.MODID, "scripture_table"), ScriptureTableScreenHandler::new);
         EXPERIENCE_POUCH_SH = ScreenHandlerRegistry.registerSimple(new Identifier(Archon.MODID, "experience_pouch"), ExperiencePouchScreenHandler::new);
 
-        ARCANE = Registry.register(Registry.ENCHANTMENT, new Identifier(Archon.MODID, "arcane"), new ArcaneEnchantment());
+        ARCANE = Registry.register(Registries.ENCHANTMENT, new Identifier(Archon.MODID, "arcane"), new ArcaneEnchantment());
     }
 }

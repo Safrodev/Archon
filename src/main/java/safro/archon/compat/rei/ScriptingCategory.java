@@ -13,9 +13,9 @@ import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.text.Text;
-import net.minecraft.util.registry.Registry;
 import safro.archon.client.screen.ScriptureTableScreen;
 import safro.archon.registry.BlockRegistry;
 import safro.archon.registry.TagRegistry;
@@ -62,7 +62,7 @@ public class ScriptingCategory implements DisplayCategory<ScriptingDisplay> {
 
     private static EntryIngredient getFromTag(TagKey<Item> tag) {
         List<ItemStack> list = new ArrayList<>();
-        Registry.ITEM.iterateEntries(tag).forEach(entry -> list.add(new ItemStack(entry)));
+        Registries.ITEM.iterateEntries(tag).forEach(entry -> list.add(new ItemStack(entry)));
         return EntryIngredients.ofItemStacks(list);
     }
 }

@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.explosion.Explosion;
+import net.minecraft.world.World;
 import safro.archon.Archon;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
@@ -27,7 +27,7 @@ public class InfernalImplodePacket {
         if (player.getEquippedStack(EquipmentSlot.CHEST).isOf(ItemRegistry.INFERNAL_COAT)) {
             int mana = ArchonUtil.get(player).getMana();
             float power = MathHelper.clamp((float) mana / 30.0F, 0.1F, 10.0F);
-            player.world.createExplosion(player, player.getX(), player.getY(), player.getZ(), power, Explosion.DestructionType.NONE);
+            player.world.createExplosion(player, player.getX(), player.getY(), player.getZ(), power, World.ExplosionSourceType.NONE);
 
             for (int i = 0; i < Direction.Axis.VALUES.length; i++) {
                 for (Vec3d vec3d : ArchonUtil.getVectorsForCircle(player.getX(), player.getY(), player.getZ(), 3.5D, 2, Direction.Axis.VALUES[i])) {

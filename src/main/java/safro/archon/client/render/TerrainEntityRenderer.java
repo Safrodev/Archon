@@ -10,7 +10,7 @@ import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 import safro.archon.entity.projectile.spell.TerrainEntity;
 
 public class TerrainEntityRenderer extends EntityRenderer<TerrainEntity> {
@@ -22,8 +22,8 @@ public class TerrainEntityRenderer extends EntityRenderer<TerrainEntity> {
     @Override
     public void render(TerrainEntity projectile, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         matrixStack.push();
-        matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(MathHelper.lerp(g, projectile.prevYaw, projectile.getYaw())));
-        matrixStack.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(MathHelper.lerp(g, projectile.prevPitch, projectile.getPitch())));
+        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(g, projectile.prevYaw, projectile.getYaw())));
+        matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(MathHelper.lerp(g, projectile.prevPitch, projectile.getPitch())));
         BlockRenderManager blockRenderManager = MinecraftClient.getInstance().getBlockRenderManager();
         blockRenderManager.renderBlockAsEntity(projectile.getBlock().getDefaultState(), matrixStack, vertexConsumerProvider, i, OverlayTexture.DEFAULT_UV);
         matrixStack.pop();

@@ -5,10 +5,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.World;
 import safro.archon.registry.RecipeRegistry;
 
@@ -69,7 +69,7 @@ public class ChannelingRecipe implements Recipe<ChannelingInventory> {
     public List<ItemStack> getInputs() {
         if (this.getTag() != null) {
             List<ItemStack> list = new ArrayList<>();
-            for (RegistryEntry<Block> entry : Registry.BLOCK.iterateEntries(this.getTag())) {
+            for (RegistryEntry<Block> entry : Registries.BLOCK.iterateEntries(this.getTag())) {
                 list.add(new ItemStack(entry.value()));
             }
             return list;

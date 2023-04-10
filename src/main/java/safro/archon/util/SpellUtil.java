@@ -11,14 +11,13 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import safro.archon.Archon;
 import safro.archon.api.Spell;
 import safro.archon.compat.SpellPowerCompat;
 import safro.archon.entity.projectile.spell.HitExecutor;
 import safro.archon.entity.projectile.spell.SpellProjectileEntity;
 import safro.archon.registry.EntityRegistry;
-
-import javax.annotation.Nullable;
 
 public class SpellUtil {
 

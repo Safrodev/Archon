@@ -11,6 +11,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import safro.archon.Archon;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
@@ -18,7 +19,6 @@ import safro.archon.enchantment.ArcaneEnchantment;
 import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

@@ -1,8 +1,9 @@
 package safro.archon.api;
 
 import net.minecraft.entity.attribute.ClampedEntityAttribute;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
 
 import java.util.UUID;
@@ -16,7 +17,7 @@ public class ManaAttributes {
 
     private static ClampedEntityAttribute register(String name, double base, double min, double max) {
         ClampedEntityAttribute attribute = (ClampedEntityAttribute) new ClampedEntityAttribute("attribute.name.generic." + name, base, min, max).setTracked(true);
-        return Registry.register(Registry.ATTRIBUTE, new Identifier(Archon.MODID, name), attribute);
+        return Registry.register(Registries.ATTRIBUTE, new Identifier(Archon.MODID, name), attribute);
     }
 
     public static void init() {}

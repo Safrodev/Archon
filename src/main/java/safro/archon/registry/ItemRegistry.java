@@ -2,9 +2,10 @@ package safro.archon.registry;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.api.Element;
 import safro.archon.api.SoulType;
@@ -112,7 +113,7 @@ public class ItemRegistry {
     public static final Item MANA_LEECH_SPAWN_EGG = register("mana_leech_spawn_egg", new SpawnEggItem(EntityRegistry.MANA_LEECH, 0x043C99, 0x1D75B1, simple()));
 
     protected static Item.Settings simple() {
-        return new Item.Settings().group(Archon.ITEMGROUP);
+        return new Item.Settings();
     }
 
     private static Item.Settings soul() {
@@ -124,7 +125,9 @@ public class ItemRegistry {
     }
 
     protected static <T extends Item> T register(String name, T item) {
-        return Registry.register(Registry.ITEM, new Identifier(Archon.MODID, name), item);
+        T registered = Registry.register(Registries.ITEM, new Identifier(Archon.MODID, name), item);
+        Archon.ITEMS.add(new ItemStack(registered));
+        return registered;
     }
 
     public static void init() {

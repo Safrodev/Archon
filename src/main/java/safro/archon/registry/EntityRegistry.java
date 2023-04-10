@@ -6,8 +6,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.entity.OmegaSkeltEntity;
 import safro.archon.entity.PrimeSkeltEntity;
@@ -61,7 +62,7 @@ public class EntityRegistry {
     }
 
     public static void init() {
-        ENTITY_TYPES.keySet().forEach(entityType -> Registry.register(Registry.ENTITY_TYPE, ENTITY_TYPES.get(entityType), entityType));
+        ENTITY_TYPES.keySet().forEach(entityType -> Registry.register(Registries.ENTITY_TYPE, ENTITY_TYPES.get(entityType), entityType));
 
         FabricDefaultAttributeRegistry.register(SKELT, SkeltEntity.createSkeltAttributes());
         FabricDefaultAttributeRegistry.register(PRIME_SKELT, PrimeSkeltEntity.createPrimeSkeltAttributes());

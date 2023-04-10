@@ -4,10 +4,10 @@ import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.poi.PointOfInterestType;
@@ -16,7 +16,7 @@ import safro.archon.util.WizardEnchantBookFactory;
 
 public class VillagerRegistry {
     // Workstations
-    public static final RegistryKey<PointOfInterestType> WIZARD_POI_KEY = RegistryKey.of(Registry.POINT_OF_INTEREST_TYPE_KEY, new Identifier(Archon.MODID, "wizard"));
+    public static final RegistryKey<PointOfInterestType> WIZARD_POI_KEY = RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, new Identifier(Archon.MODID, "wizard"));
 
     // Professions
     public static final VillagerProfession WIZARD = VillagerProfession.register("wizard", WIZARD_POI_KEY, SoundEvents.ENTITY_VILLAGER_WORK_LIBRARIAN);

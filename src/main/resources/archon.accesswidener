@@ -9,4 +9,4 @@ accessible class net/minecraft/village/TradeOffers$SellEnchantedToolFactory
 
 accessible method net/minecraft/world/poi/PointOfInterestTypes getStatesOfBlock (Lnet/minecraft/block/Block;)Ljava/util/Set;
 accessible    method    net/minecraft/client/render/entity/LivingEntityRenderer    addFeature    (Lnet/minecraft/client/render/entity/feature/FeatureRenderer;)Z
-accessible method net/minecraft/village/VillagerProfession register (Ljava/lang/String;Lnet/minecraft/util/registry/RegistryKey;Lnet/minecraft/sound/SoundEvent;)Lnet/minecraft/village/VillagerProfession;
+accessible method net/minecraft/village/VillagerProfession register (Ljava/lang/String;Lnet/minecraft/registry/RegistryKey;Lnet/minecraft/sound/SoundEvent;)Lnet/minecraft/village/VillagerProfession;

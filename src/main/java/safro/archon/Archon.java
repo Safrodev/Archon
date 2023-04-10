@@ -2,8 +2,10 @@ package safro.archon;
 
 import draylar.omegaconfig.OmegaConfig;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -15,11 +17,15 @@ import safro.archon.command.SpellCommand;
 import safro.archon.config.ArchonConfig;
 import safro.archon.network.NetworkManager;
 import safro.archon.registry.*;
+import safro.archon.world.WizardVillagePool;
+
+import java.util.ArrayList;
 
 public class Archon implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("archon");
 	public static final String MODID = "archon";
-	public static ItemGroup ITEMGROUP = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(ItemRegistry.ENDER_BLADE));
+	public static final ArrayList<ItemStack> ITEMS = new ArrayList<>();
+	public static ItemGroup ITEMGROUP = FabricItemGroup.builder(new Identifier(MODID, MODID)).icon(() -> new ItemStack(ItemRegistry.ENDER_BLADE)).build();
 	public static SoundRegistry SOUNDS;
 	public static final ArchonConfig CONFIG = OmegaConfig.register(ArchonConfig.class);
 
@@ -46,6 +52,7 @@ public class Archon implements ModInitializer {
 
 		// Events
 		ComponentsRegistry.initEvents();
+		ServerLifecycleEvents.SERVER_STARTING.register(WizardVillagePool::register);
 
 		// Init Commands
 		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated, env) -> {
@@ -55,5 +62,8 @@ public class Archon implements ModInitializer {
 
 		// Init Sounds
 		SOUNDS = new SoundRegistry();
+
+		// Add items to group
+		ItemGroupEvents.modifyEntriesEvent(ITEMGROUP).register(entries -> entries.addAll(ITEMS));
 	}
 }

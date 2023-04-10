@@ -33,7 +33,7 @@ public class ExperiencePouchItem extends Item implements NamedScreenHandlerFacto
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
-        if (!world.isClient) {
+        if (!world.isClient && player.getMainHandStack().isOf(this)) {
             player.openHandledScreen(this);
             return TypedActionResult.success(stack);
         }
@@ -112,6 +112,6 @@ public class ExperiencePouchItem extends Item implements NamedScreenHandlerFacto
                 return 1;
             }
         };
-        return new ExperiencePouchScreenHandler(syncId, inv, stack, propertyDelegate);
+        return new ExperiencePouchScreenHandler(syncId, inv, propertyDelegate);
     }
 }

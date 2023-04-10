@@ -7,7 +7,7 @@ import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.explosion.Explosion;
+import net.minecraft.world.World;
 import safro.archon.entity.boss.InigoEntity;
 import safro.archon.network.ParticlePacket;
 import safro.archon.util.ArchonUtil;
@@ -44,7 +44,7 @@ public class BurstGoal extends Goal {
     @Override
     public void tick() {
         ++this.ticks;
-        this.mob.world.createExplosion(this.mob, this.mob.getX(), this.mob.getY(), this.mob.getZ(), 6.0F, Explosion.DestructionType.NONE);
+        this.mob.world.createExplosion(this.mob, this.mob.getX(), this.mob.getY(), this.mob.getZ(), 6.0F, World.ExplosionSourceType.NONE);
 
         for (int i = 0; i < Direction.Axis.VALUES.length; i++) {
             for (Vec3d vec3d : ArchonUtil.getVectorsForCircle(this.mob.getX(), this.mob.getY(), this.mob.getZ(), this.range, 2, Direction.Axis.VALUES[i])) {

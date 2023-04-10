@@ -8,9 +8,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import safro.archon.Archon;
 
 public class ParticlePacket {
@@ -22,7 +22,7 @@ public class ParticlePacket {
 
     public static void send(ServerPlayerEntity player, ParticleEffect effect, double x, double y, double z, double vX, double vY, double vZ) {
         PacketByteBuf buf = PacketByteBufs.create();
-        buf.writeRegistryValue(Registry.PARTICLE_TYPE, effect.getType());
+        buf.writeRegistryValue(Registries.PARTICLE_TYPE, effect.getType());
         effect.write(buf);
         buf.writeDouble(x);
         buf.writeDouble(y);
@@ -35,7 +35,7 @@ public class ParticlePacket {
 
     public static void receive(MinecraftClient client, PacketByteBuf buf) {
         if (client.world != null) {
-            ParticleEffect effect = readEffect(buf, buf.readRegistryValue(Registry.PARTICLE_TYPE));
+            ParticleEffect effect = readEffect(buf, buf.readRegistryValue(Registries.PARTICLE_TYPE));
             client.world.addParticle(effect, buf.readDouble(), buf.readDouble(), buf.readDouble(), buf.readDouble(), buf.readDouble(), buf.readDouble());
         }
     }

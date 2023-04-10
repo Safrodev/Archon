@@ -7,11 +7,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import safro.archon.item.WandItem;
 import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;
-
-import javax.annotation.Nullable;
 
 public abstract class Spell {
     private final Element element;

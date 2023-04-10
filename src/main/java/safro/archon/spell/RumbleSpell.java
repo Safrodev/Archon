@@ -41,6 +41,6 @@ public class RumbleSpell extends RaycastSpell {
     @Nullable
     @Override
     public SoundEvent getCastSound() {
-        return SoundEvents.BLOCK_NOTE_BLOCK_BASEDRUM;
+        return SoundEvents.BLOCK_NOTE_BLOCK_BASEDRUM.value();
     }
 }
