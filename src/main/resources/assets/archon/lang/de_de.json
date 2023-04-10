@@ -70,6 +70,8 @@
   "item.archon.heaven_dial": "Himmelsscheibe",
   "item.archon.wave_crystal": "Wellenkristal",
   "item.archon.sea_master_charm": "Meeresmeister Amulet",
+  "item.archon.charred_eye": "Verbranntes Auge",
+  "item.archon.infernal_coat": "Höllenfeuer Mantel",
 
   "item.archon.capacity_scroll": "Antike Schriftrolle",
   "item.archon.accelerate_scroll": "Antike Schriftrolle",
@@ -92,6 +94,7 @@
   "entity.archon.tar": "Tar",
   "entity.archon.ayla": "Ayla",
   "entity.archon.leven": "Leven",
+  "entity.archon.inigo": "Inigo",
 
   "effect.archon.rage": "Wut",
   "effect.archon.obstructed": "Unterdrückt",
@@ -100,7 +103,7 @@
   "effect.archon.mana_boost": "Mana Boost",
 
   "enchantment.archon.arcane": "Arkan",
-  "enchantment.archon.arcane.desc": "Reduziert die Manakosten von Waffen um 20%",
+  "enchantment.archon.arcane.desc": "Reduziert die Manakosten von Waffen um 10% per Level",
 
   "attribute.name.generic.max_mana": "Maximales Mana",
 
@@ -133,6 +136,7 @@
   "text.archon.skelt_sit": "Skelt hat aufgehört dir zu folgen",
   "text.archon.skelt_stand": "Skelt wird dir nun folgen",
   "text.archon.mana_cost": "Mana Kosten: %s",
+  "text.archon.mana_cost_all": "Mana Kosten: Alle",
   "text.archon.invalid_book": "Patchouli ist nicht installiert!",
   "text.archon.invalid_summon": "Über dem Sockel muss Luft sein!",
   "text.archon.invalid_spell": "Zauberstab enthält keine Zaubersprüche!",
@@ -142,6 +146,16 @@
   "text.archon.dial_mode_blind": "Himmelsscheibe gesetzt auf: Blenden",
   "text.archon.obj": "%s",
   "text.archon.none": "Keine",
+  "text.archon.shift": "Halte Shift für Informationen",
+  "text.archon.infernal_coat1": "Garantiert permanente Feuerresistenz",
+  "text.archon.infernal_coat2": "Drücke die Höllenfeuer Mantel Taste um eine Explosion",
+  "text.archon.infernal_coat3": "zu erzeugen. Mehr Schaden man aushält umso mehr Mana benötigt man",
+  "text.archon.sea_charm1": "Garantiert Wasseratmung",
+  "text.archon.sea_charm2": "Erlaubt den Spieler auf Wasser zu laufen",
+  "text.archon.sea_charm3": "wenn man es in der Hand hält",
+  "text.archon.heaven_dial1": "Heilt alle Spieler, Villagers, Haustiere und Eisengolems",
+  "text.archon.heaven_dial2": "zu voller Gesundheit und stillt den Hunger",
+  "text.archon.terranean1": "Erhalte für 20s Widerstand gegenüber Geschossen und lässt diese abprallen",
 
   "text.archon.tar.spawn": "[Tar] Du glaubst, du kannst mich herausfordern? WIE TÖRRICHT!",
   "text.archon.tar.kill": "[Tar] Ha! Das ist zu einfach!",
@@ -149,6 +163,8 @@
   "text.archon.alya.kill": "[Ayla] Entzückend!",
   "text.archon.leven.spawn": "[Leven] Umarmt das Meer, stürzt euch in die Wellen!",
   "text.archon.leven.kill": "[Leven] Guter Versuch",
+  "text.archon.inigo.spawn": "[Inigo] Alles vorbereitet. Beginne zu schmelzen.",
+  "text.archon.inigo.kill": "[Inigo] Ziel abgefertigt.",
 
   "container.archon.scripture": "Schrifttafel",
   "container.archon.add_xp": "Erfahrung hinzufügen",
@@ -165,9 +181,17 @@
 
   "rei.archon.channeling": "Aufladen",
   "rei.archon.scripting": "Verfassen",
+  "rei.archon.terranite_stone": "Wird beim töten vom Boss Tar fallengelassen. Fertigt und lest das Zauberbuch für weitere Informationen.",
+  "rei.archon.angelic_star": "Wird beim töten vom Boss Ayla fallengelassen. Fertigt und lest das Zauberbuch für weitere Informationen.",
+  "rei.archon.wave_crystal": "Wird beim töten vom Boss Leven fallengelassen. Fertigt und lest das Zauberbuch für weitere Informationen.",
+  "rei.archon.charred_eye": "Wird beim töten vom Boss Inigo fallengelassen. Fertigt und lest das Zauberbuch für weitere Informationen.",
 
   "emi.category.archon.channeling": "Aufladen",
   "emi.category.archon.scripting": "Verfassen",
+  
+  "key.archon.infernal_coat": "Höllenfeuer Mantel Explosion",
+
+  "category.archon.archon": "Archon",
 
   "advancements.archon.root.title": "Archon",
   "advancements.archon.root.description": "Willkommen zu Archon!",
