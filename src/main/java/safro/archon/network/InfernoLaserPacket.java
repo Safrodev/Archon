@@ -33,7 +33,7 @@ public class InfernoLaserPacket {
         double distance = boss.distanceTo(target);
         if (client.world != null) {
             for (double i = 0; i < distance; i += 2) {
-                double position = ((i - 1) + client.world.getRandom().nextDouble() * 2) / distance;
+                double position = ((i - 1) + 0.35408622399424106D * 2) / distance;
                 double x = boss.x + (target.x - boss.x) * position;
                 double y = boss.y + (target.y - boss.y) * position;
                 double z = boss.z + (target.z - boss.z) * position;
