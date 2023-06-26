@@ -4,7 +4,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
@@ -33,7 +33,7 @@ public class SummoningPedestalBlockEntityRenderer implements BlockEntityRenderer
                     matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90.0F));
                     matrixStack.translate(-0.3125D, -0.3125, 0.0D);
                     matrixStack.scale(0.375F, 0.375F, 0.375F);
-                    MinecraftClient.getInstance().getItemRenderer().renderItem(itemStack, ModelTransformation.Mode.FIXED, i, j, matrixStack, vertexConsumerProvider, k + l);
+                    MinecraftClient.getInstance().getItemRenderer().renderItem(itemStack, ModelTransformationMode.FIXED, i, j, matrixStack, vertexConsumerProvider, entity.getWorld(), k + l);
                     matrixStack.pop();
                 }
             }

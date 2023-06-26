@@ -2,7 +2,6 @@ package safro.archon.item;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
@@ -42,10 +41,10 @@ public class CombustionChargeItem extends Item {
             return false;
         }
         BlockState state = world.getBlockState(pos);
-        if (state.getMaterial() == Material.AIR) {
+        if (state.isAir()) {
             return false;
         }
-        if (state.getMaterial().isLiquid()) {
+        if (!state.getFluidState().isEmpty()) {
             return false;
         }
         float blockHardness = state.calcBlockBreakingDelta(player, world, pos);

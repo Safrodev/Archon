@@ -38,9 +38,9 @@ public class ManaCommand {
         }
 
         if (players.size() == 1) {
-            source.sendFeedback(Text.translatable("command.archon.mana_add_one", amount, players.iterator().next().getDisplayName()), true);
+            source.sendFeedback(() -> Text.translatable("command.archon.mana_add_one", amount, players.iterator().next().getDisplayName()), true);
         } else {
-            source.sendFeedback(Text.translatable("command.archon.mana_add_multiple", amount, players.size()), true);
+            source.sendFeedback(() -> Text.translatable("command.archon.mana_add_multiple", amount, players.size()), true);
         }
         return players.size();
     }
@@ -51,9 +51,9 @@ public class ManaCommand {
         }
 
         if (players.size() == 1) {
-            source.sendFeedback(Text.translatable("command.archon.mana_set_one", amount, players.iterator().next().getDisplayName()), true);
+            source.sendFeedback(() -> Text.translatable("command.archon.mana_set_one", amount, players.iterator().next().getDisplayName()), true);
         } else {
-            source.sendFeedback(Text.translatable("command.archon.mana_set_multiple", amount, players.size()), true);
+            source.sendFeedback(() -> Text.translatable("command.archon.mana_set_multiple", amount, players.size()), true);
         }
         return players.size();
     }

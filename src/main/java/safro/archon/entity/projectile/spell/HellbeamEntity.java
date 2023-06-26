@@ -23,13 +23,13 @@ public class HellbeamEntity extends SpellProjectileEntity {
     public void tick() {
         super.tick();
         Entity entity = this.getOwner();
-        if (this.world.isClient || (entity == null || !entity.isRemoved()) && this.world.isChunkLoaded(this.getBlockPos())) {
+        if (this.getWorld().isClient || (entity == null || !entity.isRemoved()) && this.getWorld().isChunkLoaded(this.getBlockPos())) {
             Vec3d vec3d = this.getVelocity();
             double d = this.getX();
             double e = this.getY();
             double f = this.getZ();
             for (int i = 0; i < 5; i++) {
-                this.world.addParticle(ParticleTypes.SMALL_FLAME, d, e + 0.5D, f, 0.0D, 0.0D, 0.0D);
+                this.getWorld().addParticle(ParticleTypes.SMALL_FLAME, d, e + 0.5D, f, 0.0D, 0.0D, 0.0D);
             }
         }
     }

@@ -65,7 +65,7 @@ public abstract class PlayerEntityMixin {
         if (player.getEquippedStack(EquipmentSlot.FEET).isOf(ItemRegistry.DRUID_BOOTS)) {
             if (druidBootsTimer < 1 && player.isSneaking() && ArchonUtil.canRemoveMana(player, 20)) {
                 for (BlockPos pos : ArchonUtil.getSphere(player.getBlockPos(), 5)) {
-                    ArchonUtil.growBlock(player.world, pos);
+                    ArchonUtil.growBlock(player.getWorld(), pos);
                 }
                 druidBootsTimer = 60;
                 ArchonUtil.get(player).removeMana(20);

@@ -9,12 +9,12 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.ProjectileDamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.item.Item;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -41,7 +41,7 @@ public class TarEntity extends AbstractBossEntity {
         this.goalSelector.add(1, new TarEntity.DropRocksGoal());
         this.goalSelector.add(8, new WanderAroundGoal(this, 0.6D));
         this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 3.0F, 1.0F));
-        this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
+        this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(2, new ActiveTargetGoal(this, PlayerEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal(this, IronGolemEntity.class, true));
     }
@@ -76,7 +76,7 @@ public class TarEntity extends AbstractBossEntity {
     }
 
     public boolean damage(DamageSource source, float amount) {
-        if (source instanceof ProjectileDamageSource) {
+        if (source.isIn(DamageTypeTags.IS_PROJECTILE)) {
             if (!(source.getSource() instanceof PotionEntity)) {
                 return false;
             }
@@ -126,14 +126,14 @@ public class TarEntity extends AbstractBossEntity {
                 BlockPos spawnPos = TarEntity.this.getTarget().getBlockPos().up(5);
                 for (int i = 0; i < 5; i++) {
                     BlockPos pos = getDirFromInt(spawnPos, i);
-                    FallingBlockEntity block = FallingBlockEntityAccessor.create(world, pos.getX(), pos.getY(), pos.getZ(), Blocks.COBBLESTONE.getDefaultState());
+                    FallingBlockEntity block = FallingBlockEntityAccessor.create(getWorld(), pos.getX(), pos.getY(), pos.getZ(), Blocks.COBBLESTONE.getDefaultState());
                     block.setHurtEntities(20.0F, 40);
                     block.timeFalling = Integer.MIN_VALUE;
                     block.dropItem = false;
-                    world.spawnEntity(block);
+                    getWorld().spawnEntity(block);
                 }
 
-                world.playSound(null, spawnPos, SoundEvents.ENTITY_WITHER_BREAK_BLOCK, SoundCategory.HOSTILE, 2.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
+                getWorld().playSound(null, spawnPos, SoundEvents.ENTITY_WITHER_BREAK_BLOCK, SoundCategory.HOSTILE, 2.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
                 TarEntity.this.swingHand(Hand.MAIN_HAND);
             }
         }

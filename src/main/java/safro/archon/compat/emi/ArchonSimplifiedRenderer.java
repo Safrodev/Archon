@@ -1,9 +1,7 @@
 package safro.archon.compat.emi;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import dev.emi.emi.api.render.EmiRenderable;
-import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.Identifier;
 import safro.archon.Archon;
 
@@ -21,8 +19,7 @@ public class ArchonSimplifiedRenderer implements EmiRenderable {
     }
 
     @Override
-    public void render(MatrixStack matrices, int x, int y, float delta) {
-        RenderSystem.setShaderTexture(0, SPRITE_SHEET);
-        DrawableHelper.drawTexture(matrices, x, y, u, v, 16, 16, 32, 16);
+    public void render(DrawContext context, int x, int y, float delta) {
+        context.drawTexture(SPRITE_SHEET, x, y, this.u, this.v, 16, 16, 32, 16);
     }
 }

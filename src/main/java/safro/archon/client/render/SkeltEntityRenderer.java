@@ -20,7 +20,7 @@ public class SkeltEntityRenderer extends BipedEntityRenderer<SkeltEntity, SkeltE
 
     public SkeltEntityRenderer(EntityRendererFactory.Context ctx, EntityModelLayer layer, EntityModelLayer legArmorLayer, EntityModelLayer bodyArmorLayer) {
         super(ctx, new SkeltEntityModel(ctx.getPart(layer)), 0.5F);
-        this.addFeature(new ArmorFeatureRenderer(this, new SkeltEntityModel(ctx.getPart(legArmorLayer)), new SkeltEntityModel(ctx.getPart(bodyArmorLayer))));
+        this.addFeature(new ArmorFeatureRenderer(this, new SkeltEntityModel(ctx.getPart(legArmorLayer)), new SkeltEntityModel(ctx.getPart(bodyArmorLayer)), ctx.getModelManager()));
     }
 
     protected void scale(SkeltEntity entity, MatrixStack matrixStack, float f) {

@@ -15,7 +15,7 @@ public class ScriptingDisplay implements Display {
 
     public ScriptingDisplay(ScriptingRecipe recipe) {
         this.input = EntryIngredients.ofIngredients(recipe.getInputs());
-        this.output = Collections.singletonList(EntryIngredients.of(recipe.getOutput()));
+        this.output = Collections.singletonList(EntryIngredients.of(recipe.result));
     }
 
     @Override

@@ -44,7 +44,7 @@ public class BurstGoal extends Goal {
     @Override
     public void tick() {
         ++this.ticks;
-        this.mob.world.createExplosion(this.mob, this.mob.getX(), this.mob.getY(), this.mob.getZ(), 6.0F, World.ExplosionSourceType.NONE);
+        this.mob.getWorld().createExplosion(this.mob, this.mob.getX(), this.mob.getY(), this.mob.getZ(), 6.0F, World.ExplosionSourceType.NONE);
 
         for (int i = 0; i < Direction.Axis.VALUES.length; i++) {
             for (Vec3d vec3d : ArchonUtil.getVectorsForCircle(this.mob.getX(), this.mob.getY(), this.mob.getZ(), this.range, 2, Direction.Axis.VALUES[i])) {
@@ -59,6 +59,6 @@ public class BurstGoal extends Goal {
     }
 
     private static List<LivingEntity> getTargets(InigoEntity mob, double range) {
-        return mob.world.getTargets(LivingEntity.class, TARGET_PREDICATE.setBaseMaxDistance(range), mob, mob.getBoundingBox().expand(range));
+        return mob.getWorld().getTargets(LivingEntity.class, TARGET_PREDICATE.setBaseMaxDistance(range), mob, mob.getBoundingBox().expand(range));
     }
 }

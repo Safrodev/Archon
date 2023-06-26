@@ -1,36 +1,29 @@
 package safro.archon.registry;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
-import net.minecraft.registry.Registry;
 import safro.archon.Archon;
+import safro.archon.entity.ManaLeechEntity;
 import safro.archon.entity.OmegaSkeltEntity;
 import safro.archon.entity.PrimeSkeltEntity;
+import safro.archon.entity.SkeltEntity;
 import safro.archon.entity.boss.AlyaEntity;
 import safro.archon.entity.boss.InigoEntity;
 import safro.archon.entity.boss.LevenEntity;
 import safro.archon.entity.boss.TarEntity;
 import safro.archon.entity.projectile.IceBallEntity;
-import safro.archon.entity.ManaLeechEntity;
-import safro.archon.entity.SkeltEntity;
+import safro.archon.entity.projectile.WaterBoltEntity;
+import safro.archon.entity.projectile.WindBallEntity;
 import safro.archon.entity.projectile.spell.CloudshotEntity;
 import safro.archon.entity.projectile.spell.HellbeamEntity;
 import safro.archon.entity.projectile.spell.SpellProjectileEntity;
-import safro.archon.entity.projectile.WaterBoltEntity;
-import safro.archon.entity.projectile.WindBallEntity;
 import safro.archon.entity.projectile.spell.TerrainEntity;
+import safro.saflib.registry.BaseEntityRegistry;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-public class EntityRegistry {
-    private static final Map<EntityType<?>, Identifier> ENTITY_TYPES = new LinkedHashMap<>();
+public class EntityRegistry extends BaseEntityRegistry {
+    static { MODID = Archon.MODID; }
 
     // Projectiles
     public static final EntityType<WaterBoltEntity> WATER_BOLT = register("water_bolt", FabricEntityTypeBuilder.<WaterBoltEntity>create(SpawnGroup.MISC, WaterBoltEntity::new).dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeChunks(4).trackedUpdateRate(10).build());
@@ -56,26 +49,15 @@ public class EntityRegistry {
     public static final EntityType<LevenEntity> LEVEN = register("leven", FabricEntityTypeBuilder.<LevenEntity>create(SpawnGroup.MISC, LevenEntity::new).dimensions(player()).trackRangeChunks(15).build());
     public static final EntityType<InigoEntity> INIGO = register("inigo", FabricEntityTypeBuilder.<InigoEntity>create(SpawnGroup.MISC, InigoEntity::new).dimensions(player()).trackRangeChunks(15).fireImmune().build());
 
-    private static <T extends Entity> EntityType<T> register(String name, EntityType<T> type) {
-        ENTITY_TYPES.put(type, new Identifier(Archon.MODID, name));
-        return type;
-    }
-
     public static void init() {
-        ENTITY_TYPES.keySet().forEach(entityType -> Registry.register(Registries.ENTITY_TYPE, ENTITY_TYPES.get(entityType), entityType));
-
-        FabricDefaultAttributeRegistry.register(SKELT, SkeltEntity.createSkeltAttributes());
-        FabricDefaultAttributeRegistry.register(PRIME_SKELT, PrimeSkeltEntity.createPrimeSkeltAttributes());
-        FabricDefaultAttributeRegistry.register(OMEGA_SKELT, OmegaSkeltEntity.createOmegaSkeltAttributes());
-        FabricDefaultAttributeRegistry.register(MANA_LEECH, ManaLeechEntity.createLeechAttributes());
-        FabricDefaultAttributeRegistry.register(TAR, TarEntity.createTarAttributes());
-        FabricDefaultAttributeRegistry.register(ALYA, AlyaEntity.createAlyaAttributes());
-        FabricDefaultAttributeRegistry.register(LEVEN, LevenEntity.createLevenAttributes());
-        FabricDefaultAttributeRegistry.register(INIGO, InigoEntity.createInigoAttributes());
-    }
-
-    private static EntityDimensions player() {
-        return EntityDimensions.fixed(0.6F, 1.96F);
+        addAttributes(SKELT, SkeltEntity.createSkeltAttributes());
+        addAttributes(PRIME_SKELT, PrimeSkeltEntity.createPrimeSkeltAttributes());
+        addAttributes(OMEGA_SKELT, OmegaSkeltEntity.createOmegaSkeltAttributes());
+        addAttributes(MANA_LEECH, ManaLeechEntity.createLeechAttributes());
+        addAttributes(TAR, TarEntity.createTarAttributes());
+        addAttributes(ALYA, AlyaEntity.createAlyaAttributes());
+        addAttributes(LEVEN, LevenEntity.createLevenAttributes());
+        addAttributes(INIGO, InigoEntity.createInigoAttributes());
     }
 
     private static EntityDimensions spell() {

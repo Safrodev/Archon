@@ -22,7 +22,7 @@ public class InfernoLaserPacket {
         PacketByteBuf buf = PacketByteBufs.create();
         writeVec(buf, boss);
         writeVec(buf, target);
-        for (ServerPlayerEntity player : PlayerLookup.tracking(world, new BlockPos(boss))) {
+        for (ServerPlayerEntity player : PlayerLookup.tracking(world, BlockPos.ofFloored(boss))) {
             ServerPlayNetworking.send(player, ID, buf);
         }
     }

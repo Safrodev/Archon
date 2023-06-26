@@ -36,7 +36,7 @@ public class SpellProjectileEntity extends AbstractFireballEntity {
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
-        if (!this.world.isClient) {
+        if (!this.getWorld().isClient) {
             if (entityHitResult.getEntity() instanceof LivingEntity target && this.getOwner() instanceof LivingEntity owner) {
                 this.hitExecutor.onHit(target, owner, this);
             }
@@ -51,7 +51,7 @@ public class SpellProjectileEntity extends AbstractFireballEntity {
     @Override
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
-        if (!this.world.isClient && hitResult.getType() == HitResult.Type.ENTITY) {
+        if (!this.getWorld().isClient && hitResult.getType() == HitResult.Type.ENTITY) {
             this.discard();
         }
     }

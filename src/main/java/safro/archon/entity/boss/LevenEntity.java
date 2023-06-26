@@ -56,22 +56,22 @@ public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
         double g = target.getZ() - this.getZ();
         double h = Math.sqrt(Math.sqrt(this.squaredAttackRange(target))) * 0.5D;
 
-        WaterBoltEntity bolt = new WaterBoltEntity(this.world, this, e + this.getRandom().nextGaussian() * h, f, g + this.getRandom().nextGaussian() * h);
+        WaterBoltEntity bolt = new WaterBoltEntity(this.getWorld(), this, e + this.getRandom().nextGaussian() * h, f, g + this.getRandom().nextGaussian() * h);
         bolt.setPosition(bolt.getX(), this.getBodyY(0.5D) + 0.5D, bolt.getZ());
         bolt.setSplash(true);
-        this.world.spawnEntity(bolt);
+        this.getWorld().spawnEntity(bolt);
     }
 
     public void tickMeleeAttack() {
         if (this.random.nextFloat() <= 0.05F) {
             for (int i = 0; i < 10; i++) {
-                TridentEntity trident = new TridentEntity(world, this, new ItemStack(Items.TRIDENT));
+                TridentEntity trident = new TridentEntity(getWorld(), this, new ItemStack(Items.TRIDENT));
                 trident.teleport(this.getX(), this.getEyeY(), this.getZ());
                 trident.setVelocity(new Vec3d(random.nextGaussian(), random.nextGaussian() / 2, random.nextGaussian()).normalize().multiply(0.75));
                 trident.pickupType = PersistentProjectileEntity.PickupPermission.DISALLOWED;
                 ((TridentAccess)trident).setQuickDespawn();
                 trident.setPunch(2);
-                world.spawnEntity(trident);
+                this.getWorld().spawnEntity(trident);
             }
         }
     }
@@ -97,7 +97,7 @@ public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
     }
 
     public boolean damage(DamageSource source, float amount) {
-        if (source == DamageSource.DROWN || source == DamageSource.FREEZE) {
+        if (source == this.getWorld().getDamageSources().drown() || source == this.getWorld().getDamageSources().freeze()) {
             return false;
         }
         return super.damage(source, amount);

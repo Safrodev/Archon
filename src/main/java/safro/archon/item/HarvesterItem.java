@@ -41,7 +41,7 @@ public abstract class HarvesterItem extends SwordItem {
     }
 
     private void dropWithChance(LivingEntity target, Item item) {
-        World world = target.world;
+        World world = target.getWorld();
         BlockPos pos = target.getBlockPos();
 
         if (target.getRandom().nextFloat() <= Archon.CONFIG.harvester_chance) {

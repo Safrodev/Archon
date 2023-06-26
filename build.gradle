@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.0-SNAPSHOT'
+	id 'fabric-loom' version '1.2-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -32,6 +32,9 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+	// Saflib
+	modImplementation include("maven.modrinth:saflib:${project.lib_version}")
+
 	// CCA (Base + Entity module)
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
@@ -52,15 +55,15 @@ dependencies {
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin:${project.rei_version}"
 
 	// EMI (Compile only)
-	modCompileOnly "dev.emi:emi:${project.emi_version}"
+	modCompileOnly "dev.emi:emi-fabric:${project.emi_version}:api"
 
 	// ModMenu (Runtime only)
 	modCompileOnly modRuntimeOnly("com.terraformersmc:modmenu:${project.modmenu_version}"), {
 				exclude(group: "net.fabricmc.fabric-api")
 	}
 
-	// SpellPower
-	modCompileOnly "maven.modrinth:spell-power:${project.sp_version}-fabric"
+	// SpellPower (Not on 1.20 yet)
+//	modCompileOnly "maven.modrinth:spell-power:${project.sp_version}-fabric"
 }
 
 loom {

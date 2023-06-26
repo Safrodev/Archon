@@ -78,8 +78,8 @@ public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
         float rotation = ((this.getYaw() - 90) / 360) * (float) Math.PI * 2F;
         headPos.add(MathHelper.cos(rotation) * 7, 0, MathHelper.sin(rotation) * 7);
 
-        if (!this.world.isClient) {
-            InfernoLaserPacket.send((ServerWorld) this.world, headPos, target.getEyePos());
+        if (!this.getWorld().isClient) {
+            InfernoLaserPacket.send((ServerWorld) this.getWorld(), headPos, target.getEyePos());
         }
 
         this.setTarget(target);
@@ -94,7 +94,7 @@ public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
             --this.beamDelay;
 
             if (this.beamDelay == 0 && this.getTarget() != null) {
-                this.getTarget().damage(DamageSource.mob(this).setUsesMagic(), 15.0F);
+                this.getTarget().damage(this.getWorld().getDamageSources().mobAttack(this), 15.0F);
             }
         }
     }

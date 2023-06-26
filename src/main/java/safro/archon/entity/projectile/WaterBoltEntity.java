@@ -4,7 +4,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.projectile.AbstractFireballEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleEffect;
@@ -29,21 +28,21 @@ public class WaterBoltEntity extends AbstractFireballEntity {
 
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
-        if (!this.world.isClient) {
+        if (!this.getWorld().isClient) {
             this.discard();
         }
     }
 
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
-        if (!this.world.isClient) {
+        if (!this.getWorld().isClient) {
             Entity entity = entityHitResult.getEntity();
             Entity entity2 = this.getOwner();
-            entity.damage(DamageSource.magic(this, entity2), 6.0F);
+            entity.damage(this.getWorld().getDamageSources().indirectMagic(this, entity2), 6.0F);
             if (entity2 instanceof LivingEntity living) {
                 this.applyDamageEffects(living, entity);
-                if (this.shouldSplash() && this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-                    this.world.setBlockState(new BlockPos(entity.getX(), entity.getEyeY(), entity.getZ()), Blocks.WATER.getDefaultState());
+                if (this.shouldSplash() && this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
+                    this.getWorld().setBlockState(BlockPos.ofFloored(entity.getX(), entity.getEyeY(), entity.getZ()), Blocks.WATER.getDefaultState());
                 }
             }
         }

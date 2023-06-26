@@ -30,6 +30,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.EntityView;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -99,7 +100,7 @@ public class SkeltEntity extends TameableEntity implements Angerable {
     }
 
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
+        boolean bl = target.damage(this.getWorld().getDamageSources().mobAttack(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         if (bl) {
             this.applyDamageEffects(this, target);
         }
@@ -109,7 +110,7 @@ public class SkeltEntity extends TameableEntity implements Angerable {
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
         Item item = stack.getItem();
-        if (world.isClient) {
+        if (this.getWorld().isClient) {
             boolean bl = this.isOwner(player) || this.isTamed();
             return bl ? ActionResult.CONSUME : ActionResult.PASS;
         } else {
@@ -184,5 +185,10 @@ public class SkeltEntity extends TameableEntity implements Angerable {
     public void chooseRandomAngerTime() {
         UniformIntProvider range = TimeHelper.betweenSeconds(20, 39);
         this.setAngerTime(range.get(this.random));
+    }
+
+    @Override
+    public EntityView method_48926() {
+        return this.getWorld();
     }
 }

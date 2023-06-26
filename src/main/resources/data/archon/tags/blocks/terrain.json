@@ -1,0 +1,11 @@
+{
+  "values": [
+    "#minecraft:base_stone_overworld",
+    "#minecraft:dirt",
+    "#minecraft:sand",
+    "#minecraft:snow",
+    "minecraft:cobblestone",
+    "minecraft:grass_block",
+    "minecraft:mud"
+  ]
+}

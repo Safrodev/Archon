@@ -6,7 +6,7 @@ import net.minecraft.advancement.criterion.AbstractCriterion;
 import net.minecraft.advancement.criterion.AbstractCriterionConditions;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateDeserializer;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateSerializer;
-import net.minecraft.predicate.entity.EntityPredicate;
+import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
@@ -30,7 +30,7 @@ public class LearnSpellCriterion extends AbstractCriterion<LearnSpellCriterion.C
         return ID;
     }
 
-    public LearnSpellCriterion.Conditions conditionsFromJson(JsonObject jsonObject, EntityPredicate.Extended extended, AdvancementEntityPredicateDeserializer advancementEntityPredicateDeserializer) {
+    public LearnSpellCriterion.Conditions conditionsFromJson(JsonObject jsonObject, LootContextPredicate extended, AdvancementEntityPredicateDeserializer advancementEntityPredicateDeserializer) {
         String type = JsonHelper.getString(jsonObject, "amount");
         return new LearnSpellCriterion.Conditions(extended, type);
     }
@@ -42,7 +42,7 @@ public class LearnSpellCriterion extends AbstractCriterion<LearnSpellCriterion.C
     public static class Conditions extends AbstractCriterionConditions {
         private final String type;
 
-        public Conditions(EntityPredicate.Extended player, String type) {
+        public Conditions(LootContextPredicate player, String type) {
             super(LearnSpellCriterion.ID, player);
             this.type = checkType(type);
         }

@@ -1,10 +1,12 @@
 package safro.archon.registry;
 
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registry;
 import safro.archon.Archon;
@@ -20,6 +22,7 @@ import java.util.Map;
 
 public class SpellRegistry {
     public static final Registry<Spell> REGISTRY = FabricRegistryBuilder.createSimple(Spell.class, new Identifier(Archon.MODID, "spell")).buildAndRegister();
+    public static final RegistryKey<Registry<Spell>> REGISTRY_KEY = RegistryKey.ofRegistry(new Identifier(Archon.MODID, "spell"));
     public static final Map<Element, List<Spell>> SPELLS = new HashMap<>();
 
     // Fire
@@ -62,7 +65,7 @@ public class SpellRegistry {
     }
 
     public static TomeItem createTome(String name, Spell spell) {
-        return ItemRegistry.register(name, new TomeItem(spell, ItemRegistry.simple().maxCount(1)));
+        return Registry.register(Registries.ITEM, new Identifier(Archon.MODID, name), new TomeItem(spell, new FabricItemSettings().maxCount(1)));
     }
 
     public static Item getTome(Spell spell) {

@@ -7,7 +7,6 @@ import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.text.MutableText;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -24,10 +23,10 @@ public class ChannelingEmiRecipe implements EmiRecipe {
         //taking the list of inputs from the recipe and mapping them to a list of EmiStacks which then makes one EmiIngredient (which will cycle through the tag if present).
         this.inputs = recipe.getInputs().stream().map(item -> EmiIngredient.of(Collections.singletonList(EmiStack.of(item)))).toList();
         //stack and list representation of the output
-        this.output = EmiStack.of(recipe.getOutput());
+        this.output = EmiStack.of(recipe.result);
         this.outputList = Collections.singletonList(this.output);
         //setting up rendering of the mana cost text. positioning it in the middle of the viewer with width/2
-        this.manaCost = Text.translatable("text.archon.mana_cost",recipe.getManaCost()).asOrderedText();
+        this.manaCost = Text.translatable("text.archon.mana_cost", recipe.getManaCost()).asOrderedText();
         int width = MinecraftClient.getInstance().textRenderer.getWidth(this.manaCost);
         this.labelX = 41 - width/2;
     }
@@ -74,7 +73,7 @@ public class ChannelingEmiRecipe implements EmiRecipe {
         //very similar to REI widgets, but EMI draws the gray background, so everything is transparent pieces.
         widgets.addSlot(inputs.get(0), 4, 4);
         widgets.addTexture(EmiTexture.EMPTY_ARROW,28,5); //pre-provided arrow widget to render that on the viewer background
-        widgets.addSlot(output,57,0).output(true).recipeContext(this);//output true makes the slot big
+        widgets.addSlot(output,57,0).large(true).recipeContext(this);//output true makes the slot big
         widgets.addText(manaCost,labelX,29,43690,true);
     }
 }

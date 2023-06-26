@@ -3,12 +3,12 @@ package safro.archon.registry;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
@@ -48,18 +48,18 @@ public class ClientRegistry {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SUMMONING_PEDESTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SCRIPTURE_TABLE, RenderLayer.getCutout());
 
-        BlockEntityRendererRegistry.register(BlockRegistry.SUMMONING_PEDESTAL_BE, SummoningPedestalBlockEntityRenderer::new);
-        BlockEntityRendererRegistry.register(BlockRegistry.SCRIPTURE_TABLE_BE, ScriptureTableBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(BlockRegistry.SUMMONING_PEDESTAL_BE, SummoningPedestalBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(BlockRegistry.SCRIPTURE_TABLE_BE, ScriptureTableBlockEntityRenderer::new);
 
         // Model Predicates
-        FabricModelPredicateProviderRegistry.register(ItemRegistry.HEAT_RANGER, new Identifier("pull"),(stack, clientWorld, entity, seed) -> {
+        ModelPredicateProviderRegistry.register(ItemRegistry.HEAT_RANGER, new Identifier("pull"),(stack, clientWorld, entity, seed) -> {
             if (entity == null) {
                 return 0.0F;
             } else {
                 return entity.getActiveItem() != stack ? 0.0F : (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
             }
         });
-        FabricModelPredicateProviderRegistry.register(ItemRegistry.HEAT_RANGER, new Identifier("pulling"), (stack, clientWorld, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
+        ModelPredicateProviderRegistry.register(ItemRegistry.HEAT_RANGER, new Identifier("pulling"), (stack, clientWorld, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
 
         // Screens
         HandledScreens.register(MiscRegistry.SCRIPTURE_TABLE_SH, ScriptureTableScreen::new);

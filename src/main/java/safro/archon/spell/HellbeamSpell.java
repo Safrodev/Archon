@@ -10,8 +10,9 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 import safro.archon.entity.projectile.spell.HellbeamEntity;
-import safro.archon.util.ArchonDamageSource;
+import safro.archon.util.ArchonDamageSources;
 import safro.archon.util.SpellUtil;
+import safro.saflib.util.DamageSourceUtil;
 
 public class HellbeamSpell extends RaycastSpell {
 
@@ -26,7 +27,7 @@ public class HellbeamSpell extends RaycastSpell {
         double g = target.getBodyY(0.5D) - player.getEyeY() - 0.5D;
         double h = target.getZ() - (player.getZ() + vec3d.z * 4.0D);
         HellbeamEntity beam = new HellbeamEntity(world, player, f, g, h, new ItemStack(Items.BLAZE_POWDER), ((target1, owner, projectile) -> {
-            SpellUtil.damage(player, target1, this, 5.0F, ArchonDamageSource.HELLBEAM);
+            SpellUtil.damage(player, target1, this, 5.0F, DamageSourceUtil.create(world, ArchonDamageSources.HELLBEAM));
         }));
         SpellUtil.spawn(world, player, beam, 5.0F);
     }

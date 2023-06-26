@@ -8,6 +8,7 @@ import net.minecraft.loot.context.LootContext;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateDeserializer;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateSerializer;
 import net.minecraft.predicate.entity.EntityPredicate;
+import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import safro.archon.Archon;
@@ -22,9 +23,9 @@ public class SummonUndeadCriterion extends AbstractCriterion<SummonUndeadCriteri
         return ID;
     }
 
-    public SummonUndeadCriterion.Conditions conditionsFromJson(JsonObject jsonObject, EntityPredicate.Extended extended, AdvancementEntityPredicateDeserializer advancementEntityPredicateDeserializer) {
-        EntityPredicate.Extended extended2 = EntityPredicate.Extended.getInJson(jsonObject, "entity", advancementEntityPredicateDeserializer);
-        return new SummonUndeadCriterion.Conditions(extended, extended2);
+    public SummonUndeadCriterion.Conditions conditionsFromJson(JsonObject jsonObject, LootContextPredicate extended, AdvancementEntityPredicateDeserializer advancementEntityPredicateDeserializer) {
+        LootContextPredicate predicate2 = EntityPredicate.contextPredicateFromJson(jsonObject, "entity", advancementEntityPredicateDeserializer);
+        return new SummonUndeadCriterion.Conditions(extended, predicate2);
     }
 
     public void trigger(ServerPlayerEntity player, AnimalEntity entity) {
@@ -35,19 +36,19 @@ public class SummonUndeadCriterion extends AbstractCriterion<SummonUndeadCriteri
     }
 
     public static class Conditions extends AbstractCriterionConditions {
-        private final EntityPredicate.Extended entity;
+        private final LootContextPredicate entity;
 
-        public Conditions(EntityPredicate.Extended player, EntityPredicate.Extended entity) {
+        public Conditions(LootContextPredicate player, LootContextPredicate entity) {
             super(SummonUndeadCriterion.ID, player);
             this.entity = entity;
         }
 
         public static SummonUndeadCriterion.Conditions any() {
-            return new SummonUndeadCriterion.Conditions(EntityPredicate.Extended.EMPTY, EntityPredicate.Extended.EMPTY);
+            return new SummonUndeadCriterion.Conditions(LootContextPredicate.EMPTY, LootContextPredicate.EMPTY);
         }
 
         public static SummonUndeadCriterion.Conditions create(EntityPredicate entity) {
-            return new SummonUndeadCriterion.Conditions(EntityPredicate.Extended.EMPTY, EntityPredicate.Extended.ofLegacy(entity));
+            return new SummonUndeadCriterion.Conditions(LootContextPredicate.EMPTY, EntityPredicate.asLootContextPredicate(entity));
         }
 
         public boolean matches(LootContext tamedEntityContext) {

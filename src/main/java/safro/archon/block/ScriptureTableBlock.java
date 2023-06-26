@@ -92,7 +92,7 @@ public class ScriptureTableBlock extends BlockWithEntity {
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     public BlockState rotate(BlockState state, BlockRotation rotation) {

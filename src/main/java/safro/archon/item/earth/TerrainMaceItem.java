@@ -1,8 +1,6 @@
 package safro.archon.item.earth;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
@@ -28,7 +26,7 @@ public class TerrainMaceItem extends ManaWeapon {
         if (list.size() > 0) {
             for (LivingEntity e : list) {
                 if (!ArchonUtil.isOwnedBy(player, e) && !(e == player)) {
-                    e.damage(DamageSource.player(player), 5);
+                    e.damage(world.getDamageSources().playerAttack(player), 5);
                     e.addVelocity(0, 2, 0);
                 }
             }

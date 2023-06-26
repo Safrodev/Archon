@@ -36,13 +36,13 @@ public class IceBallEntity extends ThrownItemEntity {
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
         for (int i = 0; i < 32; ++i) {
-            this.world.addParticle(ParticleTypes.SNOWFLAKE, this.getX(), this.getY() + this.random.nextDouble() * 2.0D, this.getZ(), this.random.nextGaussian(), 0.0D, this.random.nextGaussian());
+            this.getWorld().addParticle(ParticleTypes.SNOWFLAKE, this.getX(), this.getY() + this.random.nextDouble() * 2.0D, this.getZ(), this.random.nextGaussian(), 0.0D, this.random.nextGaussian());
         }
 
         if (hitResult.getType() != HitResult.Type.ENTITY || !this.isOwner(((EntityHitResult)hitResult).getEntity())) {
-            if (!world.isClient) {
-                List<LivingEntity> list = this.world.getNonSpectatingEntities(LivingEntity.class, this.getBoundingBox().expand(4.0D, 2.0D, 4.0D));
-                AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(this.world, this.getX(), this.getY(), this.getZ());
+            if (!getWorld().isClient) {
+                List<LivingEntity> list = this.getWorld().getNonSpectatingEntities(LivingEntity.class, this.getBoundingBox().expand(4.0D, 2.0D, 4.0D));
+                AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(this.getWorld(), this.getX(), this.getY(), this.getZ());
                 Entity entity = this.getOwner();
                 if (entity instanceof LivingEntity) {
                     areaEffectCloudEntity.setOwner((LivingEntity)entity);
@@ -64,7 +64,7 @@ public class IceBallEntity extends ThrownItemEntity {
                         }
                     }
                 }
-                this.world.spawnEntity(areaEffectCloudEntity);
+                this.getWorld().spawnEntity(areaEffectCloudEntity);
                 this.discard();
             }
         }

@@ -84,7 +84,7 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
 
     public void tickMovement() {
         Vec3d vec3d = this.getVelocity().multiply(1.0D, 0.6D, 1.0D);
-        if (!this.world.isClient && this.getTarget() != null) {
+        if (!this.getWorld().isClient && this.getTarget() != null) {
             LivingEntity entity = this.getTarget();
             if (entity != null) {
                 double d = vec3d.y;
@@ -144,10 +144,10 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
         double g = targetX - d;
         double h = targetY - e;
         double i = targetZ - f;
-        WindBallEntity w = new WindBallEntity(this.world, this, g, h, i);
+        WindBallEntity w = new WindBallEntity(this.getWorld(), this, g, h, i);
         w.setOwner(this);
         w.setPos(d, e, f);
-        this.world.spawnEntity(w);
+        this.getWorld().spawnEntity(w);
     }
 
     public void attack(LivingEntity target, float pullProgress) {
@@ -159,7 +159,7 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
         if (super.damage(source, amount)) {
             double low = 0.3D * this.getMaxHealth();
             if (this.getHealth() <= low) {
-                if (this.isOnGround() && world.getBlockState(this.getBlockPos().up(2)).isAir()) {
+                if (this.isOnGround() && getWorld().getBlockState(this.getBlockPos().up(2)).isAir()) {
                     this.setVelocity(this.getVelocity().add(0, 1, 0));
                 }
             }

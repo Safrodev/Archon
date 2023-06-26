@@ -4,10 +4,10 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.widget.PressableWidget;
 import net.minecraft.client.render.GameRenderer;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.MathHelper;
@@ -28,27 +28,22 @@ public class ExperienceButtonWidget extends PressableWidget {
         this.add = add;
     }
 
-    public void renderButton(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+    public void renderButton(DrawContext context, int mouseX, int mouseY, float delta) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
-        RenderSystem.setShaderTexture(0, ExperiencePouchScreen.TEXTURE);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         int j = 0;
         if (this.isHovered()) {
             j += this.width * 3;
         }
 
-        this.drawTexture(matrices, this.getX(), this.getY(), j, 219, this.width, this.height);
-        this.drawText(matrices);
+        context.drawTexture(ExperiencePouchScreen.TEXTURE, this.getX(), this.getY(), j, 219, this.width, this.height);
+        int x = this.value >= 10 ? 6 : 8;
+        context.drawTextWithShadow(this.textRenderer, this.text, this.getX() + x, this.getY() + 7, 16777215 | MathHelper.ceil(this.alpha * 255.0F) << 24);
     }
 
     @Override
     protected void appendClickableNarrations(NarrationMessageBuilder builder) {
         this.appendDefaultNarrations(builder);
-    }
-
-    private void drawText(MatrixStack matrices) {
-        int x = this.value >= 10 ? 6 : 8;
-        drawTextWithShadow(matrices, this.textRenderer, this.text, this.getX() + x, this.getY() + 7, 16777215 | MathHelper.ceil(this.alpha * 255.0F) << 24);
     }
 
     protected MutableText getNarrationMessage() {

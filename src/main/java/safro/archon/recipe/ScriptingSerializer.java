@@ -40,7 +40,7 @@ public class ScriptingSerializer implements RecipeSerializer<ScriptingRecipe> {
         for (Ingredient in : recipe.getInputs()) {
             in.write(buf);
         }
-        Item result = recipe.getOutput().getItem();
+        Item result = recipe.result;
         buf.writeVarInt(Item.getRawId(result));
     }
 

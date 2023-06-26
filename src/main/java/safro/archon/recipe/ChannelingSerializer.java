@@ -43,7 +43,7 @@ public class ChannelingSerializer implements RecipeSerializer<ChannelingRecipe> 
     @Override
     public void write(PacketByteBuf buf, ChannelingRecipe recipe) {
         buf.writeString(Registries.BLOCK.getId(recipe.getBlock()).toString());
-        buf.writeItemStack(recipe.getOutput());
+        buf.writeItemStack(recipe.result);
         buf.writeInt(recipe.getManaCost());
     }
 

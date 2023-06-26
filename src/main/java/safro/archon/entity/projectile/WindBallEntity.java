@@ -32,7 +32,7 @@ public class WindBallEntity extends ExplosiveProjectileEntity {
     public void tick() {
         super.tick();
         if (this.getOwner() instanceof LivingEntity owner) {
-            List<LivingEntity> list = world.getEntitiesByClass(LivingEntity.class, this.getBoundingBox().expand(5D), EntityPredicates.VALID_LIVING_ENTITY);
+            List<LivingEntity> list = getWorld().getEntitiesByClass(LivingEntity.class, this.getBoundingBox().expand(5D), EntityPredicates.VALID_LIVING_ENTITY);
             for (LivingEntity e : list) {
                 if (e != owner) {
                     this.push(e, owner);
@@ -43,7 +43,7 @@ public class WindBallEntity extends ExplosiveProjectileEntity {
 
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
-        if (!this.world.isClient) {
+        if (!this.getWorld().isClient) {
             Entity entity = entityHitResult.getEntity();
             Entity owner = this.getOwner();
             if (owner instanceof LivingEntity && entity instanceof LivingEntity) {
@@ -55,7 +55,7 @@ public class WindBallEntity extends ExplosiveProjectileEntity {
     public void push(LivingEntity target, LivingEntity owner) {
         float f = 3F;
         float g = f / 2.0F + (float) this.random.nextInt((int) f);
-        boolean bl = target.damage(DamageSource.mob(owner), g);
+        boolean bl = target.damage(this.getWorld().getDamageSources().mobProjectile(this, owner), g);
         if (bl) {
             target.setVelocity(target.getVelocity().add(0.0D, 0.4000000059604645D, 0.0D));
             this.applyDamageEffects(owner, target);
@@ -64,7 +64,7 @@ public class WindBallEntity extends ExplosiveProjectileEntity {
 
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
-        if (!this.world.isClient) {
+        if (!this.getWorld().isClient) {
             this.discard();
         }
     }

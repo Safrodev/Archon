@@ -39,7 +39,7 @@ public class MendSpell extends Spell {
     }
 
     private void displayParticles(ServerPlayerEntity player, BlockPos pos, Random random) {
-        for (BlockPos blockPos : EnchantingTableBlock.BOOKSHELF_OFFSETS) {
+        for (BlockPos blockPos : EnchantingTableBlock.POWER_PROVIDER_OFFSETS) {
             if (random.nextInt(16) == 0) {
                 ParticlePacket.send(player, ParticleRegistry.WATER_BALL, (double) pos.getX() + 0.5D, (double) pos.getY() + 2.0D, (double) pos.getZ() + 0.5D, (double) ((float) blockPos.getX() + random.nextFloat()) - 0.5D, (float) blockPos.getY() - random.nextFloat() - 1.0F, (double) ((float) blockPos.getZ() + random.nextFloat()) - 0.5D);
             }

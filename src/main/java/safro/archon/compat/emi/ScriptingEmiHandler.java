@@ -1,9 +1,7 @@
 package safro.archon.compat.emi;
 
-import dev.emi.emi.api.EmiRecipeHandler;
 import dev.emi.emi.api.recipe.EmiRecipe;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.entity.player.PlayerInventory;
+import dev.emi.emi.api.recipe.handler.StandardRecipeHandler;
 import net.minecraft.screen.slot.Slot;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.client.screen.ScriptureTableScreenHandler;
@@ -11,7 +9,8 @@ import safro.archon.client.screen.ScriptureTableScreenHandler;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ScriptingEmiHandler implements EmiRecipeHandler<ScriptureTableScreenHandler> {
+public class ScriptingEmiHandler implements StandardRecipeHandler<ScriptureTableScreenHandler> {
+
     @Override
     public List<Slot> getInputSources(ScriptureTableScreenHandler handler) {
         List<Slot> list = new LinkedList<>();

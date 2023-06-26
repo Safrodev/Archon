@@ -6,7 +6,7 @@ import net.minecraft.advancement.criterion.AbstractCriterionConditions;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateDeserializer;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateSerializer;
-import net.minecraft.predicate.entity.EntityPredicate;
+import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
@@ -22,7 +22,7 @@ public class ChanneledCriterion extends AbstractCriterion<ChanneledCriterion.Con
         return ID;
     }
 
-    public ChanneledCriterion.Conditions conditionsFromJson(JsonObject jsonObject, EntityPredicate.Extended extended, AdvancementEntityPredicateDeserializer advancementEntityPredicateDeserializer) {
+    public ChanneledCriterion.Conditions conditionsFromJson(JsonObject jsonObject, LootContextPredicate extended, AdvancementEntityPredicateDeserializer advancementEntityPredicateDeserializer) {
         ItemPredicate itemPredicate = ItemPredicate.fromJson(jsonObject.get("item"));
         return new ChanneledCriterion.Conditions(extended, itemPredicate);
     }
@@ -36,7 +36,7 @@ public class ChanneledCriterion extends AbstractCriterion<ChanneledCriterion.Con
     public static class Conditions extends AbstractCriterionConditions {
         private final ItemPredicate item;
 
-        public Conditions(EntityPredicate.Extended player, ItemPredicate item) {
+        public Conditions(LootContextPredicate player, ItemPredicate item) {
             super(ChanneledCriterion.ID, player);
             this.item = item;
         }

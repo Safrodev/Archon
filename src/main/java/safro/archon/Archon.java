@@ -4,11 +4,9 @@ import draylar.omegaconfig.OmegaConfig;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Identifier;
+import net.minecraft.registry.RegistryKey;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import safro.archon.api.ManaAttributes;
@@ -18,6 +16,7 @@ import safro.archon.config.ArchonConfig;
 import safro.archon.network.NetworkManager;
 import safro.archon.registry.*;
 import safro.archon.world.WizardVillagePool;
+import safro.saflib.SafLib;
 
 import java.util.ArrayList;
 
@@ -25,7 +24,7 @@ public class Archon implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("archon");
 	public static final String MODID = "archon";
 	public static final ArrayList<ItemStack> ITEMS = new ArrayList<>();
-	public static ItemGroup ITEMGROUP = FabricItemGroup.builder(new Identifier(MODID, MODID)).icon(() -> new ItemStack(ItemRegistry.ENDER_BLADE)).build();
+	public static RegistryKey<ItemGroup> ITEMGROUP = SafLib.createGroup(MODID);
 	public static SoundRegistry SOUNDS;
 	public static final ArchonConfig CONFIG = OmegaConfig.register(ArchonConfig.class);
 
@@ -57,13 +56,12 @@ public class Archon implements ModInitializer {
 		// Init Commands
 		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated, env) -> {
 			ManaCommand.register(dispatcher);
-			SpellCommand.register(dispatcher);
+			SpellCommand.register(dispatcher, dedicated);
 		});
 
 		// Init Sounds
 		SOUNDS = new SoundRegistry();
 
-		// Add items to group
-		ItemGroupEvents.modifyEntriesEvent(ITEMGROUP).register(entries -> entries.addAll(ITEMS));
+		SafLib.registerAll(ITEMGROUP, ItemRegistry.FIRE_ESSENCE);
 	}
 }

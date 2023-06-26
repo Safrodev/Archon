@@ -7,6 +7,7 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
@@ -15,7 +16,7 @@ import safro.archon.registry.RecipeRegistry;
 public class ScriptingRecipe implements Recipe<Inventory> {
     private final Identifier id;
     private final DefaultedList<Ingredient> inputs;
-    private final Item result;
+    public final Item result;
 
     public ScriptingRecipe(Identifier id, DefaultedList<Ingredient> inputs, Item result) {
         this.id = id;
@@ -40,7 +41,7 @@ public class ScriptingRecipe implements Recipe<Inventory> {
     }
 
     @Override
-    public ItemStack craft(Inventory inventory) {
+    public ItemStack craft(Inventory inventory, DynamicRegistryManager manager) {
         return new ItemStack(this.result);
     }
 
@@ -50,7 +51,7 @@ public class ScriptingRecipe implements Recipe<Inventory> {
     }
 
     @Override
-    public ItemStack getOutput() {
+    public ItemStack getOutput(DynamicRegistryManager manager) {
         return new ItemStack(this.result);
     }
 

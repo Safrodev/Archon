@@ -1,10 +1,8 @@
 package safro.archon.spell;
 
-import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -15,12 +13,10 @@ import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
 import safro.archon.entity.projectile.spell.TerrainEntity;
+import safro.archon.registry.TagRegistry;
 import safro.archon.util.SpellUtil;
 
-import java.util.List;
-
 public class TerrainTossSpell extends Spell {
-    private static final List<Material> VALID_MATERIALS = ImmutableList.of(Material.AGGREGATE, Material.ICE, Material.STONE, Material.AMETHYST, Material.ORGANIC_PRODUCT, Material.SOIL, Material.SOLID_ORGANIC);
 
     public TerrainTossSpell(Element type, int manaCost) {
         super(type, manaCost);
@@ -43,6 +39,6 @@ public class TerrainTossSpell extends Spell {
 
     private Block getTerrain(PlayerEntity player) {
         BlockState state = player.getBlockStateAtPos();
-        return VALID_MATERIALS.contains(state.getMaterial()) ? state.getBlock() : Blocks.STONE;
+        return state.isIn(TagRegistry.TERRAIN) ? state.getBlock() : Blocks.STONE;
     }
 }

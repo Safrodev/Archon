@@ -19,11 +19,11 @@ public class PotionEntityMixin {
     private void spawnLightningFromBottle(BlockHitResult blockHitResult, CallbackInfo ci) {
         BlockPos pos = blockHitResult.getBlockPos();
         PotionEntity entity = (PotionEntity) (Object) this;
-        if (!entity.world.isClient) {
+        if (!entity.getWorld().isClient) {
             if (entity.getStack().isOf(ItemRegistry.LIGHTNING_BOTTLE)) {
-                LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(entity.world);
+                LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(entity.getWorld());
                 lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(pos));
-                entity.world.spawnEntity(lightningEntity);
+                entity.getWorld().spawnEntity(lightningEntity);
             }
         }
     }

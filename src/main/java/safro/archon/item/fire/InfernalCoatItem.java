@@ -4,7 +4,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
@@ -17,7 +16,7 @@ import java.util.List;
 
 public class InfernalCoatItem extends ArmorItem {
 
-    public InfernalCoatItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
+    public InfernalCoatItem(ArmorMaterial material, Type slot, Settings settings) {
         super(material, slot, settings);
     }
 

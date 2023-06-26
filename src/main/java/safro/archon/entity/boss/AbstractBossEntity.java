@@ -83,7 +83,7 @@ public abstract class AbstractBossEntity extends HostileEntity {
     }
 
     protected List<PlayerEntity> getPlayers(double radius) {
-        return this.world.getNonSpectatingEntities(PlayerEntity.class, this.getBoundingBox().expand(radius));
+        return this.getWorld().getNonSpectatingEntities(PlayerEntity.class, this.getBoundingBox().expand(radius));
     }
 
     public void pushEntity(LivingEntity entity, float power) {
@@ -106,7 +106,7 @@ public abstract class AbstractBossEntity extends HostileEntity {
         super.tickMovement();
         if (this.getInvulnerableTimer() > 0) {
             for(int d = 0; d < 3; ++d) {
-                this.world.addParticle(ParticleTypes.ENTITY_EFFECT, this.getX() + this.random.nextGaussian(), this.getY() + (double)(this.random.nextFloat() * 3.3F), this.getZ() + this.random.nextGaussian(), 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D);
+                this.getWorld().addParticle(ParticleTypes.ENTITY_EFFECT, this.getX() + this.random.nextGaussian(), this.getY() + (double)(this.random.nextFloat() * 3.3F), this.getZ() + this.random.nextGaussian(), 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D);
             }
         }
     }
@@ -137,8 +137,8 @@ public abstract class AbstractBossEntity extends HostileEntity {
     public boolean damage(DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) {
             return false;
-        } else if (source != DamageSource.DROWN) {
-            if (this.getInvulnerableTimer() > 0 && source != DamageSource.OUT_OF_WORLD) {
+        } else if (source != this.getWorld().getDamageSources().drown()) {
+            if (this.getInvulnerableTimer() > 0 && source != this.getWorld().getDamageSources().outOfWorld()) {
                 return false;
             } else {
                 return super.damage(source, amount);
@@ -173,7 +173,7 @@ public abstract class AbstractBossEntity extends HostileEntity {
     }
 
     public void checkDespawn() {
-        if (this.world.getDifficulty() == Difficulty.PEACEFUL && this.isDisallowedInPeaceful()) {
+        if (this.getWorld().getDifficulty() == Difficulty.PEACEFUL && this.isDisallowedInPeaceful()) {
             this.discard();
         } else {
             this.despawnCounter = 0;

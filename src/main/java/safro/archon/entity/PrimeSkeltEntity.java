@@ -26,7 +26,7 @@ public class PrimeSkeltEntity extends SkeltEntity {
 
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
-        if (!world.isClient) {
+        if (!getWorld().isClient) {
             if (player.isSneaking()) {
                 if (stack.isEmpty()) {
                     dropNext();

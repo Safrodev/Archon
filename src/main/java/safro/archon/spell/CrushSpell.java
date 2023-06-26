@@ -2,7 +2,6 @@ package safro.archon.spell;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.BlockTags;
@@ -36,7 +35,7 @@ public class CrushSpell extends Spell {
 
     private boolean isValid(World world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
-        if (state.getMaterial() == Material.AIR || state.getMaterial().isLiquid() || state.isIn(BlockTags.WITHER_IMMUNE)) {
+        if (state.isAir() || !state.getFluidState().isEmpty() || state.isIn(BlockTags.WITHER_IMMUNE)) {
             return false;
         }
         return !state.isIn(BlockTags.NEEDS_DIAMOND_TOOL) && state.isIn(BlockTags.PICKAXE_MINEABLE);

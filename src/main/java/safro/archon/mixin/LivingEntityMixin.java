@@ -2,7 +2,6 @@ package safro.archon.mixin;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.ProjectileDamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,6 +9,7 @@ import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.registry.tag.FluidTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -45,7 +45,7 @@ public abstract class LivingEntityMixin {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (entity.hasStatusEffect(EffectRegistry.AQUA_SHIELD)) {
             if (entity.getRandom().nextFloat() < 0.3F) {
-                entity.world.addParticle(ParticleTypes.NAUTILUS, entity.getParticleX(1.0D), entity.getRandomBodyY() + 0.5D, entity.getParticleZ(1.0D), 0.0D, 0.0D, 0.0D);
+                entity.getWorld().addParticle(ParticleTypes.NAUTILUS, entity.getParticleX(1.0D), entity.getRandomBodyY() + 0.5D, entity.getParticleZ(1.0D), 0.0D, 0.0D, 0.0D);
             }
         }
     }
@@ -53,7 +53,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
     private void archonStatusEffectDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if (this.hasStatusEffect(EffectRegistry.STURDY)) {
-            if (source instanceof ProjectileDamageSource) {
+            if (source.isIn(DamageTypeTags.IS_PROJECTILE)) {
                 if (!(source.getSource() instanceof PotionEntity)) {
                     cir.setReturnValue(false);
                 }
@@ -76,9 +76,9 @@ public abstract class LivingEntityMixin {
                 mana.addMana(manaForType());
             } else if (player.getMainHandStack().isOf(ItemRegistry.SOUL_SCYTHE) && soulForType() != null) {
                 if (entity.getType().isIn(TagRegistry.BOSSES)) {
-                    ArchonUtil.dropItem(entity.world, entity.getBlockPos(), soulForType());
+                    ArchonUtil.dropItem(entity.getWorld(), entity.getBlockPos(), soulForType());
                 } else if (entity.getRandom().nextFloat() <= Archon.CONFIG.soulDropChance) {
-                    ArchonUtil.dropItem(entity.world, entity.getBlockPos(), soulForType());
+                    ArchonUtil.dropItem(entity.getWorld(), entity.getBlockPos(), soulForType());
                 }
             }
         }

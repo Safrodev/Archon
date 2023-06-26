@@ -95,7 +95,7 @@ public class ScriptureTableBlockEntity extends LockableContainerBlockEntity impl
             }).findFirst().orElse(null);
 
             if (recipe != null) {
-                be.inventory.set(5, recipe.getOutput().copy());
+                be.inventory.set(5, new ItemStack(recipe.result));
             }
         }
     }

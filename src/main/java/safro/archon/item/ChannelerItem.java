@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 import safro.archon.Archon;
 import safro.archon.recipe.ChannelingRecipe;
 import safro.archon.registry.CriteriaRegistry;
-import safro.archon.registry.MiscRegistry;
 import safro.archon.registry.RecipeRegistry;
 import safro.archon.registry.SoundRegistry;
 import safro.archon.util.ArchonUtil;
@@ -41,11 +40,11 @@ public class ChannelerItem extends Item {
         if (recipe != null && ArchonUtil.canRemoveMana(player, recipe.getManaCost())) {
             if (!world.isClient) {
                 world.setBlockState(pos, Blocks.AIR.getDefaultState());
-                Block.dropStack(world, pos, recipe.getOutput().copy());
+                Block.dropStack(world, pos, recipe.result.copy());
                 ArchonUtil.get(player).removeMana(recipe.getManaCost());
 
                 if (player instanceof ServerPlayerEntity) {
-                    CriteriaRegistry.CHANNELED_CRITERION.trigger((ServerPlayerEntity) player, recipe.getOutput().copy());
+                    CriteriaRegistry.CHANNELED_CRITERION.trigger((ServerPlayerEntity) player, recipe.result.copy());
                 }
             }
             if (Archon.CONFIG.play_channel_sound) {

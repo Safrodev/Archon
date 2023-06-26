@@ -36,7 +36,7 @@ public class ScriptingEmiRecipe implements EmiRecipe {
         Optional<RegistryEntryList.Named<Item>> opt2 = Registries.ITEM.getEntryList(TagRegistry.BOOKS);
         opt2.ifPresentOrElse((named) -> inputs.add(EmiIngredient.of(named.stream().map((item) -> EmiStack.of(item.value())).toList())),() ->inputs.add(EmiStack.EMPTY));
         //simple stack and list representation of the output
-        output = EmiStack.of(recipe.getOutput());
+        output = EmiStack.of(recipe.result);
         outputList = Collections.singletonList(this.output);
     }
 

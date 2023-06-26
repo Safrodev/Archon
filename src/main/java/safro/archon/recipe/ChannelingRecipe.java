@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
@@ -18,7 +19,7 @@ import java.util.List;
 public class ChannelingRecipe implements Recipe<ChannelingInventory> {
     private final Block input;
     private final TagKey<Block> tag;
-    private final ItemStack result;
+    public final ItemStack result;
     private final Identifier id;
     private final int manaCost;
 
@@ -44,7 +45,7 @@ public class ChannelingRecipe implements Recipe<ChannelingInventory> {
     }
 
     @Override
-    public ItemStack craft(ChannelingInventory inv) {
+    public ItemStack craft(ChannelingInventory inventory, DynamicRegistryManager manager) {
         return this.result;
     }
 
@@ -62,7 +63,7 @@ public class ChannelingRecipe implements Recipe<ChannelingInventory> {
     }
 
     @Override
-    public ItemStack getOutput() {
+    public ItemStack getOutput(DynamicRegistryManager registryManager) {
         return this.result;
     }
 

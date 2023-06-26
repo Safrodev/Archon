@@ -19,7 +19,7 @@ public class DrownSpell extends RaycastSpell {
 
     @Override
     public void onRaycast(World world, PlayerEntity player, ItemStack stack, LivingEntity target) {
-        world.setBlockState(new BlockPos(target.getX(), target.getEyeY(), target.getZ()), Blocks.WATER.getDefaultState());
+        world.setBlockState(BlockPos.ofFloored(target.getX(), target.getEyeY(), target.getZ()), Blocks.WATER.getDefaultState());
     }
 
     @Nullable
