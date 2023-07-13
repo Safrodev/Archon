@@ -9,8 +9,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.entity.boss.InigoEntity;
-import safro.archon.network.ParticlePacket;
-import safro.archon.util.ArchonUtil;
+import safro.saflib.network.ParticlePacket;
+import safro.saflib.util.MathUtil;
 
 import java.util.List;
 
@@ -47,7 +47,7 @@ public class BurstGoal extends Goal {
         this.mob.getWorld().createExplosion(this.mob, this.mob.getX(), this.mob.getY(), this.mob.getZ(), 6.0F, World.ExplosionSourceType.NONE);
 
         for (int i = 0; i < Direction.Axis.VALUES.length; i++) {
-            for (Vec3d vec3d : ArchonUtil.getVectorsForCircle(this.mob.getX(), this.mob.getY(), this.mob.getZ(), this.range, 2, Direction.Axis.VALUES[i])) {
+            for (Vec3d vec3d : MathUtil.getCircle(this.mob.getX(), this.mob.getY(), this.mob.getZ(), this.range, 2, Direction.Axis.VALUES[i])) {
                 ParticlePacket.send(this.mob, ParticleTypes.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0.0D, 0.03D, 0.0D);
             }
         }

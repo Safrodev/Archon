@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
-import safro.archon.network.ParticlePacket;
 import safro.archon.registry.ParticleRegistry;
+import safro.saflib.network.ParticlePacket;
 
 import java.util.List;
 

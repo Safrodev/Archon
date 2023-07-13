@@ -79,21 +79,6 @@ public class ArchonUtil {
         world.spawnEntity(itemEntity);
     }
 
-    public static List<BlockPos> getSphere(BlockPos origin, int radius) {
-        List<BlockPos> blocks = new ArrayList<>();
-        for (int x = -radius; x < radius; x++) {
-            for (int y = -radius; y < radius; y++) {
-                for (int z = -radius; z < radius; z++) {
-                    if (x * x + y * y + z * z < radius * radius) {
-                        BlockPos pos = origin.add(x, y, z);
-                        blocks.add(pos);
-                    }
-                }
-            }
-        }
-        return blocks;
-    }
-
     public static void growBlock(World world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos);
         if (blockState.getBlock() instanceof Fertilizable fertilizable) {
@@ -199,23 +184,5 @@ public class ArchonUtil {
             }
         }
         return targetBlocks;
-    }
-
-    public static List<Vec3d> getVectorsForCircle(double x, double y, double z, double radius, int amount, Direction.Axis axis) {
-        List<Vec3d> list = new ArrayList<>();
-        int count = (int) (2 * Math.PI * radius * amount);
-        double degree = 360 / (double) count;
-        double add = 0;
-        for (double i = 0 + add; i < 360 + add; i += degree) {
-            Vec3d vec3d;
-            double value = Math.toRadians(i);
-            vec3d = switch (axis) {
-                case Y -> new Vec3d(Math.cos(value) * radius, 0, Math.sin(value) * radius);
-                case X -> new Vec3d(0, Math.cos(value) * radius, Math.sin(value) * radius);
-                case Z -> new Vec3d(Math.cos(value) * radius, Math.sin(value) * radius, 0);
-            };
-            list.add(new Vec3d(x + vec3d.x, y + vec3d.y, z + vec3d.z));
-        }
-        return list;
     }
 }

@@ -20,6 +20,7 @@ import safro.archon.api.ManaAttributes;
 import safro.archon.registry.EffectRegistry;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
+import safro.saflib.util.MathUtil;
 
 import java.util.Set;
 
@@ -64,7 +65,7 @@ public abstract class PlayerEntityMixin {
         PlayerEntity player = (PlayerEntity) (Object) this;
         if (player.getEquippedStack(EquipmentSlot.FEET).isOf(ItemRegistry.DRUID_BOOTS)) {
             if (druidBootsTimer < 1 && player.isSneaking() && ArchonUtil.canRemoveMana(player, 20)) {
-                for (BlockPos pos : ArchonUtil.getSphere(player.getBlockPos(), 5)) {
+                for (BlockPos pos : MathUtil.getPosSphere(player.getBlockPos(), 5)) {
                     ArchonUtil.growBlock(player.getWorld(), pos);
                 }
                 druidBootsTimer = 60;

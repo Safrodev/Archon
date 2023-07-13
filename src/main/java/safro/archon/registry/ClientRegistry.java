@@ -20,6 +20,7 @@ import safro.archon.client.render.block.ScriptureTableBlockEntityRenderer;
 import safro.archon.client.render.block.SummoningPedestalBlockEntityRenderer;
 import safro.archon.client.screen.ExperiencePouchScreen;
 import safro.archon.client.screen.ScriptureTableScreen;
+import safro.saflib.client.render.EmptyEntityRenderer;
 
 public class ClientRegistry {
     public static final KeyBinding IC_KEY = new KeyBinding("key.archon.infernal_coat", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_PERIOD, "category.archon.archon");

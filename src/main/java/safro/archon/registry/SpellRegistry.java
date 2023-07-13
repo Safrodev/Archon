@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
@@ -14,6 +15,7 @@ import safro.archon.api.Element;
 import safro.archon.api.Spell;
 import safro.archon.item.TomeItem;
 import safro.archon.spell.*;
+import safro.saflib.SafLib;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,7 +67,9 @@ public class SpellRegistry {
     }
 
     public static TomeItem createTome(String name, Spell spell) {
-        return Registry.register(Registries.ITEM, new Identifier(Archon.MODID, name), new TomeItem(spell, new FabricItemSettings().maxCount(1)));
+        TomeItem item = Registry.register(Registries.ITEM, new Identifier(Archon.MODID, name), new TomeItem(spell, new FabricItemSettings().maxCount(1)));
+        SafLib.ITEMS.add(new ItemStack(item));
+        return item;
     }
 
     public static Item getTome(Spell spell) {

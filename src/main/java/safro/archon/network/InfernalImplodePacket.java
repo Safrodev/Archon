@@ -14,6 +14,8 @@ import net.minecraft.world.World;
 import safro.archon.Archon;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
+import safro.saflib.network.ParticlePacket;
+import safro.saflib.util.MathUtil;
 
 public class InfernalImplodePacket {
     public static final Identifier ID = new Identifier(Archon.MODID, "infernal_implode");
@@ -30,7 +32,7 @@ public class InfernalImplodePacket {
             player.getWorld().createExplosion(player, player.getX(), player.getY(), player.getZ(), power, World.ExplosionSourceType.NONE);
 
             for (int i = 0; i < Direction.Axis.VALUES.length; i++) {
-                for (Vec3d vec3d : ArchonUtil.getVectorsForCircle(player.getX(), player.getY(), player.getZ(), 3.5D, 2, Direction.Axis.VALUES[i])) {
+                for (Vec3d vec3d : MathUtil.getCircle(player.getX(), player.getY(), player.getZ(), 3.5D, 2, Direction.Axis.VALUES[i])) {
                     ParticlePacket.send(player, ParticleTypes.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0.0D, 0.03D, 0.0D);
                 }
             }
