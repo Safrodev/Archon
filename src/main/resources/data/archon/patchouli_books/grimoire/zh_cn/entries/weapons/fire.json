@@ -21,6 +21,11 @@
     {
       "type": "patchouli:crafting",
       "recipe": "archon:wither_stave"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:infernal_coat",
+      "text": "地狱外套是一件强壮的盔甲，会给你带来火焰保护，并有一个特殊的能力。按下爆炸键（默认为'.'）后，玩家会产生一个爆炸，法力值越高伤害越大。可以通过在铁匠铺中结合下界合金胸甲和烧焦的眼睛来创造。"
     }
   ]
 }
