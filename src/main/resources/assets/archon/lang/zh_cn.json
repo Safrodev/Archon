@@ -70,6 +70,8 @@
   "item.archon.heaven_dial": "天堂轮盘",
   "item.archon.wave_crystal": "浪涛精华",
   "item.archon.sea_master_charm": "波塞冬的祝福",
+  "item.archon.charred_eye": "烧焦的眼睛",
+  "item.archon.infernal_coat": "地狱外套",
 
   "item.archon.capacity_scroll": "容量卷轴",
   "item.archon.accelerate_scroll": "加速卷轴",
@@ -92,9 +94,9 @@
   "entity.archon.tar": "塔尔",
   "entity.archon.ayla": "艾拉",
   "entity.archon.leven": "利文",
+  "entity.archon.inigo": "伊尼戈",
 
   "effect.archon.rage": "狂怒",
-  "effect.archon.shadow": "影子",
   "effect.archon.obstructed": "阻塞",
   "effect.archon.sturdy": "强壮",
   "effect.archon.aqua_shield": "水盾",
@@ -143,6 +145,16 @@
   "text.archon.dial_mode_blind": "Dial Set To: 失明",
   "text.archon.obj": "%s",
   "text.archon.none": "无",
+  "text.archon.shift": "按住 Shift 获取信息",
+  "text.archon.infernal_coat1": "赋予永久耐火性",
+  "text.archon.infernal_coat2": "按地狱外套键来创建一个",
+  "text.archon.infernal_coat3": "你的法力值越多，爆炸造成的伤害就越大",
+  "text.archon.sea_charm1": "赋予水下呼吸",
+  "text.archon.sea_charm2": "允许用户在水上行走",
+  "text.archon.sea_charm3": "当握在手中时",
+  "text.archon.heaven_dial1": "治疗所有玩家、村民、宠物和铁傀儡",
+  "text.archon.heaven_dial2": "充分健康并补充饥饿",
+  "text.archon.terranean1": "获得抵抗力和偏转弹射物20秒",
 
   "text.archon.tar.spawn": "[塔尔] 你觉得你能挑战我吗?怎么敢的？",
   "text.archon.tar.kill": "[塔尔]哈!这太简单了!",
@@ -166,6 +178,17 @@
 
   "rei.archon.channeling": "Channeling",
   "rei.archon.scripting": "Scripting",
+  "rei.archon.terranite_stone": "Dropped from killing the boss Tar. Craft and read the Grimoire for more information.",
+  "rei.archon.angelic_star": "Dropped from killing the boss Ayla. Craft and read the Grimoire for more information.",
+  "rei.archon.wave_crystal": "Dropped from killing the boss Leven. Craft and read the Grimoire for more information.",
+  "rei.archon.charred_eye": "Dropped from killing the boss Inigo. Craft and read the Grimoire for more information.",
+
+  "emi.category.archon.channeling": "Channeling",
+  "emi.category.archon.scripting": "Scripting",
+
+  "key.archon.infernal_coat": "Infernal Coat Implode",
+
+  "category.archon.archon": "Archon",
 
   "advancements.archon.root.title": "Archon",
   "advancements.archon.root.description": "欢迎来到 Archon!",
