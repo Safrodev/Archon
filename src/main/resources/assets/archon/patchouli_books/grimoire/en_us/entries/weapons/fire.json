@@ -1,0 +1,31 @@
+{
+  "name": "Fire",
+  "icon": "archon:fire_gem",
+  "category": "archon:weapons",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:heat_ranger",
+      "text": "The Heat Ranger is a bow that does not consume arrows. It shoots powerful fire balls with speed relative to the pull back of the shot."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:heat_ranger"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:wither_stave",
+      "text": "The Wither Stave is a type of staff that launches wither skulls."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:wither_stave"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:infernal_coat",
+      "text": "The Infernal Coat is a strong piece of armor that will give you fire resistance and has a special ability. Upon pressing the implode key (default '.'), the player will create an explosion that does more damage the more mana you have. Can be created by combining a netherite chestplate and a charred eye in a smithing table."
+    }
+  ]
+}

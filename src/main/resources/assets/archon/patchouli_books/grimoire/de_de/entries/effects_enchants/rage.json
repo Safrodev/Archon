@@ -1,0 +1,12 @@
+{
+  "name": "Wut",
+  "icon": "archon:textures/mob_effect/rage.png",
+  "category": "archon:effects_enchants",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Der Statuseffekt Wut verdoppelt die Angriffsgeschwindigkeit des Benutzers. Er kann mit einer $(l:archon:weapons/earth#fist)Faust des Zorns$() oder durch Commands erlangt werden."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Mana Leech",
+  "icon": "archon:mana_leech_spawn_egg",
+  "category": "archon:misc",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Mana Leeches are weak but agile creatures. They will inflict the $(l:archon:effects_enchants/obstructed)Obstructed$() effect on players and spawn within $(l:archon:world/spires)Spires$()."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:mana_leech"
+    }
+  ]
+}

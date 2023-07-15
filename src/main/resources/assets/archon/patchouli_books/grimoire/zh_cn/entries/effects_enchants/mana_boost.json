@@ -1,0 +1,12 @@
+{
+  "name": "魔力提升",
+  "icon": "archon:textures/mob_effect/mana_boost.png",
+  "category": "archon:effects_enchants",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "魔力提升状态效果每级增加用户的最大法力值$(#2895CB)50$()。它由$(l:archon:mana/mana_catalysts)魔法汇聚方块$()添加，也可以通过命令应用。"
+    }
+  ]
+}

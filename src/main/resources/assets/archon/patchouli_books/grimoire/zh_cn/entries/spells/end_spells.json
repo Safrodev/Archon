@@ -1,0 +1,32 @@
+{
+  "name": "末影法术",
+  "icon": "archon:ender_tome",
+  "category": "archon:spells",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "末影法术可以在末地城市或堡垒图书馆找到。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "黑球",
+      "text": "射出一个末影龙火球，在撞击时产生一个致命的伤害区。魔力消耗：10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "互换",
+      "text": "允许使用者与目标交换位置 $(li)魔力消耗: 40 $(li)范围: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "末影",
+      "text": "瞬间打开用户的末影箱库存 $(li)魔力值: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "虚幻",
+      "text": "将使用者变成一个影子，可以飞行和穿墙，持续10秒。"
+    }
+  ]
+}

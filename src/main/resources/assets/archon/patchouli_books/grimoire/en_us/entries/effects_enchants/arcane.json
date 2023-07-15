@@ -1,0 +1,12 @@
+{
+  "name": "Arcane Enchantment",
+  "icon": "minecraft:enchanted_book",
+  "category": "archon:effects_enchants",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Arcane Enchantment reduces the mana cost of weapons by $(#2895CB)10%$() for each level of the enchant (Ex: Arcane II = 20%). This cannot be applied to special items like the Channeler and $(l:archon:necromancy/undead_staff)Staff of Undead$(). Arcane is a treasure enchantment, and it can only be obtained from a $(l:archon:world/wizard)Wizard$() or Librarian Villager."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "末影",
+  "icon": "archon:end_gem",
+  "category": "archon:weapons",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:ender_blade",
+      "text": "末影之刃允许你在你所看的方向上传送多达8个区块。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:ender_blade"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:void_scepter",
+      "text": "虚空权杖类似于末影之刃，可以让你在你所寻找的方向上传送多达10个区块。然而，你在传送时内爆，对你周围的生物造成伤害。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:void_scepter"
+    }
+  ]
+}

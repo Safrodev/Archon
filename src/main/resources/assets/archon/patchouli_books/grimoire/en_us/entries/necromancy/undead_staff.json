@@ -1,0 +1,17 @@
+{
+  "name": "Staff of Undead",
+  "icon": "archon:undead_staff",
+  "category": "archon:necromancy",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:undead_staff",
+      "text": "The Staff of Undead is an item used for summoning $(l:archon:necromancy/skelts)Skelts$(). In order to summon a skelt, drop a soul core of the corresponding skelt you wish to summon, and use the staff to transform them. The staff is crucial in commanding your skelts, so keep it handy."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:undead_staff"
+    }
+  ]
+}

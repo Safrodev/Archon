@@ -1,0 +1,12 @@
+{
+  "name": "影子",
+  "icon": "archon:textures/mob_effect/shadow.png",
+  "category": "archon:effects_enchants",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "影子效果赋予使用者飞行和穿墙的能力。它可以通过虚幻法术或命令获得。"
+    }
+  ]
+}

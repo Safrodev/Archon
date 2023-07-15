@@ -1,0 +1,31 @@
+{
+  "name": "火系",
+  "icon": "archon:fire_gem",
+  "category": "archon:weapons",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:heat_ranger",
+      "text": "邪火魔弓是一种不消耗箭矢的弓，可以发射出强大的火球。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:heat_ranger"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:wither_stave",
+      "text": "凋灵之杖是一种发射凋灵头颅的法杖。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:wither_stave"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:infernal_coat",
+      "text": "地狱外套是一件强壮的盔甲，会给你带来火焰保护，并有一个特殊的能力。按下爆炸键（默认为'.'）后，玩家会产生一个爆炸，法力值越高伤害越大。可以通过在铁匠铺中结合下界合金胸甲和烧焦的眼睛来创造。"
+    }
+  ]
+}

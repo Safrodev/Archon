@@ -1,0 +1,31 @@
+{
+  "name": "Feuer Waffen",
+  "icon": "archon:fire_gem",
+  "category": "archon:weapons",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:heat_ranger",
+      "text": "Der Hitze Bogem benötigt keine Pfeile. Er verschießt mächtige Feuerbälle mit einer Geschwindigkeit, die einem Schuss entspricht."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:heat_ranger"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:wither_stave",
+      "text": "Der Verwelk Stab ist eine Art Stab, der Wither Schädel schießt."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:wither_stave"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:infernal_coat",
+      "text": "Der Höllenfeuer Mantel ist ein starkes Rüstungsteil, das dir Feuerresistenz verleiht und eine besondere Fähigkeit hat. Durch Drücken der Explosionstaste (Standard '.') erzeugt der Spieler eine Explosion, die umso mehr Schaden anrichtet, je mehr Mana man hat. Kann in Kombination mit einem Netherit-Brustpanzer und einem verbranten Auge am Schmiedetisch hergestellt werden."
+    }
+  ]
+}

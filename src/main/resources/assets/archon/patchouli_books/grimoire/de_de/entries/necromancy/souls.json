@@ -1,0 +1,27 @@
+{
+  "name": "Seelen und Seelenkerne",
+  "icon": "archon:soul_core_creature",
+  "category": "archon:necromancy",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:player_soul",
+      "text": "Seelen sind besondere Gegenstände, die man durch das Töten von Mobs mit einer $(l:archon:necromancy/soul_scythe)Seelensense$() erhält. Diese Seelen werden zur Herstellung von Seelenkernen verwendet und sind wichtig für die Beschwörung von Untoten."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:soul_core_boss",
+      "text": "Seelenkerne sind Gegenstände, die aus Seelen und Knochen hergestellt werden. Diese Kerne sind die wichtigsten Komponenten, um Untote zu beschwören."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:soul_core_creature",
+      "recipe2": "archon:soul_core_player"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:soul_core_boss"
+    }
+  ]
+}

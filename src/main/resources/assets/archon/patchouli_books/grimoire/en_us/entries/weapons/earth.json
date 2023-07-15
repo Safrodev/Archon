@@ -1,0 +1,37 @@
+{
+  "name": "Earth",
+  "icon": "archon:earth_gem",
+  "category": "archon:weapons",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:terrain_mace",
+      "text": "The Terrain Mace allows you to fling up and damage living entities around you. It will not damage mobs tamed to you."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:terrain_mace"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "anchor": "fist",
+      "item": "archon:fist_of_fury",
+      "text": "The Fist of Fury is a fast attacking gauntlet item. It's ability will grant the user the $(l:archon:effects_enchants/rage)Rage$() effect for 5 seconds."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:fist_of_fury"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "anchor": "terranean",
+      "item": "archon:terranean_axe",
+      "text": "The Terranean Axe is a deadly axe that gives you 20 seconds of Resistance and $(l:archon:effects_enchants/sturdy)Sturdy$() upon using its ability."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:terranean_axe"
+    }
+  ]
+}

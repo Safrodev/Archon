@@ -1,0 +1,23 @@
+{
+  "name": "巫师村民",
+  "icon": "archon:magical_bookshelf",
+  "category": "archon:world",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "巫师村民是一种新的村民职业。你可以在村庄中找到他们的房子，或者用魔法书架把村民分配到这个职业。他们的行业包括$(l:archon:mana/scrolls)卷轴$()，制作物品，以及$(l:archon:effect_enchants/arcane)奥术$()魔法。"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "archon:textures/gui/book/wizard.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:magical_bookshelf"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Kanalisierer",
+  "icon": "archon:channeler",
+  "category": "archon:mana",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:channeler",
+      "text": "Der Kanalisierer ist ein zentraler Gegenstand, der es dir ermöglicht, Mana in Blöcke zu kanalisieren, was zu bestimmten Gegenständen führt. Die Kanalisierung erfordert unterschiedliche Mengen an Mana pro Rezept, und die hergestellten Gegenstände werden für unterschiedliche Dinge verwendet. Um alle Rezepte zu sehen, wird die Mod REI empfohlen."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:channeler"
+    }
+  ]
+}

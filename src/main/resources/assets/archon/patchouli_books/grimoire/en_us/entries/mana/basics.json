@@ -1,0 +1,16 @@
+{
+  "name": "Basics of Mana",
+  "icon": "minecraft:lapis_lazuli",
+  "category": "archon:mana",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "You may have already noticed the counter at the bottom left of your screen. That counter represents your mana and max mana. Mana flows through all living entities and can be used by players for different things."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Mana is passively generated at a base rate of $(#2895CB)1 mana per second$(). Your mana regen speed and max mana can be upgraded with the use of different items like $(l:archon:mana/scrolls)Scrolls$()."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "水系魔法",
+  "icon": "archon:freeze_tome",
+  "category": "archon:spells",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "水系法术可以在海洋遗迹中找到，也可以通过钓鱼获得。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "水盾",
+      "text": "给予使用者一个免受生物直接伤害的保护，持续15秒 $(li)魔力消耗: 50"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "冻结",
+      "text": "射出一大块雪，使目标冻结并减速。$(li)魔力消耗: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "溺水",
+      "text": "将水放在目标的头上 $(li)魔力消耗: 30 $(li)范围: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "治愈",
+      "text": "治疗使用者4颗心并清除所有负面效果 $(li)魔力消耗: 40"
+    }
+  ]
+}

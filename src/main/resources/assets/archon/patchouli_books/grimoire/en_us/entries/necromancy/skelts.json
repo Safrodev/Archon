@@ -1,0 +1,28 @@
+{
+  "name": "Skelts",
+  "icon": "archon:textures/gui/book/skelt_head.png",
+  "category": "archon:necromancy",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Skelts are special skeletons summoned using a $(l:archon:necromancy/undead_staff)Staff of Undead$(). There are three type of skelts, each being summoned from a different $(l:archon:necromancy/souls)soul core$() type. A skelt will follow you around and attack with you. You can stop them from following you by sneaking and right-clicking them with a Staff of Undead."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:skelt",
+      "text": "Normal Skelts do not have any special properties and walk slowly."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:prime_skelt",
+      "text": "Prime Skelts are faster skelts with iron swords. You can give them armor by shift right-clicking them."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:omega_skelt",
+      "text": "Omega Skelts are massive skelts with lots of HP. They are slow but tanky, with stronger attacks.",
+      "scale": 1.2
+    }
+  ]
+}

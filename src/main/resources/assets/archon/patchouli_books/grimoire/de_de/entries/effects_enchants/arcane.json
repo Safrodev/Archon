@@ -1,0 +1,12 @@
+{
+  "name": "Arkane Verzauberung",
+  "icon": "minecraft:enchanted_book",
+  "category": "archon:effects_enchants",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Die Arkane Verzauberung reduziert die Manakosten von Waffen um $(#2895CB)10%$() für jede Stufe der Verzauberung (Beispiel: Arkan II = 20%). Dies kann nicht auf spezielle Gegenstände wie den Kanalisierer und den $(l:archon:necromancy/undead_staff)Stab der Untoten$() angewendet werden. Arkan ist eine Verzauberung, die nur von einem $(l:archon:world/wizard)Zauberer$() oder Bibliothekar erhalten werden kann."
+    }
+  ]
+}

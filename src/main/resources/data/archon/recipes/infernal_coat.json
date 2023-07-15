@@ -1,10 +1,19 @@
 {
-  "type": "minecraft:smithing",
-  "addition": {
-    "item": "archon:charred_eye"
-  },
-  "base": {
-    "item": "minecraft:netherite_chestplate"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "FNF"
+  ],
+  "key": {
+    "C": {
+      "item": "archon:charred_eye"
+    },
+    "F": {
+      "item": "archon:fire_gem"
+    },
+    "N": {
+      "item": "minecraft:netherite_chestplate"
+    }
   },
   "result": {
     "item": "archon:infernal_coat"
