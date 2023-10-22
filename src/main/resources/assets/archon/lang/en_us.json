@@ -95,6 +95,7 @@
   "entity.archon.ayla": "Ayla",
   "entity.archon.leven": "Leven",
   "entity.archon.inigo": "Inigo",
+  "entity.archon.null": "Null",
 
   "effect.archon.rage": "Rage",
   "effect.archon.obstructed": "Obstructed",
@@ -165,6 +166,8 @@
   "text.archon.leven.kill": "[Leven] Good try",
   "text.archon.inigo.spawn": "[Inigo] Primed. Begin melting.",
   "text.archon.inigo.kill": "[Inigo] Target dispatched.",
+  "text.archon.null.spawn": "[Null] All things must end. This will be yours.",
+  "text.archon.null.kill": "[Null] Consumed by the void...",
 
   "container.archon.scripture": "Scripture Table",
   "container.archon.add_xp": "Add XP",

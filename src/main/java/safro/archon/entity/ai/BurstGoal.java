@@ -58,7 +58,7 @@ public class BurstGoal extends Goal {
         return list.size() > 0;
     }
 
-    private static List<LivingEntity> getTargets(InigoEntity mob, double range) {
+    public static List<LivingEntity> getTargets(LivingEntity mob, double range) {
         return mob.getWorld().getTargets(LivingEntity.class, TARGET_PREDICATE.setBaseMaxDistance(range), mob, mob.getBoundingBox().expand(range));
     }
 }

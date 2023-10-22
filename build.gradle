@@ -60,8 +60,8 @@ dependencies {
 				exclude(group: "net.fabricmc.fabric-api")
 	}
 
-	// SpellPower (Not on 1.20 yet)
-//	modCompileOnly "maven.modrinth:spell-power:${project.sp_version}-fabric"
+	// SpellPower
+	modCompileOnly "maven.modrinth:spell-power:${project.sp_version}-fabric"
 }
 
 loom {

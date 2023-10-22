@@ -43,6 +43,7 @@ public class ClientRegistry {
         EntityRendererRegistry.register(EntityRegistry.ALYA, AlyaEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.LEVEN, LevenEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.INIGO, InigoEntityRenderer::new);
+//        EntityRendererRegistry.register(EntityRegistry.NULL, NullEntityRenderer::new);
 
         // Block Renderers
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MANA_BERRY_BUSH, RenderLayer.getCutout());

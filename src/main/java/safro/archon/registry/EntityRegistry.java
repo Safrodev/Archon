@@ -9,10 +9,7 @@ import safro.archon.entity.ManaLeechEntity;
 import safro.archon.entity.OmegaSkeltEntity;
 import safro.archon.entity.PrimeSkeltEntity;
 import safro.archon.entity.SkeltEntity;
-import safro.archon.entity.boss.AlyaEntity;
-import safro.archon.entity.boss.InigoEntity;
-import safro.archon.entity.boss.LevenEntity;
-import safro.archon.entity.boss.TarEntity;
+import safro.archon.entity.boss.*;
 import safro.archon.entity.projectile.IceBallEntity;
 import safro.archon.entity.projectile.WaterBoltEntity;
 import safro.archon.entity.projectile.WindBallEntity;
@@ -48,6 +45,7 @@ public class EntityRegistry extends BaseEntityRegistry {
     public static final EntityType<AlyaEntity> ALYA = register("ayla", FabricEntityTypeBuilder.<AlyaEntity>create(SpawnGroup.MISC, AlyaEntity::new).dimensions(player()).trackRangeChunks(15).build());
     public static final EntityType<LevenEntity> LEVEN = register("leven", FabricEntityTypeBuilder.<LevenEntity>create(SpawnGroup.MISC, LevenEntity::new).dimensions(player()).trackRangeChunks(15).build());
     public static final EntityType<InigoEntity> INIGO = register("inigo", FabricEntityTypeBuilder.<InigoEntity>create(SpawnGroup.MISC, InigoEntity::new).dimensions(player()).trackRangeChunks(15).fireImmune().build());
+//    public static final EntityType<NullEntity> NULL = register("null", FabricEntityTypeBuilder.<NullEntity>create(SpawnGroup.MISC, NullEntity::new).dimensions(player()).trackRangeChunks(15).build());
 
     public static void init() {
         addAttributes(SKELT, SkeltEntity.createSkeltAttributes());
@@ -58,6 +56,7 @@ public class EntityRegistry extends BaseEntityRegistry {
         addAttributes(ALYA, AlyaEntity.createAlyaAttributes());
         addAttributes(LEVEN, LevenEntity.createLevenAttributes());
         addAttributes(INIGO, InigoEntity.createInigoAttributes());
+//        addAttributes(NULL, NullEntity.createNullAttributes());
     }
 
     private static EntityDimensions spell() {

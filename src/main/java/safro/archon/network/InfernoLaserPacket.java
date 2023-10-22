@@ -22,6 +22,7 @@ public class InfernoLaserPacket {
         PacketByteBuf buf = PacketByteBufs.create();
         writeVec(buf, boss);
         writeVec(buf, target);
+        buf.writeLong(world.getRandom().nextLong());
         for (ServerPlayerEntity player : PlayerLookup.tracking(world, BlockPos.ofFloored(boss))) {
             ServerPlayNetworking.send(player, ID, buf);
         }
@@ -30,6 +31,7 @@ public class InfernoLaserPacket {
     public static void receive(MinecraftClient client, PacketByteBuf buf) {
         Vec3d boss = readVec(buf);
         Vec3d target = readVec(buf);
+        long seed = buf.readLong();
         double distance = boss.distanceTo(target);
         if (client.world != null) {
             for (double i = 0; i < distance; i += 2) {
@@ -40,7 +42,7 @@ public class InfernoLaserPacket {
                 Vec3d vec3d = new Vec3d(x, y, z);
                 client.world.addParticle(ParticleRegistry.INFERNO_LASER, true, vec3d.x, vec3d.y, vec3d.z, 2.0D, 0.0D, 0.0D);
             }
-            client.world.playSound(boss.x, boss.y, boss.z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.HOSTILE, 1.0F, 0.8F, true);
+            client.world.playSound(client.player, boss.x, boss.y, boss.z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.HOSTILE, 1.0F, 0.8F, seed);
         }
     }
 

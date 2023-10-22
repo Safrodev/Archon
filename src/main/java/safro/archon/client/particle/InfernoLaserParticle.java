@@ -20,7 +20,7 @@ public class InfernoLaserParticle extends SpriteBillboardParticle {
         this.red = 1;
         this.green = 0;
         this.blue = 0;
-        this.maxAge = 2 + this.random.nextInt(2);
+        this.maxAge = 3;
         this.collidesWithWorld = false;
         this.setSpriteForAge(spriteProvider);
         this.scale(1.0F);

@@ -12,7 +12,9 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import safro.archon.Archon;
 import safro.archon.api.Spell;
+import safro.archon.compat.SpellPowerCompat;
 import safro.archon.entity.projectile.spell.HitExecutor;
 import safro.archon.entity.projectile.spell.SpellProjectileEntity;
 import safro.archon.registry.EntityRegistry;
@@ -39,11 +41,11 @@ public class SpellUtil {
     }
 
     public static boolean damage(PlayerEntity caster, LivingEntity target, Spell spell, float damage, DamageSource source) {
-//        if (CompatUtil.isSpellPowerInstalled() && Archon.CONFIG.enableSpellPowerCompat) {
-//            double i = SpellPowerCompat.getBonusDamage(caster, target, spell);
-//            float bonus = damage + Double.valueOf(i).floatValue();
-//            return SpellPowerCompat.damage(caster, target, spell, bonus);
-//        }
+        if (CompatUtil.isSpellPowerInstalled() && Archon.CONFIG.enableSpellPowerCompat) {
+            double i = SpellPowerCompat.getBonusDamage(caster, target, spell);
+            float bonus = damage + Double.valueOf(i).floatValue();
+            return SpellPowerCompat.damage(caster, target, spell, bonus);
+        }
         return target.damage(source, damage);
     }
 
