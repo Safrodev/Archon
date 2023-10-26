@@ -1,0 +1,12 @@
+{
+  "name": "Ярость",
+  "icon": "archon:textures/mob_effect/rage.png",
+  "category": "archon:effects_enchants",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Ярость удваивает скорость атаки. Можно получить при использовании $(l:archon:weapons/earth#fist)Кулака ярости$() или через консоль."
+    }
+  ]
+}

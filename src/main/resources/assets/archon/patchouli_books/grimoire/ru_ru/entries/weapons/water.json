@@ -1,0 +1,35 @@
+{
+  "name": "Вода",
+  "icon": "archon:water_gem",
+  "category": "archon:weapons",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:water_staff",
+      "text": "Посох водяных снарядов запускает маленькие и быстрые капли в ваших врагов."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:water_staff"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:frost_sword",
+      "text": "Ледяной меч запускает шарики льда, которые создают области замедления при попадании."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:frost_sword"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:sea_master_charm",
+      "text": "Ожерелье повелителя морей наделяет игрока способностью дышать под водой и ходить по ней. Хождение по воде работает, если держать ожерелье в ведущей руке, а водное дыхание - если предмет находится в инвентаре."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:sea_master_charm"
+    }
+  ]
+}

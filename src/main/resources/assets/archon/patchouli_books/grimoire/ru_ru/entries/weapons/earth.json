@@ -1,0 +1,37 @@
+{
+  "name": "Земля",
+  "icon": "archon:earth_gem",
+  "category": "archon:weapons",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:terrain_mace",
+      "text": "Приземистая булава позволяет подбросить всех живых существ вокруг. Не наносит урона вашим питомцам."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:terrain_mace"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "anchor": "fist",
+      "item": "archon:fist_of_fury",
+      "text": "Кулак ярости - быстрая боевая перчатка. Её способность введёт владельца в состояние $(l:archon:effects_enchants/rage)ярости$() на 5 секунд."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:fist_of_fury"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "anchor": "terranean",
+      "item": "archon:terranean_axe",
+      "text": "Терранитовый топор наделяет 20 секундами сопротивления и $(l:archon:effects_enchants/sturdy)крепкой кожей$() при использовании способности."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:terranean_axe"
+    }
+  ]
+}

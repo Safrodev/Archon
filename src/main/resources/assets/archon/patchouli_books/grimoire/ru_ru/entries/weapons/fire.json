@@ -1,0 +1,31 @@
+{
+  "name": "Огонь",
+  "icon": "archon:fire_gem",
+  "category": "archon:weapons",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:heat_ranger",
+      "text": "Пылкий стрелок - лук, не требующий стрел. Он стреляет огненными шарами со скоростью, зависящей от натяжения тетивы."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:heat_ranger"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:wither_stave",
+      "text": "Иссушающий посох запускает черепа Иссушителя."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:wither_stave"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:infernal_coat",
+      "text": "Адский покров - крепкая броня, наделяющая владельца огнестойкостью. Если нажать специальную кнопку (в настройках '.'), вокруг владельца произойдёт взрыв с силой, зависящей от количества затраченной маны. Можно создать, совместив незеритовый нагрудник с опалённым глазом на столе кузнеца."
+    }
+  ]
+}
