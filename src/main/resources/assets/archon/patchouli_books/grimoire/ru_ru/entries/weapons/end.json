@@ -1,0 +1,26 @@
+{
+  "name": "Край",
+  "icon": "archon:end_gem",
+  "category": "archon:weapons",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:ender_blade",
+      "text": "Клинок эндера позволяет телепортироваться на расстояние до 8 блоков в направлении взгляда."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:ender_blade"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:void_scepter",
+      "text": "Скипетр пустоты, прямо как и клинок эндера, позволяет телепортироваться на расстояние до 10 блоков в направлении взгляда. Однако, после телепортации происходит взрыв, который наносит урон существам вблизи."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:void_scepter"
+    }
+  ]
+}

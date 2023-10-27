@@ -1,0 +1,17 @@
+{
+  "name": "Посох нежити",
+  "icon": "archon:undead_staff",
+  "category": "archon:necromancy",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:undead_staff",
+      "text": "Посох нежити - предмет, необходимый для призыва $(l:archon:necromancy/skelts)Скелтов$(). Чтобы призвать Скелта, киньте на землю ядро души Скелта, которого хотите призвать и воспользуйтесь посохом. Он необходим для командования Скелтами, так что держите его при себе."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:undead_staff"
+    }
+  ]
+}

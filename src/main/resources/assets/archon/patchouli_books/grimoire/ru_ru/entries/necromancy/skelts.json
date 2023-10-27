@@ -1,0 +1,28 @@
+{
+  "name": "Скелты",
+  "icon": "archon:textures/gui/book/skelt_head.png",
+  "category": "archon:necromancy",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Скелты - особый вид скелетов, призываемых $(l:archon:necromancy/undead_staff)Посохом нежити$(). Существует три вида Скелтов, каждый призывается разными $(l:archon:necromancy/souls)Ядрами души$(). Скелт будет следовать за вами и помогать в битвах. Вы можете приказать им не следовать за вами, кликнув ПКМ Посохом нежити."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:skelt",
+      "text": "Обычные Скелты обделены особыми способностями и достаточно медлительны."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:prime_skelt",
+      "text": "Продвинутые Скелты быстрее и владеют железными мечами. Вы можете снабжать их бронёй, используя shift + ПКМ."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:omega_skelt",
+      "text": "Главари Скелтов - огромные Скелты с кучей здоровья. Они медленные, но крепкие, и атакуют сильнее.",
+      "scale": 1.2
+    }
+  ]
+}

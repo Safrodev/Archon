@@ -1,0 +1,17 @@
+{
+  "name": "Коса душ",
+  "icon": "archon:soul_scythe",
+  "category": "archon:necromancy",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:soul_scythe",
+      "text": "Коса душ - необходимый садовый инвентарь любого некроманта, позволяет получать $(l:archon:necromancy/souls)души$() за победу над существами, игроками и боссами. У игроков и существ шанс выпадения составляет 5%, а с боссов душа падает всегда. Души игроков можно получить как с настоящих игроков, так и с разбойников, заклинателей, поборников и ведьм."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:soul_scythe"
+    }
+  ]
+}
