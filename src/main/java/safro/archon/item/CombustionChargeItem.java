@@ -2,10 +2,12 @@ package safro.archon.item;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
@@ -22,18 +24,22 @@ public class CombustionChargeItem extends Item {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         PlayerEntity player = context.getPlayer();
-        World world = context.getWorld();
-        for (BlockPos pos : ArchonUtil.getPosArea(context.getWorld(), context.getBlockPos(), context.getPlayer(), 3, true)) {
-            if (canBreak(player, world, context.getBlockPos(), pos)) {
-                BlockState state = world.getBlockState(pos);
-                state.getBlock().afterBreak(world, player, pos, state, world.getBlockEntity(pos), context.getStack());
-                world.setBlockState(pos, Blocks.AIR.getDefaultState());
-                world.removeBlockEntity(pos);
+        if (!context.getWorld().isClient()) {
+            ServerWorld world = (ServerWorld)context.getWorld();
+            for (BlockPos pos : ArchonUtil.getPosArea(context.getWorld(), context.getBlockPos(), context.getPlayer(), 3, true)) {
+                if (canBreak(player, world, context.getBlockPos(), pos)) {
+                    BlockState state = world.getBlockState(pos);
+                    state.getBlock().afterBreak(world, player, pos, state, world.getBlockEntity(pos), context.getStack());
+                    world.setBlockState(pos, Blocks.AIR.getDefaultState());
+                    world.removeBlockEntity(pos);
+                }
             }
+            context.getStack().decrement(1);
+            return ActionResult.CONSUME;
+        } else {
+            ((ClientWorld)context.getWorld()).playSound(null, context.getBlockPos(), SoundRegistry.COMBUSTION, SoundCategory.PLAYERS, 1.0F, 1.0F);
+            return ActionResult.PASS;
         }
-        world.playSound(null, context.getBlockPos(), SoundRegistry.COMBUSTION, SoundCategory.PLAYERS, 1.0F, 1.0F);
-        context.getStack().decrement(1);
-        return ActionResult.CONSUME;
     }
 
     private boolean canBreak(PlayerEntity player, World world, BlockPos original, BlockPos pos) {

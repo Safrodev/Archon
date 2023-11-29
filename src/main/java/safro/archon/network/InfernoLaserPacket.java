@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -34,15 +35,16 @@ public class InfernoLaserPacket {
         long seed = buf.readLong();
         double distance = boss.distanceTo(target);
         if (client.world != null) {
+            ClientWorld world = (ClientWorld)client.world;
             for (double i = 0; i < distance; i += 2) {
                 double position = ((i - 1) + 0.35408622399424106D * 2) / distance;
                 double x = boss.x + (target.x - boss.x) * position;
                 double y = boss.y + (target.y - boss.y) * position;
                 double z = boss.z + (target.z - boss.z) * position;
                 Vec3d vec3d = new Vec3d(x, y, z);
-                client.world.addParticle(ParticleRegistry.INFERNO_LASER, true, vec3d.x, vec3d.y, vec3d.z, 2.0D, 0.0D, 0.0D);
+                world.addParticle(ParticleRegistry.INFERNO_LASER, true, vec3d.x, vec3d.y, vec3d.z, 2.0D, 0.0D, 0.0D);
             }
-            client.world.playSound(client.player, boss.x, boss.y, boss.z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.HOSTILE, 1.0F, 0.8F, seed);
+            world.playSound(client.player, boss.x, boss.y, boss.z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.HOSTILE, 1.0F, 0.8F, seed);
         }
     }
 

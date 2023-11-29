@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
@@ -21,7 +22,7 @@ public class CrushSpell extends Spell {
     }
 
     @Override
-    public ActionResult castOnBlock(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
+    public ActionResult castOnBlock(ServerWorld world, BlockPos pos, PlayerEntity player, ItemStack stack) {
         if (isValid(world, pos)) {
             BlockState state = world.getBlockState(pos);
             state.getBlock().afterBreak(world, player, pos, state, world.getBlockEntity(pos), stack);

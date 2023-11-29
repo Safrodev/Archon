@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
@@ -68,14 +69,17 @@ public class WandItem extends Item {
         PlayerEntity player = context.getPlayer();
         Spell current = getCurrentSpell(stack, player);
 
-        if (current != null && current.isBlockCasted() && ArchonUtil.canRemoveMana(player, current.getManaCost())) {
-            if (current.castOnBlock(context.getWorld(), context.getBlockPos(), player, stack) == ActionResult.SUCCESS) {
-                ArcaneEnchantment.applyArcane(player, stack, current.getManaCost());
+        if (!context.getWorld().isClient() && player != null) {
+            ServerWorld world = (ServerWorld) context.getWorld();
+            if (current != null && current.isBlockCasted() && ArchonUtil.canRemoveMana(player, current.getManaCost())) {
+                if (current.castOnBlock(world, context.getBlockPos(), player, stack) == ActionResult.SUCCESS) {
+                    ArcaneEnchantment.applyArcane(player, stack, current.getManaCost());
 
-                if (current.getCastSound() != null) {
-                    context.getWorld().playSound(null, player.getBlockPos(), current.getCastSound(), SoundCategory.PLAYERS, 0.9F, 1.0F);
+                    if (current.getCastSound() != null) {
+                        world.playSound(null, player.getX(), player.getY(), player.getZ(), current.getCastSound(), SoundCategory.PLAYERS, 0.9F, 1.0F);
+                    }
+                    return ActionResult.SUCCESS;
                 }
-                return ActionResult.SUCCESS;
             }
         }
         return ActionResult.PASS;

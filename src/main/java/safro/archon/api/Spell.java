@@ -2,6 +2,7 @@ package safro.archon.api;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
@@ -62,7 +63,7 @@ public abstract class Spell {
      * @param stack Stack of the wand item
      * @return Returns an ActionResult for a successful or passed cast.
      */
-    public ActionResult castOnBlock(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
+    public ActionResult castOnBlock(ServerWorld world, BlockPos pos, PlayerEntity player, ItemStack stack) {
         return ActionResult.PASS;
     }
 
