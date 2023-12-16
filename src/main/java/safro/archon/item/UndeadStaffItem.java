@@ -10,7 +10,6 @@ import net.minecraft.world.World;
 import safro.archon.entity.OmegaSkeltEntity;
 import safro.archon.entity.PrimeSkeltEntity;
 import safro.archon.entity.SkeltEntity;
-import safro.archon.item.ManaItem;
 import safro.archon.registry.EntityRegistry;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
@@ -46,7 +45,7 @@ public class UndeadStaffItem extends ManaItem {
     public void summonSkelt(World world, PlayerEntity player, ItemEntity e, SkeltEntity skelt) {
         skelt.refreshPositionAndAngles(e.getBlockPos(), 0.0F, 0.0F);
         skelt.setOwner(player);
-        skelt.initEquipment(world.getLocalDifficulty(e.getBlockPos()));
+        skelt.initEquipment(world.getRandom(), world.getLocalDifficulty(e.getBlockPos()));
         world.spawnEntity(skelt);
         e.discard();
         ArchonUtil.get(player).removeMana(100);

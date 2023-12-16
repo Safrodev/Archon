@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Leven is a water boss with rapid, AOE melee attacks. From a distance, he will fire small water bolts that can create puddles on the hit target. His melee attack consists of slow punches and launching waves of short-range tridents. Leven drops a Wave Crystal upon death. You can find the items needed to summon him on the next page."
+      "text": "Leven is a water boss with a variety of attacks. Leven drops a Wave Crystal upon death. You can find the items needed to summon him on the next page."
     },
     {
       "type": "patchouli:entity",

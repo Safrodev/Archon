@@ -23,6 +23,7 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
     // 2 - Summoning Alya boss
     // 3 - Summoning Leven boss
     // 4 - Summoning Inigo boss
+    // 5 - Summoning Null boss
     private int processor = 0;
     private int spawnDelay = 60;
 
@@ -43,13 +44,15 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
                 return ActionResult.SUCCESS;
             } else {
                 if (SummonUtil.canSummonTar(this)) {
-                    checkAndSpawn(player, world, state, pos, 1);
+                    checkAndQueue(player, world, state, pos, 1);
                 } else if (SummonUtil.canSummonAlya(this)) {
-                    checkAndSpawn(player, world, state, pos, 2);
+                    checkAndQueue(player, world, state, pos, 2);
                 } else if (SummonUtil.canSummonLeven(this)) {
-                    checkAndSpawn(player, world, state, pos, 3);
+                    checkAndQueue(player, world, state, pos, 3);
                 } else if (SummonUtil.canSummonInigo(this)) {
-                    checkAndSpawn(player, world, state, pos, 4);
+                    checkAndQueue(player, world, state, pos, 4);
+                } else if (SummonUtil.canSummonNull(this)) {
+                    checkAndQueue(player, world, state, pos, 5);
                 }
                 return ActionResult.CONSUME;
             }
@@ -57,7 +60,7 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
         return ActionResult.PASS;
     }
 
-    public void checkAndSpawn(PlayerEntity player, World world, BlockState state, BlockPos pos, int processor) {
+    public void checkAndQueue(PlayerEntity player, World world, BlockState state, BlockPos pos, int processor) {
         if (world.getBlockState(pos.up()).isAir() && world.getBlockState(pos.up().up()).isAir()) {
             this.setProcessor(processor);
             this.clear();
@@ -86,6 +89,9 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
                     be.setProcessor(0);
                 } else if (be.getProcessor() == 4) {
                     SummonUtil.summonInigo(world, pos.up());
+                    be.setProcessor(0);
+                } else if (be.getProcessor() == 5) {
+                    SummonUtil.summonNull(world, pos.up());
                     be.setProcessor(0);
                 }
             }

@@ -21,6 +21,15 @@
     {
       "type": "patchouli:crafting",
       "recipe": "archon:void_scepter"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "archon:seeking_amulet",
+      "text": "The Seeking Amulet allows you to teleport to a set location from anywhere upon use. You can set a location by shift-right clicking on a block."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "archon:seeking_amulet"
     }
   ]
 }

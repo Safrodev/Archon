@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Inigo is a fire boss that shoots high-damage lasers. It will periodically run away from players to gain ranged distance and implode on targets that get too close. Inigo drops a Charred Eye upon death. You can find the items needed to summon it on the next page."
+      "text": "Inigo is a fire boss that shoots high-damage lasers. Inigo drops a Charred Eye upon death. You can find the items needed to summon it on the next page."
     },
     {
       "type": "patchouli:entity",

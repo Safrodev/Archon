@@ -30,6 +30,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.EntityView;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
@@ -155,7 +156,7 @@ public class SkeltEntity extends TameableEntity implements Angerable {
             player.sendMessage(Text.translatable("text.archon.skelt_stand").formatted(Formatting.DARK_AQUA), true);
     }
 
-    public void initEquipment(LocalDifficulty difficulty) {
+    public void initEquipment(Random random, LocalDifficulty difficulty) {
     }
 
     public float getScale() {

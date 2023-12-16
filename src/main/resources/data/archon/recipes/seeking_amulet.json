@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " II",
+    "GEI",
+    "GG "
+  ],
+  "key": {
+    "E": {
+      "item": "archon:soulless_eye"
+    },
+    "I": {
+      "item": "archon:glisteel_ingot"
+    },
+    "G": {
+      "item": "archon:end_gem"
+    }
+  },
+  "result": {
+    "item": "archon:seeking_amulet"
+  }
+}

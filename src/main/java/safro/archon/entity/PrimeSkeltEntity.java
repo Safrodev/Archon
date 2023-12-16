@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 
@@ -67,7 +68,7 @@ public class PrimeSkeltEntity extends SkeltEntity {
         }
     }
 
-    public void initEquipment(LocalDifficulty difficulty) {
+    public void initEquipment(Random random, LocalDifficulty difficulty) {
         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
     }
 }

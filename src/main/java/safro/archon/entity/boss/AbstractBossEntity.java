@@ -156,6 +156,7 @@ public abstract class AbstractBossEntity extends HostileEntity {
         this.dataTracker.set(INVUL_TIMER, ticks);
     }
 
+    @Override
     protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
         super.dropEquipment(source, lootingMultiplier, allowDrops);
         ItemEntity itemEntity = this.dropItem(getDrop());

@@ -11,6 +11,7 @@ import safro.archon.item.earth.RockyHarvesterItem;
 import safro.archon.item.earth.TerrainMaceItem;
 import safro.archon.item.earth.TerraneanAxeItem;
 import safro.archon.item.end.EnderBladeItem;
+import safro.archon.item.end.SeekingAmuletItem;
 import safro.archon.item.end.VoidScepterItem;
 import safro.archon.item.end.WarpingHarvesterItem;
 import safro.archon.item.fire.FlamingHarvesterItem;
@@ -55,6 +56,7 @@ public class ItemRegistry extends BaseBlockItemRegistry {
     public static final Item HEAVEN_DIAL = register("heaven_dial", new HeavenDialItem(settings().maxCount(1).rarity(Rarity.RARE)));
     public static final Item SEA_MASTER_CHARM = register("sea_master_charm", new SeaMasterCharmItem(settings().maxCount(1).rarity(Rarity.RARE)));
     public static final Item INFERNAL_COAT = register("infernal_coat", new InfernalCoatItem(MaterialRegistry.INFERNAL_COAT, ArmorItem.Type.CHESTPLATE, settings().fireproof().rarity(Rarity.RARE)));
+    public static final Item SEEKING_AMULET = register("seeking_amulet", new SeekingAmuletItem(settings().maxCount(1).rarity(Rarity.RARE)));
 
     // Necromancy
     public static final Item SOUL_CRUSHER = register("soul_crusher", new SwordItem(ToolMaterials.NETHERITE, 3, -2.4F, settings()));
@@ -107,6 +109,7 @@ public class ItemRegistry extends BaseBlockItemRegistry {
     public static final Item ANGELIC_STAR = register("angelic_star", new Item(settings()));
     public static final Item WAVE_CRYSTAL = register("wave_crystal", new Item(settings()));
     public static final Item CHARRED_EYE = register("charred_eye", new Item(settings()));
+    public static final Item SOULLESS_EYE = register("soulless_eye", new Item(settings()));
 
     public static final Item MANA_LEECH_SPAWN_EGG = register("mana_leech_spawn_egg", new SpawnEggItem(EntityRegistry.MANA_LEECH, 0x043C99, 0x1D75B1, settings()));
 

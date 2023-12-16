@@ -31,6 +31,8 @@
     "minecraft:bee",
     "minecraft:polar_bear",
     "minecraft:frog",
+    "minecraft:camel",
+    "minecraft:allay",
 
     { "id": "naturalist:snail", "required": false },
     { "id": "naturalist:bear", "required": false },

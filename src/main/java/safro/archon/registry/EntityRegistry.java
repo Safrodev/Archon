@@ -23,14 +23,15 @@ public class EntityRegistry extends BaseEntityRegistry {
     static { MODID = Archon.MODID; }
 
     // Projectiles
-    public static final EntityType<WaterBoltEntity> WATER_BOLT = register("water_bolt", FabricEntityTypeBuilder.<WaterBoltEntity>create(SpawnGroup.MISC, WaterBoltEntity::new).dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeChunks(4).trackedUpdateRate(10).build());
-    public static final EntityType<IceBallEntity> ICE_BALL = register("ice_ball", FabricEntityTypeBuilder.<IceBallEntity>create(SpawnGroup.MISC, IceBallEntity::new).dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeChunks(4).trackedUpdateRate(10).build());
+    public static final EntityType<WaterBoltEntity> WATER_BOLT = register("water_bolt", FabricEntityTypeBuilder.<WaterBoltEntity>create(SpawnGroup.MISC, WaterBoltEntity::new).dimensions(projectile()).trackRangeChunks(4).trackedUpdateRate(10).build());
+    public static final EntityType<IceBallEntity> ICE_BALL = register("ice_ball", FabricEntityTypeBuilder.<IceBallEntity>create(SpawnGroup.MISC, IceBallEntity::new).dimensions(projectile()).trackRangeChunks(4).trackedUpdateRate(10).build());
     public static final EntityType<WindBallEntity> WIND_BALL = register("wind_ball", FabricEntityTypeBuilder.<WindBallEntity>create(SpawnGroup.MISC, WindBallEntity::new).dimensions(EntityDimensions.fixed(0.3125F, 0.3125F)).trackRangeChunks(4).trackedUpdateRate(10).build());
+
     // Spell Projectiles
-    public static final EntityType<SpellProjectileEntity> SPELL_PROJECTILE = register("spell_projectile", FabricEntityTypeBuilder.<SpellProjectileEntity>create(SpawnGroup.MISC, SpellProjectileEntity::new).dimensions(spell()).trackRangeChunks(8).trackedUpdateRate(10).build());
-    public static final EntityType<HellbeamEntity> HELLBEAM = register("hellbeam", FabricEntityTypeBuilder.<HellbeamEntity>create(SpawnGroup.MISC, HellbeamEntity::new).dimensions(spell()).trackRangeChunks(8).trackedUpdateRate(10).build());
-    public static final EntityType<CloudshotEntity> CLOUDSHOT = register("cloudshot", FabricEntityTypeBuilder.<CloudshotEntity>create(SpawnGroup.MISC, CloudshotEntity::new).dimensions(spell()).trackRangeChunks(8).trackedUpdateRate(10).build());
-    public static final EntityType<TerrainEntity> TERRAIN = register("terrain", FabricEntityTypeBuilder.<TerrainEntity>create(SpawnGroup.MISC, TerrainEntity::new).dimensions(spell()).trackRangeChunks(8).trackedUpdateRate(10).build());
+    public static final EntityType<SpellProjectileEntity> SPELL_PROJECTILE = register("spell_projectile", FabricEntityTypeBuilder.<SpellProjectileEntity>create(SpawnGroup.MISC, SpellProjectileEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
+    public static final EntityType<HellbeamEntity> HELLBEAM = register("hellbeam", FabricEntityTypeBuilder.<HellbeamEntity>create(SpawnGroup.MISC, HellbeamEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
+    public static final EntityType<CloudshotEntity> CLOUDSHOT = register("cloudshot", FabricEntityTypeBuilder.<CloudshotEntity>create(SpawnGroup.MISC, CloudshotEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
+    public static final EntityType<TerrainEntity> TERRAIN = register("terrain", FabricEntityTypeBuilder.<TerrainEntity>create(SpawnGroup.MISC, TerrainEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
 
     // Necromancy
     public static final EntityType<SkeltEntity> SKELT = register("skelt", FabricEntityTypeBuilder.<SkeltEntity>create(SpawnGroup.MISC, SkeltEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.99F)).trackRangeChunks(10).build());
@@ -45,7 +46,7 @@ public class EntityRegistry extends BaseEntityRegistry {
     public static final EntityType<AlyaEntity> ALYA = register("ayla", FabricEntityTypeBuilder.<AlyaEntity>create(SpawnGroup.MISC, AlyaEntity::new).dimensions(player()).trackRangeChunks(15).build());
     public static final EntityType<LevenEntity> LEVEN = register("leven", FabricEntityTypeBuilder.<LevenEntity>create(SpawnGroup.MISC, LevenEntity::new).dimensions(player()).trackRangeChunks(15).build());
     public static final EntityType<InigoEntity> INIGO = register("inigo", FabricEntityTypeBuilder.<InigoEntity>create(SpawnGroup.MISC, InigoEntity::new).dimensions(player()).trackRangeChunks(15).fireImmune().build());
-//    public static final EntityType<NullEntity> NULL = register("null", FabricEntityTypeBuilder.<NullEntity>create(SpawnGroup.MISC, NullEntity::new).dimensions(player()).trackRangeChunks(15).build());
+    public static final EntityType<NullEntity> NULL = register("null", FabricEntityTypeBuilder.<NullEntity>create(SpawnGroup.MISC, NullEntity::new).dimensions(player()).trackRangeChunks(15).build());
 
     public static void init() {
         addAttributes(SKELT, SkeltEntity.createSkeltAttributes());
@@ -56,10 +57,10 @@ public class EntityRegistry extends BaseEntityRegistry {
         addAttributes(ALYA, AlyaEntity.createAlyaAttributes());
         addAttributes(LEVEN, LevenEntity.createLevenAttributes());
         addAttributes(INIGO, InigoEntity.createInigoAttributes());
-//        addAttributes(NULL, NullEntity.createNullAttributes());
+        addAttributes(NULL, NullEntity.createNullAttributes());
     }
 
-    private static EntityDimensions spell() {
+    private static EntityDimensions projectile() {
         return EntityDimensions.fixed(0.25F, 0.25F);
     }
 }

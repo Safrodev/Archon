@@ -1,8 +1,7 @@
 package safro.archon.entity.boss;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
@@ -18,6 +17,10 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.sound.SoundEvents;
@@ -26,13 +29,20 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import safro.archon.entity.ai.SpinShotGoal;
+import org.jetbrains.annotations.Nullable;
+import safro.archon.entity.ai.DistanceMeleeGoal;
+import safro.archon.entity.ai.ShardShotGoal;
+import safro.archon.entity.ai.SummonEndermenGoal;
 import safro.archon.registry.ItemRegistry;
 
 public class NullEntity extends AbstractBossEntity {
-    private static final TrackedData<Integer> SPIN_COOLDOWN = DataTracker.registerData(InigoEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Integer> SHARD_COOLDOWN = DataTracker.registerData(NullEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Integer> SUMMON_COOLDOWN = DataTracker.registerData(NullEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public NullEntity(EntityType<? extends NullEntity> entityType, World world) {
         super(entityType, world);
@@ -44,7 +54,9 @@ public class NullEntity extends AbstractBossEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(0, new SpinShotGoal(this));
+        this.goalSelector.add(0, new ShardShotGoal(this));
+        this.goalSelector.add(0, new SummonEndermenGoal(this));
+        this.goalSelector.add(1, new DistanceMeleeGoal(this, 1.5D, false, 10.0F));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(6, new LookAroundGoal(this));
         this.targetSelector.add(1, new RevengeGoal(this));
@@ -55,15 +67,19 @@ public class NullEntity extends AbstractBossEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.getSpinCooldown() > 0) {
-            this.setSpinCooldown(this.getSpinCooldown() - 1);
+        if (this.getShardCooldown() > 0) {
+            this.setShardCooldown(this.getShardCooldown() - 1);
+        }
+
+        if (this.getSummonCooldown() > 0) {
+            this.setSummonCooldown(this.getSummonCooldown() - 1);
         }
     }
 
     @Override
     public boolean damage(DamageSource source, float amount) {
         if (!this.getWorld().isClient()) {
-            if ((source.getAttacker() != null && source.getAttacker() instanceof PlayerEntity) || source.isIn(DamageTypeTags.IS_PROJECTILE)) {
+            if ((source.getAttacker() != null && source.getAttacker() instanceof LivingEntity) || source.isIn(DamageTypeTags.IS_PROJECTILE)) {
                 for (int i = 0; i < 16; i++) {
                     if (this.teleportRandomly()) break;
                 }
@@ -72,24 +88,36 @@ public class NullEntity extends AbstractBossEntity {
         return super.damage(source, amount);
     }
 
+    @Override
+    public void initEquipment(Random random, LocalDifficulty difficulty) {
+        this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ItemRegistry.ENDER_BLADE));
+    }
+
+    @Override
+    @Nullable
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+        Random random = world.getRandom();
+        this.initEquipment(random, difficulty);
+        return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+    }
+
+    @Override
+    protected float getDropChance(EquipmentSlot slot) {
+        if (slot.getType() == EquipmentSlot.Type.HAND) {
+            return 0.0F;
+        }
+        return super.getDropChance(slot);
+    }
+
     protected boolean teleportRandomly() {
         if (!this.getWorld().isClient() && this.isAlive()) {
             double d = this.getX() + (this.random.nextDouble() - 0.5D) * 16.0D;
-            double e = this.getY() + (double)(this.random.nextInt(32) - 16);
+            double e = this.getY() + (double)(this.random.nextInt(10) - 5);
             double f = this.getZ() + (this.random.nextDouble() - 0.5D) * 16.0D;
             return this.teleportTo(d, e, f);
         } else {
             return false;
         }
-    }
-
-    private boolean teleportTo(Entity entity) {
-        Vec3d vec3d = new Vec3d(this.getX() - entity.getX(), this.getBodyY(0.5D) - entity.getEyeY(), this.getZ() - entity.getZ());
-        vec3d = vec3d.normalize();
-        double e = this.getX() + (this.random.nextDouble() - 0.5D) * 8.0D - vec3d.x * 16.0D;
-        double f = this.getY() + (double)(this.random.nextInt(16) - 8) - vec3d.y * 16.0D;
-        double g = this.getZ() + (this.random.nextDouble() - 0.5D) * 8.0D - vec3d.z * 16.0D;
-        return this.teleportTo(e, f, g);
     }
 
     private boolean teleportTo(double x, double y, double z) {
@@ -118,18 +146,45 @@ public class NullEntity extends AbstractBossEntity {
         }
     }
 
-    public int getSpinCooldown() {
-        return this.dataTracker.get(SPIN_COOLDOWN);
+    public int getShardCooldown() {
+        return this.dataTracker.get(SHARD_COOLDOWN);
     }
 
-    public void setSpinCooldown(int cooldown) {
-        this.dataTracker.set(SPIN_COOLDOWN, cooldown);
+    public void setShardCooldown(int cooldown) {
+        this.dataTracker.set(SHARD_COOLDOWN, cooldown);
+    }
+
+    public int getSummonCooldown() {
+        return this.dataTracker.get(SUMMON_COOLDOWN);
+    }
+
+    public void setSummonCooldown(int cooldown) {
+        this.dataTracker.set(SUMMON_COOLDOWN, cooldown);
     }
 
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        this.dataTracker.startTracking(SPIN_COOLDOWN, 200);
+        this.dataTracker.startTracking(SHARD_COOLDOWN, 200);
+        this.dataTracker.startTracking(SUMMON_COOLDOWN, 80);
+    }
+
+    @Override
+    public void handleStatus(byte status) {
+        if (status == 12) {
+            this.produceParticles(ParticleTypes.DRAGON_BREATH);
+        } else {
+            super.handleStatus(status);
+        }
+    }
+
+    protected void produceParticles(ParticleEffect parameters) {
+        for(int i = 0; i < 5; ++i) {
+            double d = this.random.nextGaussian() * 0.02D;
+            double e = this.random.nextGaussian() * 0.02D;
+            double f = this.random.nextGaussian() * 0.02D;
+            this.getWorld().addParticle(parameters, this.getParticleX(1.0D), this.getRandomBodyY() + 1.0D, this.getParticleZ(1.0D), d, e, f);
+        }
     }
 
     @Override
@@ -144,7 +199,7 @@ public class NullEntity extends AbstractBossEntity {
 
     @Override
     public Item getDrop() {
-        return ItemRegistry.WAVE_CRYSTAL;
+        return ItemRegistry.SOULLESS_EYE;
     }
 
     @Override

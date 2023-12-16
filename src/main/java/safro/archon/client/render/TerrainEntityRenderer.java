@@ -1,5 +1,6 @@
 package safro.archon.client.render;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -25,7 +26,11 @@ public class TerrainEntityRenderer extends EntityRenderer<TerrainEntity> {
         matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(g, projectile.prevYaw, projectile.getYaw())));
         matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(MathHelper.lerp(g, projectile.prevPitch, projectile.getPitch())));
         BlockRenderManager blockRenderManager = MinecraftClient.getInstance().getBlockRenderManager();
-        blockRenderManager.renderBlockAsEntity(projectile.getBlock().getDefaultState(), matrixStack, vertexConsumerProvider, i, OverlayTexture.DEFAULT_UV);
+        if (projectile.getCustomName() != null && projectile.getCustomName().getString().equals("NullShard")) {
+            blockRenderManager.renderBlockAsEntity(Blocks.OBSIDIAN.getDefaultState(), matrixStack, vertexConsumerProvider, i, OverlayTexture.DEFAULT_UV);
+        } else {
+            blockRenderManager.renderBlockAsEntity(projectile.getBlock().getDefaultState(), matrixStack, vertexConsumerProvider, i, OverlayTexture.DEFAULT_UV);
+        }
         matrixStack.pop();
         super.render(projectile, f, g, matrixStack, vertexConsumerProvider, i);
     }

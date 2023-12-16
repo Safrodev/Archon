@@ -7,10 +7,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.block.entity.SummoningPedestalBlockEntity;
-import safro.archon.entity.boss.AlyaEntity;
-import safro.archon.entity.boss.InigoEntity;
-import safro.archon.entity.boss.LevenEntity;
-import safro.archon.entity.boss.TarEntity;
+import safro.archon.entity.boss.*;
 import safro.archon.registry.EntityRegistry;
 import safro.archon.registry.ItemRegistry;
 
@@ -57,6 +54,17 @@ public class SummonUtil {
         inigo.refreshPositionAndAngles(pos, 0.0F, 0.0F);
         inigo.onSummoned();
         world.spawnEntity(inigo);
+    }
+
+    public static boolean canSummonNull(SummoningPedestalBlockEntity be) {
+        return be.hasItem(Items.ENDER_PEARL) && be.hasItem(ItemRegistry.END_GEM) && be.hasItem(Items.END_CRYSTAL) && be.hasItem(ItemRegistry.END_ESSENCE);
+    }
+
+    public static void summonNull(World world, BlockPos pos) {
+        NullEntity entity = EntityRegistry.NULL.create(world);
+        entity.refreshPositionAndAngles(pos, 0.0F, 0.0F);
+        entity.onSummoned();
+        world.spawnEntity(entity);
     }
 
     public static void addLightning(World world, BlockPos pos) {

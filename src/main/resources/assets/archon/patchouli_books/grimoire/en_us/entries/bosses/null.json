@@ -1,0 +1,17 @@
+{
+  "name": "Null",
+  "icon": "archon:soulless_eye",
+  "category": "archon:bosses",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Null is an end boss and the most powerful of the five. Null drops a Soulless Eye upon death. You can find the items needed to summon it on the next page."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:null",
+      "text": "End Gem, Ender Pearl, End Crystal, End Essence"
+    }
+  ]
+}

@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Ayla is a Sky boss who launches wind attacks. Her wind gusts will throw you around a lot, so it's best to dodge quickly. She will occasionally hover in the air, so make sure you have a ranged weapon. Ayla drops an Angelic Star upon death. You can find the items needed to summon her on the next page."
+      "text": "Ayla is a Sky boss who launches wind attacks. Ayla drops an Angelic Star upon death. You can find the items needed to summon her on the next page."
     },
     {
       "type": "patchouli:entity",
