@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.thread.ThreadExecutor;
 import net.minecraft.world.World;
 import safro.archon.Archon;
 import safro.archon.registry.ItemRegistry;
@@ -31,7 +32,9 @@ public class InfernalImplodePacket {
             int mana = ArchonUtil.get(player).getMana();
             float power = MathHelper.clamp((float) mana / 30.0F, 0.1F, 10.0F);
             ServerWorld world = player.getServerWorld();
-            world.createExplosion(player, player.getX(), player.getY(), player.getZ(), power, World.ExplosionSourceType.NONE);
+            player.getServer().execute(() -> {
+                world.createExplosion(player, player.getX(), player.getY(), player.getZ(), power, World.ExplosionSourceType.NONE);
+            });
 
             for (int i = 0; i < Direction.Axis.VALUES.length; i++) {
                 for (Vec3d vec3d : MathUtil.getCircle(player.getX(), player.getY(), player.getZ(), 3.5D, 2, Direction.Axis.VALUES[i])) {
