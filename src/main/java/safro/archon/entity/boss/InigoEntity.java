@@ -16,15 +16,16 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.entity.ai.BurstGoal;
-import safro.archon.network.InfernoLaserPacket;
 import safro.archon.registry.ItemRegistry;
+import safro.archon.registry.ParticleRegistry;
+import safro.saflib.network.ParticlePacket;
+import safro.saflib.util.MathUtil;
 
 public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
     private static final TrackedData<Integer> BURST_COOLDOWN = DataTracker.registerData(InigoEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -77,9 +78,12 @@ public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
         Vec3d headPos = new Vec3d(pos.x, pos.y, pos.z);
         float rotation = ((this.getYaw() - 90) / 360) * (float) Math.PI * 2F;
         headPos.add(MathHelper.cos(rotation) * 7, 0, MathHelper.sin(rotation) * 7);
+        Vec3d targetEye = target.getEyePos();
 
-        if (!this.getWorld().isClient) {
-            InfernoLaserPacket.send((ServerWorld) this.getWorld(), headPos, target.getEyePos());
+        if (!this.getWorld().isClient()) {
+            for (Vec3d vec3d : MathUtil.getLine(headPos, targetEye, 0.2D)) {
+                ParticlePacket.send(this, ParticleRegistry.INFERNO_LASER, vec3d.x, vec3d.y, vec3d.z, 2.0D, 0.0D, 0.0D);
+            }
         }
 
         this.setTarget(target);

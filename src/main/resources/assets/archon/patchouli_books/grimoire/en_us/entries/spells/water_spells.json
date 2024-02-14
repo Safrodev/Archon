@@ -27,6 +27,11 @@
       "type": "patchouli:text",
       "title": "Mend",
       "text": "Heals the user for 4 hearts and clear all negative effects $(li)Mana Cost: 40"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Overcast",
+      "text": "Allows the user to set the weather to raining"
     }
   ]
 }

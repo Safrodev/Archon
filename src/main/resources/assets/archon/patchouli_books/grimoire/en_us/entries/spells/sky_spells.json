@@ -27,6 +27,11 @@
       "type": "patchouli:text",
       "title": "Cloudshot",
       "text": "Fire a slow moving cloud that deals high damage $(li)Mana Cost: 30"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Clearing Breeze",
+      "text": "Allows the user to clear the weather"
     }
   ]
 }
