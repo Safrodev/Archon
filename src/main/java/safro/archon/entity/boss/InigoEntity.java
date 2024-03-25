@@ -16,8 +16,10 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -69,23 +71,6 @@ public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
 
     @Override
     public void attack(LivingEntity target, float pullProgress) {
-        Vec3d pos = this.getEyePos();
-        Vec3d targetPos = new Vec3d(target.getEyePos().x, target.getEyePos().y, target.getEyePos().z);
-        targetPos.subtract(pos);
-        targetPos.normalize();
-        float targetYaw = (float) (MathHelper.atan2(targetPos.x, targetPos.z) * (double) (180F / (float) Math.PI));
-        this.setYaw(-targetYaw - 180);
-        Vec3d headPos = new Vec3d(pos.x, pos.y, pos.z);
-        float rotation = ((this.getYaw() - 90) / 360) * (float) Math.PI * 2F;
-        headPos.add(MathHelper.cos(rotation) * 7, 0, MathHelper.sin(rotation) * 7);
-        Vec3d targetEye = target.getEyePos();
-
-        if (!this.getWorld().isClient()) {
-            for (Vec3d vec3d : MathUtil.getLine(headPos, targetEye, 0.2D)) {
-                ParticlePacket.send(this, ParticleRegistry.INFERNO_LASER, vec3d.x, vec3d.y, vec3d.z, 2.0D, 0.0D, 0.0D);
-            }
-        }
-
         this.setTarget(target);
         this.beamDelay = 15;
     }
@@ -98,6 +83,23 @@ public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
             --this.beamDelay;
 
             if (this.beamDelay == 0 && this.getTarget() != null) {
+                LivingEntity target = this.getTarget();
+                Vec3d pos = this.getEyePos();
+                Vec3d targetPos = new Vec3d(target.getEyePos().x, target.getEyePos().y, target.getEyePos().z);
+                targetPos.subtract(pos);
+                targetPos.normalize();
+                float targetYaw = (float) (MathHelper.atan2(targetPos.x, targetPos.z) * (double) (180F / (float) Math.PI));
+                this.setYaw(-targetYaw - 180);
+                Vec3d headPos = new Vec3d(pos.x, pos.y, pos.z);
+                float rotation = ((this.getYaw() - 90) / 360) * (float) Math.PI * 2F;
+                headPos.add(MathHelper.cos(rotation) * 7, 0, MathHelper.sin(rotation) * 7);
+                Vec3d targetEye = target.getEyePos();
+
+                if (!this.getWorld().isClient()) {
+                    for (Vec3d vec3d : MathUtil.getLine(headPos, targetEye, 0.2D)) {
+                        ParticlePacket.send(this, ParticleRegistry.INFERNO_LASER, vec3d.x, vec3d.y, vec3d.z, 2.0D, 0.0D, 0.0D);
+                    }
+                }
                 this.getTarget().damage(this.getWorld().getDamageSources().mobAttack(this), 15.0F);
             }
         }
@@ -109,6 +111,19 @@ public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
             attacker.setOnFireFor(3);
         }
         return super.damage(source, amount);
+    }
+
+    @Override
+    public void handleStatus(byte status) {
+        if (status == 18) {
+            for (int i = 0; i < Direction.Axis.VALUES.length; i++) {
+                for (Vec3d vec3d : MathUtil.getCircle(this.getX(), this.getY(), this.getZ(), 4.5D, 2, Direction.Axis.VALUES[i])) {
+                    this.getWorld().addParticle(ParticleTypes.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0.0D, 0.03D, 0.0D);
+                }
+            }
+        } else {
+            super.handleStatus(status);
+        }
     }
 
     public int getBurstCooldown() {

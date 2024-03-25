@@ -87,8 +87,8 @@ public class ItemRegistry extends BaseBlockItemRegistry {
     public static final Item SOUL_CORE_BOSS = register("soul_core_boss", new SoulItem(SoulType.BOSS, settings()));
 
     // Resources + Misc
-    public static final Item EXPERIENCE_POUCH = register("experience_pouch", new ExperiencePouchItem(200, settings().maxCount(1)));
-    public static final Item SUPER_EXPERIENCE_POUCH = register("super_experience_pouch", new ExperiencePouchItem(400, settings().maxCount(1)));
+    public static final Item EXPERIENCE_POUCH = register("experience_pouch", new ExperiencePouchItem(550, settings().maxCount(1)));
+    public static final Item SUPER_EXPERIENCE_POUCH = register("super_experience_pouch", new ExperiencePouchItem(2920, settings().maxCount(1)));
     public static final Item GLISTEEL_INGOT = register("glisteel_ingot", new Item(settings()));
     public static final Item FIRE_GEM = register("fire_gem", new Item(settings()));
     public static final Item WATER_GEM = register("water_gem", new Item(settings()));

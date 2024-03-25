@@ -4,13 +4,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.entity.boss.InigoEntity;
-import safro.saflib.network.ParticlePacket;
-import safro.saflib.util.MathUtil;
 
 import java.util.List;
 
@@ -45,12 +40,7 @@ public class BurstGoal extends Goal {
     public void tick() {
         ++this.ticks;
         this.mob.getWorld().createExplosion(this.mob, this.mob.getX(), this.mob.getY(), this.mob.getZ(), 6.0F, World.ExplosionSourceType.NONE);
-
-        for (int i = 0; i < Direction.Axis.VALUES.length; i++) {
-            for (Vec3d vec3d : MathUtil.getCircle(this.mob.getX(), this.mob.getY(), this.mob.getZ(), this.range, 2, Direction.Axis.VALUES[i])) {
-                ParticlePacket.send(this.mob, ParticleTypes.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0.0D, 0.03D, 0.0D);
-            }
-        }
+        this.mob.getWorld().sendEntityStatus(this.mob, (byte)18);
     }
 
     private boolean areTargetsInRange() {

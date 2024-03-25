@@ -42,7 +42,7 @@ public class ExperiencePouchScreenHandler extends ScreenHandler {
     }
 
     public int getMaxExperience() {
-        return this.stack.isOf(ItemRegistry.SUPER_EXPERIENCE_POUCH) ? 400 : 200;
+        return this.stack.isOf(ItemRegistry.SUPER_EXPERIENCE_POUCH) ? 2920 : 550;
     }
 
     @Override

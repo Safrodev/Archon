@@ -38,7 +38,7 @@ public class ExperienceButtonWidget extends PressableWidget {
 
         context.drawTexture(ExperiencePouchScreen.TEXTURE, this.getX(), this.getY(), j, 219, this.width, this.height);
         int x = this.value >= 10 ? 6 : 8;
-        context.drawTextWithShadow(this.textRenderer, this.text, this.getX() + x, this.getY() + 7, 16777215 | MathHelper.ceil(this.alpha * 255.0F) << 24);
+        context.drawTextWithShadow(this.textRenderer, this.text, this.getX() + 6, this.getY() + 7, 16777215 | MathHelper.ceil(this.alpha * 255.0F) << 24);
     }
 
     @Override
