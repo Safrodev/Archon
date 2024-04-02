@@ -22,13 +22,18 @@ public class SpellComponent implements AutoSyncedComponent {
 
     @Override
     public void readFromNbt(NbtCompound tag) {
+        getSpells().clear();
+
         if (tag.contains("Spells")) {
             NbtList list = tag.getList("Spells", NbtElement.COMPOUND_TYPE);
 
             for (int i = 0; i < list.size(); i++) {
                 NbtCompound nbt = list.getCompound(i);
                 Spell s = SpellRegistry.REGISTRY.get(new Identifier(nbt.getString("Spell")));
-                getSpells().add(s);
+
+                if (!getSpells().contains(s)) {
+                    getSpells().add(s);
+                }
             }
         }
     }
