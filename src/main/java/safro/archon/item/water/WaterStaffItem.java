@@ -7,7 +7,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import safro.archon.entity.projectile.WaterBoltEntity;
 import safro.archon.item.ManaWeapon;
-import safro.archon.util.SpellUtil;
 
 public class WaterStaffItem extends ManaWeapon {
 
@@ -22,7 +21,7 @@ public class WaterStaffItem extends ManaWeapon {
 
     @Override
     public boolean activate(World world, PlayerEntity player, ItemStack stack, Hand hand) {
-        WaterBoltEntity bolt = new WaterBoltEntity(world, player, SpellUtil.getRotationX(player), SpellUtil.getRotationY(player), SpellUtil.getRotationZ(player));
+        WaterBoltEntity bolt = new WaterBoltEntity(world, player, 5.0F, 5.0F, 5.0F);
         bolt.setPosition(player.getX(), player.getBodyY(0.5D), bolt.getZ());
         bolt.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 2.5F, 1.0F);
         world.spawnEntity(bolt);

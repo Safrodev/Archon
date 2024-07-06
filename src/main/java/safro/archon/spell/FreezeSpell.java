@@ -4,7 +4,6 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
@@ -20,10 +19,10 @@ public class FreezeSpell extends Spell {
 
     @Override
     public void cast(World world, PlayerEntity player, ItemStack stack) {
-        SpellUtil.create(world, player, Items.SNOW_BLOCK, (target, owner, projectile) -> {
+        SpellUtil.shoot(world, player, (target, owner, projectile) -> {
           target.setFrozenTicks(200);
-          target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 1, false, false, false));
-        });
+          target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 4, true, false, false));
+        }, 0.9F);
     }
 
     @Override

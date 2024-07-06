@@ -43,7 +43,7 @@ public class RemovalScrollItem extends Item {
             ArchonUtil.get(player).removeMaxModifier(ManaAttributes.CAPACITY_SCROLL_MODIFIER);
             ArchonUtil.get(player).clampMana();
         } else if (name.equals("accelerate")) {
-            ArchonUtil.get(player).setRegenSpeed(20);
+//            ArchonUtil.get(player).setRegenSpeed(20);
         }
     }
 

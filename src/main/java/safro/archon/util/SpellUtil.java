@@ -1,52 +1,54 @@
 package safro.archon.util;
 
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellDamageSource;
+import net.spell_power.api.SpellPower;
 import org.jetbrains.annotations.Nullable;
-import safro.archon.Archon;
-import safro.archon.api.Spell;
-import safro.archon.compat.SpellPowerCompat;
-import safro.archon.entity.projectile.spell.HitExecutor;
+import safro.archon.api.Element;
+import safro.archon.api.HitExecutor;
 import safro.archon.entity.projectile.spell.SpellProjectileEntity;
 import safro.archon.registry.EntityRegistry;
 
 public class SpellUtil {
 
-    public static SpellProjectileEntity create(World world, PlayerEntity player, ItemConvertible item, HitExecutor executor) {
-        return create(world, player, item, executor, 2.0F);
+    public static SpellProjectileEntity shoot(World world, PlayerEntity player, HitExecutor hitExecutor, float speed) {
+        return shoot(world, player, new SpellProjectileEntity(EntityRegistry.SPELL_PROJECTILE, world, player, hitExecutor), speed);
     }
 
-    public static SpellProjectileEntity create(World world, PlayerEntity player, ItemConvertible item, HitExecutor hitExecutor, float speed) {
-        return spawn(world, player, new SpellProjectileEntity(EntityRegistry.SPELL_PROJECTILE, world, player, hitExecutor, new ItemStack(item)), speed);
-    }
-
-    public static SpellProjectileEntity spawn(World world, LivingEntity player, SpellProjectileEntity projectile, float speed) {
-        projectile.updatePosition(player.getX(), player.getEyeY(), player.getZ());
-        projectile.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, speed, 1.0F);
+    public static SpellProjectileEntity shoot(World world, PlayerEntity player, SpellProjectileEntity projectile, float speed) {
+        projectile.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, speed, 0.8F);
         world.spawnEntity(projectile);
         return projectile;
     }
 
-    public static boolean damage(PlayerEntity caster, LivingEntity target, Spell spell, float damage) {
-        return damage(caster, target, spell, damage, caster.getDamageSources().indirectMagic(caster, caster));
-    }
+    public static void damage(PlayerEntity caster, LivingEntity target, SpellProjectileEntity projectile, Element element, double multiplier, double knockback) {
+        SpellPower.Result result = SpellPower.getSpellPower(element.getSchool(), caster);
+        SpellPower.Vulnerability vulnerability = SpellPower.getVulnerability(target, element.getSchool());
+        double damage = result.randomValue(vulnerability);
+        damage *= multiplier;
 
-    public static boolean damage(PlayerEntity caster, LivingEntity target, Spell spell, float damage, DamageSource source) {
-        if (CompatUtil.isSpellPowerInstalled() && Archon.CONFIG.enableSpellPowerCompat) {
-            double i = SpellPowerCompat.getBonusDamage(caster, target, spell);
-            float bonus = damage + Double.valueOf(i).floatValue();
-            return SpellPowerCompat.damage(caster, target, spell, bonus);
+        caster.onAttacking(target);
+        if (target.damage(SpellDamageSource.create(element.getSchool(), caster), (float) damage)) {
+            if (knockback > 0.0D) {
+                double resistance = Math.max(0.0D, 1.0D - target.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE));
+                Vec3d vec3d = projectile.getVelocity().multiply(1.0D, 0.0D, 1.0D).normalize().multiply(knockback * 0.6D * resistance);
+                if (vec3d.lengthSquared() > 0.0D) {
+                    target.addVelocity(vec3d.x, 0.1D, vec3d.z);
+                }
+            }
+
+            EnchantmentHelper.onUserDamaged(target, caster);
+            EnchantmentHelper.onTargetDamaged(caster, target);
         }
-        return target.damage(source, damage);
     }
 
     @Nullable
@@ -62,17 +64,5 @@ public class SpellUtil {
             return null;
         }
         return hit.getEntity();
-    }
-
-    public static double getRotationX(PlayerEntity player) {
-        return (player.getX() + player.getRotationVec(0.0F).x * 4.0D) - player.getX();
-    }
-
-    public static double getRotationY(PlayerEntity player) {
-        return (player.getY() + player.getRotationVec(0.0F).y * 4.0D) - player.getY();
-    }
-
-    public static double getRotationZ(PlayerEntity player) {
-        return (player.getZ() + player.getRotationVec(0.0F).z * 4.0D) - player.getZ();
     }
 }

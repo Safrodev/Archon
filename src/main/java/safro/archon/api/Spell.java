@@ -68,7 +68,7 @@ public abstract class Spell {
     }
 
     /**
-     * Used to check if a block needs to be casted on a block or not
+     * Used to check if a block needs to be cast on a block or not
      * @return Returns true if the spell needs to be used on a block
      */
     public boolean isBlockCasted() {

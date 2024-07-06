@@ -9,6 +9,7 @@ import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.render.entity.EmptyEntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
@@ -20,7 +21,6 @@ import safro.archon.client.render.block.ScriptureTableBlockEntityRenderer;
 import safro.archon.client.render.block.SummoningPedestalBlockEntityRenderer;
 import safro.archon.client.screen.ExperiencePouchScreen;
 import safro.archon.client.screen.ScriptureTableScreen;
-import safro.saflib.client.render.EmptyEntityRenderer;
 
 public class ClientRegistry {
     public static final KeyBinding IC_KEY = new KeyBinding("key.archon.infernal_coat", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_PERIOD, "category.archon.archon");
@@ -30,9 +30,8 @@ public class ClientRegistry {
         EntityRendererRegistry.register(EntityRegistry.WATER_BOLT, WaterBoltEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.ICE_BALL, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.WIND_BALL, EmptyEntityRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.SPELL_PROJECTILE, FlyingItemEntityRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.HELLBEAM, EmptyEntityRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.CLOUDSHOT, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.SPELL_PROJECTILE, EmptyEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.CLOUDSHOT, EmptyEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.TERRAIN, TerrainEntityRenderer::new);
 
         EntityRendererRegistry.register(EntityRegistry.SKELT, SkeltEntityRenderer::new);

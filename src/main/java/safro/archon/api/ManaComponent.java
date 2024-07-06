@@ -6,17 +6,16 @@ import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.util.math.MathHelper;
 import safro.archon.registry.ComponentsRegistry;
 import safro.archon.registry.EffectRegistry;
-import safro.archon.util.ArchonUtil;
 
 import java.util.UUID;
 
 public class ManaComponent implements AutoSyncedComponent, ServerTickingComponent {
     private final PlayerEntity player;
-    private int mana = 1;
+    private int mana = 0;
     private int manaTickTimer;
-    private int regenSpeed = 20;
 
     public ManaComponent(PlayerEntity player) {
         this.player = player;
@@ -24,11 +23,10 @@ public class ManaComponent implements AutoSyncedComponent, ServerTickingComponen
 
     @Override
     public void serverTick() {
-        if (this.getMana() < 0) {
-            this.setMana(1);
-        } else if (this.getMana() < this.getMaxMana()) {
+        this.clampMana();
+        if (this.getMana() < this.getMaxMana()) {
             ++this.manaTickTimer;
-            if (this.manaTickTimer >= this.getRegenSpeed()) {
+            if (this.manaTickTimer >= 4) {
                 ++this.mana;
                 this.manaTickTimer = 0;
                 ComponentsRegistry.MANA_COMPONENT.sync(player);
@@ -42,26 +40,12 @@ public class ManaComponent implements AutoSyncedComponent, ServerTickingComponen
     public void readFromNbt(NbtCompound nbt) {
         this.mana = nbt.getInt("mana");
         this.manaTickTimer = nbt.getInt("manaTickTimer");
-        this.regenSpeed = nbt.getInt("regenSpeed");
     }
 
     @Override
     public void writeToNbt(NbtCompound nbt) {
         nbt.putInt("mana", this.mana);
         nbt.putInt("manaTickTimer", this.manaTickTimer);
-        nbt.putInt("regenSpeed", this.regenSpeed);
-    }
-
-    /**
-     * Sets the Player's mana regen speed to the default for the player
-     * Defaults to 20, but returns 10 if the player has an Ancient Scroll (Accelerate)
-     */
-    public void setDefaultRegenSpeed() {
-        int x = 20;
-        if (ArchonUtil.getScroll(player) != null && ArchonUtil.getScroll(player).equals("accelerate")) {
-            x = 10;
-        }
-        this.setRegenSpeed(x);
     }
 
     /**
@@ -78,9 +62,7 @@ public class ManaComponent implements AutoSyncedComponent, ServerTickingComponen
     }
 
     public void clampMana() {
-        if (this.getMana() > this.getMaxMana()) {
-            this.setMana(this.getMaxMana());
-        }
+        this.setMana(MathHelper.clamp(this.getMana(), 0, this.getMaxMana()));
     }
 
     public void addMana(int mana) {
@@ -108,12 +90,6 @@ public class ManaComponent implements AutoSyncedComponent, ServerTickingComponen
         ComponentsRegistry.MANA_COMPONENT.sync(player);
     }
 
-    public void setRegenSpeed(int amount) {
-        if (amount < 0) amount = 1;
-        this.regenSpeed = amount;
-        ComponentsRegistry.MANA_COMPONENT.sync(player);
-    }
-
     public void removeMaxModifier(UUID id) {
         if (player.getAttributeInstance(ManaAttributes.MAX_MANA).getModifier(id) != null) {
             player.getAttributeInstance(ManaAttributes.MAX_MANA).removeModifier(id);
@@ -137,9 +113,5 @@ public class ManaComponent implements AutoSyncedComponent, ServerTickingComponen
 
     public int getMaxMana() {
         return (int)player.getAttributeValue(ManaAttributes.MAX_MANA);
-    }
-
-    public int getRegenSpeed() {
-        return this.regenSpeed;
     }
 }

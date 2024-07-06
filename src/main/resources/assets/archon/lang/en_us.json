@@ -1,6 +1,9 @@
 {
   "itemGroup.archon.archon": "Archon",
 
+  "attribute.name.archon.void": "Void Spell Power",
+  "attribute.name.archon.earth": "Earth Spell Power",
+
   "block.archon.fire_node": "Fire Node",
   "block.archon.water_node": "Water Node",
   "block.archon.earth_node": "Earth Node",
@@ -123,7 +126,6 @@
   "spell.archon.gust": "Gust",
   "spell.archon.thunder_strike": "Thunder Strike",
   "spell.archon.cloudshot": "Cloudshot",
-  "spell.archon.air_prison": "Air Prison",
   "spell.archon.clearing_breeze": "Clearing Breeze",
   "spell.archon.rumble": "Rumble",
   "spell.archon.crush": "Crush",
@@ -151,7 +153,8 @@
   "text.archon.dial_mode_heal": "Dial Set To: Heal",
   "text.archon.dial_mode_blind": "Dial Set To: Blind",
   "text.archon.obj": "%s",
-  "text.archon.none": "None",
+  "text.archon.current_spell": "Spell: %s",
+  "text.archon.none": "Spell: None",
   "text.archon.shift": "Hold Shift For Info",
   "text.archon.set_pos": "Set teleport pos to %s, %s, %s",
   "text.archon.infernal_coat1": "Grants permanent fire resistance",

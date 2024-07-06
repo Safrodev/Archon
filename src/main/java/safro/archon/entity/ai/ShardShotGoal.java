@@ -7,7 +7,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.text.Text;
 import safro.archon.entity.boss.NullEntity;
-import safro.archon.entity.projectile.spell.HitExecutor;
+import safro.archon.api.HitExecutor;
 import safro.archon.entity.projectile.spell.TerrainEntity;
 
 import java.util.EnumSet;
@@ -68,8 +68,9 @@ public class ShardShotGoal extends Goal {
             target1.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 60, 0, false, false));
         };
 
-        TerrainEntity shard = new TerrainEntity(this.mob.getWorld(), this.mob, this.mob.getRandom().nextTriangular(e, 2.297D * h), f, this.mob.getRandom().nextTriangular(g, 2.297D * h), executor, Blocks.OBSIDIAN);
+        TerrainEntity shard = new TerrainEntity(this.mob.getWorld(), this.mob, executor, Blocks.OBSIDIAN);
         shard.setPosition(shard.getX(), this.mob.getBodyY(0.5D) + 0.5D, shard.getZ());
+        shard.setVelocity(this.mob.getRandom().nextTriangular(e, 2.297D * h), f, this.mob.getRandom().nextTriangular(g, 2.297D * h));
         shard.setBlock(Blocks.OBSIDIAN);
         shard.setCustomNameVisible(false);
         shard.setCustomName(Text.of("NullShard"));

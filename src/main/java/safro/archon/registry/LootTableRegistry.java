@@ -19,19 +19,19 @@ public class LootTableRegistry {
     public static void init() {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (LootTables.NETHER_BRIDGE_CHEST.equals(id) || LootTables.BASTION_TREASURE_CHEST.equals(id)) {
-                LootPool pool = create(0.25F, SpellRegistry.SPELLS.get(Element.FIRE));
+                LootPool pool = create(0.2F, SpellRegistry.SPELLS.get(Element.FIRE));
                 tableBuilder.pool(pool);
             } else if (LootTables.FISHING_TREASURE_GAMEPLAY.equals(id) || LootTables.UNDERWATER_RUIN_BIG_CHEST.equals(id)) {
-                LootPool pool = create(0.6F, SpellRegistry.SPELLS.get(Element.WATER));
+                LootPool pool = create(0.5F, SpellRegistry.SPELLS.get(Element.WATER));
                 tableBuilder.pool(pool);
             } else if (Arrays.stream(VILLAGE_CHESTS).toList().contains(id)) {
-                LootPool pool = create(0.15F, SpellRegistry.SPELLS.get(Element.SKY));
+                LootPool pool = create(0.06F, SpellRegistry.SPELLS.get(Element.SKY));
                 tableBuilder.pool(pool);
             } else if (LootTables.ABANDONED_MINESHAFT_CHEST.equals(id) || LootTables.DESERT_PYRAMID_CHEST.equals(id)) {
-                LootPool pool = create(0.3F, SpellRegistry.SPELLS.get(Element.EARTH));
+                LootPool pool = create(0.22F, SpellRegistry.SPELLS.get(Element.EARTH));
                 tableBuilder.pool(pool);
             } else if (LootTables.END_CITY_TREASURE_CHEST.equals(id) || LootTables.STRONGHOLD_LIBRARY_CHEST.equals(id)) {
-                LootPool pool = create(0.4F, SpellRegistry.SPELLS.get(Element.END));
+                LootPool pool = create(0.2F, SpellRegistry.SPELLS.get(Element.END));
                 tableBuilder.pool(pool);
             }
         });

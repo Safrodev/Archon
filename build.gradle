@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.7-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -61,7 +61,8 @@ dependencies {
 	}
 
 	// SpellPower
-	modCompileOnly "maven.modrinth:spell-power:${project.sp_version}-fabric"
+	modImplementation include("com.github.ZsoltMolnarrr:TinyConfig:${project.tc_version}")
+	modImplementation("maven.modrinth:spell-power:${project.sp_version}")
 }
 
 loom {

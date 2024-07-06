@@ -45,7 +45,7 @@ public class ScrollItem extends Item {
         if (name.equals("capacity")) {
             ArchonUtil.get(player).addMaxModifier(ManaAttributes.CAPACITY_SCROLL_MODIFIER, "Capacity Scroll", 100, false);
         } else if (name.equals("accelerate")) {
-            ArchonUtil.get(player).setRegenSpeed(10);
+//            ArchonUtil.get(player).setRegenSpeed(10);
         }
     }
 

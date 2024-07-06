@@ -37,25 +37,25 @@ public abstract class PlayerEntityMixin {
 
     private final DefaultedList<ItemStack> cache = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
-    @Inject(method = "tick", at = @At("HEAD"))
-    private void onRemoveMask(CallbackInfo ci) {
-        PlayerEntity player = (PlayerEntity) (Object) this;
-        int i = 0;
-        for (ItemStack stack : getArmorItems()) {
-            ItemStack cacheStack = cache.get(i);
-            if (cacheStack.getItem() != stack.getItem()) {
-                if (cacheStack.isOf(ItemRegistry.MASK_OF_POWER)) {
-                    ArchonUtil.get(player).setDefaultRegenSpeed();
-                }
-                cache.set(i, stack.copy());
-            }
-            ++i;
-        }
-
-        if (player.getEquippedStack(EquipmentSlot.HEAD).isOf(ItemRegistry.MASK_OF_POWER)) {
-            ArchonUtil.get(player).setRegenSpeed(5);
-        }
-    }
+//    @Inject(method = "tick", at = @At("HEAD"))
+//    private void onRemoveMask(CallbackInfo ci) {
+//        PlayerEntity player = (PlayerEntity) (Object) this;
+//        int i = 0;
+//        for (ItemStack stack : getArmorItems()) {
+//            ItemStack cacheStack = cache.get(i);
+//            if (cacheStack.getItem() != stack.getItem()) {
+//                if (cacheStack.isOf(ItemRegistry.MASK_OF_POWER)) {
+//                    ArchonUtil.get(player).setDefaultRegenSpeed();
+//                }
+//                cache.set(i, stack.copy());
+//            }
+//            ++i;
+//        }
+//
+//        if (player.getEquippedStack(EquipmentSlot.HEAD).isOf(ItemRegistry.MASK_OF_POWER)) {
+//            ArchonUtil.get(player).setRegenSpeed(5);
+//        }
+//    }
 
     @Unique
     private int druidBootsTimer = 60;
@@ -97,9 +97,11 @@ public abstract class PlayerEntityMixin {
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;isSpectator()Z", shift = At.Shift.AFTER))
     private void shadowSpellNoClip(CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.hasStatusEffect(EffectRegistry.SHADOW)) {
+        if (player.hasStatusEffect(EffectRegistry.SHADOW) && player.isSneaking()) {
             player.noClip = true;
             player.setOnGround(false);
+        } else if (player.hasStatusEffect(EffectRegistry.SHADOW)) {
+            player.noClip = false;
         }
     }
 }

@@ -9,7 +9,6 @@ import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
 import safro.archon.entity.projectile.spell.CloudshotEntity;
-import safro.archon.registry.BlockRegistry;
 import safro.archon.util.SpellUtil;
 
 public class CloudshotSpell extends Spell {
@@ -20,10 +19,10 @@ public class CloudshotSpell extends Spell {
 
     @Override
     public void cast(World world, PlayerEntity player, ItemStack stack) {
-        CloudshotEntity cloudshot = new CloudshotEntity(world, player, new ItemStack(BlockRegistry.SOLID_CLOUD), ((target, owner, projectile) -> {
-            SpellUtil.damage(player, target, this, 8.0F);
+        CloudshotEntity cloudshot = new CloudshotEntity(world, player, ((target, owner, projectile) -> {
+            SpellUtil.damage(player, target, projectile, this.getElement(), 8.0D, 0.5D);
         }));
-        SpellUtil.spawn(world, player, cloudshot, 1.0F);
+        SpellUtil.shoot(world, player, cloudshot, 1.0F);
     }
 
     @Nullable

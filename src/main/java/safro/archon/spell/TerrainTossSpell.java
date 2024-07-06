@@ -26,9 +26,9 @@ public class TerrainTossSpell extends Spell {
     public void cast(World world, PlayerEntity player, ItemStack stack) {
         TerrainEntity terrain = new TerrainEntity(world, player, ((target, owner, projectile) -> {
             target.takeKnockback(3 * 0.5F, MathHelper.sin(projectile.getYaw() * 0.017453292F), -MathHelper.cos(projectile.getYaw() * 0.017453292F));
-            SpellUtil.damage(player, target, this, 4.0F);
+            SpellUtil.damage(player, target, projectile, this.getElement(), 4.0F, 3.0F);
         }), this.getTerrain(player));
-        SpellUtil.spawn(world, player, terrain, 2.0F);
+        SpellUtil.shoot(world, player, terrain, 0.5F);
     }
 
     @Nullable

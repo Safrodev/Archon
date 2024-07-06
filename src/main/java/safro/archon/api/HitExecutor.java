@@ -1,6 +1,7 @@
-package safro.archon.entity.projectile.spell;
+package safro.archon.api;
 
 import net.minecraft.entity.LivingEntity;
+import safro.archon.entity.projectile.spell.SpellProjectileEntity;
 
 /**
  * Used for running actions when a SpellProjectile hits an entity

@@ -1,8 +1,13 @@
 package safro.archon.item;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,6 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import safro.archon.Archon;
 import safro.archon.api.Element;
 import safro.archon.api.Spell;
+import safro.archon.api.SpellAttributable;
 import safro.archon.enchantment.ArcaneEnchantment;
 import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;
@@ -24,18 +30,28 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class WandItem extends Item {
+public class WandItem extends Item implements SpellAttributable {
     private final Element type;
+    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     public WandItem(Element element, Settings settings) {
         super(settings);
         this.type = element;
+        ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
+        addPower(builder, element, 1);
+        this.attributeModifiers = builder.build();
     }
 
     public Element getElement() {
         return this.type;
     }
 
+    @Override
+    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
+        return slot == EquipmentSlot.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
+    }
+
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
 
@@ -64,6 +80,7 @@ public class WandItem extends Item {
         return TypedActionResult.pass(stack);
     }
 
+    @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         ItemStack stack = context.getStack();
         PlayerEntity player = context.getPlayer();
@@ -85,10 +102,12 @@ public class WandItem extends Item {
         return ActionResult.PASS;
     }
 
+    @Override
     public int getEnchantability() {
         return 3;
     }
 
+    @Override
     public boolean isEnchantable(ItemStack stack) {
         return true;
     }
@@ -132,9 +151,11 @@ public class WandItem extends Item {
         if (stack.getOrCreateSubNbt(Archon.MODID).contains("CurrentSpell")) {
             String name = stack.getOrCreateSubNbt(Archon.MODID).getString("CurrentSpell");
             Spell spell = SpellRegistry.REGISTRY.get(new Identifier(name));
-            tooltip.add(Text.translatable(spell.getTranslationKey()).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("text.archon.current_spell", Text.translatable(spell.getTranslationKey()).getString()).formatted(Formatting.GRAY));
             tooltip.add(ArchonUtil.createManaText(spell.getManaCost(), false));
-        } else
+        } else {
             tooltip.add(Text.translatable("text.archon.none").formatted(Formatting.GRAY));
+        }
+        super.appendTooltip(stack, world, tooltip, context);
     }
 }

@@ -45,7 +45,6 @@ public class SpellRegistry {
     public static final Spell GUST = register("gust", new GustSpell(Element.SKY, 20));
     public static final Spell THUNDER_STRIKE = register("thunder_strike", new ThunderStrikeSpell(Element.SKY, 30));
     public static final Spell CLOUDSHOT = register("cloudshot", new CloudshotSpell(Element.SKY, 30));
-//    public static final Spell AIR_PRISON = register("air_prison", new AirPrisonSpell(Element.SKY, 70));
     public static final Spell CLEARING_BREEZE = register("clearing_breeze", new WeatherSpell(Element.SKY, 90, false));
 
     // Earth

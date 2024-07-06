@@ -14,7 +14,6 @@ import safro.archon.entity.projectile.IceBallEntity;
 import safro.archon.entity.projectile.WaterBoltEntity;
 import safro.archon.entity.projectile.WindBallEntity;
 import safro.archon.entity.projectile.spell.CloudshotEntity;
-import safro.archon.entity.projectile.spell.HellbeamEntity;
 import safro.archon.entity.projectile.spell.SpellProjectileEntity;
 import safro.archon.entity.projectile.spell.TerrainEntity;
 import safro.saflib.registry.BaseEntityRegistry;
@@ -29,7 +28,6 @@ public class EntityRegistry extends BaseEntityRegistry {
 
     // Spell Projectiles
     public static final EntityType<SpellProjectileEntity> SPELL_PROJECTILE = register("spell_projectile", FabricEntityTypeBuilder.<SpellProjectileEntity>create(SpawnGroup.MISC, SpellProjectileEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
-    public static final EntityType<HellbeamEntity> HELLBEAM = register("hellbeam", FabricEntityTypeBuilder.<HellbeamEntity>create(SpawnGroup.MISC, HellbeamEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
     public static final EntityType<CloudshotEntity> CLOUDSHOT = register("cloudshot", FabricEntityTypeBuilder.<CloudshotEntity>create(SpawnGroup.MISC, CloudshotEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
     public static final EntityType<TerrainEntity> TERRAIN = register("terrain", FabricEntityTypeBuilder.<TerrainEntity>create(SpawnGroup.MISC, TerrainEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
 
@@ -61,6 +59,6 @@ public class EntityRegistry extends BaseEntityRegistry {
     }
 
     private static EntityDimensions projectile() {
-        return EntityDimensions.fixed(0.25F, 0.25F);
+        return EntityDimensions.fixed(0.5F, 0.5F);
     }
 }

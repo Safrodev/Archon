@@ -15,7 +15,8 @@
     "StructurePoolAccessor",
     "TridentEntityMixin",
     "ArmorItemAccessor",
-    "EnchantingTableBlockMixin"
+    "EnchantingTableBlockMixin",
+    "SpellSchoolsMixin"
   ],
   "client": [
     "client.InGameHudMixin",
