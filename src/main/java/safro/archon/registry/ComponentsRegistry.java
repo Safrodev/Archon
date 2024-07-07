@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import safro.archon.Archon;
 import safro.archon.api.ManaComponent;
 import safro.archon.api.ScrollComponent;
-import safro.archon.api.SpellComponent;
+import safro.archon.api.spell.SpellComponent;
 import safro.archon.item.ScrollItem;
 import safro.archon.util.ArchonUtil;
 

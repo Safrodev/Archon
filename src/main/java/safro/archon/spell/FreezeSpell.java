@@ -8,7 +8,8 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import safro.archon.api.Element;
-import safro.archon.api.Spell;
+import safro.archon.api.spell.Spell;
+import safro.archon.api.spell.SpellParticleData;
 import safro.archon.util.SpellUtil;
 
 public class FreezeSpell extends Spell {
@@ -19,7 +20,7 @@ public class FreezeSpell extends Spell {
 
     @Override
     public void cast(World world, PlayerEntity player, ItemStack stack) {
-        SpellUtil.shoot(world, player, (target, owner, projectile) -> {
+        SpellUtil.shoot(world, player, SpellParticleData.of(110, 224, 235, 0.25F), (target, owner, projectile) -> {
           target.setFrozenTicks(200);
           target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 4, true, false, false));
         }, 0.9F);

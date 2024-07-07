@@ -22,7 +22,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.api.ManaComponent;
-import safro.archon.api.Spell;
+import safro.archon.api.spell.Spell;
 import safro.archon.item.*;
 import safro.archon.item.fire.HeatRangerItem;
 import safro.archon.registry.ComponentsRegistry;

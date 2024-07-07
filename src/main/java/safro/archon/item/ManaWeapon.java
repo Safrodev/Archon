@@ -31,7 +31,6 @@ public abstract class ManaWeapon extends SwordItem {
 
     /**
      * This method is run when the player can successfully use the item. Items should use this for use code instead of overriding use method
-     *
      * @param world - A world object
      * @param player - The player using the ability
      * @param stack - The player's current stack which contains this item

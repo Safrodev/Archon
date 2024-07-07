@@ -5,7 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
-import safro.archon.api.HitExecutor;
+import safro.archon.api.spell.HitExecutor;
 import safro.archon.registry.EntityRegistry;
 
 public class CloudshotEntity extends SpellProjectileEntity {

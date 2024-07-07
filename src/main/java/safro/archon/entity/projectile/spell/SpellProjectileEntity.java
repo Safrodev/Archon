@@ -3,10 +3,13 @@ package safro.archon.entity.projectile.spell;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.particle.ParticleTypes;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -15,10 +18,15 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import safro.archon.api.HitExecutor;
+import safro.archon.api.spell.HitExecutor;
+import safro.archon.client.particle.SpellParticleEffect;
 
 public class SpellProjectileEntity extends ProjectileEntity {
     private static final int MAX_AGE = 400;
+    private static final TrackedData<Float> RED = DataTracker.registerData(SpellProjectileEntity.class, TrackedDataHandlerRegistry.FLOAT);
+    private static final TrackedData<Float> GREEN = DataTracker.registerData(SpellProjectileEntity.class, TrackedDataHandlerRegistry.FLOAT);
+    private static final TrackedData<Float> BLUE = DataTracker.registerData(SpellProjectileEntity.class, TrackedDataHandlerRegistry.FLOAT);
+    private static final TrackedData<Float> SIZE = DataTracker.registerData(SpellProjectileEntity.class, TrackedDataHandlerRegistry.FLOAT);
     private final HitExecutor hitExecutor;
 
     public SpellProjectileEntity(EntityType<? extends SpellProjectileEntity> entityType, World world) {
@@ -72,16 +80,21 @@ public class SpellProjectileEntity extends ProjectileEntity {
             this.setPosition(x, y, z);
             this.checkBlockCollision();
 
-            if (this.getWorld().isClient() && this.age > 4) {
-                double deltaX = this.getX() - this.lastRenderX;
-                double deltaY = this.getY() - this.lastRenderY;
-                double deltaZ = this.getZ() - this.lastRenderZ;
-                double distance = Math.ceil(Math.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ) * 6);
-                for (double i = 0; i < distance; i++) {
-                    double step = i / distance;
-                    this.getWorld().addParticle(ParticleTypes.GLOW_SQUID_INK, (float) (this.prevX + deltaX * step), (float) (this.prevY + deltaY * step) + 0.1F, (float) (this.prevZ + deltaZ * step), 0.0125F * (random.nextFloat() - 0.5F), 0.0125F * (random.nextFloat() - 0.5F), 0.0125F * (random.nextFloat() - 0.5F));
-                }
+            if (this.getWorld().isClient()) {
+                this.addParticles();
             }
+        }
+    }
+
+    private void addParticles() {
+        SpellParticleEffect particle = new SpellParticleEffect(this.dataTracker.get(RED), this.dataTracker.get(GREEN), this.dataTracker.get(BLUE), this.dataTracker.get(SIZE));
+        double deltaX = this.getX() - this.lastRenderX;
+        double deltaY = this.getY() - this.lastRenderY;
+        double deltaZ = this.getZ() - this.lastRenderZ;
+        double distance = Math.ceil(Math.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ) * 6.0D);
+        for (double i = 0; i < distance; i++) {
+            double step = i / distance;
+            this.getWorld().addParticle(particle, (float) (this.prevX + deltaX * step), (float) (this.prevY + deltaY * step) + 0.1F, (float) (this.prevZ + deltaZ * step), 0.0125F * (random.nextFloat() - 0.5F), 0.0125F * (random.nextFloat() - 0.5F), 0.0125F * (random.nextFloat() - 0.5F));
         }
     }
 
@@ -128,8 +141,37 @@ public class SpellProjectileEntity extends ProjectileEntity {
         this.prevPitch = this.getPitch();
     }
 
+    public void setParticle(float red, float green, float blue, float size) {
+        this.dataTracker.set(RED, red);
+        this.dataTracker.set(GREEN, green);
+        this.dataTracker.set(BLUE, blue);
+        this.dataTracker.set(SIZE, size);
+    }
+
     @Override
     protected void initDataTracker() {
+        this.dataTracker.startTracking(RED, 1.0F);
+        this.dataTracker.startTracking(GREEN, 1.0F);
+        this.dataTracker.startTracking(BLUE, 1.0F);
+        this.dataTracker.startTracking(SIZE, 0.5F);
+    }
+
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        nbt.putFloat("Red", this.dataTracker.get(RED));
+        nbt.putFloat("Green", this.dataTracker.get(GREEN));
+        nbt.putFloat("Blue", this.dataTracker.get(BLUE));
+        nbt.putFloat("Size", this.dataTracker.get(SIZE));
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        this.dataTracker.set(RED, nbt.getFloat("Red"));
+        this.dataTracker.set(GREEN, nbt.getFloat("Green"));
+        this.dataTracker.set(BLUE, nbt.getFloat("Blue"));
+        this.dataTracker.set(SIZE, nbt.getFloat("Size"));
     }
 
     @Override

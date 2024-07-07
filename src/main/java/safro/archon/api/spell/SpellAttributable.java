@@ -1,9 +1,10 @@
-package safro.archon.api;
+package safro.archon.api.spell;
 
 import com.google.common.collect.ImmutableMultimap;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.spell_power.api.SpellPowerMechanics;
+import safro.archon.api.Element;
 
 import java.util.UUID;
 

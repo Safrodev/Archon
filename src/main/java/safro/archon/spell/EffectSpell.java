@@ -6,9 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
-import safro.archon.Archon;
 import safro.archon.api.Element;
-import safro.archon.api.Spell;
+import safro.archon.api.spell.Spell;
 
 public class EffectSpell extends Spell {
     private final StatusEffectInstance instance;

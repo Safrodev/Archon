@@ -15,6 +15,7 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import safro.archon.client.particle.InfernoLaserParticle;
+import safro.archon.client.particle.SpellParticle;
 import safro.archon.client.particle.WaterBallParticle;
 import safro.archon.client.render.*;
 import safro.archon.client.render.block.ScriptureTableBlockEntityRenderer;
@@ -69,6 +70,7 @@ public class ClientRegistry {
         // Particles
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.WATER_BALL, WaterBallParticle.WaterBallFactory::new);
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.INFERNO_LASER, InfernoLaserParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ParticleRegistry.SPELL, SpellParticle.Factory::new);
 
         // Keybinds
         KeyBindingHelper.registerKeyBinding(IC_KEY);

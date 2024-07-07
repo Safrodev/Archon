@@ -1,4 +1,4 @@
-package safro.archon.api;
+package safro.archon.api.spell;
 
 import net.minecraft.entity.LivingEntity;
 import safro.archon.entity.projectile.spell.SpellProjectileEntity;

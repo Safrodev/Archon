@@ -1,4 +1,4 @@
-package safro.archon.api;
+package safro.archon.api.spell;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import net.minecraft.entity.player.PlayerEntity;

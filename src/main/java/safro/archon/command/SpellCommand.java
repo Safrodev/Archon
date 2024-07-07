@@ -10,7 +10,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import safro.archon.api.Spell;
+import safro.archon.api.spell.Spell;
 import safro.archon.registry.ComponentsRegistry;
 import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;

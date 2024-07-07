@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
-import safro.archon.api.Spell;
+import safro.archon.api.spell.Spell;
 
 public class CrushSpell extends Spell {
 

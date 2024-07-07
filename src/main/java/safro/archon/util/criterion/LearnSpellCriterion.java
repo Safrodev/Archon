@@ -11,7 +11,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import safro.archon.Archon;
-import safro.archon.api.Spell;
+import safro.archon.api.spell.Spell;
 import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;
 

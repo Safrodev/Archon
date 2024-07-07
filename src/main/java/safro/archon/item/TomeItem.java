@@ -14,7 +14,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import safro.archon.api.Spell;
+import safro.archon.api.spell.Spell;
 import safro.archon.registry.CriteriaRegistry;
 import safro.archon.util.ArchonUtil;
 

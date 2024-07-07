@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.api.Element;
-import safro.archon.api.Spell;
+import safro.archon.api.spell.Spell;
 import safro.archon.item.TomeItem;
 import safro.archon.spell.*;
 import safro.saflib.SafLib;

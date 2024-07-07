@@ -10,7 +10,6 @@ import net.minecraft.world.World;
 
 public class ChannelingInventory implements Inventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
-    private ItemStack blockStack;
     private final World world;
     private final BlockPos pos;
     private final PlayerEntity player;
@@ -19,15 +18,6 @@ public class ChannelingInventory implements Inventory {
         this.world = world;
         this.pos = pos;
         this.player = player;
-    }
-
-    public void setBlockStack(ItemStack stack) {
-        this.blockStack = stack;
-        inventory.set(0, stack);
-    }
-
-    public ItemStack getBlockStack() {
-        return blockStack;
     }
 
     public World getWorld() {

@@ -29,7 +29,7 @@ public class EntityRegistry extends BaseEntityRegistry {
     // Spell Projectiles
     public static final EntityType<SpellProjectileEntity> SPELL_PROJECTILE = register("spell_projectile", FabricEntityTypeBuilder.<SpellProjectileEntity>create(SpawnGroup.MISC, SpellProjectileEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
     public static final EntityType<CloudshotEntity> CLOUDSHOT = register("cloudshot", FabricEntityTypeBuilder.<CloudshotEntity>create(SpawnGroup.MISC, CloudshotEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
-    public static final EntityType<TerrainEntity> TERRAIN = register("terrain", FabricEntityTypeBuilder.<TerrainEntity>create(SpawnGroup.MISC, TerrainEntity::new).dimensions(projectile()).trackRangeChunks(8).trackedUpdateRate(10).build());
+    public static final EntityType<TerrainEntity> TERRAIN = register("terrain", FabricEntityTypeBuilder.<TerrainEntity>create(SpawnGroup.MISC, TerrainEntity::new).dimensions(EntityDimensions.fixed(0.75F, 0.75F)).trackRangeChunks(8).trackedUpdateRate(10).build());
 
     // Necromancy
     public static final EntityType<SkeltEntity> SKELT = register("skelt", FabricEntityTypeBuilder.<SkeltEntity>create(SpawnGroup.MISC, SkeltEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.99F)).trackRangeChunks(10).build());

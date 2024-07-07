@@ -1,4 +1,4 @@
-package safro.archon.api;
+package safro.archon.api.spell;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import safro.archon.api.Element;
 import safro.archon.item.WandItem;
 import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;

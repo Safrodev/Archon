@@ -7,7 +7,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.text.Text;
 import safro.archon.entity.boss.NullEntity;
-import safro.archon.api.HitExecutor;
+import safro.archon.api.spell.HitExecutor;
 import safro.archon.entity.projectile.spell.TerrainEntity;
 
 import java.util.EnumSet;

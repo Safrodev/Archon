@@ -14,20 +14,21 @@ import net.spell_power.api.SpellDamageSource;
 import net.spell_power.api.SpellPower;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
-import safro.archon.api.HitExecutor;
+import safro.archon.api.spell.HitExecutor;
+import safro.archon.api.spell.SpellParticleData;
 import safro.archon.entity.projectile.spell.SpellProjectileEntity;
 import safro.archon.registry.EntityRegistry;
 
 public class SpellUtil {
 
-    public static SpellProjectileEntity shoot(World world, PlayerEntity player, HitExecutor hitExecutor, float speed) {
-        return shoot(world, player, new SpellProjectileEntity(EntityRegistry.SPELL_PROJECTILE, world, player, hitExecutor), speed);
+    public static void shoot(World world, PlayerEntity player, SpellParticleData data, HitExecutor hitExecutor, float speed) {
+        shoot(world, player, data, new SpellProjectileEntity(EntityRegistry.SPELL_PROJECTILE, world, player, hitExecutor), speed);
     }
 
-    public static SpellProjectileEntity shoot(World world, PlayerEntity player, SpellProjectileEntity projectile, float speed) {
+    public static void shoot(World world, PlayerEntity player, SpellParticleData data, SpellProjectileEntity projectile, float speed) {
         projectile.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, speed, 0.8F);
+        projectile.setParticle(data.red(), data.green(), data.blue(), data.size());
         world.spawnEntity(projectile);
-        return projectile;
     }
 
     public static void damage(PlayerEntity caster, LivingEntity target, SpellProjectileEntity projectile, Element element, double multiplier, double knockback) {

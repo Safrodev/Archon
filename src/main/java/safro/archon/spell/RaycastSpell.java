@@ -5,7 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import safro.archon.api.Element;
-import safro.archon.api.Spell;
+import safro.archon.api.spell.Spell;
 import safro.archon.util.SpellUtil;
 
 public abstract class RaycastSpell extends Spell {

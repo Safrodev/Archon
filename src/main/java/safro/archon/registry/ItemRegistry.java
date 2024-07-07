@@ -20,12 +20,10 @@ import safro.archon.item.fire.InfernalCoatItem;
 import safro.archon.item.fire.WitherStaveItem;
 import safro.archon.item.sky.BreezyHarvesterItem;
 import safro.archon.item.sky.HeavenDialItem;
-import safro.archon.item.sky.ThunderBoltItem;
 import safro.archon.item.sky.VacuumCleaverItem;
 import safro.archon.item.water.FrostSwordItem;
 import safro.archon.item.water.SeaMasterCharmItem;
 import safro.archon.item.water.SoakingHarvesterItem;
-import safro.archon.item.water.WaterStaffItem;
 import safro.saflib.registry.BaseBlockItemRegistry;
 
 public class ItemRegistry extends BaseBlockItemRegistry {
@@ -34,19 +32,19 @@ public class ItemRegistry extends BaseBlockItemRegistry {
     // Core
     public static final Item GRIMOIRE = register("grimoire", new GrimoireItem(settings().maxCount(1)));
     public static final Item CHANNELER = register("channeler", new ChannelerItem(settings().maxCount(1).rarity(Rarity.UNCOMMON)));
-    public static final Item FIRE_WAND = register("fire_wand", wand(Element.FIRE));
-    public static final Item WATER_WAND = register("water_wand", wand(Element.WATER));
-    public static final Item SKY_WAND = register("sky_wand", wand(Element.SKY));
-    public static final Item EARTH_WAND = register("earth_wand", wand(Element.EARTH));
-    public static final Item END_WAND = register("end_wand", wand(Element.END));
+    public static final Item FIRE_WAND = register("fire_wand", wand(Element.FIRE, 1));
+    public static final Item WATER_WAND = register("water_wand", wand(Element.WATER, 1));
+    public static final Item SKY_WAND = register("sky_wand", wand(Element.SKY, 1));
+    public static final Item EARTH_WAND = register("earth_wand", wand(Element.EARTH, 1));
+    public static final Item END_WAND = register("end_wand", wand(Element.END, 1));
 
     // Weapons // Gear
     public static final Item ENDER_BLADE = register("ender_blade", new EnderBladeItem(ToolMaterials.DIAMOND, 3, -2.4F, settings()));
     public static final Item VOID_SCEPTER = register("void_scepter", new VoidScepterItem(ToolMaterials.DIAMOND, 1, -2.4F, settings()));
     public static final Item TERRAIN_MACE = register("terrain_mace", new TerrainMaceItem(ToolMaterials.IRON, 4, -3.1F, settings()));
     public static final Item WITHER_STAVE = register("wither_stave", new WitherStaveItem(ToolMaterials.DIAMOND, 1, -2.4F, settings()));
-    public static final Item THUNDER_BOLT = register("thunder_bolt", new ThunderBoltItem(ToolMaterials.IRON, 1, -1.1F, settings()));
-    public static final Item WATER_STAFF = register("water_staff", new WaterStaffItem(ToolMaterials.DIAMOND, 3, -2.4F, settings()));
+    public static final Item THUNDER_BOLT = register("thunder_staff", wand(Element.SKY, 5));
+    public static final Item WATER_STAFF = register("water_scepter", wand(Element.WATER, 5));
     public static final Item HEAT_RANGER = register("heat_ranger", new HeatRangerItem(settings().maxDamage(384)));
     public static final Item VACUUM_CLEAVER = register("vacuum_cleaver", new VacuumCleaverItem(ToolMaterials.IRON, 7, -3.0F, settings()));
     public static final Item FIST_OF_FURY = register("fist_of_fury", new FistOfFuryItem(ToolMaterials.IRON, 3, -1.8F, settings()));
@@ -117,8 +115,8 @@ public class ItemRegistry extends BaseBlockItemRegistry {
         return new Item.Settings().maxCount(1).fireproof();
     }
 
-    private static WandItem wand(Element element) {
-        return new WandItem(element, settings().maxCount(1));
+    private static WandItem wand(Element element, int power) {
+        return new WandItem(element, power, settings().maxCount(1));
     }
 
     public static void init() {

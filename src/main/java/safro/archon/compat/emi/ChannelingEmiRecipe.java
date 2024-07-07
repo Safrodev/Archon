@@ -20,12 +20,9 @@ public class ChannelingEmiRecipe implements EmiRecipe {
 
     public ChannelingEmiRecipe(ChannelingRecipe recipe){
         this.recipe = recipe;
-        //taking the list of inputs from the recipe and mapping them to a list of EmiStacks which then makes one EmiIngredient (which will cycle through the tag if present).
-        this.inputs = recipe.getInputs().stream().map(item -> EmiIngredient.of(Collections.singletonList(EmiStack.of(item)))).toList();
-        //stack and list representation of the output
+        this.inputs = Collections.singletonList(EmiIngredient.of(recipe.getInput()));
         this.output = EmiStack.of(recipe.result);
         this.outputList = Collections.singletonList(this.output);
-        //setting up rendering of the mana cost text. positioning it in the middle of the viewer with width/2
         this.manaCost = Text.translatable("text.archon.mana_cost", recipe.getManaCost()).asOrderedText();
         int width = MinecraftClient.getInstance().textRenderer.getWidth(this.manaCost);
         this.labelX = 41 - width/2;

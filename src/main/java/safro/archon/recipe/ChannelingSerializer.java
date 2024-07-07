@@ -6,6 +6,7 @@ import com.google.gson.JsonSyntaxException;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.registry.Registries;
@@ -34,7 +35,7 @@ public class ChannelingSerializer implements RecipeSerializer<ChannelingRecipe> 
 
     @Override
     public ChannelingRecipe read(Identifier id, PacketByteBuf buf) {
-        Block input = Registries.BLOCK.get(new Identifier(buf.readString()));
+        Ingredient input = Ingredient.fromPacket(buf);
         ItemStack stack = buf.readItemStack();
         int cost = buf.readInt();
         return new ChannelingRecipe(input, stack, cost, id);
@@ -42,7 +43,7 @@ public class ChannelingSerializer implements RecipeSerializer<ChannelingRecipe> 
 
     @Override
     public void write(PacketByteBuf buf, ChannelingRecipe recipe) {
-        buf.writeString(Registries.BLOCK.getId(recipe.getBlock()).toString());
+        recipe.getInput().write(buf);
         buf.writeItemStack(recipe.result);
         buf.writeInt(recipe.getManaCost());
     }

@@ -20,8 +20,8 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.Archon;
 import safro.archon.api.Element;
-import safro.archon.api.Spell;
-import safro.archon.api.SpellAttributable;
+import safro.archon.api.spell.Spell;
+import safro.archon.api.spell.SpellAttributable;
 import safro.archon.enchantment.ArcaneEnchantment;
 import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;
@@ -34,11 +34,11 @@ public class WandItem extends Item implements SpellAttributable {
     private final Element type;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
-    public WandItem(Element element, Settings settings) {
+    public WandItem(Element element, int power, Settings settings) {
         super(settings);
         this.type = element;
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
-        addPower(builder, element, 1);
+        addPower(builder, element, power);
         this.attributeModifiers = builder.build();
     }
 

@@ -10,7 +10,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
-import safro.archon.api.HitExecutor;
+import safro.archon.api.spell.HitExecutor;
 import safro.archon.registry.EntityRegistry;
 
 public class TerrainEntity extends SpellProjectileEntity {
