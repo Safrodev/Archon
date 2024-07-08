@@ -9,12 +9,12 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import safro.archon.item.ManaWeapon;
+import safro.archon.item.SpellWeaponItem;
 import safro.archon.util.ArchonUtil;
 
 import java.util.List;
 
-public class TerrainMaceItem extends ManaWeapon {
+public class TerrainMaceItem extends SpellWeaponItem {
 
     public TerrainMaceItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);

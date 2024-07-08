@@ -29,7 +29,7 @@ public class SpellRegistry {
 
     // Fire
     public static final Spell FIREBALL = register("fireball", new FireballSpell(Element.FIRE, 20));
-    public static final Spell INCOMBUSTIBLE = register("incombustible", new EffectSpell(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 1200), Element.FIRE, 50));
+    public static final Spell INCOMBUSTIBLE = register("incombustible", new EffectSpell(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 1200, 1), Element.FIRE, 50));
     public static final Spell SCORCH = register("scorch", new ScorchSpell(Element.FIRE, 30));
     public static final Spell HELLBEAM = register("hellbeam", new HellbeamSpell(Element.FIRE, 10));
 
@@ -39,6 +39,7 @@ public class SpellRegistry {
     public static final Spell DROWN = register("drown", new DrownSpell(Element.WATER, 30));
     public static final Spell MEND = register("mend", new MendSpell(Element.WATER, 40));
     public static final Spell OVERCAST = register("overcast", new WeatherSpell(Element.WATER, 90, true));
+    public static final Spell BUBBLE_BEAM = register("bubble_beam", new BubbleBeamSpell(Element.WATER, 10));
 
     // Sky
     public static final Spell PROPEL = register("propel", new PropelSpell(Element.SKY, 10));

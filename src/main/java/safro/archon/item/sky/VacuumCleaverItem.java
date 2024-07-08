@@ -6,12 +6,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import safro.archon.item.ManaWeapon;
+import safro.archon.item.SpellWeaponItem;
 import safro.archon.util.ArchonUtil;
 
 import java.util.List;
 
-public class VacuumCleaverItem extends ManaWeapon {
+public class VacuumCleaverItem extends SpellWeaponItem {
 
     public VacuumCleaverItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);

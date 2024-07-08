@@ -12,6 +12,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellPower;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 import safro.archon.network.ShakePacket;
@@ -23,7 +24,7 @@ public class RumbleSpell extends RaycastSpell {
     }
 
     @Override
-    public void onRaycast(World world, PlayerEntity player, ItemStack stack, LivingEntity target) {
+    public void onRaycast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack, LivingEntity target) {
         world.getNonSpectatingEntities(LivingEntity.class, target.getBoundingBox().expand(10)).forEach(entity -> {
             if (entity != player) {
                 entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 3, true, false, false));

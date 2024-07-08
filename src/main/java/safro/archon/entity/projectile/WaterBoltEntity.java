@@ -4,6 +4,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractFireballEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleEffect;
@@ -13,7 +14,9 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import safro.archon.api.Element;
 import safro.archon.registry.EntityRegistry;
+import safro.archon.util.SpellUtil;
 
 public class WaterBoltEntity extends AbstractFireballEntity {
     private boolean splashes = false;
@@ -37,13 +40,16 @@ public class WaterBoltEntity extends AbstractFireballEntity {
         super.onEntityHit(entityHitResult);
         if (!this.getWorld().isClient) {
             Entity entity = entityHitResult.getEntity();
-            Entity entity2 = this.getOwner();
-            entity.damage(this.getWorld().getDamageSources().indirectMagic(this, entity2), 6.0F);
-            if (entity2 instanceof LivingEntity living) {
+            Entity owner = this.getOwner();
+            if (owner instanceof PlayerEntity player && entity instanceof LivingEntity target) {
+                SpellUtil.damage(player, target, this, Element.WATER, 3.0F, 0.0F);
+            } else if (owner instanceof LivingEntity living) {
+                entity.damage(this.getWorld().getDamageSources().mobProjectile(this, living), 6.5F);
                 this.applyDamageEffects(living, entity);
-                if (this.shouldSplash() && this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-                    this.getWorld().setBlockState(BlockPos.ofFloored(entity.getX(), entity.getEyeY(), entity.getZ()), Blocks.WATER.getDefaultState());
-                }
+            }
+
+            if (this.shouldSplash() && this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
+                this.getWorld().setBlockState(BlockPos.ofFloored(entity.getX(), entity.getEyeY(), entity.getZ()), Blocks.WATER.getDefaultState());
             }
         }
     }
@@ -71,6 +77,6 @@ public class WaterBoltEntity extends AbstractFireballEntity {
     }
 
     protected ParticleEffect getParticleType() {
-        return ParticleTypes.SPLASH;
+        return this.shouldSplash() ? ParticleTypes.SPLASH : ParticleTypes.BUBBLE;
     }
 }

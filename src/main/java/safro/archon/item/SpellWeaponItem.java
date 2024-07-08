@@ -9,9 +9,10 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
@@ -31,25 +32,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class WandItem extends Item implements SpellAttributable {
+// Reimplementation of WandItem that extends SwordItem instead
+public class SpellWeaponItem extends SwordItem implements SpellAttributable {
     private final Element type;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
-    public WandItem(Element element, int power, Settings settings) {
-        super(settings);
+    public SpellWeaponItem(ToolMaterial toolMaterial, Element element, int power, double critDmg, int attackDamage, float attackSpeed, Settings settings) {
+        super(toolMaterial, attackDamage, attackSpeed, settings);
         this.type = element;
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         addPower(builder, element, power);
+        if (critDmg >= 0.0D) {
+            addCritDamage(builder, critDmg);
+        }
         this.attributeModifiers = builder.build();
     }
 
     public Element getElement() {
         return this.type;
-    }
-
-    @Override
-    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
-        return slot == EquipmentSlot.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
     }
 
     @Override
@@ -103,16 +103,6 @@ public class WandItem extends Item implements SpellAttributable {
         return ActionResult.PASS;
     }
 
-    @Override
-    public int getEnchantability() {
-        return 3;
-    }
-
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return true;
-    }
-
     @Nullable
     public Spell getCurrentSpell(ItemStack stack, PlayerEntity player) {
         if (stack.getOrCreateSubNbt(Archon.MODID).contains("CurrentSpell")) {
@@ -144,6 +134,13 @@ public class WandItem extends Item implements SpellAttributable {
             }
         }
         return list;
+    }
+
+    @Override
+    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
+        Multimap<EntityAttribute, EntityAttributeModifier> map = super.getAttributeModifiers(slot);
+        map.putAll(this.attributeModifiers);
+        return slot == EquipmentSlot.MAINHAND ? map : super.getAttributeModifiers(slot);
     }
 
     @Environment(EnvType.CLIENT)

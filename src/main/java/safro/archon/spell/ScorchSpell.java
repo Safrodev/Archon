@@ -6,8 +6,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellPower;
 import safro.archon.api.Element;
 
+// TODO: Rework
 public class ScorchSpell extends RaycastSpell {
 
     public ScorchSpell(Element type, int manaCost) {
@@ -15,7 +17,7 @@ public class ScorchSpell extends RaycastSpell {
     }
 
     @Override
-    public void onRaycast(World world, PlayerEntity player, ItemStack stack, LivingEntity target) {
+    public void onRaycast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack, LivingEntity target) {
         target.setOnFireFor(10);
     }
 

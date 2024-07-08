@@ -2,6 +2,7 @@ package safro.archon.client.particle;
 
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 
 public class SpellParticle extends SpriteBillboardParticle {
@@ -50,9 +51,13 @@ public class SpellParticle extends SpriteBillboardParticle {
 
         public Particle createParticle(SpellParticleEffect effect, ClientWorld clientWorld, double x, double y, double z, double vx, double vy, double vz) {
             SpellParticle particle = new SpellParticle(clientWorld, x, y, z, vx, vy, vz, effect.size(), this.spriteProvider);
-            particle.setColor(effect.r(), effect.g(), effect.b());
+            particle.setColor(color(effect.r()), color(effect.g()), color(effect.b()));
             particle.setMaxAge(clientWorld.random.nextInt(10) + 10);
             return particle;
+        }
+
+        private static float color(float a) {
+            return a + MathHelper.nextFloat(RANDOM, -0.05F, 0.05F);
         }
     }
 }

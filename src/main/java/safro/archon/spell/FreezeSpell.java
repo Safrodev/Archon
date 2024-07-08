@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellPower;
 import safro.archon.api.Element;
 import safro.archon.api.spell.Spell;
 import safro.archon.api.spell.SpellParticleData;
@@ -19,11 +20,12 @@ public class FreezeSpell extends Spell {
     }
 
     @Override
-    public void cast(World world, PlayerEntity player, ItemStack stack) {
-        SpellUtil.shoot(world, player, SpellParticleData.of(110, 224, 235, 0.25F), (target, owner, projectile) -> {
-          target.setFrozenTicks(200);
-          target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 4, true, false, false));
-        }, 0.9F);
+    public void cast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack) {
+        int duration = 200 + 40 * (int)power.nonCriticalValue();
+        SpellUtil.shoot(world, player, SpellParticleData.of(110, 224, 235, 0.25F), 0.8F, (target, owner, projectile) -> {
+          target.setFrozenTicks(duration);
+          target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, duration, 8, true, false, false));
+        });
     }
 
     @Override

@@ -11,6 +11,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellPower;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 import safro.archon.api.spell.Spell;
@@ -26,11 +27,11 @@ public class MendSpell extends Spell {
     }
 
     @Override
-    public void cast(World world, PlayerEntity player, ItemStack stack) {
+    public void cast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack) {
         List<StatusEffect> list = player.getActiveStatusEffects().keySet().stream().filter(effect -> effect.getCategory().equals(StatusEffectCategory.HARMFUL)).toList();
         list.forEach(player::removeStatusEffect);
 
-        player.heal(8.0F);
+        player.heal(6.0F * (float)power.nonCriticalValue());
         if (player instanceof ServerPlayerEntity serverPlayer) {
             for (int i = 0; i < 3; i++) {
                 this.displayParticles(serverPlayer, player.getBlockPos().up(), player.getRandom());

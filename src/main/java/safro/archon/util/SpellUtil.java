@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
@@ -16,12 +17,12 @@ import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 import safro.archon.api.spell.HitExecutor;
 import safro.archon.api.spell.SpellParticleData;
-import safro.archon.entity.projectile.spell.SpellProjectileEntity;
+import safro.archon.entity.projectile.SpellProjectileEntity;
 import safro.archon.registry.EntityRegistry;
 
 public class SpellUtil {
 
-    public static void shoot(World world, PlayerEntity player, SpellParticleData data, HitExecutor hitExecutor, float speed) {
+    public static void shoot(World world, PlayerEntity player, SpellParticleData data, float speed, HitExecutor hitExecutor) {
         shoot(world, player, data, new SpellProjectileEntity(EntityRegistry.SPELL_PROJECTILE, world, player, hitExecutor), speed);
     }
 
@@ -31,7 +32,7 @@ public class SpellUtil {
         world.spawnEntity(projectile);
     }
 
-    public static void damage(PlayerEntity caster, LivingEntity target, SpellProjectileEntity projectile, Element element, double multiplier, double knockback) {
+    public static void damage(PlayerEntity caster, LivingEntity target, ProjectileEntity projectile, Element element, double multiplier, double knockback) {
         SpellPower.Result result = SpellPower.getSpellPower(element.getSchool(), caster);
         SpellPower.Vulnerability vulnerability = SpellPower.getVulnerability(target, element.getSchool());
         double damage = result.randomValue(vulnerability);

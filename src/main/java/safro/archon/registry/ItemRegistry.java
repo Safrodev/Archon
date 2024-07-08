@@ -21,7 +21,6 @@ import safro.archon.item.fire.WitherStaveItem;
 import safro.archon.item.sky.BreezyHarvesterItem;
 import safro.archon.item.sky.HeavenDialItem;
 import safro.archon.item.sky.VacuumCleaverItem;
-import safro.archon.item.water.FrostSwordItem;
 import safro.archon.item.water.SeaMasterCharmItem;
 import safro.archon.item.water.SoakingHarvesterItem;
 import safro.saflib.registry.BaseBlockItemRegistry;
@@ -48,7 +47,7 @@ public class ItemRegistry extends BaseBlockItemRegistry {
     public static final Item HEAT_RANGER = register("heat_ranger", new HeatRangerItem(settings().maxDamage(384)));
     public static final Item VACUUM_CLEAVER = register("vacuum_cleaver", new VacuumCleaverItem(ToolMaterials.IRON, 7, -3.0F, settings()));
     public static final Item FIST_OF_FURY = register("fist_of_fury", new FistOfFuryItem(ToolMaterials.IRON, 3, -1.8F, settings()));
-    public static final Item FROST_SWORD = register("frost_sword", new FrostSwordItem(ToolMaterials.DIAMOND, 3, -2.4F, settings()));
+    public static final Item FROST_SWORD = register("frost_sword", new SpellWeaponItem(ToolMaterials.DIAMOND, Element.WATER, 2, 0.4D, 3, -2.4F, settings()));
 
     public static final Item TERRANEAN_AXE = register("terranean_axe", new TerraneanAxeItem(ToolMaterials.IRON, 6, -3.1F, settings().rarity(Rarity.RARE)));
     public static final Item HEAVEN_DIAL = register("heaven_dial", new HeavenDialItem(settings().maxCount(1).rarity(Rarity.RARE)));

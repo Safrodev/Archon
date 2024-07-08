@@ -1,4 +1,4 @@
-package safro.archon.entity.projectile.spell;
+package safro.archon.entity.projectile;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -27,6 +27,7 @@ public class SpellProjectileEntity extends ProjectileEntity {
     private static final TrackedData<Float> GREEN = DataTracker.registerData(SpellProjectileEntity.class, TrackedDataHandlerRegistry.FLOAT);
     private static final TrackedData<Float> BLUE = DataTracker.registerData(SpellProjectileEntity.class, TrackedDataHandlerRegistry.FLOAT);
     private static final TrackedData<Float> SIZE = DataTracker.registerData(SpellProjectileEntity.class, TrackedDataHandlerRegistry.FLOAT);
+    private static final TrackedData<Boolean> ENABLED = DataTracker.registerData(SpellProjectileEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private final HitExecutor hitExecutor;
 
     public SpellProjectileEntity(EntityType<? extends SpellProjectileEntity> entityType, World world) {
@@ -80,7 +81,7 @@ public class SpellProjectileEntity extends ProjectileEntity {
             this.setPosition(x, y, z);
             this.checkBlockCollision();
 
-            if (this.getWorld().isClient()) {
+            if (this.dataTracker.get(ENABLED) && this.getWorld().isClient() && this.age > 4) {
                 this.addParticles();
             }
         }
@@ -148,12 +149,17 @@ public class SpellProjectileEntity extends ProjectileEntity {
         this.dataTracker.set(SIZE, size);
     }
 
+    public void disableParticles() {
+        this.dataTracker.set(ENABLED, false);
+    }
+
     @Override
     protected void initDataTracker() {
         this.dataTracker.startTracking(RED, 1.0F);
         this.dataTracker.startTracking(GREEN, 1.0F);
         this.dataTracker.startTracking(BLUE, 1.0F);
         this.dataTracker.startTracking(SIZE, 0.5F);
+        this.dataTracker.startTracking(ENABLED, true);
     }
 
     @Override
@@ -163,6 +169,7 @@ public class SpellProjectileEntity extends ProjectileEntity {
         nbt.putFloat("Green", this.dataTracker.get(GREEN));
         nbt.putFloat("Blue", this.dataTracker.get(BLUE));
         nbt.putFloat("Size", this.dataTracker.get(SIZE));
+        nbt.putBoolean("Enabled", this.dataTracker.get(ENABLED));
     }
 
     @Override
@@ -172,6 +179,7 @@ public class SpellProjectileEntity extends ProjectileEntity {
         this.dataTracker.set(GREEN, nbt.getFloat("Green"));
         this.dataTracker.set(BLUE, nbt.getFloat("Blue"));
         this.dataTracker.set(SIZE, nbt.getFloat("Size"));
+        this.dataTracker.set(ENABLED, nbt.getBoolean("Enabled"));
     }
 
     @Override

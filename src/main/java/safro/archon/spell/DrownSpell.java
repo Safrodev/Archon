@@ -8,9 +8,11 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellPower;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 
+// TODO: Rework/Remove
 public class DrownSpell extends RaycastSpell {
 
     public DrownSpell(Element type, int manaCost) {
@@ -18,7 +20,7 @@ public class DrownSpell extends RaycastSpell {
     }
 
     @Override
-    public void onRaycast(World world, PlayerEntity player, ItemStack stack, LivingEntity target) {
+    public void onRaycast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack, LivingEntity target) {
         world.setBlockState(BlockPos.ofFloored(target.getX(), target.getEyeY(), target.getZ()), Blocks.WATER.getDefaultState());
     }
 

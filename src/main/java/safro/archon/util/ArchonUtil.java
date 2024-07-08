@@ -60,7 +60,7 @@ public class ArchonUtil {
     }
 
     public static boolean isValidManaItem(ItemStack stack) {
-        return stack.getItem() instanceof ManaWeapon || stack.getItem() instanceof ManaItem ||
+        return stack.getItem() instanceof SpellWeaponItem || stack.getItem() instanceof ManaItem ||
                 stack.getItem() instanceof ChannelerItem || stack.getItem() instanceof HeatRangerItem ||
                 stack.getItem() instanceof ManaBerriesItem || stack.isOf(ItemRegistry.SOUL_CRUSHER) || stack.getItem() instanceof WandItem;
     }

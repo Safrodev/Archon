@@ -4,6 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellPower;
 import safro.archon.api.Element;
 import safro.archon.api.spell.Spell;
 import safro.archon.util.SpellUtil;
@@ -16,12 +17,12 @@ public abstract class RaycastSpell extends Spell {
         this.range = range;
     }
 
-    public abstract void onRaycast(World world, PlayerEntity player, ItemStack stack, LivingEntity target);
+    public abstract void onRaycast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack, LivingEntity target);
 
     @Override
-    public void cast(World world, PlayerEntity player, ItemStack stack) {
+    public void cast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack) {
         if (SpellUtil.getTargeted(player, this.range) instanceof LivingEntity target) {
-            this.onRaycast(world, player, stack, target);
+            this.onRaycast(world, player, power, stack, target);
         }
     }
 

@@ -32,7 +32,6 @@ public class ClientRegistry {
         EntityRendererRegistry.register(EntityRegistry.ICE_BALL, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.WIND_BALL, EmptyEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.SPELL_PROJECTILE, EmptyEntityRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.CLOUDSHOT, EmptyEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.TERRAIN, TerrainEntityRenderer::new);
 
         EntityRendererRegistry.register(EntityRegistry.SKELT, SkeltEntityRenderer::new);

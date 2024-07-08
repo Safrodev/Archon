@@ -8,6 +8,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellPower;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 import safro.archon.item.WandItem;
@@ -40,9 +41,10 @@ public abstract class Spell {
      * Called when the player successfully uses the spell. Used to implement spell functionality.
      * @param world World the spell is being executed in
      * @param player Player casting the spell
+     * @param power Player's Spell Power for the element
      * @param stack Stack of the wand item
      */
-    public abstract void cast(World world, PlayerEntity player, ItemStack stack);
+    public abstract void cast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack);
 
     /**
      * Called when the player uses a wand. Used to check if the player can use this spell

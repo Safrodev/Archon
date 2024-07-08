@@ -6,7 +6,7 @@ import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import safro.archon.item.ManaWeapon;
+import safro.archon.item.SpellWeaponItem;
 import safro.archon.item.WandItem;
 import safro.archon.registry.MiscRegistry;
 import safro.archon.util.ArchonUtil;
@@ -34,7 +34,7 @@ public class ArcaneEnchantment extends Enchantment {
     }
 
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof ManaWeapon || stack.getItem() instanceof WandItem;
+        return stack.getItem() instanceof SpellWeaponItem || stack.getItem() instanceof WandItem;
     }
 
     /**

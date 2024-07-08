@@ -5,7 +5,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellPower;
 import safro.archon.api.Element;
 import safro.archon.api.spell.Spell;
 
@@ -18,8 +20,13 @@ public class EffectSpell extends Spell {
     }
 
     @Override
-    public void cast(World world, PlayerEntity player, ItemStack stack) {
-        StatusEffectInstance effect = new StatusEffectInstance(instance.getEffectType(), instance.getDuration(), instance.getAmplifier(), instance.isAmbient(), instance.shouldShowParticles(), instance.shouldShowIcon());
+    public void cast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack) {
+        int amplifier = (int) MathHelper.clamp(power.nonCriticalValue(), 1.0D, 10.0D) - 1;
+        StatusEffectInstance effect = new StatusEffectInstance(instance.getEffectType(), instance.getDuration(), amplifier, instance.isAmbient(), instance.shouldShowParticles(), instance.shouldShowIcon());
+        if (instance.getAmplifier() == 0) {
+            int duration = effect.getDuration() + ((int)power.nonCriticalValue() * 40);
+            effect = new StatusEffectInstance(effect.getEffectType(), duration, 0, effect.isAmbient(), effect.shouldShowParticles(), effect.shouldShowIcon());
+        }
         player.addStatusEffect(effect);
     }
 

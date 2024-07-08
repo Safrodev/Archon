@@ -8,10 +8,10 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
-import safro.archon.item.ManaWeapon;
+import safro.archon.item.SpellWeaponItem;
 import safro.archon.util.ArchonUtil;
 
-public class VoidScepterItem extends ManaWeapon {
+public class VoidScepterItem extends SpellWeaponItem {
 
     public VoidScepterItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);

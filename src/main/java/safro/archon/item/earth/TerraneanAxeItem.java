@@ -14,12 +14,12 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import safro.archon.item.ManaWeapon;
+import safro.archon.item.SpellWeaponItem;
 import safro.archon.registry.EffectRegistry;
 
 import java.util.List;
 
-public class TerraneanAxeItem extends ManaWeapon {
+public class TerraneanAxeItem extends SpellWeaponItem {
 
     public TerraneanAxeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);

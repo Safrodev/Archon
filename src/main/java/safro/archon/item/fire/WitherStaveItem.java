@@ -9,9 +9,9 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import safro.archon.item.ManaWeapon;
+import safro.archon.item.SpellWeaponItem;
 
-public class WitherStaveItem extends ManaWeapon {
+public class WitherStaveItem extends SpellWeaponItem {
 
     public WitherStaveItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);

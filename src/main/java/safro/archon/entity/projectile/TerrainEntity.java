@@ -1,11 +1,10 @@
-package safro.archon.entity.projectile.spell;
+package safro.archon.entity.projectile;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
@@ -26,8 +25,12 @@ public class TerrainEntity extends SpellProjectileEntity {
         this.block = block;
     }
 
-    protected ParticleEffect getParticleType() {
-        return ParticleTypes.SMOKE;
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.getWorld().isClient()) {
+            this.getWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.5, this.getZ(), 0.0, 0.0, 0.0);
+        }
     }
 
     public void setBlock(Block block) {

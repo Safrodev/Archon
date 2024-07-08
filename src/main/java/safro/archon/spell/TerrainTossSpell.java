@@ -7,13 +7,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellPower;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
 import safro.archon.api.spell.Spell;
 import safro.archon.api.spell.SpellParticleData;
-import safro.archon.entity.projectile.spell.TerrainEntity;
+import safro.archon.entity.projectile.TerrainEntity;
 import safro.archon.registry.TagRegistry;
 import safro.archon.util.SpellUtil;
 
@@ -24,12 +24,12 @@ public class TerrainTossSpell extends Spell {
     }
 
     @Override
-    public void cast(World world, PlayerEntity player, ItemStack stack) {
+    public void cast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack) {
         TerrainEntity terrain = new TerrainEntity(world, player, ((target, owner, projectile) -> {
-            target.takeKnockback(3 * 0.5F, MathHelper.sin(projectile.getYaw() * 0.017453292F), -MathHelper.cos(projectile.getYaw() * 0.017453292F));
-            SpellUtil.damage(player, target, projectile, this.getElement(), 4.0F, 3.0F);
+            SpellUtil.damage(player, target, projectile, this.getElement(), 4.0F, 1.0F);
         }), this.getTerrain(player));
-        SpellUtil.shoot(world, player, SpellParticleData.of(105, 66, 17, 1.0F), terrain, 0.5F);
+        terrain.disableParticles();
+        SpellUtil.shoot(world, player, SpellParticleData.of(255, 255, 255, 0.01F), terrain, 0.5F);
     }
 
     @Nullable
