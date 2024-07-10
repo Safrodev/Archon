@@ -75,6 +75,20 @@ public class ArchonConfig implements Config {
     )
     public boolean enableScreenShake = true;
 
+    @Comment("""
+             The max amount of experience the standard experience pouch can hold.
+             Default: 550
+            """)
+    @Syncing
+    public int experiencePouchMax = 550;
+
+    @Comment("""
+             The max amount of experience the super experience pouch can hold.
+             Default: 2920
+            """)
+    @Syncing
+    public int superExperiencePouchMax = 2920;
+
     @Override
     public String getName() {
         return "archon";

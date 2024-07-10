@@ -17,10 +17,8 @@ import safro.archon.item.end.WarpingHarvesterItem;
 import safro.archon.item.fire.FlamingHarvesterItem;
 import safro.archon.item.fire.HeatRangerItem;
 import safro.archon.item.fire.InfernalCoatItem;
-import safro.archon.item.fire.WitherStaveItem;
 import safro.archon.item.sky.BreezyHarvesterItem;
 import safro.archon.item.sky.HeavenDialItem;
-import safro.archon.item.sky.VacuumCleaverItem;
 import safro.archon.item.water.SeaMasterCharmItem;
 import safro.archon.item.water.SoakingHarvesterItem;
 import safro.saflib.registry.BaseBlockItemRegistry;
@@ -41,11 +39,11 @@ public class ItemRegistry extends BaseBlockItemRegistry {
     public static final Item ENDER_BLADE = register("ender_blade", new EnderBladeItem(ToolMaterials.DIAMOND, 3, -2.4F, settings()));
     public static final Item VOID_SCEPTER = register("void_scepter", new VoidScepterItem(ToolMaterials.DIAMOND, 1, -2.4F, settings()));
     public static final Item TERRAIN_MACE = register("terrain_mace", new TerrainMaceItem(ToolMaterials.IRON, 4, -3.1F, settings()));
-    public static final Item WITHER_STAVE = register("wither_stave", new WitherStaveItem(ToolMaterials.DIAMOND, 1, -2.4F, settings()));
-    public static final Item THUNDER_BOLT = register("thunder_staff", wand(Element.SKY, 5));
-    public static final Item WATER_STAFF = register("water_scepter", wand(Element.WATER, 5));
+    public static final Item WITHER_STAVE = register("wither_stave", wand(Element.FIRE, 5));
+    public static final Item THUNDER_STAFF = register("thunder_staff", wand(Element.SKY, 5));
+    public static final Item WATER_SCEPTER = register("water_scepter", wand(Element.WATER, 5));
     public static final Item HEAT_RANGER = register("heat_ranger", new HeatRangerItem(settings().maxDamage(384)));
-    public static final Item VACUUM_CLEAVER = register("vacuum_cleaver", new VacuumCleaverItem(ToolMaterials.IRON, 7, -3.0F, settings()));
+    public static final Item STORM_CLEAVER = register("storm_cleaver", new SpellWeaponItem(ToolMaterials.IRON, Element.SKY, 1, 0.8D, 7, -3.0F, settings()));
     public static final Item FIST_OF_FURY = register("fist_of_fury", new FistOfFuryItem(ToolMaterials.IRON, 3, -1.8F, settings()));
     public static final Item FROST_SWORD = register("frost_sword", new SpellWeaponItem(ToolMaterials.DIAMOND, Element.WATER, 2, 0.4D, 3, -2.4F, settings()));
 
@@ -84,8 +82,8 @@ public class ItemRegistry extends BaseBlockItemRegistry {
     public static final Item SOUL_CORE_BOSS = register("soul_core_boss", new SoulItem(SoulType.BOSS, settings()));
 
     // Resources + Misc
-    public static final Item EXPERIENCE_POUCH = register("experience_pouch", new ExperiencePouchItem(550, settings().maxCount(1)));
-    public static final Item SUPER_EXPERIENCE_POUCH = register("super_experience_pouch", new ExperiencePouchItem(2920, settings().maxCount(1)));
+    public static final Item EXPERIENCE_POUCH = register("experience_pouch", new ExperiencePouchItem(Archon.CONFIG.experiencePouchMax, settings().maxCount(1)));
+    public static final Item SUPER_EXPERIENCE_POUCH = register("super_experience_pouch", new ExperiencePouchItem(Archon.CONFIG.superExperiencePouchMax, settings().maxCount(1)));
     public static final Item GLISTEEL_INGOT = register("glisteel_ingot", new Item(settings()));
     public static final Item FIRE_GEM = register("fire_gem", new Item(settings()));
     public static final Item WATER_GEM = register("water_gem", new Item(settings()));

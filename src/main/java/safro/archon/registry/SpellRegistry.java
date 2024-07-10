@@ -45,8 +45,9 @@ public class SpellRegistry {
     public static final Spell PROPEL = register("propel", new PropelSpell(Element.SKY, 10));
     public static final Spell GUST = register("gust", new GustSpell(Element.SKY, 20));
     public static final Spell THUNDER_STRIKE = register("thunder_strike", new ThunderStrikeSpell(Element.SKY, 30));
-    public static final Spell CLOUDSHOT = register("cloudshot", new CloudshotSpell(Element.SKY, 30));
+    public static final Spell CLOUDSHOT = register("cloudshot", new CloudshotSpell(Element.SKY, 10));
     public static final Spell CLEARING_BREEZE = register("clearing_breeze", new WeatherSpell(Element.SKY, 90, false));
+    public static final Spell VACUUM = register("vacuum", new VacuumSpell(Element.SKY, 50));
 
     // Earth
     public static final Spell RUMBLE = register("rumble", new RumbleSpell(Element.EARTH, 40));
@@ -58,7 +59,8 @@ public class SpellRegistry {
     public static final Spell DARKBALL = register("darkball", new DarkballSpell(Element.END, 10));
     public static final Spell SWAP = register("swap", new SwapSpell(Element.END, 40));
     public static final Spell ENDER = register("ender", new EnderSpell(Element.END, 20));
-    public static final Spell SHADOW = register("shadow", new EffectSpell(new StatusEffectInstance(EffectRegistry.SHADOW, 200, 0, false, false, true), Element.END, 50));
+    public static final Spell SHADOW = register("shadow", new EffectSpell(new StatusEffectInstance(EffectRegistry.SHADOW, 200, 0, false, false, true), Element.END, 70));
+    public static final Spell ASTROFALL = register("astrofall", new AstrofallSpell(Element.END, 80));
 
     public static void init() {
     }

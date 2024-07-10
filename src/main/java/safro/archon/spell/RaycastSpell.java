@@ -19,6 +19,10 @@ public abstract class RaycastSpell extends Spell {
 
     public abstract void onRaycast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack, LivingEntity target);
 
+    public boolean canTarget(PlayerEntity caster, LivingEntity target) {
+        return true;
+    }
+
     @Override
     public void cast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack) {
         if (SpellUtil.getTargeted(player, this.range) instanceof LivingEntity target) {
@@ -28,8 +32,8 @@ public abstract class RaycastSpell extends Spell {
 
     @Override
     public boolean canCast(World world, PlayerEntity player, ItemStack stack) {
-        if (super.canCast(world, player, stack)) {
-            return SpellUtil.getTargeted(player, this.range) instanceof LivingEntity;
+        if (super.canCast(world, player, stack) && SpellUtil.getTargeted(player, this.range) instanceof LivingEntity target) {
+            return this.canTarget(player, target);
         }
         return false;
     }

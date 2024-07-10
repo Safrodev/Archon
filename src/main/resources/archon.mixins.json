@@ -6,7 +6,6 @@
   "mixins": [
     "PlayerEntityMixin",
     "LivingEntityMixin",
-    "EntityMixin",
     "LightningEntityMixin",
     "CreeperEntityMixin",
     "ItemEntityMixin",

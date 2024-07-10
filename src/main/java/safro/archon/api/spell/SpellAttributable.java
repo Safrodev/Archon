@@ -12,6 +12,8 @@ public interface SpellAttributable {
     UUID CRIT_CHANCE_ID = UUID.fromString("b2866e6c-1a88-4d4a-8e7a-41954921e2b6");
     UUID CRIT_DAMAGE_ID = UUID.fromString("ee7ef13e-0ff2-4826-aedc-6aa6bc3af4f1");
 
+    Element getElement();
+
     default void addPower(ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder, Element element, double amount) {
         builder.put(element.getSchool().attribute, new EntityAttributeModifier(element.getAttributeUUID(), "Spell Power", amount, EntityAttributeModifier.Operation.ADDITION));
     }

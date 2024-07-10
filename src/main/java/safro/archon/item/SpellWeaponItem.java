@@ -8,6 +8,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -40,14 +41,21 @@ public class SpellWeaponItem extends SwordItem implements SpellAttributable {
     public SpellWeaponItem(ToolMaterial toolMaterial, Element element, int power, double critDmg, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
         this.type = element;
+
+        float damage = (float)attackDamage + toolMaterial.getAttackDamage();
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
+        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", damage, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
+
         addPower(builder, element, power);
         if (critDmg >= 0.0D) {
             addCritDamage(builder, critDmg);
         }
+
         this.attributeModifiers = builder.build();
     }
 
+    @Override
     public Element getElement() {
         return this.type;
     }
@@ -138,9 +146,7 @@ public class SpellWeaponItem extends SwordItem implements SpellAttributable {
 
     @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
-        Multimap<EntityAttribute, EntityAttributeModifier> map = super.getAttributeModifiers(slot);
-        map.putAll(this.attributeModifiers);
-        return slot == EquipmentSlot.MAINHAND ? map : super.getAttributeModifiers(slot);
+        return slot == EquipmentSlot.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
     }
 
     @Environment(EnvType.CLIENT)

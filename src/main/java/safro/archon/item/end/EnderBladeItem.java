@@ -2,15 +2,15 @@ package safro.archon.item.end;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
-import safro.archon.item.SpellWeaponItem;
 
-public class EnderBladeItem extends SpellWeaponItem {
+public class EnderBladeItem extends SwordItem {
 
     public EnderBladeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);

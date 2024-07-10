@@ -43,6 +43,7 @@ public class WandItem extends Item implements SpellAttributable {
         this.attributeModifiers = builder.build();
     }
 
+    @Override
     public Element getElement() {
         return this.type;
     }

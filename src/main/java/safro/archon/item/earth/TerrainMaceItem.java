@@ -3,18 +3,18 @@ package safro.archon.item.earth;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import safro.archon.item.SpellWeaponItem;
 import safro.archon.util.ArchonUtil;
 
 import java.util.List;
 
-public class TerrainMaceItem extends SpellWeaponItem {
+public class TerrainMaceItem extends SwordItem {
 
     public TerrainMaceItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);

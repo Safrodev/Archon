@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 import net.spell_power.api.SpellPower;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.api.Element;
-import safro.archon.item.WandItem;
 import safro.archon.registry.SpellRegistry;
 import safro.archon.util.ArchonUtil;
 
@@ -53,7 +52,7 @@ public abstract class Spell {
      * @param stack Stack of the wand item
      */
     public boolean canCast(World world, PlayerEntity player, ItemStack stack) {
-        if (stack.getItem() instanceof WandItem wand && wand.getElement() == this.getElement()) {
+        if (stack.getItem() instanceof SpellAttributable tool && tool.getElement() == this.getElement()) {
             return ArchonUtil.canRemoveMana(player, this.getManaCost());
         }
         return false;
