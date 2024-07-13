@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " EE",
-    " GE",
-    "G  "
+    "  E",
+    " S ",
+    "S  "
   ],
   "key": {
     "E": {
       "item": "archon:water_essence"
     },
-    "G": {
-      "item": "archon:water_gem"
+    "S": {
+      "item": "minecraft:stick"
     }
   },
   "result": {

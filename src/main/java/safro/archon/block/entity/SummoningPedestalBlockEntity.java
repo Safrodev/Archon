@@ -146,6 +146,16 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
         return false;
     }
 
+    public boolean hasItem(Item item, int count) {
+        int i = 0;
+        for (ItemStack itemStack : this.inventory) {
+            if (item == itemStack.getItem()) {
+                ++i;
+            }
+        }
+        return i >= count;
+    }
+
     public DefaultedList<ItemStack> getInventory() {
         return inventory;
     }

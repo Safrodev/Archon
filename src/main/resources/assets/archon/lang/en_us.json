@@ -137,6 +137,8 @@
   "spell.archon.swap": "Swap",
   "spell.archon.ender": "Ender",
   "spell.archon.shadow": "Shadow",
+  "spell.archon.astrofall": "Astrofall",
+  "spell.archon.warp": "Warp",
 
   "text.archon.capacity": "Capacity",
   "text.archon.accelerate": "Accelerate",
@@ -193,9 +195,6 @@
   "command.archon.spell.no_spells": "Selected player does not know any spells",
   "command.archon.spell.not_found": "Player does not have that spell",
   "command.archon.spell.removed": "Removed 1 spell from %s",
-
-  "death.attack.hellbeam.player": "%1$s was sizzled by %2$s",
-  "death.attack.hellbeam": "%1$s was incinerated",
 
   "rei.archon.channeling": "Channeling",
   "rei.archon.scripting": "Scripting",

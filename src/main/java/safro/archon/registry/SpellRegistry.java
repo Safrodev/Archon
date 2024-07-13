@@ -61,6 +61,7 @@ public class SpellRegistry {
     public static final Spell ENDER = register("ender", new EnderSpell(Element.END, 20));
     public static final Spell SHADOW = register("shadow", new EffectSpell(new StatusEffectInstance(EffectRegistry.SHADOW, 200, 0, false, false, true), Element.END, 70));
     public static final Spell ASTROFALL = register("astrofall", new AstrofallSpell(Element.END, 80));
+    public static final Spell WARP = register("warp", new WarpSpell(Element.END, 10));
 
     public static void init() {
     }

@@ -75,7 +75,7 @@ public class ManaComponent implements AutoSyncedComponent, ServerTickingComponen
     }
 
     public void removeMana(int mana) {
-        this.mana = this.mana - mana;
+        this.mana = Math.max(0, this.mana - mana);
         ComponentsRegistry.MANA_COMPONENT.sync(player);
     }
 

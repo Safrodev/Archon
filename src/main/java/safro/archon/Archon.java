@@ -62,6 +62,6 @@ public class Archon implements ModInitializer {
 		// Init Sounds
 		SOUNDS = new SoundRegistry();
 
-		SafLib.registerAll(ITEMGROUP, ItemRegistry.FIRE_ESSENCE);
+		SafLib.registerAll(ITEMGROUP, ItemRegistry.END_ESSENCE);
 	}
 }

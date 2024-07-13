@@ -1,7 +1,7 @@
 package safro.archon.recipe;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
@@ -35,12 +35,12 @@ public class ChannelingRecipe implements Recipe<ChannelingInventory> {
     }
 
     public ChannelingRecipe(TagKey<Block> tag, ItemStack result, int manaCost, Identifier id) {
-        this(Ingredient.ofItems(mapTag(tag).toArray(new ItemConvertible[]{})), result, manaCost, id);
+        this(Ingredient.ofItems(mapTag(tag).toArray(new Item[]{})), result, manaCost, id);
     }
 
-    private static List<Block> mapTag(TagKey<Block> tag) {
-        List<Block> list = new ArrayList<>();
-        Registries.BLOCK.iterateEntries(tag).forEach(entry -> list.add(entry.value()));
+    private static List<Item> mapTag(TagKey<Block> tag) {
+        List<Item> list = new ArrayList<>();
+        Registries.BLOCK.iterateEntries(tag).forEach(entry -> list.add(entry.value().asItem()));
         return list;
     }
 

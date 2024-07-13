@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " EE",
-    " GE",
-    "G  "
+    "  E",
+    " S ",
+    "S  "
   ],
   "key": {
     "E": {
       "item": "archon:sky_essence"
     },
-    "G": {
-      "item": "archon:sky_gem"
+    "S": {
+      "item": "minecraft:stick"
     }
   },
   "result": {

@@ -33,6 +33,7 @@
     "minecraft:frog",
     "minecraft:camel",
     "minecraft:allay",
+    "minecraft:sniffer",
 
     { "id": "naturalist:snail", "required": false },
     { "id": "naturalist:bear", "required": false },

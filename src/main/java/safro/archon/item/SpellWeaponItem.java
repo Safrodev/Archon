@@ -38,7 +38,7 @@ public class SpellWeaponItem extends SwordItem implements SpellAttributable {
     private final Element type;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
-    public SpellWeaponItem(ToolMaterial toolMaterial, Element element, int power, double critDmg, int attackDamage, float attackSpeed, Settings settings) {
+    public SpellWeaponItem(ToolMaterial toolMaterial, Element element, int power, double critDmg, double critChance, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
         this.type = element;
 
@@ -50,6 +50,10 @@ public class SpellWeaponItem extends SwordItem implements SpellAttributable {
         addPower(builder, element, power);
         if (critDmg >= 0.0D) {
             addCritDamage(builder, critDmg);
+        }
+
+        if (critChance >= 0.0D) {
+            addCritChance(builder, critChance);
         }
 
         this.attributeModifiers = builder.build();

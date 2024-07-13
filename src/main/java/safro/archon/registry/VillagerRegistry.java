@@ -25,11 +25,11 @@ public class VillagerRegistry {
     public static void init() {
         PointOfInterestHelper.register(new Identifier(Archon.MODID, "wizard"), 1, 1, BlockRegistry.MAGICAL_BOOKSHELF);
 
-        TradeOffers.Factory[] WIZARD_LVL1 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.EARTH_GEM, 3, 64, 1), new TradeOffers.SellItemFactory(ItemRegistry.MANA_BERRIES, 2, 2, 40, 2)};
-        TradeOffers.Factory[] WIZARD_LVL2 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.SKY_GEM, 3, 64, 2), new WizardEnchantBookFactory(5)};
-        TradeOffers.Factory[] WIZARD_LVL3 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.WATER_GEM, 3, 64, 3), new TradeOffers.SellItemFactory(ItemRegistry.LIGHTNING_BOTTLE, 13, 1, 16, 8)};
-        TradeOffers.Factory[] WIZARD_LVL4 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.FIRE_GEM, 3, 64, 4), new TradeOffers.SellItemFactory(ItemRegistry.CAPACITY_SCROLL, 60, 1, 3, 15)};
-        TradeOffers.Factory[] WIZARD_LVL5 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.END_GEM, 3, 64, 5), new TradeOffers.SellItemFactory(ItemRegistry.ACCELERATE_SCROLL, 60, 1, 3, 15)};
+        TradeOffers.Factory[] WIZARD_LVL1 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.EARTH_ESSENCE, 3, 64, 1), new TradeOffers.SellItemFactory(ItemRegistry.MANA_BERRIES, 2, 2, 40, 2)};
+        TradeOffers.Factory[] WIZARD_LVL2 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.SKY_ESSENCE, 3, 64, 2), new WizardEnchantBookFactory(5)};
+        TradeOffers.Factory[] WIZARD_LVL3 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.WATER_ESSENCE, 3, 64, 3), new TradeOffers.SellItemFactory(ItemRegistry.LIGHTNING_BOTTLE, 13, 1, 16, 8)};
+        TradeOffers.Factory[] WIZARD_LVL4 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.FIRE_ESSENCE, 3, 64, 4), new TradeOffers.SellItemFactory(ItemRegistry.CAPACITY_SCROLL, 60, 1, 3, 15)};
+        TradeOffers.Factory[] WIZARD_LVL5 = new TradeOffers.Factory[]{new TradeOffers.BuyForOneEmeraldFactory(ItemRegistry.END_ESSENCE, 3, 64, 5), new TradeOffers.SellItemFactory(ItemRegistry.ACCELERATE_SCROLL, 60, 1, 3, 15)};
         TradeOffers.PROFESSION_TO_LEVELED_TRADE.put(WIZARD, intMap(ImmutableMap.of(1, WIZARD_LVL1,2, WIZARD_LVL2,3, WIZARD_LVL3,4, WIZARD_LVL4,5, WIZARD_LVL5)));
     }
 

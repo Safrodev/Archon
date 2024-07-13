@@ -13,7 +13,7 @@ import safro.archon.registry.ItemRegistry;
 
 public class SummonUtil {
     public static boolean canSummonTar(SummoningPedestalBlockEntity be) {
-        return be.hasItem(ItemRegistry.EARTH_ESSENCE) && be.hasItem(ItemRegistry.EARTH_GEM) && be.hasItem(Items.DEEPSLATE) && be.hasItem(Items.EMERALD);
+        return be.hasItem(ItemRegistry.EARTH_ESSENCE, 2) && be.hasItem(Items.DEEPSLATE) && be.hasItem(Items.EMERALD);
     }
 
     public static void summonTar(World world, BlockPos pos) {
@@ -24,7 +24,7 @@ public class SummonUtil {
     }
 
     public static boolean canSummonAlya(SummoningPedestalBlockEntity be) {
-        return be.hasItem(Items.GOLD_INGOT) && be.hasItem(ItemRegistry.SKY_GEM) && be.hasItem(Items.FEATHER) && be.hasItem(ItemRegistry.SKY_ESSENCE);
+        return be.hasItem(Items.GOLD_INGOT) && be.hasItem(Items.FEATHER) && be.hasItem(ItemRegistry.SKY_ESSENCE, 2);
     }
 
     public static void summonAlya(World world, BlockPos pos) {
@@ -35,7 +35,7 @@ public class SummonUtil {
     }
 
     public static boolean canSummonLeven(SummoningPedestalBlockEntity be) {
-        return be.hasItem(Items.KELP) && be.hasItem(ItemRegistry.WATER_GEM) && be.hasItem(Items.PUFFERFISH) && be.hasItem(ItemRegistry.WATER_ESSENCE);
+        return be.hasItem(Items.KELP) && be.hasItem(Items.PUFFERFISH) && be.hasItem(ItemRegistry.WATER_ESSENCE, 2);
     }
 
     public static void summonLeven(World world, BlockPos pos) {
@@ -46,7 +46,7 @@ public class SummonUtil {
     }
 
     public static boolean canSummonInigo(SummoningPedestalBlockEntity be) {
-        return be.hasItem(Items.BLAZE_POWDER) && be.hasItem(ItemRegistry.FIRE_GEM) && be.hasItem(Items.MAGMA_CREAM) && be.hasItem(ItemRegistry.FIRE_ESSENCE);
+        return be.hasItem(Items.BLAZE_POWDER) && be.hasItem(Items.MAGMA_CREAM) && be.hasItem(ItemRegistry.FIRE_ESSENCE, 2);
     }
 
     public static void summonInigo(World world, BlockPos pos) {
@@ -57,7 +57,7 @@ public class SummonUtil {
     }
 
     public static boolean canSummonNull(SummoningPedestalBlockEntity be) {
-        return be.hasItem(Items.ENDER_PEARL) && be.hasItem(ItemRegistry.END_GEM) && be.hasItem(Items.END_CRYSTAL) && be.hasItem(ItemRegistry.END_ESSENCE);
+        return be.hasItem(Items.ENDER_PEARL) && be.hasItem(Items.END_CRYSTAL) && be.hasItem(ItemRegistry.END_ESSENCE, 2);
     }
 
     public static void summonNull(World world, BlockPos pos) {
