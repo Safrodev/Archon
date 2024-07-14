@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:experience_pouch",
-      "text": "Experience Pouches are used to easily store XP. Simply right-click to open a menu that can be used to store XP in the pouch or take it back out. Normal experience pouches have a cap of 200 and super pouches a cap of 400."
+      "text": "Experience Pouches are used to easily store XP. Simply right-click to open a menu that can be used to store XP in the pouch or take it back out. The XP storage capacity is configurable."
     },
     {
       "type": "patchouli:crafting",

@@ -11,12 +11,12 @@
     {
       "type": "patchouli:text",
       "title": "Propel",
-      "text": "Launches the user in the air for a short distance $(li)Mana Cost: 10"
+      "text": "Launches the user in the air for a short distance (additional for more spell power) $(li)Mana Cost: 10"
     },
     {
       "type": "patchouli:text",
       "title": "Gust",
-      "text": "Shoots a gust of wind that pushes back the target  $(li)Mana Cost: 20"
+      "text": "Shoots a gust of wind that pushes back the target $(li)Mana Cost: 20"
     },
     {
       "type": "patchouli:text",
@@ -26,12 +26,17 @@
     {
       "type": "patchouli:text",
       "title": "Cloudshot",
-      "text": "Fire a slow moving cloud that deals high damage $(li)Mana Cost: 30"
+      "text": "Fire a spell cloud that deals high damage $(li)Mana Cost: 30"
     },
     {
       "type": "patchouli:text",
       "title": "Clearing Breeze",
-      "text": "Allows the user to clear the weather"
+      "text": "Allows the user to clear the weather $(li)Mana Cost: 90"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Vacuum",
+      "text": "Pulls the target towards you quickly $(li)Mana Cost: 50"
     }
   ]
 }

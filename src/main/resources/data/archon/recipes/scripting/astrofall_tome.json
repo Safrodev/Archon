@@ -1,0 +1,17 @@
+{
+  "type": "archon:scripting",
+  "ingredients": [
+    {
+      "item": "minecraft:crying_obsidian"
+    },
+    {
+      "item": "minecraft:tnt"
+    },
+    {
+      "item": "minecraft:crying_obsidian"
+    }
+  ],
+  "result": {
+    "item": "archon:astrofall_tome"
+  }
+}

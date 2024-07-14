@@ -22,12 +22,12 @@ import safro.archon.registry.EntityRegistry;
 
 public class SpellUtil {
 
-    public static void shoot(World world, PlayerEntity player, SpellParticleData data, float speed, HitExecutor hitExecutor) {
-        shoot(world, player, data, new SpellProjectileEntity(EntityRegistry.SPELL_PROJECTILE, world, player, hitExecutor), speed);
+    public static void shoot(World world, LivingEntity shooter, SpellParticleData data, float speed, HitExecutor hitExecutor) {
+        shoot(world, shooter, data, new SpellProjectileEntity(EntityRegistry.SPELL_PROJECTILE, world, shooter, hitExecutor), speed);
     }
 
-    public static void shoot(World world, PlayerEntity player, SpellParticleData data, SpellProjectileEntity projectile, float speed) {
-        projectile.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, speed, 0.8F);
+    public static void shoot(World world, LivingEntity shooter, SpellParticleData data, SpellProjectileEntity projectile, float speed) {
+        projectile.setVelocity(shooter, shooter.getPitch(), shooter.getYaw(), 0.0F, speed, 0.8F);
         projectile.setParticle(data.red(), data.green(), data.blue(), data.size());
         world.spawnEntity(projectile);
     }

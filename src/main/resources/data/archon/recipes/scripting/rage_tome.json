@@ -1,0 +1,17 @@
+{
+  "type": "archon:scripting",
+  "ingredients": [
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "tag": "minecraft:blaze_powder"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    }
+  ],
+  "result": {
+    "item": "archon:rage_tome"
+  }
+}

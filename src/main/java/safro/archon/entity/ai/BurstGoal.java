@@ -40,7 +40,7 @@ public class BurstGoal extends Goal {
     public void tick() {
         ++this.ticks;
         this.mob.getWorld().createExplosion(this.mob, this.mob.getX(), this.mob.getY(), this.mob.getZ(), 6.0F, World.ExplosionSourceType.NONE);
-        this.mob.getWorld().sendEntityStatus(this.mob, (byte)18);
+        this.mob.getWorld().sendEntityStatus(this.mob, (byte)64);
     }
 
     private boolean areTargetsInRange() {

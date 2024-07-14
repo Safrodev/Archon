@@ -21,12 +21,17 @@
     {
       "type": "patchouli:text",
       "title": "Spike",
-      "text": "Creates a spike underneath the target that flings them up and makes them take damage if landed upon. $(li)Mana Cost: 20 $(li)Range: 10"
+      "text": "Creates a spike underneath the target that flings them up and makes them take damage if landed upon. $(li)Mana Cost: 20 $(li)Range: 20"
     },
     {
       "type": "patchouli:text",
       "title": "Terrain Toss",
-      "text": "Launches a chunk of terrain that deals damage and high knockback $(li)Mana Cost: 15"
+      "text": "Launches a chunk of terrain that deals damage and high knockback $(li)Mana Cost: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Rage",
+      "text": "Grants the Rage status effect for 7 seconds + 2 per spell power $(li)Mana Cost: 40"
     }
   ]
 }

@@ -15,7 +15,7 @@ import safro.archon.api.Element;
 public class SpikeSpell extends RaycastSpell {
 
     public SpikeSpell(Element type, int manaCost) {
-        super(type, manaCost, 10);
+        super(type, manaCost, 20);
     }
 
     @Override

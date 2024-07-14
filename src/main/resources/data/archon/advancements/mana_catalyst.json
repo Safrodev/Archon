@@ -19,19 +19,34 @@
     "catalyst": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "archon:mana_catalyst"
+        "location": [
+          {
+            "block": "archon:mana_catalyst",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
       }
     },
     "diamond_catalyst": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "archon:diamond_mana_catalyst"
+        "location": [
+          {
+            "block": "archon:diamond_mana_catalyst",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
       }
     },
     "netherite_catalyst": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "archon:netherite_mana_catalyst"
+        "location": [
+          {
+            "block": "archon:netherite_mana_catalyst",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
       }
     }
   },

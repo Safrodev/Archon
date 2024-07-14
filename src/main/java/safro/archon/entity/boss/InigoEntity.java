@@ -20,19 +20,20 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.spell_power.api.SpellDamageSource;
+import net.spell_power.api.SpellSchools;
+import safro.archon.api.spell.SpellParticleData;
 import safro.archon.entity.ai.BurstGoal;
+import safro.archon.entity.projectile.SpellProjectileEntity;
+import safro.archon.registry.EntityRegistry;
 import safro.archon.registry.ItemRegistry;
-import safro.archon.registry.ParticleRegistry;
-import safro.saflib.network.ParticlePacket;
 import safro.saflib.util.MathUtil;
 
 public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
     private static final TrackedData<Integer> BURST_COOLDOWN = DataTracker.registerData(InigoEntity.class, TrackedDataHandlerRegistry.INTEGER);
     protected static final TrackedData<Integer> FLEE_COOLDOWN = DataTracker.registerData(InigoEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private int beamDelay = 0;
 
     public InigoEntity(EntityType<? extends AbstractBossEntity> entityType, World world) {
         super(entityType, world);
@@ -72,37 +73,20 @@ public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
     @Override
     public void attack(LivingEntity target, float pullProgress) {
         this.setTarget(target);
-        this.beamDelay = 15;
-    }
+        this.lookAtEntity(target, 180.0F, 180.0F);
+        this.setBodyYaw(this.getHeadYaw());
 
-    @Override
-    public void mobTick() {
-        super.mobTick();
-
-        if (this.beamDelay > 0) {
-            --this.beamDelay;
-
-            if (this.beamDelay == 0 && this.getTarget() != null) {
-                LivingEntity target = this.getTarget();
-                Vec3d pos = this.getEyePos();
-                Vec3d targetPos = new Vec3d(target.getEyePos().x, target.getEyePos().y, target.getEyePos().z);
-                targetPos.subtract(pos);
-                targetPos.normalize();
-                float targetYaw = (float) (MathHelper.atan2(targetPos.x, targetPos.z) * (double) (180F / (float) Math.PI));
-                this.setYaw(-targetYaw - 180);
-                Vec3d headPos = new Vec3d(pos.x, pos.y, pos.z);
-                float rotation = ((this.getYaw() - 90) / 360) * (float) Math.PI * 2F;
-                headPos.add(MathHelper.cos(rotation) * 7, 0, MathHelper.sin(rotation) * 7);
-                Vec3d targetEye = target.getEyePos();
-
-                if (!this.getWorld().isClient()) {
-                    for (Vec3d vec3d : MathUtil.getLine(headPos, targetEye, 0.2D)) {
-                        ParticlePacket.send(this, ParticleRegistry.INFERNO_LASER, vec3d.x, vec3d.y, vec3d.z, 2.0D, 0.0D, 0.0D);
-                    }
-                }
-                this.getTarget().damage(this.getWorld().getDamageSources().mobAttack(this), 15.0F);
-            }
-        }
+        SpellProjectileEntity beam = new SpellProjectileEntity(EntityRegistry.SPELL_PROJECTILE, this.getWorld(), this, (hit, owner, projectile) -> {
+            hit.damage(SpellDamageSource.mob(SpellSchools.FIRE, this), 15.0F);
+            hit.setOnFireFor(3);
+        });
+        double d = target.getX() - this.getX();
+        double e = target.getBodyY(0.3333333333333333) - beam.getY();
+        double f = target.getZ() - this.getZ();
+        SpellParticleData data = SpellParticleData.of(255, 79, 48);
+        beam.setParticle(data.red(), data.green(), data.blue(), data.size());
+        beam.setVelocity(d, e, f, 3.0F, 0.8F);
+        this.getWorld().spawnEntity(beam);
     }
 
     @Override
@@ -115,7 +99,7 @@ public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
 
     @Override
     public void handleStatus(byte status) {
-        if (status == 18) {
+        if (status == 64) {
             for (int i = 0; i < Direction.Axis.VALUES.length; i++) {
                 for (Vec3d vec3d : MathUtil.getCircle(this.getX(), this.getY(), this.getZ(), 4.5D, 2, Direction.Axis.VALUES[i])) {
                     this.getWorld().addParticle(ParticleTypes.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0.0D, 0.03D, 0.0D);

@@ -4,6 +4,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,9 +14,12 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.registry.EffectRegistry;
+import safro.archon.registry.MiscRegistry;
+import safro.archon.util.ArchonUtil;
 
 import java.util.List;
 
@@ -36,6 +40,21 @@ public class TerraneanAxeItem extends SwordItem {
         return true;
     }
 
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+        ItemStack stack = player.getStackInHand(hand);
+        if (ArchonUtil.canRemoveMana(player, getManaCost()) && activate(world, player, stack, hand)) {
+            if (EnchantmentHelper.getLevel(MiscRegistry.ARCANE, stack) >= 1) {
+                int removed = (int) (getManaCost() * 0.2);
+                ArchonUtil.get(player).removeMana(getManaCost() - removed);
+            } else {
+                ArchonUtil.get(player).removeMana(getManaCost());
+            }
+            return TypedActionResult.success(stack);
+        }
+        return TypedActionResult.pass(stack);
+    }
+
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
@@ -44,6 +63,7 @@ public class TerraneanAxeItem extends SwordItem {
         } else {
             tooltip.add(Text.translatable("text.archon.shift"));
         }
+        tooltip.add(ArchonUtil.createManaText(getManaCost(), true));
         super.appendTooltip(stack, world, tooltip, context);
     }
 }

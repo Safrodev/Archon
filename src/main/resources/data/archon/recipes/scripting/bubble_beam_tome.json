@@ -1,0 +1,17 @@
+{
+  "type": "archon:scripting",
+  "ingredients": [
+    {
+      "item": "minecraft:snowball"
+    },
+    {
+      "item": "minecraft:glow_ink_sac"
+    },
+    {
+      "item": "minecraft:soul_sand"
+    }
+  ],
+  "result": {
+    "item": "archon:bubble_beam_tome"
+  }
+}

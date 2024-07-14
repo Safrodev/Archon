@@ -1,5 +1,5 @@
 {
-  "parent": "archon:obtain_essence",
+  "parent": "archon:root",
   "display": {
     "icon": {
       "item": "archon:water_wand"

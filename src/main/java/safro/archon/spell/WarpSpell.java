@@ -19,7 +19,7 @@ public class WarpSpell extends Spell {
 
     @Override
     public void cast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack) {
-        HitResult hit = player.raycast(10, 0.0F, true);
+        HitResult hit = player.raycast(8 + power.nonCriticalValue(), 0.0F, true);
         player.teleport(hit.getPos().x, hit.getPos().y, hit.getPos().z);
     }
 

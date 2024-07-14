@@ -7,27 +7,27 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:earth_node",
-      "text": "Earth Node veins generate underground in the Overworld between y-levels -64 and 0 (configurable). They drop 1 Earth Gem."
+      "text": "Earth Node veins generate underground in the Overworld between y-levels -64 and 0 (configurable). They drop 1 Earth Essence."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:water_node",
-      "text": "Water Node veins generate underground in Ocean biomes between y-levels 40 and 27 (configurable). They drop 1 Water Gem."
+      "text": "Water Node veins generate underground in Ocean biomes between y-levels 40 and 27 (configurable). They drop 1 Water Essence."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:fire_node",
-      "text": "Fire Node veins generate in the Nether between y-levels 10 and 117 (configurable). They drop 1 Fire Gem."
+      "text": "Fire Node veins generate in the Nether between y-levels 10 and 117 (configurable). They drop 1 Fire Essence."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:end_node",
-      "text": "End Node veins generate anywhere inside of end islands throughout the End. They drop 1 End Gem."
+      "text": "End Node veins generate anywhere inside of end islands throughout the End. They drop 1 End Essence."
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:sky_node",
-      "text": "Sky node veins generate in small clouds in the Overloard. The clouds generate between y 192 and 196, also containing bits of iron. The nodes drop 1 Sky Gem."
+      "text": "Sky node veins generate in small clouds in the Overloard. The clouds generate between y 192 and 196, also containing bits of iron. The nodes drop 1 Sky Essence."
     }
   ]
 }

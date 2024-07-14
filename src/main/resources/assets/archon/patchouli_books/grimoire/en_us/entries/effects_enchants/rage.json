@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The Rage Status Effect doubles the user's attack speed. It can be obtained using a $(l:archon:weapons/earth#fist)Fist of Fury$() or through commands."
+      "text": "The Rage Status Effect triples the user's attack speed. It can be obtained using the Rage Spell or through commands."
     }
   ]
 }

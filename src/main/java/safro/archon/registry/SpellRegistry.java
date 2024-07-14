@@ -36,7 +36,6 @@ public class SpellRegistry {
     // Water
     public static final Spell AQUA_SHIELD = register("aqua_shield", new EffectSpell(new StatusEffectInstance(EffectRegistry.AQUA_SHIELD, 300, 0, false, false, true), Element.WATER, 50));
     public static final Spell FREEZE = register("freeze", new FreezeSpell(Element.WATER, 10));
-    public static final Spell DROWN = register("drown", new DrownSpell(Element.WATER, 30));
     public static final Spell MEND = register("mend", new MendSpell(Element.WATER, 40));
     public static final Spell OVERCAST = register("overcast", new WeatherSpell(Element.WATER, 90, true));
     public static final Spell BUBBLE_BEAM = register("bubble_beam", new BubbleBeamSpell(Element.WATER, 10));
@@ -53,7 +52,8 @@ public class SpellRegistry {
     public static final Spell RUMBLE = register("rumble", new RumbleSpell(Element.EARTH, 40));
     public static final Spell CRUSH = register("crush", new CrushSpell(Element.EARTH, 2));
     public static final Spell SPIKE = register("spike", new SpikeSpell(Element.EARTH, 20));
-    public static final Spell TERRAIN_TOSS = register("terrain_toss", new TerrainTossSpell(Element.EARTH, 15));
+    public static final Spell TERRAIN_TOSS = register("terrain_toss", new TerrainTossSpell(Element.EARTH, 10));
+    public static final Spell RAGE = register("rage", new EffectSpell(new StatusEffectInstance(EffectRegistry.RAGE, 140, 0, false, false, true), Element.EARTH, 40));
 
     // End
     public static final Spell DARKBALL = register("darkball", new DarkballSpell(Element.END, 10));

@@ -13,7 +13,7 @@ import safro.archon.api.Element;
 public class ScorchSpell extends RaycastSpell {
 
     public ScorchSpell(Element type, int manaCost) {
-        super(type, manaCost, 5);
+        super(type, manaCost, 30);
     }
 
     @Override

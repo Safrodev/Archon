@@ -16,12 +16,12 @@
     {
       "type": "patchouli:text",
       "title": "Incombustible",
-      "text": "Grants fire resistance for 1 minute  $(li)Mana Cost: 50"
+      "text": "Grants fire resistance for 1 minute + 2 seconds per spell power $(li)Mana Cost: 50"
     },
     {
       "type": "patchouli:text",
       "title": "Scorch",
-      "text": "Sets the target on fire for 10 seconds $(li)Mana Cost: 30 $(li)Range: 5"
+      "text": "Sets the target on fire for 10 seconds $(li)Mana Cost: 30 $(li)Range: 30"
     },
     {
       "type": "patchouli:text",

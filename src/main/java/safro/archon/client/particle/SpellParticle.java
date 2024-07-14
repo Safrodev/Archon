@@ -57,7 +57,7 @@ public class SpellParticle extends SpriteBillboardParticle {
         }
 
         private static float color(float a) {
-            return a + MathHelper.nextFloat(RANDOM, -0.05F, 0.05F);
+            return MathHelper.clamp(a + MathHelper.nextFloat(RANDOM, -0.02F, 0.02F), 0.0001F, 1.0F);
         }
     }
 }

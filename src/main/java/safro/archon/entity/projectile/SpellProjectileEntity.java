@@ -97,7 +97,7 @@ public class SpellProjectileEntity extends ProjectileEntity {
                     this.addMainParticles();
                 }
 
-                if (this.getSecondParticle() != ParticleTypes.EFFECT) {
+                if (this.getSecondParticle() != ParticleTypes.EFFECT && this.getSecondParticle() != null) {
                     this.getWorld().addParticle(this.getSecondParticle(), this.getX(), this.getY() + 0.5F, this.getZ(), 0.0F, 0.0F, 0.0F);
                 }
             }

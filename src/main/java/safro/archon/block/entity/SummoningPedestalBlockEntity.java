@@ -124,14 +124,12 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
     }
 
     public boolean addItem(ItemStack item) {
-        if (!this.hasItem(item.getItem())) {
-            for (int i = 0; i < this.inventory.size(); ++i) {
-                ItemStack itemStack = this.inventory.get(i);
-                if (itemStack.isEmpty()) {
-                    this.inventory.set(i, item.split(1));
-                    this.updateListeners();
-                    return true;
-                }
+        for (int i = 0; i < this.inventory.size(); ++i) {
+            ItemStack itemStack = this.inventory.get(i);
+            if (itemStack.isEmpty()) {
+                this.inventory.set(i, item.split(1));
+                this.updateListeners();
+                return true;
             }
         }
         return false;

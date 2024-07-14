@@ -11,7 +11,7 @@
     {
       "type": "patchouli:text",
       "title": "Aqua Shield",
-      "text": "Grants the user a shield from direct mob damage for 15 seconds $(li)Mana Cost: 50"
+      "text": "Grants the user a shield from direct mob damage for 15 seconds + 2 per spell power $(li)Mana Cost: 50"
     },
     {
       "type": "patchouli:text",
@@ -20,18 +20,18 @@
     },
     {
       "type": "patchouli:text",
-      "title": "Drown",
-      "text": "Places water on the target's head $(li)Mana Cost: 30 $(li)Range: 10"
-    },
-    {
-      "type": "patchouli:text",
       "title": "Mend",
-      "text": "Heals the user for 4 hearts and clear all negative effects $(li)Mana Cost: 40"
+      "text": "Heals the user for 4 hearts (more per spell power) and clear all negative effects $(li)Mana Cost: 40"
     },
     {
       "type": "patchouli:text",
       "title": "Overcast",
-      "text": "Allows the user to set the weather to raining"
+      "text": "Allows the user to set the weather to raining $(li)Mana Cost: 90"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Bubble Beam",
+      "text": "Launches a bubble that deals damage and floats upwards over time $(li)Mana Cost: 10"
     }
   ]
 }

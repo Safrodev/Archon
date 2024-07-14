@@ -11,7 +11,7 @@
     {
       "type": "patchouli:text",
       "title": "Darkball",
-      "text": "Shoots an Ender Dragon fireball that creates a deadly damage zone upon impact. $(li)Mana Cost: 10"
+      "text": "Shoots a void beam that creates a Dragon's Breath zone on impact with a mob. $(li)Mana Cost: 10"
     },
     {
       "type": "patchouli:text",
@@ -26,7 +26,12 @@
     {
       "type": "patchouli:text",
       "title": "Shadow",
-      "text": "Turns the user into a shadow that can fly and phase through walls for 10s $(li)Mana Cost: 50"
+      "text": "Turns the user into a shadow that can fly and phase through walls for 10s + 2 per spell power $(li)Mana Cost: 50"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Warp",
+      "text": "Teleports you in the direction you're looking for 8 blocks + 1 per spell power $(li)Mana Cost: 10"
     }
   ]
 }
