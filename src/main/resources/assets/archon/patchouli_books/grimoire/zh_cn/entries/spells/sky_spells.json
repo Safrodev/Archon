@@ -11,22 +11,32 @@
     {
       "type": "patchouli:text",
       "title": "推进",
-      "text": "将使用者发射到空中一段距离 $(li)魔力消耗: 10"
+      "text": "将使用者发射到空中一段距离 $(li) 魔力消耗：10"
     },
     {
       "type": "patchouli:text",
       "title": "狂风",
-      "text": "射出一阵风，将目标推回 $(li)魔力消耗: 20"
+      "text": "射出一阵风，将目标推回 $(li) 魔力消耗：20"
     },
     {
       "type": "patchouli:text",
       "title": "雷霆出击",
-      "text": "将闪电击打在目标的头上 $(li)魔力消耗: 30 $(li)范围: 15"
+      "text": "将闪电击打在目标的头上 $(li) 魔力消耗：30 $(li) 范围：15"
     },
     {
       "type": "patchouli:text",
       "title": "云射",
-      "text": "发射一个缓慢移动的云彩，造成高额伤害 $(li)魔力值: 30"
+      "text": "发射一个缓慢移动的云彩，造成高额伤害 $(li) 魔力消耗：30"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "清风",
+      "text": "清除天气 $(li) 魔力消耗：90"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Vacuum",
+      "text": "快速将目标拉向自己 $(li) 魔力消耗：50"
     }
   ]
 }
