@@ -35,7 +35,7 @@
     },
     {
       "type": "patchouli:text",
-      "title": "Vacuum",
+      "title": "真空",
       "text": "快速将目标拉向自己 $(li) 魔力消耗：50"
     }
   ]

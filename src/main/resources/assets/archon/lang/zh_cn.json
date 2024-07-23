@@ -164,7 +164,7 @@
   "text.archon.sea_charm3": "当握在手中时",
   "text.archon.heaven_dial1": "治疗所有玩家、村民、宠物和铁傀儡",
   "text.archon.heaven_dial2": "充分健康并补充饥饿",
-  "text.archon.terranean1": "获得抵抗力和偏转弹射物 20 秒",
+  "text.archon.terranean1": "获得抗性并抵挡弹射物 20 秒",
   "text.archon.seeking_amulet1": "按住 Shift 键右击可设置位置",
   "text.archon.seeking_amulet2": "右键单击可从任何地方传送到该位置",
 
@@ -236,9 +236,9 @@
   "advancements.archon.obtain_wand.title": "阿瓦达索命，尸骨再现！！！",
   "advancements.archon.obtain_wand.description": "制作一个元素法杖",
   "advancements.archon.learn_spell.title": "嘿！菜鸟",
-  "advancements.archon.learn_spell.description": "学习咒语",
+  "advancements.archon.learn_spell.description": "学习法术",
   "advancements.archon.learn_all_spells.title": "嘿！魔法大师",
-  "advancements.archon.learn_all_spells.description": "习得所有法术",
+  "advancements.archon.learn_all_spells.description": "学会所有法术",
 
   "text.archon.book.landing_text": "这本神奇的书将引导你完成作为巫师的冒险",
   "text.archon.book.subtitle": "巫师指南"
