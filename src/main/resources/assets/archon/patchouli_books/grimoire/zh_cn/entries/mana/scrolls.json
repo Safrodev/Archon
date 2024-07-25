@@ -6,22 +6,17 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "上古卷轴是一种特殊物品，当使用时，可以为玩家提供特定的魔力增强。请注意，你一次只能将$（#2895CB）1个卷轴$（）绑定到您自己，因此请谨慎选择！"
+      "text": "上古卷轴是一种特殊物品，当使用时，可以为玩家提供特定的魔力增强。请注意，你一次只能将$（#2895CB）1 个卷轴$（）绑定到您自己，因此请谨慎选择！"
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:capacity_scroll",
-      "text": "容量卷轴可以从和$(l:archon:world/wizard)巫师$()村民或$(l:archon:world/spires)Spires$()的交易中获得，并使玩家的$(#2895CB)最大魔力值增加到200$()。"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "archon:accelerate_scroll",
-      "text": "加速卷轴可以从和$(l:archon:world/wizard)巫师$()村民或$(l:archon:world/spires)Spires$()的交易中获得，并将玩家的魔力再生速度提高到$(#2895CB)每秒2魔力$()。"
+      "text": "容量卷轴可以从和$(l:archon:world/wizard) 巫师$() 村民或$(l:archon:world/spires)Spires$() 的交易中获得，并使玩家的$(#2895CB) 最大魔力值增加到 200$()。"
     },
     {
       "type": "patchouli:spotlight",
       "item": "archon:removal_scroll",
-      "text": "移除卷轴可以从和$(l:archon:world/spires)Spires$()的交易中获得。这将为玩家移除当前应用的卷轴。"
+      "text": "移除卷轴可以从和$(l:archon:world/spires)Spires$() 的交易中获得。这将为玩家移除当前应用的卷轴。"
     }
   ]
 }
