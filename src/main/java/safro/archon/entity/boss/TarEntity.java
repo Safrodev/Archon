@@ -13,7 +13,6 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
-import net.minecraft.item.Item;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -24,7 +23,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import safro.archon.entity.ai.DistanceMeleeGoal;
 import safro.archon.mixin.FallingBlockEntityAccessor;
-import safro.archon.registry.ItemRegistry;
 
 import java.util.EnumSet;
 
@@ -58,11 +56,6 @@ public class TarEntity extends AbstractBossEntity {
     @Override
     public int getInvulTime() {
         return 60;
-    }
-
-    @Override
-    public Item getDrop() {
-        return ItemRegistry.TERRANITE_STONE;
     }
 
     @Override

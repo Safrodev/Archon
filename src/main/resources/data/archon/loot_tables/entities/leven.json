@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "archon:wave_crystal"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "archon:entities/leven"
+}

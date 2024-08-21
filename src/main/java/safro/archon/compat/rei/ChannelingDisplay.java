@@ -15,7 +15,7 @@ public class ChannelingDisplay implements Display {
     private final int manaCost;
 
     public ChannelingDisplay(ChannelingRecipe recipe) {
-        this.input = EntryIngredients.ofIngredients(Collections.singletonList(recipe.getInput()));
+        this.input = List.of(EntryIngredients.ofIngredient(recipe.getInput()));
         this.output = Collections.singletonList(EntryIngredients.of(recipe.result));
         this.manaCost = recipe.getManaCost();
     }

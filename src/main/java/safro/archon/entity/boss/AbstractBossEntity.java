@@ -2,7 +2,6 @@ package safro.archon.entity.boss;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
@@ -12,7 +11,6 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -38,8 +36,6 @@ public abstract class AbstractBossEntity extends HostileEntity {
     public abstract BossBar.Color getBossColor();
 
     public abstract int getInvulTime();
-
-    public abstract Item getDrop();
 
     public abstract Text getSpawnMessage();
     public abstract Text getKillMessage();
@@ -154,15 +150,6 @@ public abstract class AbstractBossEntity extends HostileEntity {
 
     public void setInvulnerableTimer(int ticks) {
         this.dataTracker.set(INVUL_TIMER, ticks);
-    }
-
-    @Override
-    protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
-        super.dropEquipment(source, lootingMultiplier, allowDrops);
-        ItemEntity itemEntity = this.dropItem(getDrop());
-        if (itemEntity != null) {
-            itemEntity.setCovetedItem();
-        }
     }
 
     public boolean onKilledOther(ServerWorld world, LivingEntity other) {

@@ -3,7 +3,10 @@ package safro.archon.entity.boss;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
+import net.minecraft.entity.ai.goal.LookAtEntityGoal;
+import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.goal.WanderAroundGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
@@ -13,7 +16,6 @@ import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.TridentEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
@@ -24,7 +26,6 @@ import net.minecraft.world.World;
 import safro.archon.entity.ai.DistanceMeleeGoal;
 import safro.archon.entity.ai.DistanceRangedGoal;
 import safro.archon.entity.projectile.WaterBoltEntity;
-import safro.archon.registry.ItemRegistry;
 import safro.archon.util.TridentAccess;
 
 public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
@@ -111,11 +112,6 @@ public class LevenEntity extends AbstractBossEntity implements RangedAttackMob {
     @Override
     public int getInvulTime() {
         return 60;
-    }
-
-    @Override
-    public Item getDrop() {
-        return ItemRegistry.WAVE_CRYSTAL;
     }
 
     @Override

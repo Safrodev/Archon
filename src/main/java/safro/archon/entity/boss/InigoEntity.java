@@ -15,7 +15,6 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -28,7 +27,6 @@ import safro.archon.api.spell.SpellParticleData;
 import safro.archon.entity.ai.BurstGoal;
 import safro.archon.entity.projectile.SpellProjectileEntity;
 import safro.archon.registry.EntityRegistry;
-import safro.archon.registry.ItemRegistry;
 import safro.saflib.util.MathUtil;
 
 public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
@@ -133,11 +131,6 @@ public class InigoEntity extends AbstractBossEntity implements RangedAttackMob {
     @Override
     public int getInvulTime() {
         return 60;
-    }
-
-    @Override
-    public Item getDrop() {
-        return ItemRegistry.CHARRED_EYE;
     }
 
     @Override

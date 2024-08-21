@@ -16,7 +16,6 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleEffect;
@@ -195,11 +194,6 @@ public class NullEntity extends AbstractBossEntity {
     @Override
     public int getInvulTime() {
         return 80;
-    }
-
-    @Override
-    public Item getDrop() {
-        return ItemRegistry.SOULLESS_EYE;
     }
 
     @Override

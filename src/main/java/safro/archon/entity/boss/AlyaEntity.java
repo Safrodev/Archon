@@ -14,14 +14,12 @@ import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import safro.archon.entity.projectile.WindBallEntity;
-import safro.archon.registry.ItemRegistry;
 
 import java.util.function.Predicate;
 
@@ -54,11 +52,6 @@ public class AlyaEntity extends AbstractBossEntity implements RangedAttackMob {
     @Override
     public int getInvulTime() {
         return 100;
-    }
-
-    @Override
-    public Item getDrop() {
-        return ItemRegistry.ANGELIC_STAR;
     }
 
     @Override
