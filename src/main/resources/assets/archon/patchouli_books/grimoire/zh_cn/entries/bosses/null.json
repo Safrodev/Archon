@@ -1,0 +1,17 @@
+{
+  "name": "无",
+  "icon": "archon:soulless_eye",
+  "category": "archon:bosses",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "无 是最终 Boss，也是五个 Boss 中最强大的一个。无 死后会掉落一只无魂之眼。您可以在下一页找到召唤它所需的物品。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "archon:null",
+      "text": "末影珍珠，末影水晶，2x 末影精华"
+    }
+  ]
+}
