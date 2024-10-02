@@ -4,6 +4,7 @@ import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.Display;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
+import net.minecraft.block.Blocks;
 import safro.archon.recipe.ChannelingRecipe;
 
 import java.util.Collections;
@@ -15,7 +16,13 @@ public class ChannelingDisplay implements Display {
     private final int manaCost;
 
     public ChannelingDisplay(ChannelingRecipe recipe) {
-        this.input = List.of(EntryIngredients.ofIngredient(recipe.getInput()));
+        EntryIngredient ingredient;
+        if (recipe.getTag() != null) {
+            ingredient = EntryIngredients.ofItemTag(recipe.getTag());
+        } else {
+            ingredient = EntryIngredients.of(recipe.getBlock() != null ? recipe.getBlock() : Blocks.BARRIER);
+        }
+        this.input = Collections.singletonList(ingredient);
         this.output = Collections.singletonList(EntryIngredients.of(recipe.result));
         this.manaCost = recipe.getManaCost();
     }

@@ -6,7 +6,9 @@ import dev.emi.emi.api.render.EmiTexture;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -20,12 +22,22 @@ public class ChannelingEmiRecipe implements EmiRecipe {
 
     public ChannelingEmiRecipe(ChannelingRecipe recipe){
         this.recipe = recipe;
-        this.inputs = Collections.singletonList(EmiIngredient.of(recipe.getInput()));
+        this.inputs = getInput(recipe);
         this.output = EmiStack.of(recipe.result);
         this.outputList = Collections.singletonList(this.output);
         this.manaCost = Text.translatable("text.archon.mana_cost", recipe.getManaCost()).asOrderedText();
         int width = MinecraftClient.getInstance().textRenderer.getWidth(this.manaCost);
         this.labelX = 41 - width/2;
+    }
+
+    private static List<EmiIngredient> getInput(ChannelingRecipe recipe) {
+        EmiIngredient ingredient;
+        if (recipe.getTag() != null) {
+            ingredient = EmiIngredient.of(recipe.getTag());
+        } else {
+            ingredient = EmiIngredient.of(Ingredient.ofItems(recipe.getBlock() != null ? recipe.getBlock() : Blocks.BARRIER));
+        }
+        return Collections.singletonList(ingredient);
     }
 
     private final ChannelingRecipe recipe;

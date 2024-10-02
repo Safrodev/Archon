@@ -13,6 +13,7 @@ import safro.archon.Archon;
 import safro.archon.recipe.ChannelingRecipe;
 import safro.archon.recipe.ScriptingRecipe;
 import safro.archon.registry.ItemRegistry;
+import safro.archon.registry.RecipeRegistry;
 
 public class ArchonREIPlugin implements REIClientPlugin {
     public static final CategoryIdentifier<ChannelingDisplay> CHANNELING_DISPLAY = CategoryIdentifier.of(new Identifier(Archon.MODID, "channeling"));
@@ -29,13 +30,14 @@ public class ArchonREIPlugin implements REIClientPlugin {
 
     @Override
     public void registerDisplays(DisplayRegistry registry) {
-        registry.registerFiller(ChannelingRecipe.class, ChannelingDisplay::new);
-        registry.registerFiller(ScriptingRecipe.class, ScriptingDisplay::new);
+        registry.registerRecipeFiller(ChannelingRecipe.class, RecipeRegistry.CHANNELING, ChannelingDisplay::new);
+        registry.registerRecipeFiller(ScriptingRecipe.class, RecipeRegistry.SCRIPTING, ScriptingDisplay::new);
 
         registry.add(create(ItemRegistry.TERRANITE_STONE, "rei.archon.terranite_stone"));
         registry.add(create(ItemRegistry.ANGELIC_STAR, "rei.archon.angelic_star"));
         registry.add(create(ItemRegistry.WAVE_CRYSTAL, "rei.archon.wave_crystal"));
         registry.add(create(ItemRegistry.CHARRED_EYE, "rei.archon.charred_eye"));
+        registry.add(create(ItemRegistry.SOULLESS_EYE, "rei.archon.soulless_eye"));
     }
 
     private static DefaultInformationDisplay create(ItemConvertible item, String key) {
