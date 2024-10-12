@@ -33,7 +33,7 @@ public abstract class Spell {
 
     public String getTranslationKey() {
         Identifier id = SpellRegistry.REGISTRY.getId(this);
-        return "spell." + id.getNamespace() + "." + id.getPath();
+        return id != null ? "spell." + id.getNamespace() + "." + id.getPath() : "[INVALID]";
     }
 
     /**

@@ -119,12 +119,15 @@ public class WandItem extends Item implements SpellAttributable {
         if (stack.getOrCreateSubNbt(Archon.MODID).contains("CurrentSpell")) {
             String name = stack.getOrCreateSubNbt(Archon.MODID).getString("CurrentSpell");
             return SpellRegistry.REGISTRY.get(new Identifier(name));
+        } else if (!getSpells(player).isEmpty()) {
+            Spell spell = getSpells(player).get(0);
+            Identifier id = SpellRegistry.REGISTRY.getId(spell);
+            if (id != null) {
+                stack.getOrCreateSubNbt(Archon.MODID).putString("CurrentSpell", id.toString());
+                return spell;
+            }
         }
-
-        if (getSpells(player).isEmpty()) return null;
-        Spell spell = getSpells(player).get(0);
-        stack.getOrCreateSubNbt(Archon.MODID).putString("CurrentSpell", SpellRegistry.REGISTRY.getId(spell).toString());
-        return spell;
+        return null;
     }
 
     public void cycleSpells(ItemStack stack, PlayerEntity player) {

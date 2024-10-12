@@ -26,11 +26,11 @@ public class SpellCommand {
                     .then(CommandManager.argument("target", EntityArgumentType.player())
                         .executes(context -> getAllSpells(context.getSource(), EntityArgumentType.getPlayer(context, "target")))))
 
-                .then(CommandManager.literal("remove"))
+                .then(CommandManager.literal("remove")
                     .requires(source -> source.hasPermissionLevel(2))
-                        .then(CommandManager.argument("target", EntityArgumentType.player()))
-                            .then(CommandManager.argument("spell", RegistryEntryArgumentType.registryEntry(access, SpellRegistry.REGISTRY_KEY)))
-                                .executes(context -> removeSpell(context.getSource(), EntityArgumentType.getPlayer(context, "target"), RegistryEntryArgumentType.getRegistryEntry(context, "spell", SpellRegistry.REGISTRY_KEY)))
+                        .then(CommandManager.argument("target", EntityArgumentType.player())
+                            .then(CommandManager.argument("spell", RegistryEntryArgumentType.registryEntry(access, SpellRegistry.REGISTRY_KEY))
+                                .executes(context -> removeSpell(context.getSource(), EntityArgumentType.getPlayer(context, "target"), RegistryEntryArgumentType.getRegistryEntry(context, "spell", SpellRegistry.REGISTRY_KEY))))))
         );
     }
 

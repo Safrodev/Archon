@@ -43,8 +43,11 @@ public class SpellComponent implements AutoSyncedComponent {
         NbtList list = new NbtList();
         for (int i = 0; i < getSpells().size(); i++) {
             NbtCompound nbt = new NbtCompound();
-            nbt.putString("Spell", SpellRegistry.REGISTRY.getId(getSpells().get(i)).toString());
-            list.add(nbt);
+            Identifier id = SpellRegistry.REGISTRY.getId(getSpells().get(i));
+            if (id != null) {
+                nbt.putString("Spell", id.toString());
+                list.add(nbt);
+            }
         }
         tag.put("Spells", list);
     }
