@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 import safro.archon.Archon;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.util.ArchonUtil;
-import safro.saflib.network.ParticlePacket;
 import safro.saflib.util.MathUtil;
 
 public class InfernalImplodePacket {
@@ -37,7 +36,7 @@ public class InfernalImplodePacket {
 
             for (int i = 0; i < Direction.Axis.VALUES.length; i++) {
                 for (Vec3d vec3d : MathUtil.getCircle(player.getX(), player.getY(), player.getZ(), 3.5D, 2, Direction.Axis.VALUES[i])) {
-                    ParticlePacket.send(player, ParticleTypes.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0.0D, 0.03D, 0.0D);
+                    world.spawnParticles(ParticleTypes.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0, 0.0, 0.03, 0.0, 1.0);
                 }
             }
             ArchonUtil.get(player).removeMana(mana);

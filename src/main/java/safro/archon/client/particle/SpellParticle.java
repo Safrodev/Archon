@@ -52,7 +52,7 @@ public class SpellParticle extends SpriteBillboardParticle {
         public Particle createParticle(SpellParticleEffect effect, ClientWorld clientWorld, double x, double y, double z, double vx, double vy, double vz) {
             SpellParticle particle = new SpellParticle(clientWorld, x, y, z, vx, vy, vz, effect.size(), this.spriteProvider);
             particle.setColor(color(effect.r()), color(effect.g()), color(effect.b()));
-            particle.setMaxAge(clientWorld.random.nextInt(10) + 10);
+            particle.setMaxAge(clientWorld.random.nextInt(10) + 5);
             return particle;
         }
 

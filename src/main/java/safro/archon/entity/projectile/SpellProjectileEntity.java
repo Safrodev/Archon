@@ -29,7 +29,6 @@ import org.jetbrains.annotations.Nullable;
 import safro.archon.Archon;
 import safro.archon.api.spell.HitExecutor;
 import safro.archon.client.particle.SpellParticleEffect;
-import safro.saflib.network.ParticlePacket;
 
 public class SpellProjectileEntity extends ProjectileEntity {
     private static final int MAX_AGE = 400;
@@ -129,17 +128,15 @@ public class SpellProjectileEntity extends ProjectileEntity {
                 if (target != owner) {
                     this.hitExecutor.onHit(target, owner, this);
 
-                    if (this.getWorld() instanceof ServerWorld) {
-                        Vec3d pos = entityHitResult.getPos();
-                        for (int i = 0; i < 10; i++) {
-                            double x = pos.getX() + 0.5D;
-                            double y = pos.getY() + 1.2D;
-                            double z = pos.getZ() + 0.5D;
-                            double vX = (target.getRandom().nextDouble() - 0.5D) / 3.0D;
-                            double vY = (target.getRandom().nextDouble() - 0.5D) / 3.0D;
-                            double vZ = (target.getRandom().nextDouble() - 0.5D) / 3.0D;
-                            ParticlePacket.send(target, new SpellParticleEffect(this.dataTracker.get(RED), this.dataTracker.get(GREEN), this.dataTracker.get(BLUE), this.dataTracker.get(SIZE)), x, y, z, vX, vY, vZ);
-                        }
+                    Vec3d pos = entityHitResult.getPos();
+                    for (int i = 0; i < 10; i++) {
+                        double x = pos.getX() + 0.5D;
+                        double y = pos.getY() + 1.2D;
+                        double z = pos.getZ() + 0.5D;
+                        double vX = (target.getRandom().nextDouble() - 0.5D) / 3.0D;
+                        double vY = (target.getRandom().nextDouble() - 0.5D) / 3.0D;
+                        double vZ = (target.getRandom().nextDouble() - 0.5D) / 3.0D;
+                        ((ServerWorld)this.getWorld()).spawnParticles(new SpellParticleEffect(this.dataTracker.get(RED), this.dataTracker.get(GREEN), this.dataTracker.get(BLUE), this.dataTracker.get(SIZE)), x, y, z, 1, vX, vY, vZ, 1.0);
                     }
                 }
             }
