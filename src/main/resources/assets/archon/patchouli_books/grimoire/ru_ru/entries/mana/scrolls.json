@@ -15,11 +15,6 @@
     },
     {
       "type": "patchouli:spotlight",
-      "item": "archon:accelerate_scroll",
-      "text": "Свиток ускорения также можно купить у $(l:archon:world/wizard)Волшебника$() или найти в $(l:archon:world/spires)Шпилях$(), он ускоряет восстановление маны до $(#2895CB)2 маны в секунду$()."
-    },
-    {
-      "type": "patchouli:spotlight",
       "item": "archon:removal_scroll",
       "text": "Свиток отречения можно найти в $(l:archon:world/spires)Шпилях$(). Он убирает привязанный к вам свиток."
     }

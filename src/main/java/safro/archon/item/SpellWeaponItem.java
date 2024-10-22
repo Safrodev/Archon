@@ -48,11 +48,11 @@ public class SpellWeaponItem extends SwordItem implements SpellAttributable {
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
 
         addPower(builder, element, power);
-        if (critDmg >= 0.0D) {
+        if (critDmg > 0.0D) {
             addCritDamage(builder, critDmg);
         }
 
-        if (critChance >= 0.0D) {
+        if (critChance > 0.0D) {
             addCritChance(builder, critChance);
         }
 

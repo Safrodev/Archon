@@ -2,7 +2,7 @@
   "name": "Катализаторы маны",
   "icon": "archon:mana_catalyst",
   "category": "archon:mana",
-  "sortnum": 4,
+  "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",

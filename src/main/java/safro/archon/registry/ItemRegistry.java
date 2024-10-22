@@ -32,16 +32,16 @@ public class ItemRegistry extends BaseBlockItemRegistry {
     public static final Item END_WAND = register("end_wand", wand(Element.END, 1));
 
     // Weapons // Gear
-    public static final Item ENDER_BLADE = register("ender_blade", new SpellWeaponItem(ToolMaterials.DIAMOND, Element.END, 3, 0.1D, 0.2D, 3, -2.4F, settings()));
+    public static final Item ENDER_BLADE = register("ender_blade", new SpellWeaponItem(ToolMaterials.DIAMOND, Element.END, 3, 0.04D, 0.06D, 3, -2.4F, settings()));
     public static final Item VOID_SCEPTER = register("void_scepter", wand(Element.END, 5));
-    public static final Item TERRAIN_MACE = register("terrain_mace", new SpellWeaponItem(ToolMaterials.IRON, Element.EARTH, 2, 1.0D, 0.0D, 4, -3.1F, settings()));
-    public static final Item WITHER_STAVE = register("wither_stave", wand(Element.FIRE, 6));
+    public static final Item TERRAIN_MACE = register("terrain_mace", new SpellWeaponItem(ToolMaterials.IRON, Element.EARTH, 2, 0.08D, 0.0D, 4, -3.1F, settings()));
+    public static final Item WITHER_STAVE = register("wither_stave", wand(Element.FIRE, 5));
     public static final Item THUNDER_STAFF = register("thunder_staff", wand(Element.SKY, 5));
     public static final Item WATER_SCEPTER = register("water_scepter", wand(Element.WATER, 5));
     public static final Item HEAT_RANGER = register("heat_ranger", new HeatRangerItem(settings().maxDamage(384)));
-    public static final Item STORM_CLEAVER = register("storm_cleaver", new SpellWeaponItem(ToolMaterials.IRON, Element.SKY, 2, 0.8D, 0.0D, 7, -3.0F, settings()));
-    public static final Item FIST_OF_FURY = register("fist_of_fury", new SpellWeaponItem(ToolMaterials.IRON, Element.EARTH, 3, 0.0, 0.5D, 3, -1.8F, settings()));
-    public static final Item FROST_SWORD = register("frost_sword", new SpellWeaponItem(ToolMaterials.DIAMOND, Element.WATER, 2, 0.4D, 0.05D, 3, -2.4F, settings()));
+    public static final Item STORM_CLEAVER = register("storm_cleaver", new SpellWeaponItem(ToolMaterials.IRON, Element.SKY, 2, 0.09D, 0.0D, 7, -3.0F, settings()));
+    public static final Item FIST_OF_FURY = register("fist_of_fury", new SpellWeaponItem(ToolMaterials.IRON, Element.EARTH, 3, 0.0D, 0.09D, 3, -1.8F, settings()));
+    public static final Item FROST_SWORD = register("frost_sword", new SpellWeaponItem(ToolMaterials.DIAMOND, Element.WATER, 2, 0.05D, 0.05D, 3, -2.4F, settings()));
 
     public static final Item TERRANEAN_AXE = register("terranean_axe", new TerraneanAxeItem(ToolMaterials.IRON, 6, -3.1F, settings().rarity(Rarity.RARE)));
     public static final Item HEAVEN_DIAL = register("heaven_dial", new HeavenDialItem(settings().maxCount(1).rarity(Rarity.RARE)));
@@ -62,7 +62,7 @@ public class ItemRegistry extends BaseBlockItemRegistry {
     public static final Item SOAKING_HARVESTER = register("soaking_harvester", new SoakingHarvesterItem(ToolMaterials.STONE, 7, -3.2F, settings()));
 
     // Armor
-    public static final Item MASK_OF_POWER = register("mask_of_power", new ManaArmorItem(MaterialRegistry.MASK_OF_POWER, ArmorItem.Type.HELMET, 50, 0.8D, 0.0D, settings()));
+    public static final Item MASK_OF_POWER = register("mask_of_power", new ManaArmorItem(MaterialRegistry.MASK_OF_POWER, ArmorItem.Type.HELMET, 50, 0.08D, 0.02D, settings()));
     public static final Item DRUID_BOOTS = register("druid_boots", new ArmorItem(MaterialRegistry.DRUID_BOOTS, ArmorItem.Type.BOOTS, settings()));
 
     // Scrolls + Souls

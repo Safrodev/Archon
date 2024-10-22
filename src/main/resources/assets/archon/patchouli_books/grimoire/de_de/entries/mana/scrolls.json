@@ -15,11 +15,6 @@
     },
     {
       "type": "patchouli:spotlight",
-      "item": "archon:accelerate_scroll",
-      "text": "Die Schriftrolle 'Erhöhen' kann bei $(l:archon:world/wizard)Zauberer$() erworben oder in $(l:archon:world/spires)Antike Türme$() gefunden werden und erhöht die Manaregenerationsgeschwindigkeit des Spielers auf $(#2895CB)2 Mana pro Sekunde$()."
-    },
-    {
-      "type": "patchouli:spotlight",
       "item": "archon:removal_scroll",
       "text": "Die Schriftrolle der Entfernung kann in $(l:archon:world/spires)Antiken Türmen$() gefunden werden. Sie entfernt die aktuell angewendete Schriftrolle vom Spieler."
     }

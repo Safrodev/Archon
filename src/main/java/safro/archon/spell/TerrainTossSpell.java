@@ -29,7 +29,7 @@ public class TerrainTossSpell extends Spell {
             SpellUtil.damage(player, target, projectile, this.getElement(), 4.0F, 1.0F);
         }), this.getTerrain(player));
         terrain.disableMainParticles();
-        SpellUtil.shoot(world, player, SpellParticleData.of(255, 255, 255, 0.01F), terrain, 0.5F);
+        SpellUtil.shoot(world, player, SpellParticleData.of(255, 255, 255, 0.01F), terrain, 0.7F);
     }
 
     @Nullable

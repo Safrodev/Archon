@@ -27,7 +27,7 @@ public class InfernalCoatItem extends ArmorItem implements SpellAttributable {
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.putAll(this.getAttributeModifiers(slot.getEquipmentSlot()));
 
-        addCritChance(builder, 0.15D);
+        addCritChance(builder, 0.07D);
         ((ArmorItemAccessor)this).setAttributeModifiers(builder.build());
     }
 

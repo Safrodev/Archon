@@ -37,6 +37,7 @@ public class SpellUtil {
         SpellPower.Vulnerability vulnerability = SpellPower.getVulnerability(target, element.getSchool());
         double damage = result.randomValue(vulnerability);
         damage *= multiplier;
+        damage = softCap(damage);
 
         caster.onAttacking(target);
         if (target.damage(SpellDamageSource.create(element.getSchool(), caster), (float) damage)) {
@@ -51,6 +52,10 @@ public class SpellUtil {
             EnchantmentHelper.onUserDamaged(target, caster);
             EnchantmentHelper.onTargetDamaged(caster, target);
         }
+    }
+
+    private static double softCap(double dmg) {
+        return dmg <= 40.0 ? dmg : 40.0D + Math.pow((dmg - 40.0D), 0.75D);
     }
 
     @Nullable
