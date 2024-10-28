@@ -1,6 +1,7 @@
 package safro.archon.spell;
 
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -10,6 +11,7 @@ import net.minecraft.world.World;
 import net.spell_power.api.SpellPower;
 import safro.archon.api.Element;
 import safro.archon.api.spell.Spell;
+import safro.archon.registry.SpellRegistry;
 
 public class EffectSpell extends Spell {
     private final StatusEffectInstance instance;
@@ -21,13 +23,15 @@ public class EffectSpell extends Spell {
 
     @Override
     public void cast(World world, PlayerEntity player, SpellPower.Result power, ItemStack stack) {
-        int amplifier = (int) MathHelper.clamp(power.nonCriticalValue(), 1.0D, 10.0D) - 1;
-        StatusEffectInstance effect = new StatusEffectInstance(instance.getEffectType(), instance.getDuration(), amplifier, instance.isAmbient(), instance.shouldShowParticles(), instance.shouldShowIcon());
-        if (instance.getAmplifier() == 0) {
-            int duration = effect.getDuration() + ((int)power.nonCriticalValue() * 40);
-            effect = new StatusEffectInstance(effect.getEffectType(), duration, 0, effect.isAmbient(), effect.shouldShowParticles(), effect.shouldShowIcon());
-        }
+        int amplifier = instance.getAmplifier() == 0 ? 0 : (int) MathHelper.clamp(power.nonCriticalValue(), 1.0D, 10.0D) - 1;
+        int duration = instance.getDuration() + ((int)power.nonCriticalValue() * 40);
+        StatusEffectInstance effect = new StatusEffectInstance(instance.getEffectType(), instance.getAmplifier() == 0 ? duration : instance.getDuration(), amplifier, instance.isAmbient(), instance.shouldShowParticles(), instance.shouldShowIcon());
         player.addStatusEffect(effect);
+
+        // Hard-coded for Aqua Shield
+        if (this == SpellRegistry.AQUA_SHIELD) {
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, duration, 3, false, false, true));
+        }
     }
 
     @Override

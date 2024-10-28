@@ -11,7 +11,7 @@
     {
       "type": "patchouli:text",
       "title": "Aqua Shield",
-      "text": "Grants the user a shield from direct mob damage for 15 seconds + 2 per spell power $(li)Mana Cost: 50"
+      "text": "Grants the user Resistance 4 for 10 seconds + 2 per spell power $(li)Mana Cost: 50"
     },
     {
       "type": "patchouli:text",

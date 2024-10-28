@@ -59,12 +59,6 @@ public abstract class LivingEntityMixin {
                 }
             }
         }
-
-        if (this.hasStatusEffect(EffectRegistry.AQUA_SHIELD)) {
-            if (source.getAttacker() != null && source.getAttacker().isAlive() && source.getAttacker() instanceof LivingEntity) {
-                cir.setReturnValue(false);
-            }
-        }
     }
 
     @Inject(method = "onDeath", at = @At("HEAD"))

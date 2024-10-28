@@ -34,7 +34,7 @@ public class SpellRegistry {
     public static final Spell HELLBEAM = register("hellbeam", new HellbeamSpell(Element.FIRE, 10));
 
     // Water
-    public static final Spell AQUA_SHIELD = register("aqua_shield", new EffectSpell(new StatusEffectInstance(EffectRegistry.AQUA_SHIELD, 300, 0, false, false, true), Element.WATER, 50));
+    public static final Spell AQUA_SHIELD = register("aqua_shield", new EffectSpell(new StatusEffectInstance(EffectRegistry.AQUA_SHIELD, 200, 0, false, false, true), Element.WATER, 100));
     public static final Spell FREEZE = register("freeze", new FreezeSpell(Element.WATER, 10));
     public static final Spell MEND = register("mend", new MendSpell(Element.WATER, 40));
     public static final Spell OVERCAST = register("overcast", new WeatherSpell(Element.WATER, 90, true));
