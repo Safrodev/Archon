@@ -7,3 +7,4 @@ Note: This mod is currently in Beta so please expect bugs
 * [Curseforge](https://www.curseforge.com/minecraft/mc-mods/archon)
 * [Discord](https://discord.gg/muAnYRGXrq)
 
+## Special thanks to those who contributed to translations!
