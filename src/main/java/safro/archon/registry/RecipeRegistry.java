@@ -2,11 +2,9 @@ package safro.archon.registry;
 
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.SpecialRecipeSerializer;
 import safro.archon.Archon;
-import safro.archon.recipe.ChannelingRecipe;
-import safro.archon.recipe.ChannelingSerializer;
-import safro.archon.recipe.ScriptingRecipe;
-import safro.archon.recipe.ScriptingSerializer;
+import safro.archon.recipe.*;
 import safro.saflib.registry.BaseRecipeRegistry;
 
 public class RecipeRegistry extends BaseRecipeRegistry {
@@ -17,6 +15,8 @@ public class RecipeRegistry extends BaseRecipeRegistry {
 
     public static final RecipeType<ScriptingRecipe> SCRIPTING = register("scripting");
     public static final RecipeSerializer<ScriptingRecipe> SCRIPTING_SERIALIZER = register("scripting", new ScriptingSerializer());
+
+    public static final RecipeSerializer<SoulBindingRecipe> SOUL_BINDING_SERIALIZER = register("crafting_special_soul_binding", new SpecialRecipeSerializer<>(SoulBindingRecipe::new));
 
     public static void init() {
     }

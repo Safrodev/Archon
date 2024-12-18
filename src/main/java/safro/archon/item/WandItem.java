@@ -68,7 +68,6 @@ public class WandItem extends Item implements SpellAttributable {
                 this.cycleSpells(stack, player);
                 player.sendMessage(Text.translatable(getCurrentSpell(stack, player).getTranslationKey()).formatted(Formatting.GREEN), true);
                 return TypedActionResult.success(stack);
-
             } else if (current != null && !current.isBlockCasted() && current.canCast(world, player, stack)) {
                 current.cast(world, player, SpellPower.getSpellPower(this.getElement().getSchool(), player), stack);
                 ArcaneEnchantment.applyArcane(player, stack, current.getManaCost());

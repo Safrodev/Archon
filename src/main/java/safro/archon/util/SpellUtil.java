@@ -55,7 +55,7 @@ public class SpellUtil {
     }
 
     private static double softCap(double dmg) {
-        return dmg <= 40.0 ? dmg : 40.0D + Math.pow((dmg - 40.0D), 0.75D);
+        return dmg <= 50.0 ? dmg : 50.0D + Math.pow((dmg - 50.0D), 0.75D);
     }
 
     @Nullable

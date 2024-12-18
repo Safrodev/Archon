@@ -38,6 +38,9 @@ public class ArchonREIPlugin implements REIClientPlugin {
         registry.add(create(ItemRegistry.WAVE_CRYSTAL, "rei.archon.wave_crystal"));
         registry.add(create(ItemRegistry.CHARRED_EYE, "rei.archon.charred_eye"));
         registry.add(create(ItemRegistry.SOULLESS_EYE, "rei.archon.soulless_eye"));
+
+        SoulBindingRecipeFiller filler = new SoulBindingRecipeFiller();
+        filler.registerDisplays(registry);
     }
 
     private static DefaultInformationDisplay create(ItemConvertible item, String key) {

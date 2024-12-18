@@ -3,7 +3,6 @@ package safro.archon.item;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,7 +11,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import safro.archon.registry.MiscRegistry;
+import safro.archon.enchantment.ArcaneEnchantment;
 import safro.archon.util.ArchonUtil;
 
 import java.util.List;
@@ -40,13 +39,8 @@ public abstract class ManaItem extends Item {
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
-        if (ArchonUtil.canRemoveMana(player, getManaCost()) && activate(world, player, stack, hand)) {
-            if (EnchantmentHelper.getLevel(MiscRegistry.ARCANE, stack) >= 1) {
-                int removed = (int) (getManaCost() * 0.2);
-                ArchonUtil.get(player).removeMana(getManaCost() - removed);
-            } else {
-                ArchonUtil.get(player).removeMana(getManaCost());
-            }
+        if (ArchonUtil.canRemoveMana(player, this.getManaCost()) && activate(world, player, stack, hand)) {
+            ArcaneEnchantment.applyArcane(player, stack, this.getManaCost());
             return TypedActionResult.success(stack);
         }
         return TypedActionResult.pass(stack);
@@ -55,6 +49,6 @@ public abstract class ManaItem extends Item {
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(ArchonUtil.createManaText(getManaCost(), true));
+        tooltip.add(ArchonUtil.createManaText(this.getManaCost(), true));
     }
 }

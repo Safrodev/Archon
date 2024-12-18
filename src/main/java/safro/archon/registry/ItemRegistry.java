@@ -4,7 +4,6 @@ import net.minecraft.item.*;
 import net.minecraft.util.Rarity;
 import safro.archon.Archon;
 import safro.archon.api.Element;
-import safro.archon.api.SoulType;
 import safro.archon.item.*;
 import safro.archon.item.earth.RockyHarvesterItem;
 import safro.archon.item.earth.TerraneanAxeItem;
@@ -70,12 +69,7 @@ public class ItemRegistry extends BaseBlockItemRegistry {
 //    public static final Item ACCELERATE_SCROLL = register("accelerate_scroll", new ScrollItem("accelerate", settings().maxCount(1).rarity(Rarity.UNCOMMON)));
     public static final Item REMOVAL_SCROLL = register("removal_scroll", new RemovalScrollItem(settings().maxCount(1).rarity(Rarity.UNCOMMON)));
 
-    public static final Item PLAYER_SOUL = register("player_soul", new SoulItem(SoulType.PLAYER, soul()));
-    public static final Item CREATURE_SOUL = register("creature_soul", new SoulItem(SoulType.CREATURE, soul()));
-    public static final Item BOSS_SOUL = register("boss_soul", new SoulItem(SoulType.BOSS, soul()));
-    public static final Item SOUL_CORE_CREATURE = register("soul_core_creature", new SoulItem(SoulType.CREATURE, settings()));
-    public static final Item SOUL_CORE_PLAYER = register("soul_core_player", new SoulItem(SoulType.PLAYER, settings()));
-    public static final Item SOUL_CORE_BOSS = register("soul_core_boss", new SoulItem(SoulType.BOSS, settings()));
+    public static final Item SOUL = register("soul", new Item(settings().fireproof()));
 
     // Resources + Misc
     public static final Item EXPERIENCE_POUCH = register("experience_pouch", new ExperiencePouchItem(Archon.CONFIG.experiencePouchMax, settings().maxCount(1)));

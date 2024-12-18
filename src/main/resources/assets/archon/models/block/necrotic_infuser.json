@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/polished_blackstone",
+    "east": "archon:block/necrotic_infuser_side",
+    "north": "archon:block/necrotic_infuser_side",
+    "particle": "archon:block/necrotic_infuser_side",
+    "south": "archon:block/necrotic_infuser_side",
+    "up": "archon:block/necrotic_infuser_top",
+    "west": "archon:block/necrotic_infuser_side"
+  }
+}

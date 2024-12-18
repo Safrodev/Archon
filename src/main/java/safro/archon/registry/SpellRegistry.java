@@ -13,7 +13,7 @@ import net.minecraft.registry.Registry;
 import safro.archon.Archon;
 import safro.archon.api.Element;
 import safro.archon.api.spell.Spell;
-import safro.archon.item.TomeItem;
+import safro.archon.item.SpellTomeItem;
 import safro.archon.spell.*;
 import safro.saflib.SafLib;
 
@@ -72,8 +72,8 @@ public class SpellRegistry {
         return Registry.register(REGISTRY, new Identifier(Archon.MODID, name), spell);
     }
 
-    public static TomeItem createTome(String name, Spell spell) {
-        TomeItem item = Registry.register(Registries.ITEM, new Identifier(Archon.MODID, name), new TomeItem(spell, new FabricItemSettings().maxCount(1)));
+    public static SpellTomeItem createTome(String name, Spell spell) {
+        SpellTomeItem item = Registry.register(Registries.ITEM, new Identifier(Archon.MODID, name), new SpellTomeItem(spell, new FabricItemSettings().maxCount(1)));
         SafLib.ITEMS.add(new ItemStack(item));
         return item;
     }

@@ -20,10 +20,10 @@ import safro.archon.util.ArchonUtil;
 
 import java.util.List;
 
-public class TomeItem extends Item {
+public class SpellTomeItem extends Item {
     private final Spell spell;
 
-    public TomeItem(Spell spell, Settings settings) {
+    public SpellTomeItem(Spell spell, Settings settings) {
         super(settings);
         this.spell = spell;
     }
@@ -50,7 +50,7 @@ public class TomeItem extends Item {
 
     @Override
     public String getTranslationKey() {
-        return "item.archon.tome";
+        return "item.archon.spell_tome";
     }
 
     @Environment(EnvType.CLIENT)

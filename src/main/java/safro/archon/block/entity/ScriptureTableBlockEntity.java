@@ -23,7 +23,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.client.screen.ScriptureTableScreenHandler;
-import safro.archon.item.TomeItem;
+import safro.archon.item.SpellTomeItem;
 import safro.archon.recipe.ScriptingRecipe;
 import safro.archon.registry.BlockRegistry;
 import safro.archon.registry.RecipeRegistry;
@@ -208,7 +208,7 @@ public class ScriptureTableBlockEntity extends LockableContainerBlockEntity impl
     }
 
     public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        return slot != 5 || stack.getItem() instanceof TomeItem;
+        return slot != 5 || stack.getItem() instanceof SpellTomeItem;
     }
 
     public void clear() {

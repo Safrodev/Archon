@@ -7,6 +7,7 @@ import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
+import safro.archon.Archon;
 import safro.archon.registry.ItemRegistry;
 import safro.archon.registry.MiscRegistry;
 
@@ -42,7 +43,7 @@ public class ExperiencePouchScreenHandler extends ScreenHandler {
     }
 
     public int getMaxExperience() {
-        return this.stack.isOf(ItemRegistry.SUPER_EXPERIENCE_POUCH) ? 2920 : 550;
+        return this.stack.isOf(ItemRegistry.SUPER_EXPERIENCE_POUCH) ? Archon.CONFIG.superExperiencePouchMax : Archon.CONFIG.experiencePouchMax;
     }
 
     @Override

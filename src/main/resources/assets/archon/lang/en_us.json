@@ -83,7 +83,8 @@
   "item.archon.earth_wand": "Earth Wand",
   "item.archon.end_wand": "End Wand",
 
-  "item.archon.tome": "Spell Tome",
+  "item.archon.spell_tome": "Spell Tome",
+  "item.archon.soul_tome": "Soul Tome",
 
   "entity.archon.water_bolt": "Water Bolt",
   "entity.minecraft.villager.wizard": "Wizard",
@@ -167,6 +168,10 @@
   "text.archon.terranean1": "Gain resistance and deflect projectiles for 20s",
   "text.archon.seeking_amulet1": "Shift-right click to set a position",
   "text.archon.seeking_amulet2": "Right click to teleport to that position from anywhere",
+  "text.archon.undead.power": "Soul Power: %s",
+  "text.archon.undead.souls": "Souls: %s",
+  "text.archon.no_summons": "This staff has no summons!",
+  "text.archon.soul_tome": "Bind to a Staff of Undead in a crafting table",
 
   "text.archon.tar.spawn": "[Tar] You think you can challenge me? HOW FOOLISH!",
   "text.archon.tar.kill": "[Tar] Ha! This is too easy!",
