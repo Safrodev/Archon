@@ -1,27 +1,12 @@
 {
   "name": "Souls and Cores",
-  "icon": "archon:soul_core_creature",
+  "icon": "archon:soul",
   "category": "archon:necromancy",
   "sortnum": 0,
   "pages": [
     {
-      "type": "patchouli:spotlight",
-      "item": "archon:player_soul",
-      "text": "Souls are special items obtained from killing mobs with a $(l:archon:necromancy/soul_scythe)Soul Scythe$(). These souls are used to craft Soul Cores, and are important in summoning undead."
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "archon:soul_core_boss",
-      "text": "Soul Cores are items crafting from souls and bones. These cores are the main components to summon undead."
-    },
-    {
-      "type": "patchouli:crafting",
-      "recipe": "archon:soul_core_creature",
-      "recipe2": "archon:soul_core_player"
-    },
-    {
-      "type": "patchouli:crafting",
-      "recipe": "archon:soul_core_boss"
+      "type": "patchouli:text",
+      "text": "Souls are special items obtained from killing mobs with a $(l:archon:necromancy/soul_scythe)Soul Scythe$(). These souls are used with a $(l:archon:necromancy/undead_staff)Staff of Undead$() to obtain Soul Power."
     }
   ]
 }

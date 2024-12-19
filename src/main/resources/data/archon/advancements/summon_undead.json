@@ -2,7 +2,7 @@
   "parent": "archon:obtain_soul_scythe",
   "display": {
     "icon": {
-      "item": "archon:soul_core_player"
+      "item": "archon:soul"
     },
     "title": {
       "translate": "advancements.archon.summon_undead.title"

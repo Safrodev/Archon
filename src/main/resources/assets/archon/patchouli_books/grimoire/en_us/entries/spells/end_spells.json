@@ -32,6 +32,11 @@
       "type": "patchouli:text",
       "title": "Warp",
       "text": "Teleports you in the direction you're looking for 8 blocks + 1 per spell power $(li)Mana Cost: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Astrofall",
+      "text": "Generate falling meteors above your target that crash down and explode upon impact $(li)Mana Cost: 80"
     }
   ]
 }

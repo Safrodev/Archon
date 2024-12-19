@@ -38,12 +38,7 @@
   "item.archon.earth_essence": "Earth Essence",
   "item.archon.sky_essence": "Sky Essence",
   "item.archon.end_essence": "End Essence",
-  "item.archon.player_soul": "Soul",
-  "item.archon.creature_soul": "Soul",
-  "item.archon.boss_soul": "Soul",
-  "item.archon.soul_core_player": "Soul Core",
-  "item.archon.soul_core_creature": "Soul Core",
-  "item.archon.soul_core_boss": "Soul Core",
+  "item.archon.soul": "Soul",
   "item.archon.mana_berries": "Mana Berries",
   "item.archon.rocky_harvester": "Rocky Harvester",
   "item.archon.flaming_harvester": "Flaming Harvester",
@@ -135,6 +130,8 @@
   "spell.archon.shadow": "Shadow",
   "spell.archon.astrofall": "Astrofall",
   "spell.archon.warp": "Warp",
+
+  "summon.archon.hound_pack": "Pack of Hounds",
 
   "text.archon.capacity": "Capacity",
   "text.archon.accelerate": "Accelerate",

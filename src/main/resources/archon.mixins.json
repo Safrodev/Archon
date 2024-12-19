@@ -15,7 +15,8 @@
     "TridentEntityMixin",
     "ArmorItemAccessor",
     "EnchantingTableBlockMixin",
-    "SpellSchoolsMixin"
+    "SpellSchoolsMixin",
+    "SummonLivingEntityMixin"
   ],
   "client": [
     "client.InGameHudMixin",

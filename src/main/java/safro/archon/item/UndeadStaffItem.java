@@ -131,7 +131,7 @@ public class UndeadStaffItem extends Item {
     public static int getSoulPower(ItemStack stack) {
         if (stack.getOrCreateNbt().contains("Souls") && getSouls(stack) >= 5) {
             int souls = getSouls(stack);
-            double scaled = Math.log((double) souls / 5.0) / Math.log(1.115);
+            double scaled = Math.log((double) souls / 5.0) / Math.log(1.1);
             return (int) Math.ceil(1.0 + scaled);
         } else {
             return 0;

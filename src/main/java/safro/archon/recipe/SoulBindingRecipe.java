@@ -79,8 +79,9 @@ public class SoulBindingRecipe extends SpecialCraftingRecipe {
         if (!staff.isEmpty() && !tome.isEmpty()) {
             Summon tomeSummon = ((SoulTomeItem)tome.getItem()).getSummon();
             if (!UndeadStaffItem.getSummons(staff).contains(tomeSummon)) {
-                UndeadStaffItem.addSummon(tomeSummon, staff);
-                return staff.copyWithCount(1);
+                ItemStack result = staff.copyWithCount(1);
+                UndeadStaffItem.addSummon(tomeSummon, result);
+                return result;
             }
         }
         return ItemStack.EMPTY;
