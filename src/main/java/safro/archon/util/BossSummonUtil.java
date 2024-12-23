@@ -11,7 +11,7 @@ import safro.archon.entity.boss.*;
 import safro.archon.registry.EntityRegistry;
 import safro.archon.registry.ItemRegistry;
 
-public class SummonUtil {
+public class BossSummonUtil {
     public static boolean canSummonTar(SummoningPedestalBlockEntity be) {
         return be.hasItem(ItemRegistry.EARTH_ESSENCE, 2) && be.hasItem(Items.DEEPSLATE) && be.hasItem(Items.EMERALD);
     }

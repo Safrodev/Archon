@@ -132,6 +132,8 @@
   "spell.archon.warp": "Warp",
 
   "summon.archon.hound_pack": "Pack of Hounds",
+  "summon.archon.silver_swarm": "Silver Swarm",
+  "summon.archon.archer": "Archer",
 
   "text.archon.capacity": "Capacity",
   "text.archon.accelerate": "Accelerate",
@@ -151,7 +153,9 @@
   "text.archon.dial_mode_blind": "Dial Set To: Blind",
   "text.archon.obj": "%s",
   "text.archon.current_spell": "Spell: %s",
+  "text.archon.current_summon": "Summon: %s",
   "text.archon.none": "Spell: None",
+  "text.archon.summon_none": "Summon: None",
   "text.archon.shift": "Hold Shift For Info",
   "text.archon.set_pos": "Set teleport pos to %s, %s, %s",
   "text.archon.infernal_coat1": "Grants permanent fire resistance",

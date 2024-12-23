@@ -68,6 +68,7 @@ public class UndeadStaffItem extends Item {
                 int soulPower = getSoulPower(stack);
                 current.onSummon((ServerWorld)world, player, soulPower);
                 ArcaneEnchantment.applyArcane(player, stack, 100);
+                player.getItemCooldownManager().set(this, 100);
                 world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_WARDEN_EMERGE, SoundCategory.PLAYERS, 0.9F, 1.0F);
                 return TypedActionResult.success(stack);
             }
@@ -141,10 +142,18 @@ public class UndeadStaffItem extends Item {
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if (getCurrentSummon(stack) != null) {
+            String key = getCurrentSummon(stack).getTranslationKey();
+            tooltip.add(Text.translatable("text.archon.current_summon", Text.translatable(key).getString()).formatted(Formatting.GRAY));
+        } else {
+            tooltip.add(Text.translatable("text.archon.summon_none").formatted(Formatting.GRAY));
+        }
+        tooltip.add(Text.empty());
+
         int souls = getSouls(stack);
         int power = getSoulPower(stack);
         tooltip.add(Text.translatable("text.archon.undead.power", power).formatted(Formatting.DARK_AQUA));
-        tooltip.add(Text.translatable("text.archon.undead.souls", souls).formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("text.archon.undead.souls", souls).formatted(Formatting.WHITE));
         super.appendTooltip(stack, world, tooltip, context);
     }
 

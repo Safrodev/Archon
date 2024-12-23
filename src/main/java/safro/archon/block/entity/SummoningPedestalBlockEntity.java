@@ -14,7 +14,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import safro.archon.registry.BlockRegistry;
-import safro.archon.util.SummonUtil;
+import safro.archon.util.BossSummonUtil;
 
 public class SummoningPedestalBlockEntity extends BlockEntity implements Clearable {
     private final DefaultedList<ItemStack> inventory;
@@ -43,15 +43,15 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
             } else if (!stack.isEmpty() && this.addItem(player.getAbilities().creativeMode ? stack.copy() : stack)) {
                 return ActionResult.SUCCESS;
             } else {
-                if (SummonUtil.canSummonTar(this)) {
+                if (BossSummonUtil.canSummonTar(this)) {
                     checkAndQueue(player, world, state, pos, 1);
-                } else if (SummonUtil.canSummonAlya(this)) {
+                } else if (BossSummonUtil.canSummonAlya(this)) {
                     checkAndQueue(player, world, state, pos, 2);
-                } else if (SummonUtil.canSummonLeven(this)) {
+                } else if (BossSummonUtil.canSummonLeven(this)) {
                     checkAndQueue(player, world, state, pos, 3);
-                } else if (SummonUtil.canSummonInigo(this)) {
+                } else if (BossSummonUtil.canSummonInigo(this)) {
                     checkAndQueue(player, world, state, pos, 4);
-                } else if (SummonUtil.canSummonNull(this)) {
+                } else if (BossSummonUtil.canSummonNull(this)) {
                     checkAndQueue(player, world, state, pos, 5);
                 }
                 return ActionResult.CONSUME;
@@ -75,23 +75,23 @@ public class SummoningPedestalBlockEntity extends BlockEntity implements Clearab
         if (be.isProcessing()) {
             --be.spawnDelay;
             if (world.random.nextFloat() <= 0.10) {
-                SummonUtil.addLightning(world, pos);
+                BossSummonUtil.addLightning(world, pos);
             }
             if (be.spawnDelay <= 0) {
                 if (be.getProcessor() == 1) {
-                    SummonUtil.summonTar(world, pos.up());
+                    BossSummonUtil.summonTar(world, pos.up());
                     be.setProcessor(0);
                 } else if (be.getProcessor() == 2) {
-                    SummonUtil.summonAlya(world, pos.up());
+                    BossSummonUtil.summonAlya(world, pos.up());
                     be.setProcessor(0);
                 } else if (be.getProcessor() == 3) {
-                    SummonUtil.summonLeven(world, pos.up());
+                    BossSummonUtil.summonLeven(world, pos.up());
                     be.setProcessor(0);
                 } else if (be.getProcessor() == 4) {
-                    SummonUtil.summonInigo(world, pos.up());
+                    BossSummonUtil.summonInigo(world, pos.up());
                     be.setProcessor(0);
                 } else if (be.getProcessor() == 5) {
-                    SummonUtil.summonNull(world, pos.up());
+                    BossSummonUtil.summonNull(world, pos.up());
                     be.setProcessor(0);
                 }
             }

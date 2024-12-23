@@ -16,7 +16,8 @@
     "ArmorItemAccessor",
     "EnchantingTableBlockMixin",
     "SpellSchoolsMixin",
-    "SummonLivingEntityMixin"
+    "SummonLivingEntityMixin",
+    "ActiveTargetGoalMixin"
   ],
   "client": [
     "client.InGameHudMixin",
