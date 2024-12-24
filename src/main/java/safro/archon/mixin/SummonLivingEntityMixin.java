@@ -45,7 +45,7 @@ public abstract class SummonLivingEntityMixin extends Entity implements Summoned
             } else if (!this.dataTracker.get(OWNER_ID).isEmpty()) {
                 PlayerEntity owner = this.getWorld().getPlayerByUuid(UUID.fromString(this.dataTracker.get(OWNER_ID)));
                 if (owner != null && owner.isAlive() && ((LivingEntity) (Object) this) instanceof MobEntity mob) {
-                    if (mob.getTarget() == null) {
+                    if (mob.getTarget() == null || (mob.getTarget() != null && !mob.getTarget().isAlive())) {
                         mob.setTarget(owner.getAttacking());
                     }
                 }

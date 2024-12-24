@@ -134,6 +134,7 @@
   "summon.archon.hound_pack": "Pack of Hounds",
   "summon.archon.silver_swarm": "Silver Swarm",
   "summon.archon.archer": "Archer",
+  "summon.archon.twin_knights": "Twin Knights",
 
   "text.archon.capacity": "Capacity",
   "text.archon.accelerate": "Accelerate",
@@ -172,7 +173,6 @@
   "text.archon.undead.power": "Soul Power: %s",
   "text.archon.undead.souls": "Souls: %s",
   "text.archon.no_summons": "This staff has no summons!",
-  "text.archon.soul_tome": "Bind to a Staff of Undead in a crafting table",
 
   "text.archon.tar.spawn": "[Tar] You think you can challenge me? HOW FOOLISH!",
   "text.archon.tar.kill": "[Tar] Ha! This is too easy!",

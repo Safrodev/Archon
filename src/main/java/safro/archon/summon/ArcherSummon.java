@@ -10,9 +10,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.MathHelper;
 import safro.archon.api.summon.Summon;
-import safro.archon.api.summon.SummonedMob;
 import safro.archon.util.SummonHelper;
 
 import java.util.HashMap;
@@ -23,8 +21,6 @@ public class ArcherSummon implements Summon {
     @Override
     public void onSummon(ServerWorld world, PlayerEntity player, int soulPower) {
         WitherSkeletonEntity entity = EntityType.WITHER_SKELETON.create(world);
-        entity.setTarget(player.getAttacking());
-        ((SummonedMob)entity).archon$setOwner(player.getUuidAsString());
 
         ItemStack bow = new ItemStack(Items.BOW);
         Map<Enchantment, Integer> enchants = new HashMap<>();
@@ -32,14 +28,9 @@ public class ArcherSummon implements Summon {
         enchants.put(Enchantments.FLAME, 1);
         EnchantmentHelper.set(enchants, bow);
         entity.equipStack(EquipmentSlot.MAINHAND, bow);
+        entity.setEquipmentDropChance(EquipmentSlot.MAINHAND, 0.0F);
 
-        double x = player.getX() + MathHelper.nextDouble(player.getRandom(), -3.0, 3.0);
-        double z = player.getZ() + MathHelper.nextDouble(player.getRandom(), -3.0, 3.0);
-        entity.refreshPositionAndAngles(x, player.getY(), z, player.getYaw(), player.getPitch());
-        SummonHelper.setScaledLife(entity, soulPower, 15);
-        SummonHelper.addStatScaling(entity, soulPower);
-        world.spawnEntity(entity);
-        SummonHelper.createParticlesAround(entity, world);
+        SummonHelper.spawnAndScale(world, player, entity, soulPower, 15);
     }
 
     @Override

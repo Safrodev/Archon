@@ -16,11 +16,13 @@ public class ArchonSummons {
     public static final Summon HOUND_PACK = SummonHandler.register("hound_pack", new HoundPackSummon());
     public static final Summon SILVER_SWARM = SummonHandler.register("silver_swarm", new SilverSwarmSummon());
     public static final Summon ARCHER = SummonHandler.register("archer", new ArcherSummon());
+    public static final Summon TWIN_KNIGHTS = SummonHandler.register("twin_knights", new TwinKnightsSummon());
 
     public static void init() {
         createTome("hound_pack", HOUND_PACK);
         createTome("silver_swarm", SILVER_SWARM);
         createTome("archer", ARCHER);
+        createTome("twin_knights", TWIN_KNIGHTS);
     }
 
     public static SoulTomeItem createTome(String name, Summon summon) {

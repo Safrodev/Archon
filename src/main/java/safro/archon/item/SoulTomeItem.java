@@ -34,6 +34,5 @@ public class SoulTomeItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.translatable(this.summon.getTranslationKey()).formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable("text.archon.soul_tome").formatted(Formatting.WHITE));
     }
 }

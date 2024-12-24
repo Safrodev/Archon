@@ -34,8 +34,8 @@ public class SoulBindingRecipe extends SpecialCraftingRecipe {
                     }
 
                     staff = stack;
-                } else if (stack.getItem() instanceof SoulTomeItem) {
-                    if (!tome.isEmpty()) {
+                } else {
+                    if (!(stack.getItem() instanceof SoulTomeItem) || !tome.isEmpty()) {
                         return false;
                     }
 
@@ -66,8 +66,8 @@ public class SoulBindingRecipe extends SpecialCraftingRecipe {
                     }
 
                     staff = stack;
-                } else if (stack.getItem() instanceof SoulTomeItem) {
-                    if (!tome.isEmpty()) {
+                } else {
+                    if (!(stack.getItem() instanceof SoulTomeItem) || !tome.isEmpty()) {
                         return ItemStack.EMPTY;
                     }
 
