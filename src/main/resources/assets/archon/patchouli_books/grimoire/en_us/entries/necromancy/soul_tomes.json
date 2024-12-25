@@ -1,0 +1,12 @@
+{
+  "name": "Soul Tomes",
+  "icon": "archon:hound_pack_soul_tome",
+  "category": "archon:necromancy",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Soul Tomes are key for adding summons to your Staff of Undead. You have a chance to find Soul Tomes in Bastion and Ancient City chests, or a guaranteed chance in $(l:archon:world/wither_tombs)Wither Tombs$(). Combine these in a crafting table with a Staff of Undead to add the specific summon to your staff."
+    }
+  ]
+}

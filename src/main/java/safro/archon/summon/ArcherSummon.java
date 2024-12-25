@@ -25,7 +25,7 @@ public class ArcherSummon implements Summon {
         if (entity != null) {
             ItemStack bow = new ItemStack(Items.BOW);
             Map<Enchantment, Integer> enchants = new HashMap<>();
-            enchants.put(Enchantments.POWER, Math.min(10, soulPower + 1));
+            enchants.put(Enchantments.POWER, Math.min(30, soulPower + 1));
             enchants.put(Enchantments.FLAME, 1);
             EnchantmentHelper.set(enchants, bow);
             entity.equipStack(EquipmentSlot.MAINHAND, bow);

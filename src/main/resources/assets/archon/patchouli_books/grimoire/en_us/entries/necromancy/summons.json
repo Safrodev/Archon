@@ -1,0 +1,37 @@
+{
+  "name": "Summons",
+  "icon": "archon:textures/gui/book/skelt_head.png",
+  "category": "archon:necromancy",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The next pages list all possible summons you can create with a $(l:archon:necromancy/undead_staff)Staff of Undead$(). The 'base lifetime' refers to the number of seconds the summons last with 0 Soul Power."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Pack of Hounds",
+      "text": "Summons a pack of five angry wolves to fight by your side. Base Lifetime: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Titan",
+      "text": "Summons The Titan, a fast-moving golem with a devasting attack. Base Lifetime: 25"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Twin Knights",
+      "text": "Summons two undead knights with randomly enchanted swords and a shield. Base Lifetime: 20"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Silver Swarm",
+      "text": "Summons a swarm of life stealing silverfish to attack your enemies. Base Lifetime: 10"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Archer",
+      "text": "Summons an undead archer with a powerful fire bow that can scale damage with soul power. Base Lifetime: 15"
+    }
+  ]
+}

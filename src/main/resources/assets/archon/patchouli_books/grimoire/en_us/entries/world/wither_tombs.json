@@ -1,0 +1,12 @@
+{
+  "name": "Wither Tombs",
+  "icon": "minecraft:nether_bricks",
+  "category": "archon:world",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Wither Tombs are lost structures containing the most prized possession of fallen Necromancers: $(l:archon:necromancy/soul_tomes)Soul Tomes$(). You can find small bits of loot inside the tomb, but watch out for undead guards."
+    }
+  ]
+}

@@ -1,12 +1,17 @@
 {
-  "name": "Souls and Cores",
+  "name": "Souls",
   "icon": "archon:soul",
   "category": "archon:necromancy",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Souls are special items obtained from killing mobs with a $(l:archon:necromancy/soul_scythe)Soul Scythe$(). These souls are used with a $(l:archon:necromancy/undead_staff)Staff of Undead$() to obtain Soul Power."
+      "text": "Souls are special items obtained from killing mobs with a $(l:archon:necromancy/soul_scythe)Soul Scythe$() or with an item enchanted with $(l:archon:effects_enchants/reaping)Reaping$()."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Usage",
+      "text": "These souls are used with a $(l:archon:necromancy/undead_staff)Staff of Undead$() to obtain Soul Power. When you have a Staff of Undead in your inventory, it will automatically consume picked up souls."
     }
   ]
 }
