@@ -13,9 +13,11 @@ public class HoundPackSummon implements Summon {
     public void onSummon(ServerWorld world, PlayerEntity player, int soulPower) {
         for (int i = 0; i < 5; i++) {
             WolfEntity wolf = EntityType.WOLF.create(world);
-            wolf.setOwner(player);
-            wolf.setAngerTime(600);
-            SummonHelper.spawnAndScale(world, player, wolf, soulPower, 20);
+            if (wolf != null) {
+                wolf.setOwner(player);
+                wolf.setAngerTime(SummonHelper.getScaledLife(soulPower, 20) * 20);
+                SummonHelper.spawnAndScale(world, player, wolf, soulPower, 20);
+            }
         }
     }
 

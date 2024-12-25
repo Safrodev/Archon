@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "archon:undead_staff",
+    "archon:soul_scythe",
+    "#minecraft:axes"
+  ]
+}

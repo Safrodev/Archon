@@ -1,5 +1,6 @@
 package safro.archon.mixin;
 
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
@@ -18,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import safro.archon.api.ManaComponent;
 import safro.archon.registry.EffectRegistry;
 import safro.archon.registry.ItemRegistry;
+import safro.archon.registry.MiscRegistry;
 import safro.archon.util.ArchonUtil;
 
 @Mixin(LivingEntity.class)
@@ -56,13 +58,13 @@ public abstract class LivingEntityMixin {
     }
 
     @Inject(method = "onDeath", at = @At("HEAD"))
-    private void soulCrusherMana(DamageSource source, CallbackInfo ci) {
+    private void dropSoulOrMana(DamageSource source, CallbackInfo ci) {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (source.getAttacker() instanceof PlayerEntity player) {
             ManaComponent mana = ArchonUtil.get(player);
             if (player.getMainHandStack().isOf(ItemRegistry.SOUL_CRUSHER) && mana.getMana() < mana.getMaxMana()) {
                 mana.addMana(40);
-            } else if (player.getMainHandStack().isOf(ItemRegistry.SOUL_SCYTHE)) {
+            } else if (player.getMainHandStack().isOf(ItemRegistry.SOUL_SCYTHE) || EnchantmentHelper.getLevel(MiscRegistry.REAPING, player.getMainHandStack()) >= 1) {
                 ArchonUtil.dropItem(entity.getWorld(), entity.getBlockPos(), ItemRegistry.SOUL);
             }
         }

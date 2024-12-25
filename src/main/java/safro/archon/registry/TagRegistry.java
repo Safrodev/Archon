@@ -16,6 +16,7 @@ public class TagRegistry extends BaseTagRegistry {
     // Item
     public static final TagKey<Item> BOOKS = item("c", "books");
     public static final TagKey<Item> LAPIS_LAZULIS = item("c", "lapis_lazulis");
+    public static final TagKey<Item> CAN_REAP = item("archon", "can_reap");
 
     // Block
     public static final TagKey<Block> TERRAIN = block(Archon.MODID, "terrain");

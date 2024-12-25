@@ -23,9 +23,9 @@ public class SummonHelper {
         double x = player.getX() + MathHelper.nextDouble(player.getRandom(), -3.0, 3.0);
         double z = player.getZ() + MathHelper.nextDouble(player.getRandom(), -3.0, 3.0);
         entity.refreshPositionAndAngles(x, player.getY(), z, player.getYaw(), player.getPitch());
-        SummonHelper.setScaledLife(entity, soulPower, baseLife);
-        SummonHelper.addStatScaling(entity, soulPower);
+        ((SummonedMob)entity).archon$setLifetime(getScaledLife(soulPower, baseLife));
         world.spawnEntity(entity);
+        SummonHelper.addStatScaling(entity, soulPower);
         SummonHelper.createParticlesAround(entity, world);
     }
 
@@ -35,16 +35,15 @@ public class SummonHelper {
         }
     }
 
-    public static void setScaledLife(LivingEntity entity, int soulPower, int base) {
+    public static int getScaledLife(int soulPower, int base) {
         double scaled = (double)base * Math.pow(1.018, soulPower);
-        int capped = (int)Math.min(scaled, base * 10.0);
-        ((SummonedMob)entity).archon$setLifetime(capped);
+        return (int)Math.min(scaled, base * 10.0);
     }
 
     public static void addStatScaling(LivingEntity entity, int soulPower) {
         double scaled = ((double)soulPower + 1.0) / 250.0;
-        entity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).addTemporaryModifier(new EntityAttributeModifier(HEALTH_MOD, "Bonus Health", scaled, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        entity.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).addTemporaryModifier(new EntityAttributeModifier(SPEED_MOD, "Bonus Speed", scaled, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        entity.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).addTemporaryModifier(new EntityAttributeModifier(DAMAGE_MOD, "Bonus Damage", scaled, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        entity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).addPersistentModifier(new EntityAttributeModifier(HEALTH_MOD, "Bonus Health", scaled, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        entity.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).addPersistentModifier(new EntityAttributeModifier(SPEED_MOD, "Bonus Speed", scaled, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        entity.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).addPersistentModifier(new EntityAttributeModifier(DAMAGE_MOD, "Bonus Damage", scaled, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
     }
 }

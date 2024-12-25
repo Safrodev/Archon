@@ -22,15 +22,17 @@ public class ArcherSummon implements Summon {
     public void onSummon(ServerWorld world, PlayerEntity player, int soulPower) {
         WitherSkeletonEntity entity = EntityType.WITHER_SKELETON.create(world);
 
-        ItemStack bow = new ItemStack(Items.BOW);
-        Map<Enchantment, Integer> enchants = new HashMap<>();
-        enchants.put(Enchantments.POWER, Math.min(10, soulPower + 1));
-        enchants.put(Enchantments.FLAME, 1);
-        EnchantmentHelper.set(enchants, bow);
-        entity.equipStack(EquipmentSlot.MAINHAND, bow);
-        entity.setEquipmentDropChance(EquipmentSlot.MAINHAND, 0.0F);
+        if (entity != null) {
+            ItemStack bow = new ItemStack(Items.BOW);
+            Map<Enchantment, Integer> enchants = new HashMap<>();
+            enchants.put(Enchantments.POWER, Math.min(10, soulPower + 1));
+            enchants.put(Enchantments.FLAME, 1);
+            EnchantmentHelper.set(enchants, bow);
+            entity.equipStack(EquipmentSlot.MAINHAND, bow);
+            entity.setEquipmentDropChance(EquipmentSlot.MAINHAND, 0.0F);
 
-        SummonHelper.spawnAndScale(world, player, entity, soulPower, 15);
+            SummonHelper.spawnAndScale(world, player, entity, soulPower, 15);
+        }
     }
 
     @Override

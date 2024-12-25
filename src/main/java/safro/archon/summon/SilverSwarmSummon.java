@@ -13,7 +13,9 @@ public class SilverSwarmSummon implements Summon {
     public void onSummon(ServerWorld world, PlayerEntity player, int soulPower) {
         for (int i = 0; i < 10; i++) {
             SilverfishEntity entity = EntityType.SILVERFISH.create(world);
-            SummonHelper.spawnAndScale(world, player, entity, soulPower, 10);
+            if (entity != null) {
+                SummonHelper.spawnAndScale(world, player, entity, soulPower, 10);
+            }
         }
     }
 

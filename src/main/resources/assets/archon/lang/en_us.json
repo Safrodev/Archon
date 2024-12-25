@@ -101,6 +101,8 @@
 
   "enchantment.archon.arcane": "Arcane",
   "enchantment.archon.arcane.desc": "Reduces the mana cost of weapons by 10% per level",
+  "enchantment.archon.reaping": "Reaping",
+  "enchantment.archon.reaping.desc": "Mobs drop their souls upon death",
 
   "attribute.name.generic.max_mana": "Max Mana",
 
@@ -135,6 +137,7 @@
   "summon.archon.silver_swarm": "Silver Swarm",
   "summon.archon.archer": "Archer",
   "summon.archon.twin_knights": "Twin Knights",
+  "summon.archon.titan": "The Titan",
 
   "text.archon.capacity": "Capacity",
   "text.archon.accelerate": "Accelerate",

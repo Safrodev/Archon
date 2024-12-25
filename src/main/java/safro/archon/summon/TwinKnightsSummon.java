@@ -18,12 +18,14 @@ public class TwinKnightsSummon implements Summon {
     public void onSummon(ServerWorld world, PlayerEntity player, int soulPower) {
         LocalDifficulty localDifficulty = world.getLocalDifficulty(player.getBlockPos());
         SkeletonEntity first = EntityType.SKELETON.create(world);
-        giveFullEquipment(first, localDifficulty);
-        SkeletonEntity second = EntityType.SKELETON.create(world);
-        giveFullEquipment(second, localDifficulty);
+        if (first != null) {
+            giveFullEquipment(first, localDifficulty);
+            SkeletonEntity second = EntityType.SKELETON.create(world);
+            giveFullEquipment(second, localDifficulty);
 
-        SummonHelper.spawnAndScale(world, player, first, soulPower, 20);
-        SummonHelper.spawnAndScale(world, player, second, soulPower, 20);
+            SummonHelper.spawnAndScale(world, player, first, soulPower, 20);
+            SummonHelper.spawnAndScale(world, player, second, soulPower, 20);
+        }
     }
 
     @Override
