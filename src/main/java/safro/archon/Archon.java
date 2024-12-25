@@ -15,7 +15,7 @@ import safro.archon.command.SpellCommand;
 import safro.archon.config.ArchonConfig;
 import safro.archon.network.NetworkManager;
 import safro.archon.registry.*;
-import safro.archon.summon.ArchonSummons;
+import safro.archon.registry.SummonRegistry;
 import safro.archon.world.WizardVillagePool;
 import safro.saflib.SafLib;
 
@@ -40,7 +40,7 @@ public class Archon implements ModInitializer {
 		ItemRegistry.init();
 		BlockRegistry.init();
 		SpellRegistry.init();
-		ArchonSummons.init();
+		SummonRegistry.init();
 		TagRegistry.init();
 		EffectRegistry.init();
 		MiscRegistry.init();

@@ -1,0 +1,16 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "frequency": 0.2,
+    "frequency_reduction_method": "legacy_type_1",
+    "salt": 165845563,
+    "separation": 8,
+    "spacing": 32
+  },
+  "structures": [
+    {
+      "structure": "archon:wither_tomb",
+      "weight": 1
+    }
+  ]
+}
