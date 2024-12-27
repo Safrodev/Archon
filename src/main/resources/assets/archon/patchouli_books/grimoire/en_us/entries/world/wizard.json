@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Wizard Villagers are a new type of villager profession. You can find their houses in villers or assign a villager to the profession with a magical bookshelf. Their trades include $(l:archon:mana/scrolls)scrolls$(), crafting items, and the $(l:archon:effects_enchants/arcane)Arcane$() enchantment."
+      "text": "Wizard Villagers are a new type of villager profession. You can find their houses in villers or assign a villager to the profession with a magical bookshelf. Their trades include $(l:archon:mana/scrolls)scrolls$(), crafting items, and special enchantments."
     },
     {
       "type": "patchouli:image",

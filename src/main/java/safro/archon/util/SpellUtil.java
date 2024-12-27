@@ -40,7 +40,7 @@ public class SpellUtil {
         damage = softCap(damage);
 
         caster.onAttacking(target);
-        if (target.damage(SpellDamageSource.create(element.getSchool(), caster), (float) damage)) {
+        if (target.damage(SpellDamageSource.player(element.getSchool(), caster), (float) damage)) {
             if (knockback > 0.0D) {
                 double resistance = Math.max(0.0D, 1.0D - target.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE));
                 Vec3d vec3d = projectile.getVelocity().multiply(1.0D, 0.0D, 1.0D).normalize().multiply(knockback * 0.6D * resistance);

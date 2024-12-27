@@ -26,10 +26,6 @@ public class ArcaneEnchantment extends Enchantment {
         return this.getMinPower(level) + 50;
     }
 
-    public boolean isTreasure() {
-        return true;
-    }
-
     public int getMaxLevel() {
         return 3;
     }

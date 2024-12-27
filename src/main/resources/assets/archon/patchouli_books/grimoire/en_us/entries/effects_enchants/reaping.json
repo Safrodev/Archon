@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The Reaping Enchantment can be applied on weapons, axes, or a Staff of Undead. It is used to obtain $(l:archon:necromancy/souls)souls$()."
+      "text": "The Reaping Enchantment can be applied on weapons, axes, or a Staff of Undead. It is used to obtain $(l:archon:necromancy/souls)souls$(). Reaping is a treasure enchantment, and it can only be obtained from a $(l:archon:world/wizard)Wizard$() or Librarian Villager."
     }
   ]
 }
