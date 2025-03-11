@@ -32,12 +32,12 @@ public class ExperiencePouchScreen extends HandledScreen<ExperiencePouchScreenHa
         this.buttons.clear();
 
         for (int i = 0; i < 3; i++) {
-            ExperienceButtonWidget button = new ExperienceButtonWidget(this.x + (14 + (i * 38)), this.y + 41, (i + 1) * 10, true, this.textRenderer);
+            ExperienceButtonWidget button = new ExperienceButtonWidget(this.x + (14 + (i * 38)), this.y + 41, 5 * (int)Math.pow(10, i + 1), true, this.textRenderer);
             this.addButton(button);
         }
 
         for (int i = 0; i < 3; i++) {
-            ExperienceButtonWidget button = new ExperienceButtonWidget(this.x + (121 + (i * 38)), this.y + 41, (i + 1) * 10, false, this.textRenderer);
+            ExperienceButtonWidget button = new ExperienceButtonWidget(this.x + (121 + (i * 38)), this.y + 41, 5 * (int)Math.pow(10, i + 1), false, this.textRenderer);
             this.addButton(button);
         }
     }

@@ -27,7 +27,7 @@ public class WorldRegistry {
         add(BiomeSelectors.tag(BiomeTags.IS_OCEAN), GenerationStep.Feature.UNDERGROUND_ORES, "water_node");
         add(BiomeSelectors.foundInTheNether(), GenerationStep.Feature.UNDERGROUND_ORES, "fire_node");
         add(BiomeSelectors.foundInTheEnd(), GenerationStep.Feature.UNDERGROUND_ORES, "end_node");
-        add(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.TOP_LAYER_MODIFICATION, "sky_node");
+        add(BiomeSelectors.tag(TagRegistry.HAS_SKY_NODE), GenerationStep.Feature.TOP_LAYER_MODIFICATION, "sky_node");
         add(BiomeSelectors.tag(BiomeTags.IS_TAIGA), GenerationStep.Feature.VEGETAL_DECORATION, "patch_mana_berry");
     }
 
