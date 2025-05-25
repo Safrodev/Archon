@@ -17,6 +17,10 @@ public class SummonHelper {
     private static final UUID SPEED_MOD = UUID.fromString("85925d42-83c9-489c-a788-3e50153cce87");
     private static final UUID DAMAGE_MOD = UUID.fromString("c16af9de-4f50-4763-afa5-074573661af3");
 
+    public static boolean isSummonedMob(LivingEntity entity) {
+        return ((SummonedMob)entity).archon$isSummon();
+    }
+
     public static void spawnAndScale(ServerWorld world, PlayerEntity player, MobEntity entity, int soulPower, int baseLife) {
         entity.setTarget(player.getAttacking());
         ((SummonedMob)entity).archon$setOwner(player.getUuidAsString());

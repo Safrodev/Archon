@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import safro.archon.api.summon.SummonedMob;
+import safro.archon.util.SummonHelper;
 
 import java.util.function.Predicate;
 
@@ -26,11 +26,9 @@ public abstract class ActiveTargetGoalMixin<T extends LivingEntity> extends Trac
 
     @Inject(method = "canStart", at = @At("RETURN"), cancellable = true)
     private void canSummonedMobAttackOwner(CallbackInfoReturnable<Boolean> cir) {
-        if (cir.getReturnValue()) {
-            if (this.targetEntity != null && this.targetEntity instanceof PlayerEntity player) {
-                if (((SummonedMob)this.mob).archon$isOwner(player)) {
-                    cir.setReturnValue(false);
-                }
+        if (SummonHelper.isSummonedMob(this.mob) && cir.getReturnValue()) {
+            if (this.targetEntity != null && this.targetEntity instanceof PlayerEntity) {
+                cir.setReturnValue(false);
             }
         }
     }

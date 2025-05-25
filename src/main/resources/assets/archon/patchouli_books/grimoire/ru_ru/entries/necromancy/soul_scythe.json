@@ -2,7 +2,7 @@
   "name": "Коса душ",
   "icon": "archon:soul_scythe",
   "category": "archon:necromancy",
-  "sortnum": 1,
+  "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:spotlight",

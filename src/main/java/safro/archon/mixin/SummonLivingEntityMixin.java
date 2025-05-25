@@ -64,11 +64,8 @@ public abstract class SummonLivingEntityMixin extends Entity implements Summoned
     }
 
     @Override
-    public boolean archon$isOwner(PlayerEntity player) {
+    public boolean archon$isSummon() {
         String owner = this.dataTracker.get(OWNER_ID);
-        if (!owner.isEmpty()) {
-            return owner.equals(player.getUuidAsString());
-        }
-        return false;
+        return owner != null || this.dataTracker.get(LIFETIME) > 0;
     }
 }

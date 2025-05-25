@@ -2,7 +2,7 @@
   "name": "Сокрушитель души",
   "icon": "archon:soul_crusher",
   "category": "archon:necromancy",
-  "sortnum": 2,
+  "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:spotlight",

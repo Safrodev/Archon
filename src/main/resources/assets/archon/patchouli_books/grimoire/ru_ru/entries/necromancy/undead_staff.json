@@ -7,7 +7,11 @@
     {
       "type": "patchouli:spotlight",
       "item": "archon:undead_staff",
-      "text": "Посох нежити - предмет, необходимый для призыва $(l:archon:necromancy/skelts)Скелтов$(). Чтобы призвать Скелта, киньте на землю ядро души Скелта, которого хотите призвать и воспользуйтесь посохом. Он необходим для командования Скелтами, так что держите его при себе."
+      "text": "The Staff of Undead is an item used for $(l:archon:necromancy/summons)summoning$(). In order to summon, you will need to find $(l:archon:necromancy/soul_tomes)Soul Tomes$() throughout the world and bind them to your staff in a crafting table. As you pick up $(l:archon:necromancy/souls)souls$(), your staff will gain soul power to make summons stronger. Note: your summons are bound only to your staff, not you."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Once you have bound summons to your staff, you can right-click to summon, costing 100 Mana. The summons will disappear after a short duration. You can cycle between owned summons with sneak + right-click, just like with wands. Summons will have more lifetime, health, damage, and speed as you increase your soul power."
     },
     {
       "type": "patchouli:crafting",
