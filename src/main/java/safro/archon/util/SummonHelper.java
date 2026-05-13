@@ -48,6 +48,8 @@ public class SummonHelper {
         double scaled = ((double)soulPower + 1.0) / 250.0;
         entity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).addPersistentModifier(new EntityAttributeModifier(HEALTH_MOD, "Bonus Health", scaled, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         entity.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).addPersistentModifier(new EntityAttributeModifier(SPEED_MOD, "Bonus Speed", scaled, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        entity.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).addPersistentModifier(new EntityAttributeModifier(DAMAGE_MOD, "Bonus Damage", scaled, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        if (entity.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE) != null) {
+            entity.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).addPersistentModifier(new EntityAttributeModifier(DAMAGE_MOD, "Bonus Damage", scaled, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        }
     }
 }

@@ -28,6 +28,8 @@ public abstract class ItemEntityMixin extends Entity {
                 bottle.setToDefaultPickupDelay();
                 world.spawnEntity(bottle);
                 entity.getStack().decrement(1);
+                this.discard();
+                return;
             }
         }
         super.onStruckByLightning(world, lightning);

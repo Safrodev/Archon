@@ -82,7 +82,7 @@ public class ItemRegistry extends BaseBlockItemRegistry {
     public static final Item END_ESSENCE = register("end_essence", new Item(settings()));
     public static final Item COMBUSTION_CHARGE = register("combustion_charge", new CombustionChargeItem(settings()));
     public static final Item MANA_BERRIES = register("mana_berries", new ManaBerriesItem(BlockRegistry.MANA_BERRY_BUSH, settings().food(FoodComponents.GLOW_BERRIES)));
-    public static final Item LIGHTNING_BOTTLE = register("lightning_bottle", new LightningBottleItem(settings().maxCount(1)));
+    public static final Item LIGHTNING_BOTTLE = register("lightning_bottle", new LightningBottleItem(settings().maxCount(1).fireproof()));
     public static final Item PIXIE_LEAVES = register("pixie_leaves", new Item(settings()));
     public static final Item SPRY_DUST = register("spry_dust", new Item(settings()));
     public static final Item TERRANITE_STONE = register("terranite_stone", new Item(settings()));

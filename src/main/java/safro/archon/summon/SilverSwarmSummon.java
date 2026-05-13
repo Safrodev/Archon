@@ -16,7 +16,7 @@ public class SilverSwarmSummon implements Summon {
         for (int i = 0; i < 10; i++) {
             SilverfishEntity entity = EntityType.SILVERFISH.create(world);
             if (entity != null) {
-                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 2, SummonHelper.getScaledLife(soulPower, 10) * 20, true, false, false));
+                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, SummonHelper.getScaledLife(soulPower, 10) * 20, 2, true, false, false));
                 SummonHelper.spawnAndScale(world, player, entity, soulPower, 10);
             }
         }

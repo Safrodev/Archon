@@ -17,6 +17,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import safro.archon.Archon;
@@ -132,7 +133,8 @@ public class UndeadStaffItem extends Item {
     public static int getSoulPower(ItemStack stack) {
         if (stack.getOrCreateNbt().contains("Souls") && getSouls(stack) >= 5) {
             int souls = getSouls(stack);
-            double scaled = Math.log((double) souls / 5.0) / Math.log(1.1);
+            double configScaling = (double) MathHelper.clamp(Archon.CONFIG.soulPowerScaling, 1, 100) / 100.0;
+            double scaled = Math.log((double) souls / 5.0) / Math.log(1 + configScaling);
             return (int) Math.ceil(1.0 + scaled);
         } else {
             return 0;

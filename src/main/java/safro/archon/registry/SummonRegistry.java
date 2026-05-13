@@ -22,6 +22,7 @@ public class SummonRegistry {
     public static final Summon ARCHER = SummonHandler.register("archer", new ArcherSummon());
     public static final Summon TWIN_KNIGHTS = SummonHandler.register("twin_knights", new TwinKnightsSummon());
     public static final Summon TITAN = SummonHandler.register("titan", new TitanSummon());
+    public static final Summon DEATHSTRIDER = SummonHandler.register("deathstrider", new DeathstriderSummon());
 
     public static void init() {
         createTome("hound_pack", HOUND_PACK);
@@ -29,6 +30,7 @@ public class SummonRegistry {
         createTome("archer", ARCHER);
         createTome("twin_knights", TWIN_KNIGHTS);
         createTome("titan", TITAN);
+        createTome("deathstrider", DEATHSTRIDER);
     }
 
     public static SoulTomeItem createTome(String name, Summon summon) {

@@ -1,9 +1,11 @@
 package safro.archon.item;
 
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -15,6 +17,7 @@ public class LightningBottleItem extends Item {
         super(settings);
     }
 
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
@@ -30,5 +33,13 @@ public class LightningBottleItem extends Item {
         }
 
         return TypedActionResult.success(itemStack, world.isClient());
+    }
+
+    @Override
+    public boolean damage(DamageSource source) {
+        if (source.isIn(DamageTypeTags.IS_LIGHTNING)) {
+            return false;
+        }
+        return super.damage(source);
     }
 }
